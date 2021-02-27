@@ -1,0 +1,298 @@
+[
+  {
+    "id": 11,
+    "name": "Dragoon",
+    "female_name": "Dragoness",
+    "cost": "250,000 orns",
+    "description": "One who rides with dragons. Can wield any piece of equipment they choose.",
+    "tier": 5,
+    "images": [
+      "classes/dragoon/1_f.png",
+      "classes/dragoon/1_m.png",
+      "classes/dragoon/2_f.png",
+      "classes/dragoon/2_m.png",
+      "classes/dragoon/3_f.png",
+      "classes/dragoon/3_m.png",
+      "classes/dragoon/4_f.png",
+      "classes/dragoon/4_m.png",
+      "classes/dragoon/5_f.png",
+      "classes/dragoon/5_m.png",
+      "classes/dragoon/6_f.png",
+      "classes/dragoon/6_m.png",
+      "classes/dragoon/default_f.png",
+      "classes/dragoon/default_m.png"
+    ],
+    "skills": {
+      "passives": [
+        {
+          "id": 33,
+          "name": "Dragon Slayer"
+        },
+        {
+          "id": 381,
+          "name": "Valhallan Way"
+        }
+      ],
+      "learns": [
+        {
+          "id": 186,
+          "name": "Dragon's Vengeance",
+          "level": 100,
+          "type": "Attack"
+        },
+        {
+          "id": 98,
+          "name": "Flare",
+          "level": 100,
+          "type": "Magic"
+        },
+        {
+          "id": 305,
+          "name": "Rampart III",
+          "level": 105,
+          "type": "Ward"
+        },
+        {
+          "id": 96,
+          "name": "Blightstrike",
+          "level": 110,
+          "type": "Attack"
+        },
+        {
+          "id": 105,
+          "name": "Wyvern Speed",
+          "level": 120,
+          "type": "Buff"
+        },
+        {
+          "id": 97,
+          "name": "Dragon Breath",
+          "level": 120,
+          "type": "Magic"
+        },
+        {
+          "id": 177,
+          "name": "Dragon's Vengeance II",
+          "level": 125,
+          "type": "Multi-round Attack"
+        },
+        {
+          "id": 100,
+          "name": "Flare II",
+          "level": 125,
+          "type": "Magic"
+        }
+      ],
+      "slots": 6
+    },
+    "learns": "Dragon magic",
+    "stats": [
+      "Attack"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Druid",
+    "female_name": "Druid",
+    "cost": "250,000 orns",
+    "description": "A powerful magician skilled in the art of taming beasts. Can wield any piece of equipment they choose.",
+    "tier": 5,
+    "images": [
+      "classes/druid/1_f.png",
+      "classes/druid/1_m.png",
+      "classes/druid/2_f.png",
+      "classes/druid/2_m.png",
+      "classes/druid/3_f.png",
+      "classes/druid/3_m.png",
+      "classes/druid/4_f.png",
+      "classes/druid/4_m.png",
+      "classes/druid/5_f.png",
+      "classes/druid/5_m.png",
+      "classes/druid/default_f.png",
+      "classes/druid/default_m.png"
+    ],
+    "skills": {
+      "passives": [
+        {
+          "id": 32,
+          "name": "Beast Mode"
+        },
+        {
+          "id": 289,
+          "name": "Apothecarist"
+        }
+      ],
+      "learns": [
+        {
+          "id": 109,
+          "name": "Sorrow",
+          "level": 100,
+          "type": "Magic"
+        },
+        {
+          "id": 99,
+          "name": "Blast",
+          "level": 100,
+          "type": "Magic"
+        },
+        {
+          "id": 294,
+          "name": "Mend Wall III",
+          "level": 105,
+          "type": "Ward"
+        },
+        {
+          "id": 103,
+          "name": "Mimic's Mischief",
+          "level": 105,
+          "type": "Buff"
+        },
+        {
+          "id": 102,
+          "name": "Jinn's Talent",
+          "level": 110,
+          "type": "Buff"
+        },
+        {
+          "id": 101,
+          "name": "Golem's Fortitude",
+          "level": 110,
+          "type": "Buff"
+        },
+        {
+          "id": 95,
+          "name": "Bear's Might",
+          "level": 110,
+          "type": "Buff"
+        },
+        {
+          "id": 106,
+          "name": "Wisp's Heal",
+          "level": 120,
+          "type": "Healing"
+        },
+        {
+          "id": 108,
+          "name": "Blast II",
+          "level": 120,
+          "type": "Magic"
+        },
+        {
+          "id": 178,
+          "name": "Sorrow II",
+          "level": 125,
+          "type": "Multi-round Magic"
+        },
+        {
+          "id": 107,
+          "name": "Wyvern's Wrath",
+          "level": 125,
+          "type": "Attack"
+        }
+      ],
+      "slots": 6
+    },
+    "learns": "Beast magic (buffs and debuffs)",
+    "stats": [
+      "Magic"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Majestic",
+    "female_name": "Majestic",
+    "cost": "250,000 orns",
+    "description": "A royal servant to the kingdom of Annwn, skilled in elemental offense. Can wield any piece of equipment they choose.",
+    "tier": 5,
+    "images": [
+      "classes/majestic/1_f.png",
+      "classes/majestic/1_m.png",
+      "classes/majestic/2_f.png",
+      "classes/majestic/2_m.png",
+      "classes/majestic/3_f.png",
+      "classes/majestic/3_m.png",
+      "classes/majestic/4_f.png",
+      "classes/majestic/4_m.png",
+      "classes/majestic/5_f.png",
+      "classes/majestic/5_m.png",
+      "classes/majestic/default_f.png",
+      "classes/majestic/default_m.png"
+    ],
+    "skills": {
+      "passives": [
+        {
+          "id": 145,
+          "name": "Eternal Light"
+        },
+        {
+          "id": 3,
+          "name": "Critical Hits"
+        }
+      ],
+      "learns": [
+        {
+          "id": 148,
+          "name": "Firestrike II",
+          "level": 100,
+          "type": "Attack"
+        },
+        {
+          "id": 150,
+          "name": "Icestrike II",
+          "level": 100,
+          "type": "Attack"
+        },
+        {
+          "id": 151,
+          "name": "Lightningstrike II",
+          "level": 100,
+          "type": "Attack"
+        },
+        {
+          "id": 147,
+          "name": "Earthstrike II",
+          "level": 100,
+          "type": "Attack"
+        },
+        {
+          "id": 292,
+          "name": "Fortify III",
+          "level": 105,
+          "type": "Buff"
+        },
+        {
+          "id": 149,
+          "name": "Holystrike II",
+          "level": 110,
+          "type": "Attack"
+        },
+        {
+          "id": 146,
+          "name": "Darkstrike II",
+          "level": 110,
+          "type": "Attack"
+        },
+        {
+          "id": 152,
+          "name": "Omnistrike II",
+          "level": 125,
+          "type": "Attack"
+        },
+        {
+          "id": 153,
+          "name": "Osmostrike II",
+          "level": 125,
+          "type": "Attack"
+        },
+        {
+          "id": 173,
+          "name": "Arcane Strikes",
+          "level": 125,
+          "type": "Multi-round Attack"
+        }
+      ],
+      "slots": 8
+    },
+    "learns": "Elemental attacks"
+  }
+]

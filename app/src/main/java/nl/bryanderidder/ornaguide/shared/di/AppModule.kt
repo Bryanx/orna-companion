@@ -1,6 +1,9 @@
 package nl.bryanderidder.ornaguide.shared.di
 
 import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
+import com.squareup.moshi.Moshi
+import nl.bryanderidder.ornaguide.shared.network.OrnaClient
+import nl.bryanderidder.ornaguide.shared.network.OrnaService
 import okhttp3.OkHttpClient
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -10,13 +13,21 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 @JvmField
 val appModule: Module = module {
 
+    single {
+        Retrofit.Builder()
+            .client(get())
+            .baseUrl("https://orna.guide/api/v1/")
+            .addConverterFactory(MoshiConverterFactory.create())
+            .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory())
+            .build()
+    }
+
     single { OkHttpClient.Builder().build() }
 
-    single { Retrofit.Builder()
-        .client(get())
-        .baseUrl("https://pokeapi.co/api/v2/")
-        .addConverterFactory(MoshiConverterFactory.create())
-        .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory())
-        .build()
-    }
+    single { Moshi.Builder().build() }
+
+    single { get<Retrofit>().create(OrnaService::class.java) }
+
+    single { OrnaClient(get()) }
+
 }

@@ -1,0 +1,2406 @@
+[
+  {
+    "name": "Arcana II",
+    "id": 167,
+    "tier": 5,
+    "type": "Magic",
+    "description": "Deals moderate arcane damage.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Arcane",
+    "mana_cost": 50,
+    "learned_by": [
+      {
+        "id": 32,
+        "name": "Grand Mystic",
+        "level": 135,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 106,
+        "name": "Scruug"
+      },
+      {
+        "id": 76,
+        "name": "Arcane Flame"
+      },
+      {
+        "id": 44,
+        "name": "Arcane Slime"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 347,
+        "name": "Scruug"
+      },
+      {
+        "id": 164,
+        "name": "Arcane Dragon"
+      },
+      {
+        "id": 138,
+        "name": "Arcane Flame"
+      },
+      {
+        "id": 249,
+        "name": "Arcane Slime"
+      },
+      {
+        "id": 273,
+        "name": "Naggeneen"
+      },
+      {
+        "id": 279,
+        "name": "Apollyon"
+      },
+      {
+        "id": 318,
+        "name": "Arcane Troll"
+      }
+    ]
+  },
+  {
+    "name": "Arcane Strikes",
+    "id": 173,
+    "tier": 5,
+    "type": "Multi-round Attack",
+    "description": "Attacking thrice with unrelenting arcane energy.  Requires 2 turns in battle.",
+    "is_magic": false,
+    "bought": false,
+    "element": "Arcane",
+    "mana_cost": 60,
+    "learned_by": [
+      {
+        "id": 30,
+        "name": "Majestic",
+        "level": 125,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 102,
+        "name": "Fey Gazer"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 245,
+        "name": "Ancient Draugr Lord"
+      },
+      {
+        "id": 407,
+        "name": "Fey Gazer"
+      },
+      {
+        "id": 306,
+        "name": "Arisen Ronin"
+      },
+      {
+        "id": 318,
+        "name": "Arcane Troll"
+      }
+    ]
+  },
+  {
+    "name": "Bear's Might",
+    "id": 95,
+    "tier": 5,
+    "type": "Buff",
+    "description": "Summon the power of a great bear. Greatly boosts attack power at the expense of your defenses.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 60,
+    "gives": [
+      "Def \u2193\u2193",
+      "Res \u2193\u2193",
+      "Att \u2191\u2191"
+    ],
+    "learned_by": [
+      {
+        "id": 12,
+        "name": "Druid",
+        "level": 110,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 27,
+        "name": "Great Bear"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 239,
+        "name": "Infernal Bear"
+      }
+    ]
+  },
+  {
+    "name": "Beast Mode",
+    "id": 32,
+    "tier": 5,
+    "type": "Passive",
+    "description": "Your stats increase as you defeat animals of the wild. (Increases by 10% per animal defeated resulting in a 20% buff to stats when active)",
+    "is_magic": true,
+    "bought": false,
+    "buffed_by": [
+      {
+        "id": 16,
+        "name": "Snake"
+      },
+      {
+        "id": 17,
+        "name": "Spider"
+      },
+      {
+        "id": 189,
+        "name": "Rat"
+      },
+      {
+        "id": 2,
+        "name": "Crow"
+      },
+      {
+        "id": 23,
+        "name": "Bat"
+      },
+      {
+        "id": 10,
+        "name": "Gull"
+      },
+      {
+        "id": 154,
+        "name": "Gnat"
+      },
+      {
+        "id": 24,
+        "name": "Black Widow"
+      },
+      {
+        "id": 34,
+        "name": "Greater Snake"
+      },
+      {
+        "id": 38,
+        "name": "Wolfman"
+      },
+      {
+        "id": 122,
+        "name": "Bear"
+      },
+      {
+        "id": 137,
+        "name": "Arachne"
+      },
+      {
+        "id": 227,
+        "name": "Vile Rat"
+      },
+      {
+        "id": 156,
+        "name": "Zu"
+      },
+      {
+        "id": 50,
+        "name": "Hellhound"
+      },
+      {
+        "id": 126,
+        "name": "Grey Wolfman"
+      },
+      {
+        "id": 267,
+        "name": "Dark Widow"
+      },
+      {
+        "id": 190,
+        "name": "Buzzard"
+      },
+      {
+        "id": 235,
+        "name": "Cobra"
+      },
+      {
+        "id": 95,
+        "name": "Great Bear"
+      },
+      {
+        "id": 76,
+        "name": "Wolfman Warrior"
+      },
+      {
+        "id": 162,
+        "name": "Firefly"
+      },
+      {
+        "id": 105,
+        "name": "Ushi-Oni"
+      },
+      {
+        "id": 268,
+        "name": "Naja"
+      },
+      {
+        "id": 113,
+        "name": "Great Ushi-Oni"
+      },
+      {
+        "id": 114,
+        "name": "Orthrus"
+      },
+      {
+        "id": 117,
+        "name": "Cerberus"
+      },
+      {
+        "id": 243,
+        "name": "Dark Wolfman"
+      },
+      {
+        "id": 132,
+        "name": "Arisen Minotaur"
+      },
+      {
+        "id": 244,
+        "name": "Warg"
+      },
+      {
+        "id": 155,
+        "name": "Arisen Cerberus"
+      },
+      {
+        "id": 228,
+        "name": "Ratman"
+      },
+      {
+        "id": 237,
+        "name": "Garm"
+      },
+      {
+        "id": 239,
+        "name": "Infernal Bear"
+      },
+      {
+        "id": 307,
+        "name": "Mighty Griffin"
+      },
+      {
+        "id": 194,
+        "name": "Nin-Kilim"
+      },
+      {
+        "id": 330,
+        "name": "Anubis"
+      },
+      {
+        "id": 317,
+        "name": "Chimera"
+      }
+    ],
+    "learned_by": [
+      {
+        "id": 12,
+        "name": "Druid",
+        "level": 0,
+        "specialization": false
+      },
+      {
+        "id": 31,
+        "name": "Battlemage",
+        "level": 0,
+        "specialization": false
+      },
+      {
+        "id": 38,
+        "name": "Archdruid",
+        "level": 0,
+        "specialization": false
+      }
+    ]
+  },
+  {
+    "name": "Berserk II",
+    "id": 141,
+    "tier": 5,
+    "type": "Buff",
+    "description": "Boosts all stats, but take considerable damage over time.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 120,
+    "gives": [
+      "All \u2191"
+    ],
+    "learned_by": [
+      {
+        "id": 29,
+        "name": "Berserker",
+        "level": 120,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Blightstrike",
+    "id": 96,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Strike hard with the chance of causing blight.",
+    "is_magic": false,
+    "bought": false,
+    "element": "Dragon",
+    "mana_cost": 75,
+    "causes": [
+      "Blight"
+    ],
+    "learned_by": [
+      {
+        "id": 11,
+        "name": "Dragoon",
+        "level": 110,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 107,
+        "name": "Phoenix"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 266,
+        "name": "Dracon"
+      },
+      {
+        "id": 253,
+        "name": "Draugr Lord"
+      },
+      {
+        "id": 158,
+        "name": "Rotten Slime"
+      },
+      {
+        "id": 308,
+        "name": "Griffin"
+      },
+      {
+        "id": 224,
+        "name": "Basilisk"
+      },
+      {
+        "id": 274,
+        "name": "Giant Basilisk"
+      },
+      {
+        "id": 260,
+        "name": "Great Odok"
+      },
+      {
+        "id": 139,
+        "name": "Woodland Elf"
+      },
+      {
+        "id": 252,
+        "name": "Giant Red Basilisk"
+      },
+      {
+        "id": 262,
+        "name": "Red Basilisk"
+      },
+      {
+        "id": 238,
+        "name": "Orichalcum Golem"
+      },
+      {
+        "id": 206,
+        "name": "Orichalcum Knight"
+      }
+    ]
+  },
+  {
+    "name": "Break Power",
+    "id": 120,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Deals damage proportional to the physical attack potential of an opponent",
+    "is_magic": false,
+    "bought": false,
+    "mana_cost": 40,
+    "learned_by": [
+      {
+        "id": 26,
+        "name": "Hunter",
+        "level": 125,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Darkstrike II",
+    "id": 146,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Imbue your weapon with the occult and attack the enemy.",
+    "is_magic": false,
+    "bought": false,
+    "element": "Dark",
+    "mana_cost": 80,
+    "learned_by": [
+      {
+        "id": 30,
+        "name": "Majestic",
+        "level": 110,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 45,
+        "name": "Dark Dragon"
+      },
+      {
+        "id": 47,
+        "name": "Warg"
+      },
+      {
+        "id": 63,
+        "name": "Fafnir"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 277,
+        "name": "Cerus"
+      },
+      {
+        "id": 251,
+        "name": "Dark Dragon"
+      },
+      {
+        "id": 244,
+        "name": "Warg"
+      },
+      {
+        "id": 263,
+        "name": "Dark Basilisk"
+      },
+      {
+        "id": 217,
+        "name": "Dokkalfar Lord"
+      },
+      {
+        "id": 237,
+        "name": "Garm"
+      },
+      {
+        "id": 279,
+        "name": "Apollyon"
+      },
+      {
+        "id": 187,
+        "name": "Balor King"
+      }
+    ]
+  },
+  {
+    "name": "Desperation",
+    "id": 142,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Deals damage proportional to damage one has taken",
+    "is_magic": false,
+    "bought": false,
+    "mana_cost": 50,
+    "learned_by": [
+      {
+        "id": 29,
+        "name": "Berserker",
+        "level": 125,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Distortion",
+    "id": 242,
+    "tier": 5,
+    "type": "Buff",
+    "description": "A skill that causes a myriad of debuffs and grants the user some buffs.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 1,
+    "causes": [
+      "Att \u2193",
+      "Mag \u2193",
+      "Def \u2193",
+      "Res \u2193"
+    ],
+    "gives": [
+      "Att \u2191",
+      "Def \u2191",
+      "Res \u2191",
+      "Mag \u2191",
+      "Dex \u2191"
+    ],
+    "pets_use": [
+      {
+        "id": 49,
+        "name": "Great Jinn"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 12,
+        "name": "Mimic"
+      },
+      {
+        "id": 40,
+        "name": "Demon Prince"
+      },
+      {
+        "id": 33,
+        "name": "Great Mimic"
+      },
+      {
+        "id": 127,
+        "name": "Jinn"
+      },
+      {
+        "id": 91,
+        "name": "Darkest Demon"
+      },
+      {
+        "id": 101,
+        "name": "Reaper"
+      },
+      {
+        "id": 120,
+        "name": "Tiamat"
+      },
+      {
+        "id": 150,
+        "name": "Ljosalfar Lord"
+      },
+      {
+        "id": 279,
+        "name": "Apollyon"
+      },
+      {
+        "id": 419,
+        "name": "Arisen Tiamat"
+      },
+      {
+        "id": 417,
+        "name": "Arisen Typhon"
+      }
+    ]
+  },
+  {
+    "name": "Doublecut / Swap",
+    "id": 583,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Swiftly attack twice, then swap your primary weapon and off-hand. Requires 2 turns in battle.",
+    "is_magic": false,
+    "bought": false,
+    "mana_cost": 22,
+    "learned_by": [
+      {
+        "id": 82,
+        "name": "Duelist",
+        "level": 110,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Dragon Breath",
+    "id": 97,
+    "tier": 5,
+    "type": "Magic",
+    "description": "Breath of a dragon. (Chance to inflict Blight, Fire Damage)",
+    "is_magic": true,
+    "bought": false,
+    "element": "Fire",
+    "mana_cost": 90,
+    "learned_by": [
+      {
+        "id": 11,
+        "name": "Dragoon",
+        "level": 120,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 76,
+        "name": "Arcane Flame"
+      },
+      {
+        "id": 1,
+        "name": "Wyvern"
+      },
+      {
+        "id": 54,
+        "name": "Griffin"
+      },
+      {
+        "id": 36,
+        "name": "Cockatrice"
+      },
+      {
+        "id": 52,
+        "name": "Guivre"
+      },
+      {
+        "id": 56,
+        "name": "Mighty Griffin"
+      },
+      {
+        "id": 63,
+        "name": "Fafnir"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 128,
+        "name": "Small Dragon"
+      },
+      {
+        "id": 164,
+        "name": "Arcane Dragon"
+      },
+      {
+        "id": 138,
+        "name": "Arcane Flame"
+      },
+      {
+        "id": 115,
+        "name": "Sea Wyvern"
+      },
+      {
+        "id": 399,
+        "name": "Fey Dragon"
+      },
+      {
+        "id": 212,
+        "name": "Typhon"
+      },
+      {
+        "id": 193,
+        "name": "Cockatrice"
+      },
+      {
+        "id": 149,
+        "name": "Fafnir"
+      },
+      {
+        "id": 408,
+        "name": "Fey Cockatrice"
+      },
+      {
+        "id": 211,
+        "name": "Great Cockatrice"
+      },
+      {
+        "id": 271,
+        "name": "Guivre"
+      },
+      {
+        "id": 322,
+        "name": "Arisen Fafnir"
+      },
+      {
+        "id": 419,
+        "name": "Arisen Tiamat"
+      },
+      {
+        "id": 417,
+        "name": "Arisen Typhon"
+      }
+    ]
+  },
+  {
+    "name": "Dragonslayer",
+    "id": 132,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Deals greater damage to Dragons",
+    "is_magic": false,
+    "bought": false,
+    "element": "Dragon",
+    "mana_cost": 100,
+    "learned_by": [
+      {
+        "id": 26,
+        "name": "Hunter",
+        "level": 120,
+        "specialization": true
+      },
+      {
+        "id": 74,
+        "name": "Ranger",
+        "level": 150,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Dragon Slayer",
+    "id": 33,
+    "tier": 5,
+    "type": "Passive",
+    "description": "Your stats increase as you defeat dragons. (Increases by 10% per dragon defeated resulting in a 20% buff to stats when active)",
+    "is_magic": true,
+    "bought": false,
+    "buffed_by": [
+      {
+        "id": 258,
+        "name": "Sea Drake"
+      },
+      {
+        "id": 65,
+        "name": "Drake"
+      },
+      {
+        "id": 128,
+        "name": "Small Dragon"
+      },
+      {
+        "id": 112,
+        "name": "Great Wyvern"
+      },
+      {
+        "id": 164,
+        "name": "Arcane Dragon"
+      },
+      {
+        "id": 274,
+        "name": "Giant Basilisk"
+      },
+      {
+        "id": 115,
+        "name": "Sea Wyvern"
+      },
+      {
+        "id": 224,
+        "name": "Basilisk"
+      },
+      {
+        "id": 251,
+        "name": "Dark Dragon"
+      },
+      {
+        "id": 120,
+        "name": "Tiamat"
+      },
+      {
+        "id": 252,
+        "name": "Giant Red Basilisk"
+      },
+      {
+        "id": 262,
+        "name": "Red Basilisk"
+      },
+      {
+        "id": 144,
+        "name": "Naga Warrior"
+      },
+      {
+        "id": 263,
+        "name": "Dark Basilisk"
+      },
+      {
+        "id": 143,
+        "name": "Naga Mage"
+      },
+      {
+        "id": 149,
+        "name": "Fafnir"
+      },
+      {
+        "id": 296,
+        "name": "Frilled Naga Mage"
+      },
+      {
+        "id": 295,
+        "name": "Frilled Naga Warrior"
+      },
+      {
+        "id": 271,
+        "name": "Guivre"
+      },
+      {
+        "id": 322,
+        "name": "Arisen Fafnir"
+      }
+    ],
+    "learned_by": [
+      {
+        "id": 11,
+        "name": "Dragoon",
+        "level": 0,
+        "specialization": false
+      },
+      {
+        "id": 39,
+        "name": "Dragon Knight",
+        "level": 0,
+        "specialization": false
+      },
+      {
+        "id": 49,
+        "name": "Freyr",
+        "level": 0,
+        "specialization": false
+      },
+      {
+        "id": 67,
+        "name": "Bahamut",
+        "level": 1,
+        "specialization": false
+      }
+    ]
+  },
+  {
+    "name": "Dragon's Vengeance",
+    "id": 186,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Deals damage according to the amount of dragons one has recently conquered.",
+    "is_magic": false,
+    "bought": false,
+    "mana_cost": 75,
+    "learned_by": [
+      {
+        "id": 11,
+        "name": "Dragoon",
+        "level": 100,
+        "specialization": false
+      }
+    ]
+  },
+  {
+    "name": "Dragon's Vengeance II",
+    "id": 177,
+    "tier": 5,
+    "type": "Multi-round Attack",
+    "description": "Deals immense damage according to the amount of dragons one has recently conquered. Requires 2 turns in battle.",
+    "is_magic": false,
+    "bought": false,
+    "mana_cost": 150,
+    "learned_by": [
+      {
+        "id": 11,
+        "name": "Dragoon",
+        "level": 125,
+        "specialization": false
+      }
+    ]
+  },
+  {
+    "name": "Earthstrike II",
+    "id": 147,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Attack the enemy with earthen power.",
+    "is_magic": false,
+    "bought": false,
+    "element": "Earthen",
+    "mana_cost": 75,
+    "causes": [
+      "Rot"
+    ],
+    "learned_by": [
+      {
+        "id": 30,
+        "name": "Majestic",
+        "level": 100,
+        "specialization": false
+      },
+      {
+        "id": 37,
+        "name": "Gaia",
+        "level": 175,
+        "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 225,
+        "name": "Cavelord"
+      },
+      {
+        "id": 282,
+        "name": "Great Yeti"
+      },
+      {
+        "id": 231,
+        "name": "Arisen Undead Golem"
+      },
+      {
+        "id": 233,
+        "name": "Fallen Demeter, the Earth Magus"
+      },
+      {
+        "id": 271,
+        "name": "Guivre"
+      },
+      {
+        "id": 343,
+        "name": "Arisen Demeter, The Earth Magus"
+      }
+    ]
+  },
+  {
+    "name": "Eternal Light",
+    "id": 145,
+    "tier": 5,
+    "type": "Passive",
+    "description": "You forever emit a radiant light, raising your stats over time.",
+    "is_magic": true,
+    "bought": false,
+    "learned_by": [
+      {
+        "id": 30,
+        "name": "Majestic",
+        "level": 0,
+        "specialization": false
+      },
+      {
+        "id": 40,
+        "name": "Majistrate",
+        "level": 0,
+        "specialization": false
+      }
+    ]
+  },
+  {
+    "name": "Firestrike II",
+    "id": 148,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Light your weapon afire and attack the enemy",
+    "is_magic": false,
+    "bought": false,
+    "element": "Fire",
+    "mana_cost": 75,
+    "causes": [
+      "Burning"
+    ],
+    "learned_by": [
+      {
+        "id": 30,
+        "name": "Majestic",
+        "level": 100,
+        "specialization": false
+      },
+      {
+        "id": 34,
+        "name": "Ifrit",
+        "level": 175,
+        "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 301,
+        "name": "Pyre"
+      },
+      {
+        "id": 277,
+        "name": "Cerus"
+      },
+      {
+        "id": 255,
+        "name": "Balor Flame"
+      },
+      {
+        "id": 232,
+        "name": "Fallen Vulcan, the Red Knight"
+      },
+      {
+        "id": 271,
+        "name": "Guivre"
+      }
+    ]
+  },
+  {
+    "name": "Flare II",
+    "id": 100,
+    "tier": 5,
+    "type": "Magic",
+    "description": "Unstable magic that can deal greater dragon damage, but may damage its caster.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Dragon",
+    "mana_cost": 100,
+    "learned_by": [
+      {
+        "id": 11,
+        "name": "Dragoon",
+        "level": 125,
+        "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 138,
+        "name": "Arcane Flame"
+      },
+      {
+        "id": 150,
+        "name": "Ljosalfar Lord"
+      },
+      {
+        "id": 143,
+        "name": "Naga Mage"
+      },
+      {
+        "id": 181,
+        "name": "Balor Warlock"
+      },
+      {
+        "id": 296,
+        "name": "Frilled Naga Mage"
+      },
+      {
+        "id": 335,
+        "name": "Arisen Mimic King"
+      }
+    ]
+  },
+  {
+    "name": "Focus",
+    "id": 185,
+    "tier": 5,
+    "type": "Buff",
+    "description": "Boosts physical and magic power.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 1,
+    "pets_use": [
+      {
+        "id": 16,
+        "name": "Mimic"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 39,
+        "name": "Draconian Lord"
+      },
+      {
+        "id": 43,
+        "name": "Draconian Rogue"
+      },
+      {
+        "id": 72,
+        "name": "Lizarr Lord"
+      },
+      {
+        "id": 67,
+        "name": "Fomorian Rogue"
+      },
+      {
+        "id": 363,
+        "name": "Lizarr Marauder"
+      },
+      {
+        "id": 86,
+        "name": "Troll"
+      },
+      {
+        "id": 96,
+        "name": "Great Troll"
+      }
+    ]
+  },
+  {
+    "name": "Fortify III",
+    "id": 292,
+    "tier": 5,
+    "type": "Buff",
+    "description": "Grants Ward for 7 turns.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 75,
+    "learned_by": [
+      {
+        "id": 30,
+        "name": "Majestic",
+        "level": 105,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 61,
+        "name": "Undead Golem"
+      }
+    ]
+  },
+  {
+    "name": "Golem's Fortitude",
+    "id": 101,
+    "tier": 5,
+    "type": "Buff",
+    "description": "Summon the power of a golem. Greatly boosts defenses at the expense of attack power.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 60,
+    "gives": [
+      "Att \u2193",
+      "Def \u2191\u2191",
+      "Res \u2191\u2191"
+    ],
+    "learned_by": [
+      {
+        "id": 12,
+        "name": "Druid",
+        "level": 110,
+        "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 231,
+        "name": "Arisen Undead Golem"
+      },
+      {
+        "id": 265,
+        "name": "Odok Golem"
+      }
+    ]
+  },
+  {
+    "name": "Holy II",
+    "id": 123,
+    "tier": 5,
+    "type": "Magic",
+    "description": "Deals great holy damage.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Holy",
+    "mana_cost": 140,
+    "learned_by": [
+      {
+        "id": 25,
+        "name": "Cleric",
+        "level": 125,
+        "specialization": true
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 48,
+        "name": "Pale Dragon"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 400,
+        "name": "First Horseman"
+      },
+      {
+        "id": 150,
+        "name": "Ljosalfar Lord"
+      },
+      {
+        "id": 145,
+        "name": "Ljosalfar Mage"
+      },
+      {
+        "id": 402,
+        "name": "Second Horseman"
+      },
+      {
+        "id": 279,
+        "name": "Apollyon"
+      },
+      {
+        "id": 185,
+        "name": "Skoll"
+      },
+      {
+        "id": 406,
+        "name": "Third Horseman"
+      },
+      {
+        "id": 335,
+        "name": "Arisen Mimic King"
+      },
+      {
+        "id": 401,
+        "name": "Final Horseman"
+      }
+    ]
+  },
+  {
+    "name": "Holystrike II",
+    "id": 149,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Purify your weapon and attack the enemy",
+    "is_magic": false,
+    "bought": false,
+    "element": "Holy",
+    "mana_cost": 80,
+    "causes": [
+      "Blind"
+    ],
+    "learned_by": [
+      {
+        "id": 30,
+        "name": "Majestic",
+        "level": 110,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 48,
+        "name": "Pale Dragon"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 344,
+        "name": "King of Ljosalfar"
+      },
+      {
+        "id": 279,
+        "name": "Apollyon"
+      }
+    ]
+  },
+  {
+    "name": "Icestrike II",
+    "id": 150,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Freeze your weapon and attack the enemy",
+    "is_magic": false,
+    "bought": false,
+    "element": "Water",
+    "mana_cost": 75,
+    "causes": [
+      "Frozen"
+    ],
+    "learned_by": [
+      {
+        "id": 30,
+        "name": "Majestic",
+        "level": 100,
+        "specialization": false
+      },
+      {
+        "id": 36,
+        "name": "Leviathan",
+        "level": 175,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 106,
+        "name": "Scruug"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 347,
+        "name": "Scruug"
+      },
+      {
+        "id": 398,
+        "name": "Great Lizarr Knight"
+      },
+      {
+        "id": 397,
+        "name": "Great Lizarr Noble"
+      },
+      {
+        "id": 364,
+        "name": "Great Lizarr Warrior"
+      },
+      {
+        "id": 225,
+        "name": "Cavelord"
+      },
+      {
+        "id": 282,
+        "name": "Great Yeti"
+      },
+      {
+        "id": 285,
+        "name": "Pollux"
+      },
+      {
+        "id": 271,
+        "name": "Guivre"
+      }
+    ]
+  },
+  {
+    "name": "Jinn's Talent",
+    "id": 102,
+    "tier": 5,
+    "type": "Buff",
+    "description": "Summon the power of a jinn. Greatly boosts magic power at the expense of your defenses.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 60,
+    "gives": [
+      "Def \u2193\u2193",
+      "Res \u2193\u2193",
+      "Mag \u2191\u2191"
+    ],
+    "learned_by": [
+      {
+        "id": 12,
+        "name": "Druid",
+        "level": 110,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 81,
+        "name": "Ancient Jinn"
+      }
+    ]
+  },
+  {
+    "name": "Lightningstrike II",
+    "id": 151,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Electrify your weapon and attack the enemy",
+    "is_magic": false,
+    "bought": false,
+    "element": "Lightning",
+    "mana_cost": 75,
+    "causes": [
+      "Paralyzed"
+    ],
+    "learned_by": [
+      {
+        "id": 30,
+        "name": "Majestic",
+        "level": 100,
+        "specialization": false
+      },
+      {
+        "id": 35,
+        "name": "Taranis",
+        "level": 175,
+        "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 308,
+        "name": "Griffin"
+      },
+      {
+        "id": 288,
+        "name": "Ingenious Cade"
+      },
+      {
+        "id": 225,
+        "name": "Cavelord"
+      },
+      {
+        "id": 221,
+        "name": "Fallen Thor, the Storm God"
+      },
+      {
+        "id": 271,
+        "name": "Guivre"
+      },
+      {
+        "id": 350,
+        "name": "Arisen Thor, the Storm God"
+      }
+    ]
+  },
+  {
+    "name": "Lunge III",
+    "id": 458,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Run at your opponent with your weapon extended, dealing extra damage and a 25% critical chance.",
+    "is_magic": false,
+    "bought": true,
+    "cost": 37500,
+    "element": "Physical",
+    "mana_cost": 100,
+    "monsters_use": [
+      {
+        "id": 398,
+        "name": "Great Lizarr Knight"
+      },
+      {
+        "id": 397,
+        "name": "Great Lizarr Noble"
+      },
+      {
+        "id": 364,
+        "name": "Great Lizarr Warrior"
+      },
+      {
+        "id": 361,
+        "name": "Coral Beast"
+      }
+    ]
+  },
+  {
+    "name": "Mana Burn",
+    "id": 598,
+    "tier": 5,
+    "type": "Multi-round Magic",
+    "description": "Converts half of your available mana into damage against an opponent.",
+    "is_magic": true,
+    "bought": false
+  },
+  {
+    "name": "Mend Wall III",
+    "id": 294,
+    "tier": 5,
+    "type": "Ward",
+    "description": "Recovers 50% of Ward. Requires 3 turns in battle.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 90,
+    "learned_by": [
+      {
+        "id": 12,
+        "name": "Druid",
+        "level": 105,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 61,
+        "name": "Undead Golem"
+      }
+    ]
+  },
+  {
+    "name": "Mimic's Mischief",
+    "id": 103,
+    "tier": 5,
+    "type": "Buff",
+    "description": "Summon a mimic. Beware.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 60,
+    "causes": [
+      "Att \u2193",
+      "Mag \u2193",
+      "Def \u2193",
+      "Res \u2193"
+    ],
+    "gives": [
+      "Poisoned",
+      "Cursed",
+      "Def \u2193\u2193",
+      "Res \u2193\u2193",
+      "Att \u2191\u2191",
+      "Mag \u2191\u2191"
+    ],
+    "learned_by": [
+      {
+        "id": 12,
+        "name": "Druid",
+        "level": 105,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 64,
+        "name": "Mighty Mimic"
+      },
+      {
+        "id": 97,
+        "name": "The Mightiest Mimic"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 276,
+        "name": "The Fool (2019)"
+      }
+    ]
+  },
+  {
+    "name": "Osmostrike II",
+    "id": 153,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Attack, healing yourself in the process",
+    "is_magic": false,
+    "bought": false,
+    "mana_cost": 80,
+    "learned_by": [
+      {
+        "id": 30,
+        "name": "Majestic",
+        "level": 125,
+        "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 344,
+        "name": "King of Ljosalfar"
+      },
+      {
+        "id": 245,
+        "name": "Ancient Draugr Lord"
+      },
+      {
+        "id": 282,
+        "name": "Great Yeti"
+      },
+      {
+        "id": 263,
+        "name": "Dark Basilisk"
+      },
+      {
+        "id": 217,
+        "name": "Dokkalfar Lord"
+      },
+      {
+        "id": 279,
+        "name": "Apollyon"
+      },
+      {
+        "id": 233,
+        "name": "Fallen Demeter, the Earth Magus"
+      },
+      {
+        "id": 194,
+        "name": "Nin-Kilim"
+      },
+      {
+        "id": 343,
+        "name": "Arisen Demeter, The Earth Magus"
+      },
+      {
+        "id": 372,
+        "name": "Mighty Yeti"
+      }
+    ]
+  },
+  {
+    "name": "Petrify",
+    "id": 170,
+    "tier": 5,
+    "type": "Debuff",
+    "description": "Chance to petrify an opponent",
+    "is_magic": true,
+    "bought": false,
+    "causes": [
+      "Petrified"
+    ],
+    "pets_use": [
+      {
+        "id": 5,
+        "name": "Gargoyle"
+      },
+      {
+        "id": 36,
+        "name": "Cockatrice"
+      },
+      {
+        "id": 57,
+        "name": "Great Cockatrice"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 80,
+        "name": "Lost Pharaoh"
+      },
+      {
+        "id": 107,
+        "name": "Carman's Gargoyle"
+      },
+      {
+        "id": 209,
+        "name": "Gargouille"
+      },
+      {
+        "id": 141,
+        "name": "Arisen Lost Pharaoh"
+      },
+      {
+        "id": 193,
+        "name": "Cockatrice"
+      },
+      {
+        "id": 211,
+        "name": "Great Cockatrice"
+      },
+      {
+        "id": 265,
+        "name": "Odok Golem"
+      },
+      {
+        "id": 401,
+        "name": "Final Horseman"
+      }
+    ]
+  },
+  {
+    "name": "Prism Wall",
+    "id": 136,
+    "tier": 5,
+    "type": "Buff",
+    "description": "Grants protection against all 4 basic elements.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 120,
+    "gives": [
+      "Fire Def",
+      "Water Def",
+      "Earth Def",
+      "Lightning Def"
+    ],
+    "learned_by": [
+      {
+        "id": 27,
+        "name": "Guardian",
+        "level": 125,
+        "specialization": true
+      },
+      {
+        "id": 54,
+        "name": "Cataphract",
+        "level": 200,
+        "specialization": true
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 92,
+        "name": "Castor"
+      },
+      {
+        "id": 104,
+        "name": "Fey Yeti"
+      },
+      {
+        "id": 72,
+        "name": "Cthulhu"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 157,
+        "name": "Balor Guardian"
+      },
+      {
+        "id": 288,
+        "name": "Ingenious Cade"
+      },
+      {
+        "id": 178,
+        "name": "Titan"
+      },
+      {
+        "id": 202,
+        "name": "Enlightened Guardian"
+      },
+      {
+        "id": 222,
+        "name": "Fallen Ra, the Seer"
+      },
+      {
+        "id": 269,
+        "name": "Cthulhu"
+      },
+      {
+        "id": 293,
+        "name": "Nothren Warlock"
+      },
+      {
+        "id": 187,
+        "name": "Balor King"
+      },
+      {
+        "id": 404,
+        "name": "Fey Yeti"
+      },
+      {
+        "id": 315,
+        "name": "Arisen Cthulhu"
+      },
+      {
+        "id": 335,
+        "name": "Arisen Mimic King"
+      },
+      {
+        "id": 316,
+        "name": "Nothren Lord"
+      }
+    ]
+  },
+  {
+    "name": "Quasar",
+    "id": 183,
+    "tier": 5,
+    "type": "Multi-round Magic",
+    "description": "Starlord summons the power of the cosmos to destroy you. Chance to stun and blind. Requires 2 turns in battle.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 1,
+    "monsters_use": [
+      {
+        "id": 344,
+        "name": "King of Ljosalfar"
+      },
+      {
+        "id": 177,
+        "name": "Starlord"
+      },
+      {
+        "id": 276,
+        "name": "The Fool (2019)"
+      },
+      {
+        "id": 277,
+        "name": "Cerus"
+      }
+    ]
+  },
+  {
+    "name": "Rampart III",
+    "id": 305,
+    "tier": 5,
+    "type": "Ward",
+    "description": "Grants Ward for 2 turns and increases damage absorption to 75%.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 75,
+    "learned_by": [
+      {
+        "id": 11,
+        "name": "Dragoon",
+        "level": 105,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 61,
+        "name": "Undead Golem"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 301,
+        "name": "Pyre"
+      }
+    ]
+  },
+  {
+    "name": "Shield Bash",
+    "id": 575,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Attack with your shield, converting 10 percent of your available Ward to raw damage.",
+    "is_magic": false,
+    "bought": false,
+    "mana_cost": 10,
+    "learned_by": [
+      {
+        "id": 70,
+        "name": "Pikeman",
+        "level": 100,
+        "specialization": true
+      },
+      {
+        "id": 73,
+        "name": "Warden",
+        "level": 150,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Shields Up",
+    "id": 437,
+    "tier": 5,
+    "type": "Passive",
+    "description": "Ward is automatically activated in battle.",
+    "is_magic": false,
+    "bought": false,
+    "learned_by": [
+      {
+        "id": 70,
+        "name": "Pikeman",
+        "level": 1,
+        "specialization": true
+      },
+      {
+        "id": 73,
+        "name": "Warden",
+        "level": 1,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Shooting Star",
+    "id": 122,
+    "tier": 5,
+    "type": "Magic",
+    "description": "Summon a mighty star, with a chance of blinding or burning your opponent.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 100,
+    "causes": [
+      "Burning",
+      "Blind"
+    ],
+    "learned_by": [
+      {
+        "id": 24,
+        "name": "Stargazer",
+        "level": 120,
+        "specialization": true
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 106,
+        "name": "Scruug"
+      },
+      {
+        "id": 105,
+        "name": "Ebon Scruug"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 344,
+        "name": "King of Ljosalfar"
+      },
+      {
+        "id": 347,
+        "name": "Scruug"
+      },
+      {
+        "id": 177,
+        "name": "Starlord"
+      },
+      {
+        "id": 277,
+        "name": "Cerus"
+      },
+      {
+        "id": 222,
+        "name": "Fallen Ra, the Seer"
+      },
+      {
+        "id": 169,
+        "name": "Kobold Mage"
+      },
+      {
+        "id": 187,
+        "name": "Balor King"
+      },
+      {
+        "id": 185,
+        "name": "Skoll"
+      }
+    ]
+  },
+  {
+    "name": "Sorrow",
+    "id": 109,
+    "tier": 5,
+    "type": "Magic",
+    "description": "Deals damage according to the amount of beasts one has recently slain.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 75,
+    "learned_by": [
+      {
+        "id": 12,
+        "name": "Druid",
+        "level": 100,
+        "specialization": false
+      }
+    ]
+  },
+  {
+    "name": "Sorrow II",
+    "id": 178,
+    "tier": 5,
+    "type": "Multi-round Magic",
+    "description": "Deals immense damage according to the amount of beasts one has recently slain. Requires 2 turns in battle.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 150,
+    "learned_by": [
+      {
+        "id": 12,
+        "name": "Druid",
+        "level": 125,
+        "specialization": false
+      }
+    ]
+  },
+  {
+    "name": "Spellbreaker",
+    "id": 138,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Deals damage proportional to the magic potential of an opponent",
+    "is_magic": false,
+    "bought": false,
+    "mana_cost": 40,
+    "learned_by": [
+      {
+        "id": 27,
+        "name": "Guardian",
+        "level": 125,
+        "specialization": true
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 344,
+        "name": "King of Ljosalfar"
+      },
+      {
+        "id": 202,
+        "name": "Enlightened Guardian"
+      }
+    ]
+  },
+  {
+    "name": "Super Bomb",
+    "id": 307,
+    "tier": 5,
+    "type": "Debuff",
+    "description": "Ingenious Cade uses. Damages with chance to stun.",
+    "is_magic": false,
+    "bought": false,
+    "mana_cost": 5,
+    "causes": [
+      "Stunned"
+    ],
+    "pets_use": [
+      {
+        "id": 102,
+        "name": "Fey Gazer"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 288,
+        "name": "Ingenious Cade"
+      }
+    ]
+  },
+  {
+    "name": "Supernova",
+    "id": 131,
+    "tier": 5,
+    "type": "Magic",
+    "description": "Unstable cosmic magic that can deal immense damage, but may damage or stun its caster.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 120,
+    "gives": [
+      "Stunned"
+    ],
+    "learned_by": [
+      {
+        "id": 24,
+        "name": "Stargazer",
+        "level": 125,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "The Duelist",
+    "id": 585,
+    "tier": 5,
+    "type": "Passive",
+    "description": "You are very skilled without a shield. Deal extra damage while dual-wielding weapons.",
+    "is_magic": false,
+    "bought": false,
+    "learned_by": [
+      {
+        "id": 82,
+        "name": "Duelist",
+        "level": 1,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "The Merchant",
+    "id": 447,
+    "tier": 5,
+    "type": "Passive",
+    "description": "You gather less experience from combat, but may find more gold or items.",
+    "is_magic": false,
+    "bought": false,
+    "learned_by": [
+      {
+        "id": 75,
+        "name": "Merchant",
+        "level": 100,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "The Seeker",
+    "id": 586,
+    "tier": 5,
+    "type": "Passive",
+    "description": "You always know where to go. You have increased view distance.",
+    "is_magic": false,
+    "bought": false,
+    "learned_by": [
+      {
+        "id": 83,
+        "name": "Seeker",
+        "level": 1,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Tricut / Swap",
+    "id": 584,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Swiftly attack thrice, then swap your primary and off-hand. Requires 2 turns in battle.",
+    "is_magic": false,
+    "bought": false,
+    "mana_cost": 37,
+    "learned_by": [
+      {
+        "id": 82,
+        "name": "Duelist",
+        "level": 125,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Wail",
+    "id": 180,
+    "tier": 5,
+    "type": "Debuff",
+    "description": "A paralyzing wail that has a chance to greatly reduce an opponent's resistance.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 100,
+    "causes": [
+      "Paralyzed",
+      "Res \u2193\u2193"
+    ],
+    "pets_use": [
+      {
+        "id": 23,
+        "name": "Banshee"
+      },
+      {
+        "id": 79,
+        "name": "Succubus"
+      },
+      {
+        "id": 83,
+        "name": "Turul"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 129,
+        "name": "Banshee"
+      },
+      {
+        "id": 276,
+        "name": "The Fool (2019)"
+      },
+      {
+        "id": 141,
+        "name": "Arisen Lost Pharaoh"
+      },
+      {
+        "id": 287,
+        "name": "Headless"
+      },
+      {
+        "id": 335,
+        "name": "Arisen Mimic King"
+      }
+    ]
+  },
+  {
+    "name": "Ward of Steel",
+    "id": 308,
+    "tier": 5,
+    "type": "Ward",
+    "description": "Recovers 10% Ward and grants Ward for 3 turns and increases damage absorption to 50%.",
+    "is_magic": true,
+    "bought": true,
+    "cost": 25000,
+    "mana_cost": 90,
+    "pets_use": [
+      {
+        "id": 92,
+        "name": "Castor"
+      },
+      {
+        "id": 55,
+        "name": "Orichalcum Golem"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 308,
+        "name": "Griffin"
+      }
+    ]
+  },
+  {
+    "name": "Weapon Swap",
+    "id": 582,
+    "tier": 5,
+    "type": "Other",
+    "description": "When dual wielding, swaps your primary weapon and off-hand. Requires 2 turns in battle.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 20,
+    "learned_by": [
+      {
+        "id": 82,
+        "name": "Duelist",
+        "level": 100,
+        "specialization": true
+      },
+      {
+        "id": 84,
+        "name": "Sequencer",
+        "level": 200,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Wisp's Heal",
+    "id": 106,
+    "tier": 5,
+    "type": "Healing",
+    "description": "Recovers 300 health points and cure common statuses.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 50,
+    "cures": [
+      "Burning",
+      "Frozen",
+      "Paralyzed",
+      "Poisoned",
+      "Blind",
+      "Stunned",
+      "Rot"
+    ],
+    "learned_by": [
+      {
+        "id": 12,
+        "name": "Druid",
+        "level": 120,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 26,
+        "name": "Wisp"
+      },
+      {
+        "id": 46,
+        "name": "Twilight Wisp"
+      }
+    ]
+  },
+  {
+    "name": "Wyvern Speed",
+    "id": 105,
+    "tier": 5,
+    "type": "Buff",
+    "description": "Move like a dragon, potentially improving dex or magic power.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 60,
+    "gives": [
+      "Mag \u2191",
+      "Dex \u2191"
+    ],
+    "learned_by": [
+      {
+        "id": 11,
+        "name": "Dragoon",
+        "level": 120,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 54,
+        "name": "Griffin"
+      },
+      {
+        "id": 36,
+        "name": "Cockatrice"
+      },
+      {
+        "id": 57,
+        "name": "Great Cockatrice"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 397,
+        "name": "Great Lizarr Noble"
+      },
+      {
+        "id": 179,
+        "name": "Balor Elite"
+      },
+      {
+        "id": 399,
+        "name": "Fey Dragon"
+      },
+      {
+        "id": 212,
+        "name": "Typhon"
+      },
+      {
+        "id": 193,
+        "name": "Cockatrice"
+      },
+      {
+        "id": 149,
+        "name": "Fafnir"
+      },
+      {
+        "id": 408,
+        "name": "Fey Cockatrice"
+      },
+      {
+        "id": 211,
+        "name": "Great Cockatrice"
+      },
+      {
+        "id": 322,
+        "name": "Arisen Fafnir"
+      }
+    ]
+  },
+  {
+    "name": "Wyvern Speed II",
+    "id": 217,
+    "tier": 5,
+    "type": "Buff",
+    "description": "Move like a dragon, potentially improving dex, attack, and magic power.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 180,
+    "gives": [
+      "Att \u2191",
+      "Mag \u2191",
+      "Dex \u2191"
+    ],
+    "learned_by": [
+      {
+        "id": 39,
+        "name": "Dragon Knight",
+        "level": 165,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 103,
+        "name": "Fey Dragon"
+      },
+      {
+        "id": 56,
+        "name": "Mighty Griffin"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 308,
+        "name": "Griffin"
+      },
+      {
+        "id": 356,
+        "name": "Phoenix"
+      },
+      {
+        "id": 271,
+        "name": "Guivre"
+      }
+    ]
+  },
+  {
+    "name": "Wyvern's Wrath",
+    "id": 107,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Summons a wyvern to swiftly attack twice. May cause blight.",
+    "is_magic": false,
+    "bought": false,
+    "mana_cost": 22,
+    "causes": [
+      "Blight"
+    ],
+    "learned_by": [
+      {
+        "id": 12,
+        "name": "Druid",
+        "level": 125,
+        "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 399,
+        "name": "Fey Dragon"
+      },
+      {
+        "id": 149,
+        "name": "Fafnir"
+      },
+      {
+        "id": 408,
+        "name": "Fey Cockatrice"
+      },
+      {
+        "id": 322,
+        "name": "Arisen Fafnir"
+      }
+    ]
+  }
+]
