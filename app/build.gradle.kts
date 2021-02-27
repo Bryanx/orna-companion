@@ -45,18 +45,19 @@ android {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.3.72")
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0")
     implementation("com.google.android.material:material:1.3.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2")
+    implementation("com.github.skydoves:transformationlayout:1.0.7")
+    implementation("com.github.skydoves:bundler:1.0.3")
 
     // Koin
-    implementation("org.koin:koin-android:2.2.0")
-    implementation("org.koin:koin-android-scope:2.2.0")
-    implementation("org.koin:koin-android-viewmodel:2.2.0")
+    implementation("org.koin:koin-android:2.2.2")
+    implementation("org.koin:koin-android-scope:2.2.2")
+    implementation("org.koin:koin-android-viewmodel:2.2.2")
 
     // Network
     implementation("com.squareup.okhttp3:okhttp:4.9.0")
@@ -68,6 +69,11 @@ dependencies {
     implementation("com.github.skydoves:bindables:1.0.0") {
         exclude(group = "com.google.android.material")
     }
+
+    // Glide (caching images)
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation("com.github.florent37:glidepalette:2.1.2")
+    kapt("com.github.bumptech.glide:compiler:4.12.0")
 
     // Logging
     implementation("com.jakewharton.timber:timber:4.7.1")

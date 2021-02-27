@@ -3,6 +3,8 @@ package nl.bryanderidder.ornaguide.characterclass
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
+const val IMAGE_PREFIX = "https://orna.guide/static/orna/img/"
+
 @JsonClass(generateAdapter = true)
 data class CharacterClass(
     @Json(name = "id") val id: Int = 0,
@@ -12,9 +14,12 @@ data class CharacterClass(
     @Json(name = "description") val description: String = "",
     @Json(name = "images") val images: List<String> = listOf(),
     @Json(name = "learns") val learns: String = "",
-    @Json(name = "skills") val skills: Skills,
+    @Json(name = "skills") val skills: Skills = Skills(),
     @Json(name = "tier") val tier: Int = 0
-)
+) {
+    val imageUrls: List<String> = images.map { IMAGE_PREFIX + it }.toList()
+    val previewImageUrl: String = imageUrls.last()
+}
 
 @JsonClass(generateAdapter = true)
 data class Skills(
