@@ -2,6 +2,7 @@ package nl.bryanderidder.ornaguide.shared.network
 
 import com.skydoves.sandwich.ApiResponse
 import nl.bryanderidder.ornaguide.characterclass.CharacterClass
+import nl.bryanderidder.ornaguide.skill.Skill
 
 
 /**
@@ -9,10 +10,15 @@ import nl.bryanderidder.ornaguide.characterclass.CharacterClass
  * @author Bryan de Ridder
  */
 class OrnaClient(
-    private val ornaService: OrnaService
+    private val service: OrnaService
 ) {
     suspend fun fetchCharacterClassList(
         requestBody: CharacterClassRequestBody
     ): ApiResponse<List<CharacterClass>> =
-        ornaService.fetchCharacterClassList(requestBody)
+        service.fetchCharacterClassList(requestBody)
+
+    suspend fun fetchSkillList(
+        requestBody: SkillRequestBody
+    ): ApiResponse<List<Skill>> =
+        service.fetchSkillList(requestBody)
 }

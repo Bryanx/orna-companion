@@ -2,6 +2,8 @@ package nl.bryanderidder.ornaguide.shared.di
 
 import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import com.squareup.moshi.Moshi
+import nl.bryanderidder.ornaguide.MainRepository
+import nl.bryanderidder.ornaguide.MainViewModel
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import nl.bryanderidder.ornaguide.shared.network.OrnaService
 import okhttp3.OkHttpClient
@@ -29,5 +31,9 @@ val appModule: Module = module {
     single { get<Retrofit>().create(OrnaService::class.java) }
 
     single { OrnaClient(get()) }
+
+    single { MainRepository(get()) }
+
+    single { MainViewModel(get()) }
 
 }
