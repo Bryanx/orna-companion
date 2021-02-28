@@ -6,15 +6,12 @@
     <data>
         <variable
             name="vm"
-            type="nl.bryanderidder.ornaguide.characterclass.CharacterClassViewModel" />
-
-        <variable
-            name="characterClass"
-            type="nl.bryanderidder.ornaguide.characterclass.CharacterClass" />
+            type="nl.bryanderidder.ornaguide.shared.SessionViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:background="@color/backgroundColorDark"
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -23,32 +20,79 @@
             android:layout_height="190dp"
             android:layout_marginBottom="20dp"
             android:scaleType="center"
-            app:layout_constraintBottom_toBottomOf="@id/textView"
+            app:layout_constraintBottom_toBottomOf="@id/content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:paletteImage="@{characterClass.previewImageUrl}" />
+            app:paletteImage="@{vm.characterClass.previewImageUrl}" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{characterClass.name}"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Mage" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{characterClass.description}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            tools:text="Description" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vm.characterClass.name}"
+                android:textColor="@color/textColor"
+                tools:text="Mage" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vm.characterClass.description}"
+                android:textColor="@color/textColor"
+                tools:text="Description" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Cost: ` + vm.characterClass.cost}"
+                android:textColor="@color/textColor"
+                tools:text="Cost" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Learns: ` + vm.characterClass.learns}"
+                android:textColor="@color/textColor"
+                tools:text="Learns: Buffs, Debuffs" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Tier: ` + vm.characterClass.tier}"
+                android:textColor="@color/textColor"
+                tools:text="Tier: 5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Slots: ` + vm.characterClass.skills.slots}"
+                android:textColor="@color/textColor"
+                tools:text="Skill slots" />
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@{vm.characterClass.skills.passives[0].name}"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                tools:text="Passives" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@{vm.characterClass.skills.learns[0]}"-->
+<!--                android:textColor="@color/textColor"-->
+<!--                tools:text="Skills learned" />-->
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -7,12 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.Dispatchers
-import nl.bryanderidder.ornaguide.characterclass.CharacterClass
-import nl.bryanderidder.ornaguide.characterclass.CharacterClassRepository
+import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
+import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
 
-class MainViewModel(repository: CharacterClassRepository) : BindingViewModel() {
+class MainViewModel(val repository: CharacterClassRepository) : BindingViewModel() {
 
-    val characterClassListLiveData: LiveData<List<CharacterClass>>
+    var characterClassListLiveData: LiveData<List<CharacterClass>>
 
     @get:Bindable
     var toastMessage: String? by bindingProperty(null)

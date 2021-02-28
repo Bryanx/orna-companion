@@ -1,10 +1,11 @@
-package nl.bryanderidder.ornaguide.characterclass
+package nl.bryanderidder.ornaguide.characterclass.ui
 
 import android.os.SystemClock
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.skydoves.bindables.binding
 import nl.bryanderidder.ornaguide.R
+import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.databinding.ItemCharacterClassBinding
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import timber.log.Timber

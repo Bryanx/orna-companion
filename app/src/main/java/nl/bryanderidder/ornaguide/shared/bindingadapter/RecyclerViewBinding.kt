@@ -2,8 +2,8 @@ package nl.bryanderidder.ornaguide.shared.bindingadapter
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import nl.bryanderidder.ornaguide.characterclass.CharacterClass
-import nl.bryanderidder.ornaguide.characterclass.CharacterClassAdapter
+import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
+import nl.bryanderidder.ornaguide.characterclass.ui.CharacterClassAdapter
 
 object RecyclerViewBinding {
 

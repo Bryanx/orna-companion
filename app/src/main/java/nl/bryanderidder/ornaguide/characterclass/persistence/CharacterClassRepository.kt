@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.characterclass
+package nl.bryanderidder.ornaguide.characterclass.persistence
 
 import androidx.annotation.WorkerThread
 import com.skydoves.sandwich.message
@@ -6,10 +6,8 @@ import com.skydoves.sandwich.onError
 import com.skydoves.sandwich.onException
 import com.skydoves.sandwich.suspendOnSuccess
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.onCompletion
-import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.*
+import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.shared.network.CharacterClassRequestBody
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import timber.log.Timber
@@ -18,16 +16,26 @@ import timber.log.Timber
  * Main repository to fetch data from api and store in local db.
  * @author Bryan de Ridder
  */
-class CharacterClassRepository(private val ornaClient: OrnaClient) {
+class CharacterClassRepository(
+    private val client: OrnaClient,
+    private val dao: CharacterClassDao,
+) {
 
     @WorkerThread
     fun fetchCharacterClassList(
+        requestBody: CharacterClassRequestBody = CharacterClassRequestBody(id = 1),
         onStart: () -> Unit,
         onComplete: () -> Unit,
-        onError: (String?) -> Unit
+        onError: (String?) -> Unit,
     ) = flow<List<CharacterClass>> {
-        ornaClient.fetchCharacterClassList(CharacterClassRequestBody(tier = 1))
+        val characterClassList = dao.getCharacterClassList()
+        if (!characterClassList.isNullOrEmpty()) {
+            emit(characterClassList)
+            return@flow
+        }
+        client.fetchCharacterClassList(requestBody)
             .suspendOnSuccess {
+                dao.insertCharacterClassList(response.body() ?: listOf())
                 emit(response.body() ?: listOf())
             }
             .onError {
@@ -39,24 +47,4 @@ class CharacterClassRepository(private val ornaClient: OrnaClient) {
                 Timber.e(message())
             }
     }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
-
-    @WorkerThread
-    fun fetchCharacterClass(
-        id: Int,
-        onComplete: () -> Unit,
-        onError: (String?) -> Unit
-    ) = flow {
-        ornaClient.fetchCharacterClassList(CharacterClassRequestBody(id))
-            .suspendOnSuccess {
-                emit(response.body()?.first() ?: CharacterClass())
-            }
-            .onError {
-                onError(message())
-                Timber.e(message())
-            }
-            .onException {
-                onError(message())
-                Timber.e(message())
-            }
-    }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
 }

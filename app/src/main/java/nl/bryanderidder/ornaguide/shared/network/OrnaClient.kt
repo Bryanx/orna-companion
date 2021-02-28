@@ -1,7 +1,7 @@
 package nl.bryanderidder.ornaguide.shared.network
 
 import com.skydoves.sandwich.ApiResponse
-import nl.bryanderidder.ornaguide.characterclass.CharacterClass
+import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.skill.Skill
 
 

@@ -2,7 +2,7 @@ package nl.bryanderidder.ornaguide
 
 import android.os.Bundle
 import com.skydoves.bindables.BindingActivity
-import nl.bryanderidder.ornaguide.characterclass.CharacterClassAdapter
+import nl.bryanderidder.ornaguide.characterclass.ui.CharacterClassAdapter
 import nl.bryanderidder.ornaguide.databinding.ActivityMainBinding
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import org.koin.android.viewmodel.ext.android.viewModel

@@ -1,9 +1,18 @@
 package nl.bryanderidder.ornaguide.shared.database
 
+import androidx.room.Database
+import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
+import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassDao
+
 
 /**
- * Description
+ * Main database
  * @author Bryan de Ridder
  */
-class OrnaDatabase {
+@Database(entities = [CharacterClass::class], version = 1, exportSchema = true)
+@TypeConverters(OrnaTypeConverters::class)
+abstract class OrnaDatabase : RoomDatabase() {
+    abstract fun characterClassDao(): CharacterClassDao
 }

@@ -54,6 +54,11 @@ dependencies {
     implementation("com.github.skydoves:transformationlayout:1.0.7")
     implementation("com.github.skydoves:bundler:1.0.3")
 
+    // Room
+    implementation("androidx.room:room-runtime:2.3.0-beta02")
+    implementation("androidx.room:room-ktx:2.3.0-beta02")
+    kapt("androidx.room:room-compiler:2.3.0-beta02")
+
     // Koin
     implementation("org.koin:koin-android:2.2.2")
     implementation("org.koin:koin-android-scope:2.2.2")

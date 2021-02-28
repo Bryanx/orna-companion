@@ -6,14 +6,14 @@
     <data>
         <variable
             name="characterClass"
-            type="nl.bryanderidder.ornaguide.characterclass.CharacterClass" />
+            type="nl.bryanderidder.ornaguide.characterclass.model.CharacterClass" />
     </data>
 
     <com.skydoves.transformationlayout.TransformationLayout
         android:id="@+id/transformationLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:transformation_duration="550">
+        app:transformation_duration="200">
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
