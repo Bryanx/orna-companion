@@ -12,6 +12,8 @@ import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
 import nl.bryanderidder.ornaguide.shared.network.NetworkLoggingInterceptor
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import nl.bryanderidder.ornaguide.shared.network.OrnaService
+import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
+import nl.bryanderidder.ornaguide.skill.ui.SkillListViewModel
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
 import org.koin.core.module.Module
@@ -43,6 +45,7 @@ val appModule: Module = module {
 
     single { MainViewModel(get()) }
     single { SessionViewModel(get()) }
+    single { SkillListViewModel(get()) }
     single { (sessionVM: SessionViewModel) -> CharacterClassViewModel(get(), sessionVM) }
 
 
@@ -58,10 +61,9 @@ val appModule: Module = module {
             .build()
     }
 
-    single {
-        get<OrnaDatabase>().characterClassDao()
-    }
-
+    single { get<OrnaDatabase>().characterClassDao() }
+    single { get<OrnaDatabase>().skillDao() }
     single { CharacterClassRepository(get(), get()) }
+    single { SkillRepository(get(), get())}
 
 }

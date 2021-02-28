@@ -6,6 +6,7 @@ import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
+import nl.bryanderidder.ornaguide.skill.model.Skill
 
 
 /**
@@ -49,6 +50,34 @@ class OrnaTypeConverters(private val moshi: Moshi, ) {
     fun toCharacterClassPassive(value: String): List<CharacterClass.Passive> {
         val listType = Types.newParameterizedType(List::class.java, CharacterClass.Passive::class.java)
         val adapter: JsonAdapter<List<CharacterClass.Passive>> = moshi.adapter(listType)
+        return adapter.fromJson(value) ?: listOf()
+    }
+
+    @TypeConverter
+    fun fromSkillLearnedBy(type: List<Skill.LearnedBy>): String {
+        val listType = Types.newParameterizedType(List::class.java, Skill.LearnedBy::class.java)
+        val adapter: JsonAdapter<List<Skill.LearnedBy>> = moshi.adapter(listType)
+        return adapter.toJson(type)
+    }
+
+    @TypeConverter
+    fun toSkillLearnedBy(value: String): List<Skill.LearnedBy> {
+        val listType = Types.newParameterizedType(List::class.java, Skill.LearnedBy::class.java)
+        val adapter: JsonAdapter<List<Skill.LearnedBy>> = moshi.adapter(listType)
+        return adapter.fromJson(value) ?: listOf()
+    }
+
+    @TypeConverter
+    fun fromSkillMonstersUse(type: List<Skill.MonstersUse>): String {
+        val listType = Types.newParameterizedType(List::class.java, Skill.MonstersUse::class.java)
+        val adapter: JsonAdapter<List<Skill.MonstersUse>> = moshi.adapter(listType)
+        return adapter.toJson(type)
+    }
+
+    @TypeConverter
+    fun toSkillMonstersUse(value: String): List<Skill.MonstersUse> {
+        val listType = Types.newParameterizedType(List::class.java, Skill.MonstersUse::class.java)
+        val adapter: JsonAdapter<List<Skill.MonstersUse>> = moshi.adapter(listType)
         return adapter.fromJson(value) ?: listOf()
     }
 }

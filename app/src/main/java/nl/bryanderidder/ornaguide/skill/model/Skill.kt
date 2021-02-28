@@ -1,12 +1,15 @@
-package nl.bryanderidder.ornaguide.skill
+package nl.bryanderidder.ornaguide.skill.model
 
-
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
+@Entity
 @JsonClass(generateAdapter = true)
 data class Skill(
-    @Json(name = "id") val id: Int = 0,
+    @Json(name = "id") @PrimaryKey val id: Int = 0,
     @Json(name = "bought") val bought: Boolean = false,
     @Json(name = "causes") val causes: List<String> = listOf(),
     @Json(name = "description") val description: String = "",
@@ -17,18 +20,18 @@ data class Skill(
     @Json(name = "name") val name: String = "",
     @Json(name = "tier") val tier: Int = 0,
     @Json(name = "type") val type: String = ""
-)
+) {
+    @JsonClass(generateAdapter = true)
+    data class LearnedBy(
+        @Json(name = "id") val id: Int = 0,
+        @Json(name = "level") val level: Int = 0,
+        @Json(name = "name") val name: String = "",
+        @Json(name = "specialization") val specialization: Boolean = false
+    )
 
-@JsonClass(generateAdapter = true)
-data class LearnedBy(
-    @Json(name = "id") val id: Int = 0,
-    @Json(name = "level") val level: Int = 0,
-    @Json(name = "name") val name: String = "",
-    @Json(name = "specialization") val specialization: Boolean = false
-)
-
-@JsonClass(generateAdapter = true)
-data class MonstersUse(
-    @Json(name = "id") val id: Int = 0,
-    @Json(name = "name") val name: String = ""
-)
+    @JsonClass(generateAdapter = true)
+    data class MonstersUse(
+        @Json(name = "id") val id: Int = 0,
+        @Json(name = "name") val name: String = ""
+    )
+}

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
             name="vm"
-            type="nl.bryanderidder.ornaguide.MainViewModel" />
+            type="nl.bryanderidder.ornaguide.skill.ui.SkillListViewModel" />
 
         <variable
             name="adapter"
-            type="nl.bryanderidder.ornaguide.characterclass.ui.CharacterClassAdapter" />
+            type="nl.bryanderidder.ornaguide.skill.ui.SkillListAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,33 +28,22 @@
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical"
             app:adapter="@{adapter}"
-            app:adapterCharacterClassList="@{vm.characterClassListLiveData}"
+            app:adapterSkillList="@{vm.skillList}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent"
             app:spanCount="2"
-            tools:listitem="@layout/item_character_class" />
+            tools:listitem="@layout/item_skill" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
+            android:id="@+id/sortFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/menuFab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic_baseline_menu_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <ProgressBar
             android:id="@+id/progressbar"
