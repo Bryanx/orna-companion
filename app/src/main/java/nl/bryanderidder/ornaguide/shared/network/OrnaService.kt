@@ -23,4 +23,39 @@ interface OrnaService {
         @Body body: SkillRequestBody
     ): ApiResponse<List<Skill>>
 
+//    @POST("monster")
+//    suspend fun fetchMonsterList(
+//        @Body body: MonsterRequestBody
+//    ): ApiResponse<List<Monster>>
+//
+//    @POST("specialization")
+//    suspend fun fetchSpecializationList(
+//        @Body body: SpecializationRequestBody
+//    ): ApiResponse<List<Specialization>>
+//
+//    @POST("item")
+//    suspend fun fetchItemList(
+//        @Body body: ItemRequestBody
+//    ): ApiResponse<List<Item>>
+//
+//    @POST("pet")
+//    suspend fun fetchPetList(
+//        @Body body: PetRequestBody
+//    ): ApiResponse<List<Pet>>
+//
+//    @POST("quest")
+//    suspend fun fetchQuestList(
+//        @Body body: QuestRequestBody
+//    ): ApiResponse<List<Quest>>
+//
+//    @POST("achievement")
+//    suspend fun fetchAchievementList(
+//        @Body body: AchievementRequestBody
+//    ): ApiResponse<List<Achievement>>
+//
+//    @POST("npc")
+//    suspend fun fetchNpcList(
+//        @Body body: NpcRequestBody
+//    ): ApiResponse<List<Npc>>
+
 }
