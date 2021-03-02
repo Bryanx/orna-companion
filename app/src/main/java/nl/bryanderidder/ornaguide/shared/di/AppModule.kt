@@ -16,7 +16,9 @@ import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
 import nl.bryanderidder.ornaguide.skill.ui.SkillListViewModel
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.Module
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -38,6 +40,8 @@ val appModule: Module = module {
             .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory())
             .build()
     }
+
+    single(named("appContext")) { androidContext() }
 
     single { get<Retrofit>().create(OrnaService::class.java) }
 

@@ -6,7 +6,6 @@ import com.skydoves.bindables.binding
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.databinding.ItemCharacterClassPassiveBinding
-import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import timber.log.Timber
 
 class PassivesAdapter : RecyclerView.Adapter<PassivesAdapter.CharacterClassViewHolder>() {

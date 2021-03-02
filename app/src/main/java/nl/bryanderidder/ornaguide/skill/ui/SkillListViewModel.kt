@@ -7,8 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.Dispatchers
-import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
-import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
 import nl.bryanderidder.ornaguide.skill.model.Skill
 import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
 

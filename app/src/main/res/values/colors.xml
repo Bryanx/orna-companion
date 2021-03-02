@@ -2,6 +2,7 @@
 <resources>
     <color name="backgroundColorDark">#282321</color>
     <color name="textColor">#C2BAB2</color>
+    <color name="textColorHeader">#DAD5D0</color>
     <color name="green">#3FD730</color>
     <color name="red">#C64F5F</color>
     <color name="purple">#B102FF</color>

@@ -20,7 +20,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".characterclass.ui.CharacterClassActivity" />
-        <activity android:name=".skill.ui.SkillListActivity" />
     </application>
 
 </manifest>
