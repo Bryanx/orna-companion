@@ -10,8 +10,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
+import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRequestBody
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
-import nl.bryanderidder.ornaguide.shared.network.CharacterClassRequestBody
 
 class CharacterClassViewModel(
     repository: CharacterClassRepository,

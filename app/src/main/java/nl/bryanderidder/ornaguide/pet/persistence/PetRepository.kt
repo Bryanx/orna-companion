@@ -1,13 +1,10 @@
-package nl.bryanderidder.ornaguide.characterclass.persistence
+package nl.bryanderidder.ornaguide.pet.persistence
 
 import androidx.annotation.WorkerThread
-import com.skydoves.sandwich.message
-import com.skydoves.sandwich.onError
-import com.skydoves.sandwich.onException
-import com.skydoves.sandwich.suspendOnSuccess
+import com.skydoves.sandwich.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
-import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
+import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import timber.log.Timber
 
@@ -15,26 +12,26 @@ import timber.log.Timber
  * Main repository to fetch data from api and store in local db.
  * @author Bryan de Ridder
  */
-class CharacterClassRepository(
+class PetRepository(
     private val client: OrnaClient,
-    private val dao: CharacterClassDao,
+    private val dao: PetDao,
 ) {
 
     @WorkerThread
-    fun fetchCharacterClassList(
-        requestBody: CharacterClassRequestBody = CharacterClassRequestBody(),
+    fun fetchPetList(
+        requestBody: PetRequestBody = PetRequestBody(),
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
-    ) = flow<List<CharacterClass>> {
-        val characterClassList = dao.getCharacterClassList()
-        if (!characterClassList.isNullOrEmpty()) {
-            emit(characterClassList)
+    ) = flow<List<Pet>> {
+        val petList = dao.getPetList()
+        if (!petList.isNullOrEmpty()) {
+            emit(petList)
             return@flow
         }
-        client.fetchCharacterClassList(requestBody)
+        client.fetchPetList(requestBody)
             .suspendOnSuccess {
-                dao.insertCharacterClassList(response.body() ?: listOf())
+                dao.insertPetList(response.body() ?: listOf())
                 emit(response.body() ?: listOf())
             }
             .onError {

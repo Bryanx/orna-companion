@@ -6,6 +6,8 @@ import com.squareup.moshi.Moshi
 import nl.bryanderidder.ornaguide.MainViewModel
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
 import nl.bryanderidder.ornaguide.characterclass.ui.CharacterClassViewModel
+import nl.bryanderidder.ornaguide.pet.persistence.PetRepository
+import nl.bryanderidder.ornaguide.pet.ui.PetListViewModel
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import nl.bryanderidder.ornaguide.shared.database.OrnaDatabase
 import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
@@ -53,6 +55,7 @@ val appModule: Module = module {
     single { SessionViewModel(get()) }
     single { SkillListViewModel(get()) }
     single { SpecializationListViewModel(get()) }
+    single { PetListViewModel(get()) }
     single { (sessionVM: SessionViewModel) -> CharacterClassViewModel(get(), sessionVM) }
 
 
@@ -71,8 +74,10 @@ val appModule: Module = module {
     single { get<OrnaDatabase>().characterClassDao() }
     single { get<OrnaDatabase>().skillDao() }
     single { get<OrnaDatabase>().specializationDao() }
+    single { get<OrnaDatabase>().petDao() }
     single { CharacterClassRepository(get(), get()) }
     single { SkillRepository(get(), get())}
     single { SpecializationRepository(get(), get())}
+    single { PetRepository(get(), get())}
 
 }

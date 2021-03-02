@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
-import nl.bryanderidder.ornaguide.shared.network.SkillRequestBody
 import nl.bryanderidder.ornaguide.skill.model.Skill
 import timber.log.Timber
 

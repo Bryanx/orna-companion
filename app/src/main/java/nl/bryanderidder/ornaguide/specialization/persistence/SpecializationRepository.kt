@@ -8,7 +8,6 @@ import com.skydoves.sandwich.suspendOnSuccess
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
-import nl.bryanderidder.ornaguide.shared.network.SpecializationRequestBody
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
 import timber.log.Timber
 
