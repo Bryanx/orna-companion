@@ -24,7 +24,7 @@ class BottomMenuItem(context: Context, attrs: AttributeSet) : MaterialCardView(c
     private val imageView = AppCompatImageView(context)
     val textView = TextView(context)
 
-    var icon: Drawable
+    private var icon: Drawable
         get() = imageView.background
         set(icon) {
             imageView.setImageDrawable(icon)

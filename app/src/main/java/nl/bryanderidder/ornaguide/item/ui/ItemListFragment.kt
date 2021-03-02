@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.specialization.ui
+package nl.bryanderidder.ornaguide.item.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
-import nl.bryanderidder.ornaguide.databinding.FragmentSpecializationListBinding
+import nl.bryanderidder.ornaguide.databinding.FragmentItemListBinding
 import org.koin.android.viewmodel.ext.android.getViewModel
 
 
-class SpecializationListFragment : BindingFragment<FragmentSpecializationListBinding>(R.layout.fragment_specialization_list) {
+class ItemListFragment : BindingFragment<FragmentItemListBinding>(R.layout.fragment_item_list) {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,8 +19,8 @@ class SpecializationListFragment : BindingFragment<FragmentSpecializationListBin
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
-            lifecycleOwner = this@SpecializationListFragment
-            adapter = SpecializationListAdapter(getViewModel())
+            lifecycleOwner = this@ItemListFragment
+            adapter = ItemListAdapter(getViewModel())
             vm = getViewModel()
         }.root
     }

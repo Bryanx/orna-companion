@@ -6,6 +6,7 @@ import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
+import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.skill.model.Skill
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
@@ -16,7 +17,7 @@ import nl.bryanderidder.ornaguide.specialization.model.Specialization
  * @author Bryan de Ridder
  */
 @ProvidedTypeConverter
-class OrnaTypeConverters(private val moshi: Moshi, ) {
+class OrnaTypeConverters(private val moshi: Moshi) {
 
     private val jsonAdapter: JsonAdapter<List<String>> =
         moshi.adapter(Types.newParameterizedType(List::class.java, String::class.java))
@@ -108,6 +109,20 @@ class OrnaTypeConverters(private val moshi: Moshi, ) {
     fun toSkill(value: String): List<Pet.Skill> {
         val listType = Types.newParameterizedType(List::class.java, Pet.Skill::class.java)
         val adapter: JsonAdapter<List<Pet.Skill>> = moshi.adapter(listType)
+        return adapter.fromJson(value) ?: listOf()
+    }
+
+    @TypeConverter
+    fun fromIdNamePair(type: List<Item.IdNamePair>): String {
+        val listType = Types.newParameterizedType(List::class.java, Item.IdNamePair::class.java)
+        val adapter: JsonAdapter<List<Item.IdNamePair>> = moshi.adapter(listType)
+        return adapter.toJson(type)
+    }
+
+    @TypeConverter
+    fun toIdNamePair(value: String): List<Item.IdNamePair> {
+        val listType = Types.newParameterizedType(List::class.java, Item.IdNamePair::class.java)
+        val adapter: JsonAdapter<List<Item.IdNamePair>> = moshi.adapter(listType)
         return adapter.fromJson(value) ?: listOf()
     }
 }

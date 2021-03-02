@@ -3,6 +3,8 @@ package nl.bryanderidder.ornaguide.shared.network
 import com.skydoves.sandwich.ApiResponse
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRequestBody
+import nl.bryanderidder.ornaguide.item.model.Item
+import nl.bryanderidder.ornaguide.item.persistence.ItemRequestBody
 import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.pet.persistence.PetRequestBody
 import nl.bryanderidder.ornaguide.skill.model.Skill
@@ -39,15 +41,15 @@ interface OrnaService {
         @Body body: PetRequestBody
     ): ApiResponse<List<Pet>>
 
+    @POST("item")
+    suspend fun fetchItemList(
+        @Body body: ItemRequestBody
+    ): ApiResponse<List<Item>>
+
 //    @POST("monster")
 //    suspend fun fetchMonsterList(
 //        @Body body: MonsterRequestBody
 //    ): ApiResponse<List<Monster>>
-//
-//    @POST("item")
-//    suspend fun fetchItemList(
-//        @Body body: ItemRequestBody
-//    ): ApiResponse<List<Item>>
 //
 //    @POST("quest")
 //    suspend fun fetchQuestList(

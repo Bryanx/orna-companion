@@ -22,7 +22,7 @@ import nl.bryanderidder.ornaguide.shared.util.withDelay
 class BottomMenu(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
 
     private lateinit var selectListener: (BottomMenuItem, Int) -> Unit
-    val menuItems: MutableList<BottomMenuItem> = mutableListOf()
+    private val menuItems: MutableList<BottomMenuItem> = mutableListOf()
 
     override fun addView(child: View?, params: ViewGroup.LayoutParams?) {
         super.addView(child, params)

@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.characterclass.ui
+package nl.bryanderidder.ornaguide.pet.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentPetListBinding
-import nl.bryanderidder.ornaguide.pet.ui.PetListAdapter
 import org.koin.android.viewmodel.ext.android.getViewModel
 
 

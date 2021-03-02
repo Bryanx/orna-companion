@@ -5,6 +5,8 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassDao
+import nl.bryanderidder.ornaguide.item.model.Item
+import nl.bryanderidder.ornaguide.item.persistence.ItemDao
 import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.pet.persistence.PetDao
 import nl.bryanderidder.ornaguide.skill.model.Skill
@@ -22,7 +24,8 @@ import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationDao
         CharacterClass::class,
         Skill::class,
         Specialization::class,
-        Pet::class
+        Pet::class,
+        Item::class
     ],
     version = 1,
     exportSchema = true
@@ -33,4 +36,5 @@ abstract class OrnaDatabase : RoomDatabase() {
     abstract fun skillDao(): SkillDao
     abstract fun specializationDao(): SpecializationDao
     abstract fun petDao(): PetDao
+    abstract fun itemDao(): ItemDao
 }

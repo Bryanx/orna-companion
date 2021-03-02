@@ -18,7 +18,7 @@ class CharacterClassViewModel(
     sessionVM: SessionViewModel
 ) : BindingViewModel() {
 
-    val characterClassLiveData: LiveData<CharacterClass>
+    private val characterClassLiveData: LiveData<CharacterClass>
 
     @get:Bindable
     var toastMessage: String? by bindingProperty(null)
