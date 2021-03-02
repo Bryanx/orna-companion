@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -74,6 +76,42 @@ fun Context.withDelay(timeMillis: Long, doBefore: () -> Unit, doAfter: () -> Uni
     }
 }
 
+fun Context.getActionBarHeight(): Int {
+    val tv = TypedValue()
+    if (theme.resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+        return TypedValue.complexToDimensionPixelSize(tv.data, resources.displayMetrics)
+    }
+    return 90.dp
+}
+
+fun <V : View> BottomSheetBehavior<V>.onSlide(onSlide: (Float) -> Unit) {
+    addBottomSheetCallback(object: BottomSheetBehavior.BottomSheetCallback() {
+        override fun onStateChanged(bottomSheet: View, newState: Int) {
+        }
+
+        override fun onSlide(bottomSheet: View, slideOffset: Float) {
+            onSlide.invoke(slideOffset)
+        }
+    })
+}
+
+fun ViewPager2.onPageSelected(onSelected: (Int) -> Unit) {
+    registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+        override fun onPageSelected(position: Int) {
+            super.onPageSelected(position)
+            onSelected(position)
+        }
+    })
+}
+
+fun Context.getNavBarHeight(): Int = 56.dp
+
+// Returns an attribute
+fun Context.getAttr(id: Int): Int {
+    val typedValue = TypedValue()
+    this.theme.resolveAttribute(id, typedValue, true)
+    return typedValue.data
+}
 
 // Darkens an int color by a certain factor
 fun Int.setAlpha(factor: Float): Int = ColorUtils.setAlphaComponent(this, (factor * 255).toInt())

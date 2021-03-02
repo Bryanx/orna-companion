@@ -49,7 +49,7 @@ class BottomMenu(context: Context, attrs: AttributeSet) : LinearLayout(context, 
         item.setCardBackgroundColor(context.attrColor(R.attr.colorAccent).setAlpha(0.15f))
         item.textView.setTextColor(context.attrColor(R.attr.colorAccent))
         menuItems.filter { it != item }.forEach {
-            it.setCardBackgroundColor(context.color(R.color.backgroundColorDark))
+            it.setCardBackgroundColor(context.color(R.color.menuColor))
             it.textView.setTextColor(context.color(R.color.textColor))
         }
     }
@@ -63,5 +63,9 @@ class BottomMenu(context: Context, attrs: AttributeSet) : LinearLayout(context, 
     fun setSelectedItem(currentItem: Int) {
         val selectedItem = menuItems[currentItem]
         setItemColors(selectedItem)
+    }
+
+    fun getName(currentItem: Int): String {
+        return menuItems[currentItem].textView.text.toString()
     }
 }

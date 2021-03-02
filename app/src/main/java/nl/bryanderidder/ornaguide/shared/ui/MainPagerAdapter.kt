@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import nl.bryanderidder.ornaguide.characterclass.ui.CharacterClassListFragment
+import nl.bryanderidder.ornaguide.characterclass.ui.SpecializationListFragment
 import nl.bryanderidder.ornaguide.skill.ui.SkillListFragment
 import timber.log.Timber
 
@@ -15,9 +16,10 @@ class MainPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
         Timber.i("Navigate to position: $position")
         return when (position) {
             0 -> CharacterClassListFragment()
-            1 -> SkillListFragment()
+            1 -> SpecializationListFragment()
+            2 -> SkillListFragment()
             else -> CharacterClassListFragment()
         }
     }
-    override fun getItemCount() = 2
+    override fun getItemCount() = 3
 }

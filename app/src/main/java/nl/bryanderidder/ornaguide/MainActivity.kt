@@ -1,11 +1,13 @@
 package nl.bryanderidder.ornaguide
 
 import android.os.Bundle
-import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.skydoves.bindables.BindingActivity
 import nl.bryanderidder.ornaguide.databinding.ActivityMainBinding
 import nl.bryanderidder.ornaguide.shared.ui.MainPagerAdapter
-import nl.bryanderidder.ornaguide.shared.ui.MenuFragment
+import nl.bryanderidder.ornaguide.shared.util.dp
+import nl.bryanderidder.ornaguide.shared.util.onPageSelected
+import nl.bryanderidder.ornaguide.shared.util.onSlide
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
@@ -19,26 +21,29 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         initializeUI()
     }
 
-    private fun initializeUI() {
-        with(binding.mainViewpager) {
-            adapter = MainPagerAdapter(supportFragmentManager, lifecycle)
-            offscreenPageLimit = 2
-//            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-//                override fun onPageScrollStateChanged(state: Int) = Unit
-//                override fun onPageScrolled(
-//                    position: Int,
-//                    positionOffset: Float,
-//                    positionOffsetPixels: Int
-//                ) = Unit
-//
-//                override fun onPageSelected(position: Int) {
-//                }
-//            })
-            binding.menuFab.setOnClickListener {
-                MenuFragment().also {
-                    it.show(supportFragmentManager, it.tag)
-                }
-            }
+    private fun initializeUI() = with(binding) {
+        mainViewpager.adapter = MainPagerAdapter(supportFragmentManager, lifecycle)
+        mainViewpager.offscreenPageLimit = 3
+        val sheetBehavior = BottomSheetBehavior.from(includeMenu.bottomMenuContainer)
+        mainViewpager.onPageSelected {
+            toolbarTitle = includeMenu.bottomMenu.getName(mainViewpager.currentItem)
+            includeMenu.bottomMenu.setSelectedItem(mainViewpager.currentItem)
+        }
+        sheetBehavior.isFitToContents = true
+        sheetBehavior.peekHeight = 56.dp
+        sheetBehavior.onSlide { offset -> bottomSheetBackground.alpha = offset }
+        includeMenu.bottomMenu.setSelectedItem(mainViewpager.currentItem)
+        toolbarTitle = includeMenu.bottomMenu.getName(mainViewpager.currentItem)
+        includeMenu.bottomMenu.getName(mainViewpager.currentItem)
+        includeMenu.bottomMenu.setOnItemSelectedListener { _, index ->
+            mainViewpager.currentItem = index
+            sheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
+        includeMenu.menuBtn.setOnClickListener {
+            if (sheetBehavior.state == BottomSheetBehavior.STATE_EXPANDED)
+                sheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            else
+                sheetBehavior.state =BottomSheetBehavior.STATE_EXPANDED
         }
     }
 }

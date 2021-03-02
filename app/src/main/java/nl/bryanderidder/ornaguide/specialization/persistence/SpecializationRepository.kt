@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.skill.persistence
+package nl.bryanderidder.ornaguide.specialization.persistence
 
 import androidx.annotation.WorkerThread
 import com.skydoves.sandwich.message
@@ -6,39 +6,36 @@ import com.skydoves.sandwich.onError
 import com.skydoves.sandwich.onException
 import com.skydoves.sandwich.suspendOnSuccess
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.onCompletion
-import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.*
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
-import nl.bryanderidder.ornaguide.shared.network.SkillRequestBody
-import nl.bryanderidder.ornaguide.skill.model.Skill
+import nl.bryanderidder.ornaguide.shared.network.SpecializationRequestBody
+import nl.bryanderidder.ornaguide.specialization.model.Specialization
 import timber.log.Timber
 
 /**
- * Description
+ * Main repository to fetch data from api and store in local db.
  * @author Bryan de Ridder
  */
-class SkillRepository(
+class SpecializationRepository(
     private val client: OrnaClient,
-    private val dao: SkillDao,
+    private val dao: SpecializationDao,
 ) {
 
     @WorkerThread
-    fun fetchSkillList(
-        requestBody: SkillRequestBody = SkillRequestBody(tier = 1),
+    fun fetchSpecializationList(
+        requestBody: SpecializationRequestBody = SpecializationRequestBody(),
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
-    ) = flow<List<Skill>> {
-        val skillList = dao.getSkillList()
-        if (!skillList.isNullOrEmpty()) {
-            emit(skillList)
+    ) = flow<List<Specialization>> {
+        val specializationList = dao.getSpecializationList()
+        if (!specializationList.isNullOrEmpty()) {
+            emit(specializationList)
             return@flow
         }
-        client.fetchSkillList(requestBody)
+        client.fetchSpecializationList(requestBody)
             .suspendOnSuccess {
-                dao.insertSkillList(response.body() ?: listOf())
+                dao.insertSpecializationList(response.body() ?: listOf())
                 emit(response.body() ?: listOf())
             }
             .onError {

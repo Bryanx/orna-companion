@@ -14,6 +14,15 @@ data class CharacterClassRequestBody(
 )
 
 @JsonClass(generateAdapter = true)
+data class SpecializationRequestBody(
+    @Json(name = "id") val id: Int? = null,
+    @Json(name = "name") val name: String? = null,
+    @Json(name = "female_name") val femaleName: String? = null,
+    @Json(name = "tier") val tier: Int? = null,
+    @Json(name = "cost") val cost: String? = null
+)
+
+@JsonClass(generateAdapter = true)
 data class SkillRequestBody(
     @Json(name = "id") val id: Int? = null,
     @Json(name = "name") val name: String? = null,

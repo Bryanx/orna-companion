@@ -9,6 +9,8 @@ import nl.bryanderidder.ornaguide.characterclass.ui.LearnsAdapter
 import nl.bryanderidder.ornaguide.characterclass.ui.PassivesAdapter
 import nl.bryanderidder.ornaguide.skill.model.Skill
 import nl.bryanderidder.ornaguide.skill.ui.SkillListAdapter
+import nl.bryanderidder.ornaguide.specialization.model.Specialization
+import nl.bryanderidder.ornaguide.specialization.ui.SpecializationListAdapter
 
 object RecyclerViewBinding {
 
@@ -16,6 +18,12 @@ object RecyclerViewBinding {
     @BindingAdapter("adapterCharacterClassList")
     fun bindAdapterCharacterClassList(view: RecyclerView, items: List<CharacterClass>?) {
         (view.adapter as CharacterClassAdapter).setItemList(items ?: listOf())
+    }
+
+    @JvmStatic
+    @BindingAdapter("adapterSpecializationList")
+    fun bindAdapterSpecializationList(view: RecyclerView, items: List<Specialization>?) {
+        (view.adapter as SpecializationListAdapter).setItemList(items ?: listOf())
     }
 
     @JvmStatic

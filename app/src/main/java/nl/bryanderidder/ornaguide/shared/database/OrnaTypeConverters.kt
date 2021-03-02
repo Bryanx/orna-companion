@@ -7,6 +7,7 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.skill.model.Skill
+import nl.bryanderidder.ornaguide.specialization.model.Specialization
 
 
 /**
@@ -78,6 +79,20 @@ class OrnaTypeConverters(private val moshi: Moshi, ) {
     fun toSkillMonstersUse(value: String): List<Skill.MonstersUse> {
         val listType = Types.newParameterizedType(List::class.java, Skill.MonstersUse::class.java)
         val adapter: JsonAdapter<List<Skill.MonstersUse>> = moshi.adapter(listType)
+        return adapter.fromJson(value) ?: listOf()
+    }
+
+    @TypeConverter
+    fun fromBoost(type: List<Specialization.Boost>): String {
+        val listType = Types.newParameterizedType(List::class.java, Specialization.Boost::class.java)
+        val adapter: JsonAdapter<List<Specialization.Boost>> = moshi.adapter(listType)
+        return adapter.toJson(type)
+    }
+
+    @TypeConverter
+    fun toBoost(value: String): List<Specialization.Boost> {
+        val listType = Types.newParameterizedType(List::class.java, Specialization.Boost::class.java)
+        val adapter: JsonAdapter<List<Specialization.Boost>> = moshi.adapter(listType)
         return adapter.fromJson(value) ?: listOf()
     }
 }

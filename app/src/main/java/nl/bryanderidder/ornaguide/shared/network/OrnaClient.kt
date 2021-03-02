@@ -3,6 +3,7 @@ package nl.bryanderidder.ornaguide.shared.network
 import com.skydoves.sandwich.ApiResponse
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.skill.model.Skill
+import nl.bryanderidder.ornaguide.specialization.model.Specialization
 
 
 /**
@@ -21,4 +22,9 @@ class OrnaClient(
         requestBody: SkillRequestBody
     ): ApiResponse<List<Skill>> =
         service.fetchSkillList(requestBody)
+
+    suspend fun fetchSpecializationList(
+        requestBody: SpecializationRequestBody
+    ): ApiResponse<List<Specialization>> =
+        service.fetchSpecializationList(requestBody)
 }

@@ -41,7 +41,7 @@ class BottomMenuItem(context: Context, attrs: AttributeSet) : MaterialCardView(c
         attrs.recycle()
 
         setContentPadding(10.dp, 10.dp, 10.dp, 10.dp)
-        setCardBackgroundColor(context.color(R.color.backgroundColorDark))
+        setCardBackgroundColor(context.color(R.color.menuColor))
         rippleColor = ColorStateList.valueOf(context.attrColor(R.attr.colorAccent).setAlpha(0.15f))
         elevation = 0f
     }
