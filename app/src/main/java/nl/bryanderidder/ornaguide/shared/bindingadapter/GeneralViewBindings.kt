@@ -1,14 +1,14 @@
 package nl.bryanderidder.ornaguide.shared.bindingadapter
 
 import android.view.View
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.BindingAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.flexbox.FlexboxLayout
 import nl.bryanderidder.ornaguide.R
-import nl.bryanderidder.ornaguide.item.model.Item
-import nl.bryanderidder.ornaguide.item.ui.ItemListAdapter
+import nl.bryanderidder.ornaguide.shared.util.ElementColorUtil
 import nl.bryanderidder.ornaguide.shared.util.color
 
 object GeneralViewBindings {
@@ -36,14 +36,19 @@ object GeneralViewBindings {
     @JvmStatic
     @BindingAdapter("elementColor")
     fun bindAdapterItemList(view: AppCompatTextView, element: String) {
-        view.setTextColor(view.context.color(when (element) {
-            "Dark" -> R.color.elementDarkColor
-            "Water" -> R.color.elementWaterColor
-            "Holy" -> R.color.elementHolyColor
-            "Earthen" -> R.color.elementEarthenColor
-            "Lightning" -> R.color.elementLightningColor
-            "Fire" -> R.color.elementFireColor
-            else -> R.color.textColorHeader
-        }))
+        val colorId = ElementColorUtil.getColorForElement(element)
+        view.setTextColor(view.context.color(colorId))
+    }
+
+    @JvmStatic
+    @BindingAdapter("addTextViewElementForItems")
+    fun bindAddTextViewElementForItems(view: FlexboxLayout, items: List<String>?) {
+        if (view.childCount > 0) return
+        items?.forEach {
+            val textView = AppCompatTextView(ContextThemeWrapper(view.context, R.style.elementStyle))
+            textView.text = it
+            textView.setTextColor(view.context.color(ElementColorUtil.getColorForElement(it)))
+            view.addView(textView)
+        }
     }
 }

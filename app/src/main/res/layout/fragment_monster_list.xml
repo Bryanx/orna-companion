@@ -31,7 +31,7 @@
             android:scrollbars="vertical"
             app:adapter="@{adapter}"
             app:adapterMonsterList="@{vm.monsterList}"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent"

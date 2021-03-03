@@ -17,9 +17,17 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/cardPadding"
             android:foreground="?attr/selectableItemBackground"
             app:layout_constrainedWidth="true">
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tier"
+                android:text="@{`` + monster.tier}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1"
+                style="@style/databaseItemTier" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/isBoss"
@@ -39,8 +47,8 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_margin="20dp"
                 android:scaleType="center"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +60,6 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/name"
                 android:text="@{monster.name}"
-                app:redTextIf="@{monster.boss}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
@@ -61,22 +68,73 @@
                 style="@style/databaseItemHeader" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/weakness"
-                android:text="@{monster.name}"
+                android:id="@+id/weaknesses"
+                android:text="Weakness:"
+                android:layout_marginBottom="@dimen/cardPadding"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image"
-                tools:text="Goblin King"
-                style="@style/databaseItemHeader" />
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                app:gone="@{monster.weakTo.isEmpty()}"
+                style="@style/databaseItemDescription" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/elementWeaknesses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/cardPadding"
+                app:addTextViewElementForItems="@{monster.weakTo}"
+                app:gone="@{monster.weakTo.isEmpty()}"
+                app:flexWrap="wrap"
+                app:justifyContent="center"
+                app:layout_constraintTop_toBottomOf="@+id/weaknesses"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tier"
-                android:text="@{`` + monster.tier}"
+                android:id="@+id/resistant"
+                android:text="Resistant to:"
+                android:layout_marginBottom="@dimen/cardPadding"
+                android:layout_marginTop="@dimen/cardPadding"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="1"
-                style="@style/databaseItemTier" />
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/elementWeaknesses"
+                app:gone="@{monster.resistantTo.isEmpty()}"
+                style="@style/databaseItemDescription" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/elementResistants"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/cardPadding"
+                app:addTextViewElementForItems="@{monster.resistantTo}"
+                app:gone="@{monster.resistantTo.isEmpty()}"
+                app:flexWrap="wrap"
+                app:justifyContent="center"
+                app:layout_constraintTop_toBottomOf="@+id/resistant"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/immunities"
+                android:text="Immune to:"
+                android:layout_marginBottom="@dimen/cardPadding"
+                android:layout_marginTop="@dimen/cardPadding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/elementResistants"
+                app:gone="@{monster.immuneTo.isEmpty()}"
+                style="@style/databaseItemDescription" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/elementImmunities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/cardPadding"
+                app:addTextViewElementForItems="@{monster.immuneTo}"
+                app:gone="@{monster.immuneTo.isEmpty()}"
+                app:flexWrap="wrap"
+                app:justifyContent="center"
+                app:layout_constraintTop_toBottomOf="@+id/immunities"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

@@ -1,7 +1,5 @@
 package nl.bryanderidder.ornaguide.monster.ui
 
-import android.content.res.ColorStateList
-import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.BindingAdapter
