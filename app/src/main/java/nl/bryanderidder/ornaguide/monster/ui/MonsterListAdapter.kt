@@ -7,10 +7,11 @@ import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.ItemMonsterBinding
 import nl.bryanderidder.ornaguide.monster.model.Monster
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
+import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
 import timber.log.Timber
 
 class MonsterListAdapter(private val sessionVM: SessionViewModel) :
-    RecyclerView.Adapter<MonsterListAdapter.MonsterViewHolder>() {
+    StableRecyclerViewAdapter<MonsterListAdapter.MonsterViewHolder>() {
 
     private val items: MutableList<Monster> = mutableListOf()
     private var onClickedAt = 0L

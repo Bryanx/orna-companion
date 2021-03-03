@@ -7,10 +7,11 @@ import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.ItemPetBinding
 import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
+import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
 import timber.log.Timber
 
 class PetListAdapter(private val sessionVM: SessionViewModel) :
-    RecyclerView.Adapter<PetListAdapter.PetViewHolder>() {
+    StableRecyclerViewAdapter<PetListAdapter.PetViewHolder>() {
 
     private val items: MutableList<Pet> = mutableListOf()
     private var onClickedAt = 0L

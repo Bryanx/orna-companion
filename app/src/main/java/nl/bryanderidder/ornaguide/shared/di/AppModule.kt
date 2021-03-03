@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.shared.di
 
+import androidx.room.Room
 import com.huma.room_for_asset.RoomAsset
 import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import com.squareup.moshi.Moshi

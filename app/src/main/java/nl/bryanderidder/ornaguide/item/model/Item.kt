@@ -12,6 +12,7 @@ data class Item(
     @Json(name = "name") val name: String = "",
     @Json(name = "description") val description: String? = "",
     @Json(name = "type") val type: String = "",
+    @Json(name = "element") val element: String = "",
     @Json(name = "tier") val tier: Int = 0,
     @Json(name = "boss") val boss: Boolean = false,
     @Json(name = "arena") val arena: Boolean = false,
@@ -82,4 +83,18 @@ data class Item(
         @Json(name = "id") val id: Int = 0,
         @Json(name = "name") val name: String = ""
     )
+
+    @Ignore
+    fun formattedStats(): String {
+        val formattedStats = mutableListOf<String>()
+        if (stats.attack.base != 0) formattedStats += "Att: ${stats.attack.base}"
+        if (stats.defense.base != 0) formattedStats += "Def: ${stats.defense.base}"
+        if (stats.dexterity.base != 0) formattedStats += "Dex: ${stats.dexterity.base}"
+        if (stats.hp.base != 0) formattedStats += "HP: ${stats.hp.base}"
+        if (stats.magic.base != 0) formattedStats += "Mag: ${stats.magic.base}"
+        if (stats.mana.base != 0) formattedStats += "Mana: ${stats.mana.base}"
+        if (stats.resistance.base != 0) formattedStats += "Res: ${stats.resistance.base}"
+        if (stats.ward.base != 0) formattedStats += "Ward: ${stats.ward.base}%"
+        return formattedStats.joinToString("   ")
+    }
 }

@@ -16,53 +16,82 @@
         app:transformation_duration="200">
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp"
-            android:background="@color/backgroundColorDark"
-            android:foreground="?attr/selectableItemBackground"
-            app:cardBackgroundColor="@color/backgroundColorDark"
-            app:cardCornerRadius="14dp"
-            app:cardElevation="4dp">
+            style="@style/databaseItemCard">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:foreground="?attr/selectableItemBackground"
-                tools:ignore="UnusedAttribute">
+                app:layout_constrainedWidth="true">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:elevation="4dp"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:padding="12dp"
+                    style="@style/databaseItemHeader"
                     android:text="@{skill.name}"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:text="Sorrow II" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/type"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:elevation="4dp"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:padding="12dp"
+                    style="@style/databaseItemDescription"
+                    android:layout_marginStart="@dimen/cardPadding"
                     android:text="@{skill.type}"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintTop_toBottomOf="@id/name"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/name"
                     tools:text="Magic" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/mana"
+                    style="@style/databaseItemDescription"
+                    android:paddingEnd="@dimen/cardPadding"
+                    android:text="@{skill.manaCost + ` mana`}"
+                    app:gone="@{skill.manaCost == 0}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/type"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="10 mana" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tier"
+                    style="@style/databaseItemTier"
+                    android:text="@{`` + skill.tier}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="1" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/description"
+                    style="@style/databaseItemDescription"
+                    android:paddingHorizontal="@dimen/cardPadding"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="@dimen/cardPadding"
+                    android:text="@{skill.description}"
+                    android:textAlignment="textStart"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/type"
+                    tools:text="Grants temporary defenses and grants Ward for 3 turns." />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/element"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@color/elementBackgroundColor"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:paddingBottom="@dimen/cardPadding"
+                    android:text="@{skill.element}"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    app:elementColor="@{skill.element}"
+                    app:gone="@{skill.element.isEmpty()}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/description"
+                    tools:text="WATER"
+                    tools:textColor="@color/elementWaterColor"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

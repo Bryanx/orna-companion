@@ -6,11 +6,12 @@ import com.skydoves.bindables.binding
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.ItemSkillBinding
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
+import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
 import nl.bryanderidder.ornaguide.skill.model.Skill
 import timber.log.Timber
 
 class SkillListAdapter(private val sessionVM: SessionViewModel) :
-    RecyclerView.Adapter<SkillListAdapter.SkillViewHolder>() {
+    StableRecyclerViewAdapter<SkillListAdapter.SkillViewHolder>() {
 
     private val items: MutableList<Skill> = mutableListOf()
     private var onClickedAt = 0L

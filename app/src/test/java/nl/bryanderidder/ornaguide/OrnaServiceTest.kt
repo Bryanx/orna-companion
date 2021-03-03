@@ -3,9 +3,9 @@ package nl.bryanderidder.ornaguide
 import com.skydoves.sandwich.ApiResponse
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
-import nl.bryanderidder.ornaguide.shared.network.CharacterClassRequestBody
+import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRequestBody
 import nl.bryanderidder.ornaguide.shared.network.OrnaService
-import nl.bryanderidder.ornaguide.shared.network.SkillRequestBody
+import nl.bryanderidder.ornaguide.skill.persistence.SkillRequestBody
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Before
@@ -31,7 +31,7 @@ class OrnaServiceTest : ApiAbstract<OrnaService>() {
     @Test
     fun fetchCharacterClassListNetworkTest() = runBlocking {
         enqueueResponse("/CharacterClassResponse.json")
-        val response = service.fetchCharacterClassList(CharacterClassRequestBody(tier = 5))
+        val response = service.fetchCharacterClassList(CharacterClassRequestBody(tier = 1))
         val responseBody = requireNotNull((response as ApiResponse.Success).data)
         mockWebServer.takeRequest()
         assertThat(responseBody.count(), `is`(3))

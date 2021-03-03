@@ -7,10 +7,11 @@ import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.ItemNpcBinding
 import nl.bryanderidder.ornaguide.npc.model.Npc
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
+import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
 import timber.log.Timber
 
 class NpcListAdapter(private val sessionVM: SessionViewModel) :
-    RecyclerView.Adapter<NpcListAdapter.NpcViewHolder>() {
+    StableRecyclerViewAdapter<NpcListAdapter.NpcViewHolder>() {
 
     private val items: MutableList<Npc> = mutableListOf()
     private var onClickedAt = 0L

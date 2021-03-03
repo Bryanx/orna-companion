@@ -8,54 +8,75 @@
         <variable
             name="monster"
             type="nl.bryanderidder.ornaguide.monster.model.Monster" />
-
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="6dp"
-        android:background="@color/backgroundColorDark"
-        android:foreground="?attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/backgroundColorDark"
-        app:cardCornerRadius="14dp"
-        app:cardElevation="4dp">
+        style="@style/databaseItemCard">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="?attr/selectableItemBackground">
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constrainedWidth="true">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/isBoss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:text="BOSS"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:gone="@{!monster.boss}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="BOSS" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_margin="20dp"
                 android:scaleType="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:paletteImage="@{monster.previewImageUrl}"
-                tools:src="@drawable/monsters"/>
+                tools:src="@drawable/monsters" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                android:gravity="center"
-                android:maxLines="1"
-                android:padding="12dp"
                 android:text="@{monster.name}"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                app:redTextIf="@{monster.boss}"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/image"
-                tools:text="Goblin" />
+                app:layout_constraintTop_toBottomOf="@+id/image"
+                tools:text="Goblin King"
+                style="@style/databaseItemHeader" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/weakness"
+                android:text="@{monster.name}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image"
+                tools:text="Goblin King"
+                style="@style/databaseItemHeader" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tier"
+                android:text="@{`` + monster.tier}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1"
+                style="@style/databaseItemTier" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

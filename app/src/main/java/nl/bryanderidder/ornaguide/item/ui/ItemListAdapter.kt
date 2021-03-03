@@ -7,10 +7,11 @@ import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.ItemItemBinding
 import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
+import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
 import timber.log.Timber
 
 class ItemListAdapter(private val sessionVM: SessionViewModel) :
-    RecyclerView.Adapter<ItemListAdapter.ItemViewHolder>() {
+    StableRecyclerViewAdapter<ItemListAdapter.ItemViewHolder>() {
 
     private val items: MutableList<Item> = mutableListOf()
     private var onClickedAt = 0L

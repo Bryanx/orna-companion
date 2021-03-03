@@ -8,10 +8,11 @@ import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.databinding.ItemCharacterClassBinding
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
+import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
 import timber.log.Timber
 
 class CharacterClassAdapter(private val sessionVM: SessionViewModel) :
-    RecyclerView.Adapter<CharacterClassAdapter.CharacterClassViewHolder>() {
+    StableRecyclerViewAdapter<CharacterClassAdapter.CharacterClassViewHolder>() {
 
     private val items: MutableList<CharacterClass> = mutableListOf()
     private var onClickedAt = 0L

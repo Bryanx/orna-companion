@@ -16,53 +16,49 @@
         app:transformation_duration="200">
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp"
-            android:background="@color/backgroundColorDark"
-            android:foreground="?attr/selectableItemBackground"
-            app:cardBackgroundColor="@color/backgroundColorDark"
-            app:cardCornerRadius="14dp"
-            app:cardElevation="4dp">
+            style="@style/databaseItemCard">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:foreground="?attr/selectableItemBackground"
-                tools:ignore="UnusedAttribute">
+                app:layout_constrainedWidth="true">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:elevation="4dp"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:padding="12dp"
+                    style="@style/databaseItemHeader"
                     android:text="@{achievement.name}"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:text="Sorrow II" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Boss Slayer VI" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/type"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:elevation="4dp"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:padding="12dp"
+                    android:id="@+id/requirement"
+                    style="@style/databaseItemDescription"
+                    android:paddingBottom="@dimen/cardPadding"
+                    android:paddingHorizontal="@dimen/cardPadding"
                     android:text="@{achievement.requirement}"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintTop_toBottomOf="@id/name"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:text="Magic" />
+                    app:layout_constraintTop_toBottomOf="@id/name"
+                    tools:text="Slay 50 bosses" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/typez"
+                    style="@style/databaseItemDescription"
+                    android:paddingHorizontal="@dimen/cardPadding"
+                    android:paddingBottom="@dimen/cardPadding"
+                    android:text="@{`Reward: ` + achievement.reward + ` orns`}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/requirement"
+                    tools:text="Reward: 25000 orns" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tier"
+                    android:text="@{`` + achievement.tier}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="1"
+                    style="@style/databaseItemTier"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -18,8 +18,11 @@ data class Monster(
     @Json(name = "level") val level: Int = 0,
     @Json(name = "spawns") val spawns: List<String> = listOf(),
     @Json(name = "resistant_to") val resistantTo: List<String> = listOf(),
+    @Json(name = "immune_to") val immuneTo: List<String> = listOf(),
+    @Json(name = "weak_to") val weakTo: List<String> = listOf(),
     @Json(name = "drops") val drops: List<IdNamePair> = listOf(),
-    @Json(name = "skills") val skills: List<IdNamePair> = listOf()
+    @Json(name = "skills") val skills: List<IdNamePair> = listOf(),
+    @Json(name = "buffs") val buffs: List<IdNamePair> = listOf()
 ) {
 
     @Ignore val previewImageUrl: String = ORNA_IMAGE_PREFIX + image

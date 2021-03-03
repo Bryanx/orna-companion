@@ -22,7 +22,7 @@ class AchievementRepository(
 
     @WorkerThread
     fun fetchAchievementList(
-        requestBody: AchievementRequestBody = AchievementRequestBody(id = 1),
+        requestBody: AchievementRequestBody = AchievementRequestBody(),
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,

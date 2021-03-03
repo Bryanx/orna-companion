@@ -8,55 +8,85 @@
         <variable
             name="pet"
             type="nl.bryanderidder.ornaguide.pet.model.Pet" />
-
     </data>
-
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="6dp"
-        android:background="@color/backgroundColorDark"
-        android:foreground="?attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/backgroundColorDark"
-        app:cardCornerRadius="14dp"
-        app:cardElevation="4dp">
+        style="@style/databaseItemCard">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="?attr/selectableItemBackground">
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constrainedWidth="true">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tier"
+                android:text="@{`` + pet.tier}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1"
+                style="@style/databaseItemTier" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_margin="20dp"
                 android:scaleType="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:paletteImage="@{pet.previewImageUrl}"
-                tools:src="@drawable/monsters"/>
+                tools:src="@drawable/pets" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                android:gravity="center"
-                android:maxLines="1"
-                android:padding="12dp"
                 android:text="@{pet.name}"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                app:autoSizeTextType="uniform"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/image"
-                tools:text="Warrior" />
+                app:layout_constraintTop_toBottomOf="@+id/image"
+                tools:text="Wolf"
+                style="@style/databaseItemHeader" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/description"
+                android:text="@{pet.description}"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/cardPadding"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                tools:text="A fierce Chimera. This follower can cause one to go berserk, while assisting in battle with beastly spells."
+                style="@style/databaseItemDescription" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/stats"
+                android:text="@{pet.formattedStats()}"
+                android:padding="@dimen/cardPadding"
+                android:textAlignment="center"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/description"
+                tools:text="Heal chance 15%\nProtect chance 45%"
+                style="@style/databaseItemDescription" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cost"
+                style="@style/databaseItemHeader"
+                android:text="@{pet.cost + ` orns`}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stats"
+                tools:text="2500 orns" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

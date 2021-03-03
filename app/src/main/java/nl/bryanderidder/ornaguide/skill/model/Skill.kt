@@ -10,8 +10,10 @@ import com.squareup.moshi.JsonClass
 data class Skill(
     @Json(name = "id") @PrimaryKey val id: Int = 0,
     @Json(name = "bought") val bought: Boolean = false,
+    @Json(name = "gives") val gives: List<String> = listOf(),
     @Json(name = "causes") val causes: List<String> = listOf(),
     @Json(name = "description") val description: String = "",
+    @Json(name = "element") val element: String = "",
     @Json(name = "is_magic") val isMagic: Boolean = false,
     @Json(name = "learned_by") val learnedBy: List<LearnedBy> = listOf(),
     @Json(name = "mana_cost") val manaCost: Int = 0,

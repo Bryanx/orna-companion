@@ -12,6 +12,6 @@ interface NpcDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNpcList(NpcList: List<Npc>)
 
-    @Query("SELECT * FROM Npc")
+    @Query("SELECT * FROM Npc ORDER BY tier LIMIT 100")
     suspend fun getNpcList(): List<Npc>
 }

@@ -25,7 +25,7 @@ class SkillRepository(
 
     @WorkerThread
     fun fetchSkillList(
-        requestBody: SkillRequestBody = SkillRequestBody(id = 1),
+        requestBody: SkillRequestBody = SkillRequestBody(),
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,

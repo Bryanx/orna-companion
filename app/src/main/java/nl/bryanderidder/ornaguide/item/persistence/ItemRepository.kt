@@ -22,7 +22,7 @@ class ItemRepository(
 
     @WorkerThread
     fun fetchItemList(
-        requestBody: ItemRequestBody = ItemRequestBody(id = 1),
+        requestBody: ItemRequestBody = ItemRequestBody(),
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,

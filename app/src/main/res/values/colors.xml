@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="backgroundColorDark">#282321</color>
+    <color name="cardColor">#37302D</color>
     <color name="menuColor">#3C3532</color>
     <color name="dividerColor">#534A48</color>
+    <color name="elementBackgroundColor">#3C3532</color>
+    <color name="ornaGreen">#7CCA7F</color>
     <color name="textColor">#C2BAB2</color>
     <color name="textColorHeader">#DAD5D0</color>
     <color name="green">#3FD730</color>
-    <color name="red">#C64F5F</color>
+    <color name="red">#DC3545</color>
     <color name="purple">#B102FF</color>
-    <color name="blue">#6488AB</color>
+    <color name="blue">#3F91E3</color>
+
+    <color name="elementDarkColor">#B102FF</color>
+    <color name="elementWaterColor">#57A5F3</color>
+    <color name="elementHolyColor">#DAD5D0</color>
+    <color name="elementEarthenColor">#3FD730</color>
+    <color name="elementLightningColor">#BDB55A</color>
+    <color name="elementFireColor">#EC8142</color>
 
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>

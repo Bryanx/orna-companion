@@ -6,11 +6,12 @@ import com.skydoves.bindables.binding
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.ItemSpecializationBinding
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
+import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
 import timber.log.Timber
 
 class SpecializationListAdapter(private val sessionVM: SessionViewModel) :
-    RecyclerView.Adapter<SpecializationListAdapter.SpecializationViewHolder>() {
+    StableRecyclerViewAdapter<SpecializationListAdapter.SpecializationViewHolder>() {
 
     private val items: MutableList<Specialization> = mutableListOf()
     private var onClickedAt = 0L

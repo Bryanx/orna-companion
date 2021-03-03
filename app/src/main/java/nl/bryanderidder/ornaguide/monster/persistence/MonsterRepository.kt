@@ -22,7 +22,7 @@ class MonsterRepository(
 
     @WorkerThread
     fun fetchMonsterList(
-        requestBody: MonsterRequestBody = MonsterRequestBody(id = 1),
+        requestBody: MonsterRequestBody = MonsterRequestBody(),
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,

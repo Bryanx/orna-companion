@@ -22,7 +22,7 @@ class CharacterClassRepository(
 
     @WorkerThread
     fun fetchCharacterClassList(
-        requestBody: CharacterClassRequestBody = CharacterClassRequestBody(id = 1),
+        requestBody: CharacterClassRequestBody = CharacterClassRequestBody(),
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,

@@ -2,10 +2,12 @@ package nl.bryanderidder.ornaguide.shared.util
 
 import android.content.Context
 import android.content.res.Resources
+import android.graphics.PorterDuff
 import android.os.Handler
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
@@ -111,6 +113,10 @@ fun Context.getAttr(id: Int): Int {
     val typedValue = TypedValue()
     this.theme.resolveAttribute(id, typedValue, true)
     return typedValue.data
+}
+
+fun ImageView.setTint(id: Int, blendMode: PorterDuff.Mode = PorterDuff.Mode.SRC_IN) {
+    this.setColorFilter(id, blendMode)
 }
 
 // Darkens an int color by a certain factor

@@ -12,6 +12,6 @@ interface MonsterDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMonsterList(MonsterList: List<Monster>)
 
-    @Query("SELECT * FROM Monster")
+    @Query("SELECT * FROM Monster ORDER BY tier LIMIT 100")
     suspend fun getMonsterList(): List<Monster>
 }

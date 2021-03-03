@@ -16,7 +16,8 @@ data class CharacterClass(
     @Json(name = "images") val images: List<String> = listOf(),
     @Json(name = "learns") val learns: String = "",
     @Json(name = "skills") @Embedded val skills: Skills = Skills(),
-    @Json(name = "tier") val tier: Int = 0
+    @Json(name = "tier") val tier: Int = 0,
+    @Json(name = "stats") val stats: List<String> = listOf()
 ) {
     @Ignore val imageUrls: List<String> = images.map { ORNA_IMAGE_PREFIX + it }.toList()
     @Ignore val previewImageUrl: String = imageUrls.last()

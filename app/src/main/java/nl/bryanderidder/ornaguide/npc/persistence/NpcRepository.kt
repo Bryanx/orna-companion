@@ -22,7 +22,7 @@ class NpcRepository(
 
     @WorkerThread
     fun fetchNpcList(
-        requestBody: NpcRequestBody = NpcRequestBody(id = 1),
+        requestBody: NpcRequestBody = NpcRequestBody(),
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
