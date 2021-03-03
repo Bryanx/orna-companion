@@ -1,6 +1,6 @@
 package nl.bryanderidder.ornaguide.shared.di
 
-import androidx.room.Room
+import com.huma.room_for_asset.RoomAsset
 import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import com.squareup.moshi.Moshi
 import nl.bryanderidder.ornaguide.MainViewModel
@@ -34,6 +34,7 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.util.concurrent.TimeUnit
 
 @JvmField
 val appModule: Module = module {
@@ -41,6 +42,9 @@ val appModule: Module = module {
     single {
         OkHttpClient.Builder()
             .addInterceptor(NetworkLoggingInterceptor())
+            .connectTimeout(10, TimeUnit.SECONDS)
+            .writeTimeout(120, TimeUnit.SECONDS)
+            .readTimeout(120, TimeUnit.SECONDS)
             .build()
     }
 
@@ -77,8 +81,7 @@ val appModule: Module = module {
     single { OrnaTypeConverters(get()) }
 
     single {
-        Room.databaseBuilder(androidApplication(), OrnaDatabase::class.java, "Orna.db")
-            .fallbackToDestructiveMigration()
+        RoomAsset.databaseBuilder(androidApplication(), OrnaDatabase::class.java, "Orna.db")
             .addTypeConverter(get<OrnaTypeConverters>())
             .build()
     }

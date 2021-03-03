@@ -58,6 +58,7 @@ dependencies {
     implementation("androidx.room:room-runtime:2.3.0-beta02")
     implementation("androidx.room:room-ktx:2.3.0-beta02")
     kapt("androidx.room:room-compiler:2.3.0-beta02")
+    implementation("com.github.humazed:RoomAsset:1.0.3")
 
     // Koin
     implementation("org.koin:koin-android:2.2.2")

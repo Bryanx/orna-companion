@@ -36,8 +36,7 @@ import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationDao
         Npc::class,
         Achievement::class,
     ],
-    version = 1,
-    exportSchema = true
+    version = 2
 )
 @TypeConverters(OrnaTypeConverters::class)
 abstract class OrnaDatabase : RoomDatabase() {

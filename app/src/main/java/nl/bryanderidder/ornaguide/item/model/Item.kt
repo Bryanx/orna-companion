@@ -10,7 +10,7 @@ import nl.bryanderidder.ornaguide.shared.util.ORNA_IMAGE_PREFIX
 data class Item(
     @Json(name = "id") @PrimaryKey val id: Int = 0,
     @Json(name = "name") val name: String = "",
-    @Json(name = "description") val description: String = "",
+    @Json(name = "description") val description: String? = "",
     @Json(name = "type") val type: String = "",
     @Json(name = "tier") val tier: Int = 0,
     @Json(name = "boss") val boss: Boolean = false,
