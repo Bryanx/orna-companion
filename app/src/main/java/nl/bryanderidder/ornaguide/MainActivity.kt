@@ -3,6 +3,7 @@ package nl.bryanderidder.ornaguide
 import android.os.Bundle
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.skydoves.bindables.BindingActivity
+import com.skydoves.transformationlayout.onTransformationStartContainer
 import nl.bryanderidder.ornaguide.databinding.ActivityMainBinding
 import nl.bryanderidder.ornaguide.shared.ui.MainPagerAdapter
 import nl.bryanderidder.ornaguide.shared.util.dp
@@ -15,6 +16,7 @@ import timber.log.Timber.DebugTree
 class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        onTransformationStartContainer()
         super.onCreate(savedInstanceState)
         if (BuildConfig.DEBUG)
             Timber.plant(DebugTree())
