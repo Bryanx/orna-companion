@@ -4,10 +4,16 @@ import androidx.room.Room
 import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import com.squareup.moshi.Moshi
 import nl.bryanderidder.ornaguide.MainViewModel
+import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRepository
+import nl.bryanderidder.ornaguide.achievement.ui.AchievementListViewModel
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
 import nl.bryanderidder.ornaguide.characterclass.ui.CharacterClassViewModel
 import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
 import nl.bryanderidder.ornaguide.item.ui.ItemListViewModel
+import nl.bryanderidder.ornaguide.monster.persistence.MonsterRepository
+import nl.bryanderidder.ornaguide.monster.ui.MonsterListViewModel
+import nl.bryanderidder.ornaguide.npc.persistence.NpcRepository
+import nl.bryanderidder.ornaguide.npc.ui.NpcListViewModel
 import nl.bryanderidder.ornaguide.pet.persistence.PetRepository
 import nl.bryanderidder.ornaguide.pet.ui.PetListViewModel
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
@@ -59,6 +65,9 @@ val appModule: Module = module {
     single { SpecializationListViewModel(get()) }
     single { PetListViewModel(get()) }
     single { ItemListViewModel(get()) }
+    single { MonsterListViewModel(get()) }
+    single { NpcListViewModel(get()) }
+    single { AchievementListViewModel(get()) }
     single { (sessionVM: SessionViewModel) -> CharacterClassViewModel(get(), sessionVM) }
 
 
@@ -79,10 +88,16 @@ val appModule: Module = module {
     single { get<OrnaDatabase>().specializationDao() }
     single { get<OrnaDatabase>().petDao() }
     single { get<OrnaDatabase>().itemDao() }
+    single { get<OrnaDatabase>().monsterDao() }
+    single { get<OrnaDatabase>().npcDao() }
+    single { get<OrnaDatabase>().achievementDao() }
     single { CharacterClassRepository(get(), get()) }
     single { SkillRepository(get(), get())}
     single { SpecializationRepository(get(), get())}
     single { PetRepository(get(), get())}
     single { ItemRepository(get(), get()) }
+    single { MonsterRepository(get(), get()) }
+    single { NpcRepository(get(), get()) }
+    single { AchievementRepository(get(), get()) }
 
 }

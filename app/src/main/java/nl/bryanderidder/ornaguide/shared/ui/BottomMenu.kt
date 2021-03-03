@@ -54,7 +54,6 @@ class BottomMenu(context: Context, attrs: AttributeSet) : LinearLayout(context, 
         }
     }
 
-
     /** Listen on selection changes. Alternatively you can add onclick listeners to the buttons. */
     fun setOnItemSelectedListener(listener: (BottomMenuItem, Int) -> Unit) {
         this.selectListener = listener

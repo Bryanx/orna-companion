@@ -19,7 +19,7 @@ class PetRepository(
 
     @WorkerThread
     fun fetchPetList(
-        requestBody: PetRequestBody = PetRequestBody(),
+        requestBody: PetRequestBody = PetRequestBody(id = 1),
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,

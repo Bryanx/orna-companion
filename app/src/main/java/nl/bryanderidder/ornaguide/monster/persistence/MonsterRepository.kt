@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.skill.persistence
+package nl.bryanderidder.ornaguide.monster.persistence
 
 import androidx.annotation.WorkerThread
 import com.skydoves.sandwich.message
@@ -6,38 +6,35 @@ import com.skydoves.sandwich.onError
 import com.skydoves.sandwich.onException
 import com.skydoves.sandwich.suspendOnSuccess
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.onCompletion
-import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.*
+import nl.bryanderidder.ornaguide.monster.model.Monster
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
-import nl.bryanderidder.ornaguide.skill.model.Skill
 import timber.log.Timber
 
 /**
- * Description
+ * Main repository to fetch data from api and store in local db.
  * @author Bryan de Ridder
  */
-class SkillRepository(
+class MonsterRepository(
     private val client: OrnaClient,
-    private val dao: SkillDao,
+    private val dao: MonsterDao,
 ) {
 
     @WorkerThread
-    fun fetchSkillList(
-        requestBody: SkillRequestBody = SkillRequestBody(id = 1),
+    fun fetchMonsterList(
+        requestBody: MonsterRequestBody = MonsterRequestBody(id = 1),
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
-    ) = flow<List<Skill>> {
-        val skillList = dao.getSkillList()
-        if (!skillList.isNullOrEmpty()) {
-            emit(skillList)
+    ) = flow<List<Monster>> {
+        val monsterList = dao.getMonsterList()
+        if (!monsterList.isNullOrEmpty()) {
+            emit(monsterList)
             return@flow
         }
-        client.fetchSkillList(requestBody)
+        client.fetchMonsterList(requestBody)
             .suspendOnSuccess {
-                dao.insertSkillList(response.body() ?: listOf())
+                dao.insertMonsterList(response.body() ?: listOf())
                 emit(response.body() ?: listOf())
             }
             .onError {

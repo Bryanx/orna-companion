@@ -1,10 +1,16 @@
 package nl.bryanderidder.ornaguide.shared.network
 
 import com.skydoves.sandwich.ApiResponse
+import nl.bryanderidder.ornaguide.achievement.model.Achievement
+import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRequestBody
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRequestBody
 import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.item.persistence.ItemRequestBody
+import nl.bryanderidder.ornaguide.monster.model.Monster
+import nl.bryanderidder.ornaguide.monster.persistence.MonsterRequestBody
+import nl.bryanderidder.ornaguide.npc.model.Npc
+import nl.bryanderidder.ornaguide.npc.persistence.NpcRequestBody
 import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.pet.persistence.PetRequestBody
 import nl.bryanderidder.ornaguide.skill.model.Skill
@@ -46,24 +52,24 @@ interface OrnaService {
         @Body body: ItemRequestBody
     ): ApiResponse<List<Item>>
 
-//    @POST("monster")
-//    suspend fun fetchMonsterList(
-//        @Body body: MonsterRequestBody
-//    ): ApiResponse<List<Monster>>
-//
+    @POST("monster")
+    suspend fun fetchMonsterList(
+        @Body body: MonsterRequestBody
+    ): ApiResponse<List<Monster>>
+
+    @POST("npc")
+    suspend fun fetchNpcList(
+        @Body body: NpcRequestBody
+    ): ApiResponse<List<Npc>>
+
+    @POST("achievement")
+    suspend fun fetchAchievementList(
+        @Body body: AchievementRequestBody
+    ): ApiResponse<List<Achievement>>
+
 //    @POST("quest")
 //    suspend fun fetchQuestList(
 //        @Body body: QuestRequestBody
 //    ): ApiResponse<List<Quest>>
-//
-//    @POST("achievement")
-//    suspend fun fetchAchievementList(
-//        @Body body: AchievementRequestBody
-//    ): ApiResponse<List<Achievement>>
-//
-//    @POST("npc")
-//    suspend fun fetchNpcList(
-//        @Body body: NpcRequestBody
-//    ): ApiResponse<List<Npc>>
 
 }

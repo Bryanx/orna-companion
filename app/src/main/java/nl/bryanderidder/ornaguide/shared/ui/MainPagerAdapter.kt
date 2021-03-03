@@ -4,8 +4,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import nl.bryanderidder.ornaguide.achievement.ui.AchievementListFragment
 import nl.bryanderidder.ornaguide.characterclass.ui.CharacterClassListFragment
 import nl.bryanderidder.ornaguide.item.ui.ItemListFragment
+import nl.bryanderidder.ornaguide.monster.ui.MonsterListFragment
+import nl.bryanderidder.ornaguide.npc.ui.NpcListFragment
 import nl.bryanderidder.ornaguide.pet.ui.PetListFragment
 import nl.bryanderidder.ornaguide.skill.ui.SkillListFragment
 import nl.bryanderidder.ornaguide.specialization.ui.SpecializationListFragment
@@ -20,8 +23,11 @@ class MainPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
             2 -> SkillListFragment()
             3 -> PetListFragment()
             4 -> ItemListFragment()
+            5 -> MonsterListFragment()
+            6 -> NpcListFragment()
+            7 -> AchievementListFragment()
             else -> CharacterClassListFragment()
         }
     }
-    override fun getItemCount() = 5
+    override fun getItemCount() = 8
 }

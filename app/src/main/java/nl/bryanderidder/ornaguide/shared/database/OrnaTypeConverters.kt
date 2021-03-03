@@ -7,6 +7,8 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.item.model.Item
+import nl.bryanderidder.ornaguide.monster.model.Monster
+import nl.bryanderidder.ornaguide.npc.model.Npc
 import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.skill.model.Skill
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
@@ -123,6 +125,34 @@ class OrnaTypeConverters(private val moshi: Moshi) {
     fun toIdNamePair(value: String): List<Item.IdNamePair> {
         val listType = Types.newParameterizedType(List::class.java, Item.IdNamePair::class.java)
         val adapter: JsonAdapter<List<Item.IdNamePair>> = moshi.adapter(listType)
+        return adapter.fromJson(value) ?: listOf()
+    }
+
+    @TypeConverter
+    fun fromMonsterIdNamePair(type: List<Monster.IdNamePair>): String {
+        val listType = Types.newParameterizedType(List::class.java, Monster.IdNamePair::class.java)
+        val adapter: JsonAdapter<List<Monster.IdNamePair>> = moshi.adapter(listType)
+        return adapter.toJson(type)
+    }
+
+    @TypeConverter
+    fun toMonsterIdNamePair(value: String): List<Monster.IdNamePair> {
+        val listType = Types.newParameterizedType(List::class.java, Monster.IdNamePair::class.java)
+        val adapter: JsonAdapter<List<Monster.IdNamePair>> = moshi.adapter(listType)
+        return adapter.fromJson(value) ?: listOf()
+    }
+
+    @TypeConverter
+    fun fromNpcQuest(type: List<Npc.Quest>): String {
+        val listType = Types.newParameterizedType(List::class.java, Npc.Quest::class.java)
+        val adapter: JsonAdapter<List<Npc.Quest>> = moshi.adapter(listType)
+        return adapter.toJson(type)
+    }
+
+    @TypeConverter
+    fun fromNpcQuest(value: String): List<Npc.Quest> {
+        val listType = Types.newParameterizedType(List::class.java, Npc.Quest::class.java)
+        val adapter: JsonAdapter<List<Npc.Quest>> = moshi.adapter(listType)
         return adapter.fromJson(value) ?: listOf()
     }
 }

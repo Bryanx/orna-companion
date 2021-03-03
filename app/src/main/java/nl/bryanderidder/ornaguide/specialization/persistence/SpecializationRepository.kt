@@ -22,7 +22,7 @@ class SpecializationRepository(
 
     @WorkerThread
     fun fetchSpecializationList(
-        requestBody: SpecializationRequestBody = SpecializationRequestBody(),
+        requestBody: SpecializationRequestBody = SpecializationRequestBody(id = 56),
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,

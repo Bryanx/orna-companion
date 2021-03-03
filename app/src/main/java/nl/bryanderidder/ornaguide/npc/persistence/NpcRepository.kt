@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.skill.persistence
+package nl.bryanderidder.ornaguide.npc.persistence
 
 import androidx.annotation.WorkerThread
 import com.skydoves.sandwich.message
@@ -6,38 +6,35 @@ import com.skydoves.sandwich.onError
 import com.skydoves.sandwich.onException
 import com.skydoves.sandwich.suspendOnSuccess
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.onCompletion
-import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.*
+import nl.bryanderidder.ornaguide.npc.model.Npc
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
-import nl.bryanderidder.ornaguide.skill.model.Skill
 import timber.log.Timber
 
 /**
- * Description
+ * Main repository to fetch data from api and store in local db.
  * @author Bryan de Ridder
  */
-class SkillRepository(
+class NpcRepository(
     private val client: OrnaClient,
-    private val dao: SkillDao,
+    private val dao: NpcDao,
 ) {
 
     @WorkerThread
-    fun fetchSkillList(
-        requestBody: SkillRequestBody = SkillRequestBody(id = 1),
+    fun fetchNpcList(
+        requestBody: NpcRequestBody = NpcRequestBody(id = 1),
         onStart: () -> Unit,
         onComplete: () -> Unit,
         onError: (String?) -> Unit,
-    ) = flow<List<Skill>> {
-        val skillList = dao.getSkillList()
-        if (!skillList.isNullOrEmpty()) {
-            emit(skillList)
+    ) = flow<List<Npc>> {
+        val npcList = dao.getNpcList()
+        if (!npcList.isNullOrEmpty()) {
+            emit(npcList)
             return@flow
         }
-        client.fetchSkillList(requestBody)
+        client.fetchNpcList(requestBody)
             .suspendOnSuccess {
-                dao.insertSkillList(response.body() ?: listOf())
+                dao.insertNpcList(response.body() ?: listOf())
                 emit(response.body() ?: listOf())
             }
             .onError {
