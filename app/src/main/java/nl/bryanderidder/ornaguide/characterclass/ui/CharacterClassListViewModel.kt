@@ -13,7 +13,7 @@ import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepos
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRequestBody
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
 
-class CharacterClassViewModel(
+class CharacterClassListViewModel(
     repository: CharacterClassRepository,
     sessionVM: SessionViewModel
 ) : BindingViewModel() {

@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.characterclass.ui
+package nl.bryanderidder.ornaguide.characterclass.ui.list
 
 import android.os.SystemClock
 import android.view.ViewGroup
@@ -6,13 +6,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.skydoves.bindables.binding
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
+import nl.bryanderidder.ornaguide.characterclass.ui.detail.CharacterClassDetailActivity
 import nl.bryanderidder.ornaguide.databinding.ItemCharacterClassBinding
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
 import timber.log.Timber
 
-class CharacterClassAdapter(private val sessionVM: SessionViewModel) :
-    StableRecyclerViewAdapter<CharacterClassAdapter.CharacterClassViewHolder>() {
+class CharacterClassListAdapter(private val sessionVM: SessionViewModel) :
+    StableRecyclerViewAdapter<CharacterClassListAdapter.CharacterClassViewHolder>() {
 
     private val items: MutableList<CharacterClass> = mutableListOf()
     private var onClickedAt = 0L
@@ -26,7 +27,7 @@ class CharacterClassAdapter(private val sessionVM: SessionViewModel) :
                 val currentClickedAt = SystemClock.elapsedRealtime()
                 if (currentClickedAt - onClickedAt > binding.transformationLayout.duration) {
                     sessionVM.characterClass.value = items[position]
-                    CharacterClassActivity.startActivity(binding.transformationLayout)
+                    CharacterClassDetailActivity.startActivity(binding.transformationLayout)
                     onClickedAt = currentClickedAt
                 }
             }

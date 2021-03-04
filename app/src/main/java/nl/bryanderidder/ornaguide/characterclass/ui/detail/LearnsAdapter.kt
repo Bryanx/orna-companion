@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.characterclass.ui
+package nl.bryanderidder.ornaguide.characterclass.ui.detail
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

@@ -7,7 +7,7 @@ import nl.bryanderidder.ornaguide.MainViewModel
 import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRepository
 import nl.bryanderidder.ornaguide.achievement.ui.AchievementListViewModel
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
-import nl.bryanderidder.ornaguide.characterclass.ui.CharacterClassViewModel
+import nl.bryanderidder.ornaguide.characterclass.ui.CharacterClassListViewModel
 import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
 import nl.bryanderidder.ornaguide.item.ui.ItemListViewModel
 import nl.bryanderidder.ornaguide.monster.persistence.MonsterRepository
@@ -72,7 +72,7 @@ val appModule: Module = module {
     single { MonsterListViewModel(get()) }
     single { NpcListViewModel(get()) }
     single { AchievementListViewModel(get()) }
-    single { (sessionVM: SessionViewModel) -> CharacterClassViewModel(get(), sessionVM) }
+    single { (sessionVM: SessionViewModel) -> CharacterClassListViewModel(get(), sessionVM) }
 
 
     // DB:

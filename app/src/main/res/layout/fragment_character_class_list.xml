@@ -10,7 +10,7 @@
 
         <variable
             name="adapter"
-            type="nl.bryanderidder.ornaguide.characterclass.ui.CharacterClassAdapter" />
+            type="nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

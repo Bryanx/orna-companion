@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.characterclass.ui
+package nl.bryanderidder.ornaguide.characterclass.ui.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,7 +20,7 @@ class CharacterClassListFragment : BindingFragment<FragmentCharacterClassListBin
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
             lifecycleOwner = this@CharacterClassListFragment
-            adapter = CharacterClassAdapter(getViewModel())
+            adapter = CharacterClassListAdapter(getViewModel())
             vm = getViewModel()
         }.root
     }
