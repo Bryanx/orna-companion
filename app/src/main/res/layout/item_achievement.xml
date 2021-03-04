@@ -27,6 +27,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/name"
                     style="@style/databaseItemHeader"
+                    android:textAlignment="textStart"
                     android:text="@{achievement.name}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

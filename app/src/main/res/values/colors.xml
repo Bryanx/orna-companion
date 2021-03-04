@@ -2,6 +2,7 @@
 <resources>
     <color name="backgroundColorDark">#282321</color>
     <color name="cardColor">#37302D</color>
+    <color name="pageCardColor">#3C3532</color>
     <color name="menuColor">#3C3532</color>
     <color name="dividerColor">#534A48</color>
     <color name="elementBackgroundColor">#3C3532</color>
@@ -27,4 +28,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="backButtonColor">#534A48</color>
 </resources>

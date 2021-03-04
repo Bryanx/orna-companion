@@ -6,278 +6,283 @@
 
     <merge>
 
-        <LinearLayout
-            android:id="@+id/bottomMenuContainer"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/menuColor"
-            android:clickable="true"
-            android:orientation="vertical"
-            app:layout_behavior="@string/bottom_sheet_behavior">
+            android:layout_height="match_parent"
+            android:layout_marginTop="?actionBarSize">
 
             <LinearLayout
+                android:id="@+id/bottomMenuContainer"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/navBarHeight"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:background="@color/menuColor"
+                android:clickable="true"
+                android:orientation="vertical"
+                app:layout_behavior="@string/bottom_sheet_behavior">
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/navBarHeight"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingHorizontal="20dp"
-                        android:text="Menu"
-                        android:textColor="@color/textColorHeader"
-                        android:textSize="18sp" />
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="20dp"
+                            android:text="Menu"
+                            android:textColor="@color/textColorHeader"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/menuBtn"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="15dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_baseline_menu_24"
+                        android:tint="@color/textColor" />
                 </LinearLayout>
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/menuBtn"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:padding="15dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_baseline_menu_24"
-                    android:tint="@color/textColor" />
-            </LinearLayout>
-
-            <androidx.core.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <nl.bryanderidder.ornaguide.shared.ui.BottomMenu
-                    android:id="@+id/bottomMenu"
+                <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="15dp"
-                    android:background="@color/menuColor"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content">
 
-                    <FrameLayout
+                    <nl.bryanderidder.ornaguide.shared.ui.BottomMenu
+                        android:id="@+id/bottomMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="2dp">
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="@color/menuColor"
+                        android:orientation="vertical">
 
-                        <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
-                            android:id="@+id/classes"
+                        <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:padding="10dp"
-                            app:menuIconSrc="@drawable/classes"
-                            app:menuText="Classes" />
-                    </FrameLayout>
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp">
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="2dp">
+                            <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
+                                android:id="@+id/classes"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:padding="10dp"
+                                app:menuIconSrc="@drawable/classes"
+                                app:menuText="Classes" />
+                        </FrameLayout>
 
-                        <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
-                            android:id="@+id/specialization"
+                        <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:padding="10dp"
-                            app:menuIconSrc="@drawable/specializations"
-                            app:menuText="Specializations" />
-                    </FrameLayout>
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp">
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="2dp">
+                            <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
+                                android:id="@+id/specialization"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:padding="10dp"
+                                app:menuIconSrc="@drawable/specializations"
+                                app:menuText="Specializations" />
+                        </FrameLayout>
 
-                        <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
-                            android:id="@+id/skills"
+                        <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:padding="10dp"
-                            app:menuIconSrc="@drawable/skills"
-                            app:menuText="Skills" />
-                    </FrameLayout>
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp">
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="2dp">
+                            <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
+                                android:id="@+id/skills"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:padding="10dp"
+                                app:menuIconSrc="@drawable/skills"
+                                app:menuText="Skills" />
+                        </FrameLayout>
 
-                        <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
-                            android:id="@+id/pets"
+                        <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:padding="10dp"
-                            app:menuIconSrc="@drawable/pets"
-                            app:menuText="Pets" />
-                    </FrameLayout>
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp">
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="2dp">
+                            <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
+                                android:id="@+id/pets"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:padding="10dp"
+                                app:menuIconSrc="@drawable/pets"
+                                app:menuText="Pets" />
+                        </FrameLayout>
 
-                        <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
-                            android:id="@+id/items"
+                        <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:padding="10dp"
-                            app:menuIconSrc="@drawable/items"
-                            app:menuText="Items" />
-                    </FrameLayout>
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp">
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="2dp">
+                            <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
+                                android:id="@+id/items"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:padding="10dp"
+                                app:menuIconSrc="@drawable/items"
+                                app:menuText="Items" />
+                        </FrameLayout>
 
-                        <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
-                            android:id="@+id/monsters"
+                        <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:padding="10dp"
-                            app:menuIconSrc="@drawable/monsters"
-                            app:menuText="Monsters" />
-                    </FrameLayout>
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp">
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="2dp">
+                            <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
+                                android:id="@+id/monsters"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:padding="10dp"
+                                app:menuIconSrc="@drawable/monsters"
+                                app:menuText="Monsters" />
+                        </FrameLayout>
 
-                        <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
-                            android:id="@+id/npcs"
+                        <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:padding="10dp"
-                            app:menuIconSrc="@drawable/npcs"
-                            app:menuText="NPCs" />
-                    </FrameLayout>
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp">
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="2dp">
+                            <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
+                                android:id="@+id/npcs"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:padding="10dp"
+                                app:menuIconSrc="@drawable/npcs"
+                                app:menuText="NPCs" />
+                        </FrameLayout>
 
-                        <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
-                            android:id="@+id/achievements"
+                        <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:padding="10dp"
-                            app:menuIconSrc="@drawable/achievements"
-                            app:menuText="Achievements" />
-                    </FrameLayout>
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp">
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="2dp">
+                            <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
+                                android:id="@+id/achievements"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:padding="10dp"
+                                app:menuIconSrc="@drawable/achievements"
+                                app:menuText="Achievements" />
+                        </FrameLayout>
 
-                        <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
-                            android:id="@+id/quests"
+                        <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:padding="10dp"
-                            app:menuIconSrc="@drawable/quests"
-                            app:menuText="Quests" />
-                    </FrameLayout>
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp">
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginVertical="8dp"
-                        android:background="@color/dividerColor" />
+                            <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
+                                android:id="@+id/quests"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:padding="10dp"
+                                app:menuIconSrc="@drawable/quests"
+                                app:menuText="Quests" />
+                        </FrameLayout>
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="2dp">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="8dp"
+                            android:background="@color/dividerColor" />
 
-                        <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
-                            android:id="@+id/item_assess"
+                        <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:padding="10dp"
-                            app:menuIconSrc="@drawable/item_assess"
-                            app:menuText="Item assess" />
-                    </FrameLayout>
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp">
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="2dp">
+                            <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
+                                android:id="@+id/item_assess"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:padding="10dp"
+                                app:menuIconSrc="@drawable/item_assess"
+                                app:menuText="Item assess" />
+                        </FrameLayout>
 
-                        <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
-                            android:id="@+id/guides"
+                        <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:padding="10dp"
-                            app:menuIconSrc="@drawable/guides"
-                            app:menuText="Guides" />
-                    </FrameLayout>
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp">
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginVertical="8dp"
-                        android:background="@color/dividerColor" />
+                            <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
+                                android:id="@+id/guides"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:padding="10dp"
+                                app:menuIconSrc="@drawable/guides"
+                                app:menuText="Guides" />
+                        </FrameLayout>
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="2dp">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="8dp"
+                            android:background="@color/dividerColor" />
 
-                        <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
-                            android:id="@+id/settings"
+                        <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:padding="10dp"
-                            app:menuIconSrc="@drawable/ic_settings_24dp"
-                            app:menuText="Settings" />
-                    </FrameLayout>
-                </nl.bryanderidder.ornaguide.shared.ui.BottomMenu>
-            </androidx.core.widget.NestedScrollView>
-        </LinearLayout>
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp">
 
+                            <nl.bryanderidder.ornaguide.shared.ui.BottomMenuItem
+                                android:id="@+id/settings"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:padding="10dp"
+                                app:menuIconSrc="@drawable/ic_settings_24dp"
+                                app:menuText="Settings" />
+                        </FrameLayout>
+                    </nl.bryanderidder.ornaguide.shared.ui.BottomMenu>
+                </androidx.core.widget.NestedScrollView>
+            </LinearLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </merge>
 </layout>

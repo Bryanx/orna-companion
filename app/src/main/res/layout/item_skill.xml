@@ -64,6 +64,7 @@
                     style="@style/databaseItemDescription"
                     android:paddingHorizontal="@dimen/cardPadding"
                     android:paddingTop="@dimen/cardPadding"
+                    android:paddingBottom="@dimen/cardPadding"
                     android:text="@{skill.description}"
                     android:textAlignment="textStart"
                     app:layout_constraintStart_toStartOf="parent"

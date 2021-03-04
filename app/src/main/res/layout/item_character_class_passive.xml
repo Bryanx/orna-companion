@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="passive"
             type="nl.bryanderidder.ornaguide.characterclass.model.CharacterClass.Passive" />
     </data>
 
-    <TextView
+    <com.google.android.material.card.MaterialCardView
+        style="@style/databaseItemPageCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@{passive.name}"
-        android:textColor="@color/textColor"
-        tools:text="Critical hits"/>
+        app:contentPaddingLeft="12dp"
+        app:contentPaddingRight="12dp"
+        app:contentPaddingTop="8dp"
+        app:contentPaddingBottom="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{passive.name}"
+            android:textColor="@color/textColor"
+            android:textStyle="bold"
+            tools:text="Critical hits" />
+
+    </com.google.android.material.card.MaterialCardView>
 </layout>

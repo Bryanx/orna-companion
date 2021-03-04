@@ -1,17 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="learn"
             type="nl.bryanderidder.ornaguide.characterclass.model.CharacterClass.Learn" />
     </data>
 
-    <TextView
+    <com.google.android.material.card.MaterialCardView
+        style="@style/databaseItemPageCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@{learn.name}"
-        android:textColor="@color/textColor"
-        tools:text="Critical hits"/>
+        app:contentPaddingBottom="8dp"
+        app:contentPaddingLeft="12dp"
+        app:contentPaddingRight="12dp"
+        app:contentPaddingTop="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="@{learn.name}"
+                android:textStyle="bold"
+                android:textColor="@color/textColor"
+                tools:text="Critical hits" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:text="@{`Lvl ` + learn.level}"
+                android:textColor="@color/textColor"
+                tools:text="Lvl 50" />
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 </layout>

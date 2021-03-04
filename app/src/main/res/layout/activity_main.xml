@@ -47,15 +47,9 @@
             android:alpha="0"
             android:background="#99000000" />
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="?actionBarSize">
-            <include
-                android:id="@+id/includeMenu"
-                layout="@layout/menu_bottomsheet" />
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <include
+            android:id="@+id/includeMenu"
+            layout="@layout/menu_bottomsheet" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

@@ -72,7 +72,7 @@ dependencies {
     implementation("com.github.skydoves:sandwich:1.0.9")
 
     // Databinding
-    implementation("com.github.skydoves:bindables:1.0.0") {
+    implementation("com.github.skydoves:bindables:1.0.5") {
         exclude(group = "com.google.android.material")
     }
 

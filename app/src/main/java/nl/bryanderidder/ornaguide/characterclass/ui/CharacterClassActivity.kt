@@ -26,6 +26,7 @@ class CharacterClassActivity :
         super.onCreate(savedInstanceState)
         binding {
             lifecycleOwner = this@CharacterClassActivity
+            activity = this@CharacterClassActivity
             vm = sessionVM
         }
     }
