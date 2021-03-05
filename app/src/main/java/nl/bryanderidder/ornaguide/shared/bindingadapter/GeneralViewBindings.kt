@@ -1,6 +1,7 @@
 package nl.bryanderidder.ornaguide.shared.bindingadapter
 
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
@@ -12,6 +13,14 @@ import nl.bryanderidder.ornaguide.shared.util.ElementColorUtil
 import nl.bryanderidder.ornaguide.shared.util.color
 
 object GeneralViewBindings {
+
+    @JvmStatic
+    @BindingAdapter("toast")
+    fun bindToast(view: View, text: String?) {
+        if (!text.isNullOrEmpty())
+            Toast.makeText(view.context, text, Toast.LENGTH_SHORT).show()
+    }
+
     @JvmStatic
     @BindingAdapter("gone")
     fun bindGone(view: View, shouldBeGone: Boolean) {

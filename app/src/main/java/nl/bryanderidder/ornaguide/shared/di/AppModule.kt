@@ -1,13 +1,14 @@
 package nl.bryanderidder.ornaguide.shared.di
 
+import android.content.Context
 import com.huma.room_for_asset.RoomAsset
 import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import com.squareup.moshi.Moshi
-import nl.bryanderidder.ornaguide.MainViewModel
 import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRepository
 import nl.bryanderidder.ornaguide.achievement.ui.AchievementListViewModel
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
-import nl.bryanderidder.ornaguide.characterclass.ui.CharacterClassListViewModel
+import nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListViewModel
+import nl.bryanderidder.ornaguide.characterclass.ui.detail.CharacterClassDetailViewModel
 import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
 import nl.bryanderidder.ornaguide.item.ui.ItemListViewModel
 import nl.bryanderidder.ornaguide.monster.persistence.MonsterRepository
@@ -19,16 +20,17 @@ import nl.bryanderidder.ornaguide.pet.ui.PetListViewModel
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import nl.bryanderidder.ornaguide.shared.database.OrnaDatabase
 import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
-import nl.bryanderidder.ornaguide.shared.network.NetworkLoggingInterceptor
-import nl.bryanderidder.ornaguide.shared.network.OrnaClient
-import nl.bryanderidder.ornaguide.shared.network.OrnaService
+import nl.bryanderidder.ornaguide.shared.network.*
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
 import nl.bryanderidder.ornaguide.skill.ui.SkillListViewModel
 import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationRepository
 import nl.bryanderidder.ornaguide.specialization.ui.SpecializationListViewModel
+import okhttp3.Cache
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
+import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -39,9 +41,14 @@ import java.util.concurrent.TimeUnit
 @JvmField
 val appModule: Module = module {
 
+    single { androidContext().getSharedPreferences(androidContext().packageName, Context.MODE_PRIVATE) }
+    single { SharedPrefsUtil(get()) }
+
+
     single {
         OkHttpClient.Builder()
             .addInterceptor(NetworkLoggingInterceptor())
+            .addInterceptor(CachingInterceptor(get(), get()))
             .connectTimeout(10, TimeUnit.SECONDS)
             .writeTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
@@ -63,17 +70,16 @@ val appModule: Module = module {
 
     single { OrnaClient(get()) }
 
-    single { MainViewModel(get()) }
-    single { SessionViewModel(get()) }
-    single { SkillListViewModel(get()) }
-    single { SpecializationListViewModel(get()) }
-    single { PetListViewModel(get()) }
-    single { ItemListViewModel(get()) }
-    single { MonsterListViewModel(get()) }
-    single { NpcListViewModel(get()) }
-    single { AchievementListViewModel(get()) }
-    single { (sessionVM: SessionViewModel) -> CharacterClassListViewModel(get(), sessionVM) }
-
+    viewModel { SessionViewModel(get()) }
+    viewModel { SkillListViewModel(get()) }
+    viewModel { SpecializationListViewModel(get()) }
+    viewModel { PetListViewModel(get()) }
+    viewModel { ItemListViewModel(get()) }
+    viewModel { MonsterListViewModel(get()) }
+    viewModel { NpcListViewModel(get()) }
+    viewModel { AchievementListViewModel(get()) }
+    viewModel { CharacterClassListViewModel(get()) }
+    viewModel { CharacterClassDetailViewModel(get(), get()) }
 
     // DB:
 

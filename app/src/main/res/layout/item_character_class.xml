@@ -53,12 +53,12 @@
                     style="@style/databaseItemDescription"
                     android:textAlignment="center"
                     android:paddingHorizontal="@dimen/cardPadding"
-                    android:text="@{characterClass.description}"
+                    android:text="@{`Learns ` + characterClass.learns.toLowerCase()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/name"
-                    tools:text="A skilled individual who favours magic over strength. Can wield staves and robes." />
+                    tools:text="Learns skills that boost attack" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/cost"

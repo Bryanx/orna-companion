@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vm"
-            type="nl.bryanderidder.ornaguide.MainViewModel" />
+            type="nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListViewModel" />
 
         <variable
             name="adapter"
@@ -17,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="@dimen/navBarHeight"
-        android:clipToPadding="false">
+        android:clipToPadding="false"
+        app:toast="@{vm.toastMessage}">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
@@ -29,7 +30,7 @@
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical"
             app:adapter="@{adapter}"
-            app:adapterCharacterClassList="@{vm.characterClassListLiveData}"
+            app:adapterCharacterClassList="@{vm.characterClassList}"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

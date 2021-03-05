@@ -1,6 +1,5 @@
 package nl.bryanderidder.ornaguide.characterclass.ui.list
 
-import android.os.SystemClock
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.skydoves.bindables.binding
@@ -8,15 +7,14 @@ import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.characterclass.ui.detail.CharacterClassDetailActivity
 import nl.bryanderidder.ornaguide.databinding.ItemCharacterClassBinding
-import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import timber.log.Timber
 
-class CharacterClassListAdapter(private val sessionVM: SessionViewModel) :
+class CharacterClassListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     StableRecyclerViewAdapter<CharacterClassListAdapter.CharacterClassViewHolder>() {
 
     private val items: MutableList<CharacterClass> = mutableListOf()
-    private var onClickedAt = 0L
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterClassViewHolder {
         val binding = parent.binding<ItemCharacterClassBinding>(R.layout.item_character_class)
@@ -24,11 +22,9 @@ class CharacterClassListAdapter(private val sessionVM: SessionViewModel) :
             binding.root.setOnClickListener {
                 val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
                     ?: return@setOnClickListener
-                val currentClickedAt = SystemClock.elapsedRealtime()
-                if (currentClickedAt - onClickedAt > binding.transformationLayout.duration) {
-                    sessionVM.characterClass.value = items[position]
+                if (!binding.transformationLayout.isTransforming) {
+                    sharedPrefsUtil.setCharacterClassId(items[position].id)
                     CharacterClassDetailActivity.startActivity(binding.transformationLayout)
-                    onClickedAt = currentClickedAt
                 }
             }
         }

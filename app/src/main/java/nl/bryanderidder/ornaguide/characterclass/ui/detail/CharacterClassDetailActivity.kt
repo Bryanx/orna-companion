@@ -6,11 +6,8 @@ import com.skydoves.bundler.intentOf
 import com.skydoves.transformationlayout.TransformationCompat
 import com.skydoves.transformationlayout.TransformationLayout
 import nl.bryanderidder.ornaguide.R
-import nl.bryanderidder.ornaguide.characterclass.ui.CharacterClassListViewModel
 import nl.bryanderidder.ornaguide.databinding.ActivityCharacterClassDetailBinding
-import nl.bryanderidder.ornaguide.shared.SessionViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
-import org.koin.core.parameter.parametersOf
+import org.koin.android.viewmodel.ext.android.getViewModel
 
 /**
  * Activity for a single character class
@@ -19,16 +16,14 @@ import org.koin.core.parameter.parametersOf
 class CharacterClassDetailActivity :
     BindingActivity<ActivityCharacterClassDetailBinding>(R.layout.activity_character_class_detail) {
 
-    val sessionVM: SessionViewModel by viewModel()
-    val viewModel: CharacterClassListViewModel by viewModel { parametersOf(sessionVM) }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         TransformationCompat.onTransformationEndContainerApplyParams(this)
         super.onCreate(savedInstanceState)
         binding {
             lifecycleOwner = this@CharacterClassDetailActivity
             activity = this@CharacterClassDetailActivity
-            vm = sessionVM
+            vm = getViewModel<CharacterClassDetailViewModel>()
+                .apply { loadCharacterClass() }
         }
     }
 

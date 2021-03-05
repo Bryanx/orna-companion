@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 
+// TODO: remove this eventually and use sharedprefs so we can share accross activities
 class SessionViewModel(application: Application) : AndroidViewModel(application) {
-    var characterClass: MutableLiveData<CharacterClass> = MutableLiveData()
+    var characterClassId: MutableLiveData<Int> = MutableLiveData()
 }

@@ -1,31 +1,33 @@
-package nl.bryanderidder.ornaguide
+package nl.bryanderidder.ornaguide.characterclass.ui.list
 
 import androidx.databinding.Bindable
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.Dispatchers
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
+import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRequestBody
 
-class MainViewModel(val repository: CharacterClassRepository) : BindingViewModel() {
+class CharacterClassListViewModel(
+    repository: CharacterClassRepository
+) : BindingViewModel() {
 
-    var characterClassListLiveData: LiveData<List<CharacterClass>>
+    val characterClassList: LiveData<List<CharacterClass>>
 
     @get:Bindable
     var toastMessage: String? by bindingProperty(null)
         private set
 
     @get:Bindable
-    var isLoading: Boolean by bindingProperty(false)
+    var loading: Boolean by bindingProperty(false)
         private set
 
     init {
-        characterClassListLiveData = repository.fetchCharacterClassList(
-            onStart = { isLoading = true },
-            onComplete = { isLoading = false },
+        characterClassList = repository.fetchCharacterClassList(
+            requestBody = CharacterClassRequestBody(),
+            onStart = { loading = true },
+            onComplete = { loading = false },
             onError = { toastMessage = it }
         ).asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }

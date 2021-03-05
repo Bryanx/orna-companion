@@ -14,4 +14,10 @@ interface CharacterClassDao {
 
     @Query("SELECT * FROM CharacterClass ORDER BY tier LIMIT 100")
     suspend fun getCharacterClassList(): List<CharacterClass>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertCharacterClass(CharacterClass: CharacterClass)
+
+    @Query("SELECT * FROM CharacterClass WHERE id = :id")
+    suspend fun getCharacterClass(id: Int): CharacterClass
 }

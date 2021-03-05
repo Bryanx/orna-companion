@@ -11,12 +11,13 @@
 
         <variable
             name="vm"
-            type="nl.bryanderidder.ornaguide.shared.SessionViewModel" />
+            type="nl.bryanderidder.ornaguide.characterclass.ui.detail.CharacterClassDetailViewModel" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:toast="@{vm.toastMessage}">
 
         <ScrollView
             android:layout_width="match_parent"
