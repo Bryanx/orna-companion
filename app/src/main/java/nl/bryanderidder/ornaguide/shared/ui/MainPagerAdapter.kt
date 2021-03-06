@@ -11,7 +11,7 @@ import nl.bryanderidder.ornaguide.monster.ui.MonsterListFragment
 import nl.bryanderidder.ornaguide.npc.ui.NpcListFragment
 import nl.bryanderidder.ornaguide.pet.ui.PetListFragment
 import nl.bryanderidder.ornaguide.skill.ui.list.SkillListFragment
-import nl.bryanderidder.ornaguide.specialization.ui.SpecializationListFragment
+import nl.bryanderidder.ornaguide.specialization.ui.list.SpecializationListFragment
 
 class MainPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fm, lifecycle) {

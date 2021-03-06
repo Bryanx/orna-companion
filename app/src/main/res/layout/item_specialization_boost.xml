@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="boost"
+            type="nl.bryanderidder.ornaguide.specialization.model.Specialization.Boost" />
+    </data>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{boost.formattedName() + `\n` + boost.formattedValue()}"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingHorizontal="4dp"
+        app:boostTextColor="@{boost.value}"
+        tools:text="Att\n+15%"
+        tools:textColor="@color/green"/>
+
+</layout>

@@ -1,32 +1,31 @@
-package nl.bryanderidder.ornaguide.specialization.ui
+package nl.bryanderidder.ornaguide.specialization.ui.list
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.skydoves.bindables.binding
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.ItemSpecializationBinding
-import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
+import nl.bryanderidder.ornaguide.specialization.ui.detail.BoostsAdapter
+import nl.bryanderidder.ornaguide.specialization.ui.detail.SpecializationDetailActivity
 
-class SpecializationListAdapter(private val sessionVM: SessionViewModel) :
+class SpecializationListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     StableRecyclerViewAdapter<SpecializationListAdapter.SpecializationViewHolder>() {
 
     private val items: MutableList<Specialization> = mutableListOf()
-    private var onClickedAt = 0L
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpecializationViewHolder {
         val binding = parent.binding<ItemSpecializationBinding>(R.layout.item_specialization)
         return SpecializationViewHolder(binding).apply {
             binding.root.setOnClickListener {
-//                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
-//                    ?: return@setOnClickListener
-//                val currentClickedAt = SystemClock.elapsedRealtime()
-//                if (currentClickedAt - onClickedAt > binding.transformationLayout.duration) {
-//                    sessionVM.specialization.value = items[position]
-//                    SpecializationActivity.startActivity(binding.transformationLayout)
-//                    onClickedAt = currentClickedAt
-//                }
+                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+                    ?: return@setOnClickListener
+                if (!binding.transformationLayout.isTransforming) {
+                    sharedPrefsUtil.setSpecializationId(items[position].id)
+                    SpecializationDetailActivity.startActivity(binding.transformationLayout)
+                }
             }
         }
     }
@@ -34,6 +33,7 @@ class SpecializationListAdapter(private val sessionVM: SessionViewModel) :
     override fun onBindViewHolder(holder: SpecializationViewHolder, position: Int) {
         holder.binding.apply {
             specialization = items[position]
+            boostsAdapter = BoostsAdapter()
             executePendingBindings()
         }
     }

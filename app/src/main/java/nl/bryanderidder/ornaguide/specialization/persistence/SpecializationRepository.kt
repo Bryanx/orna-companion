@@ -46,4 +46,29 @@ class SpecializationRepository(
                 Timber.e(message())
             }
     }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
+
+    fun fetchSpecialization(
+        id: Int,
+        onError: (String?) -> Unit
+    ) = flow<Specialization> {
+        val dbResult = dao.getSpecialization(id)
+        emit(dbResult)
+        client.fetchSpecializationList(SpecializationRequestBody(id))
+            .suspendOnSuccess {
+                // the network object has changed replace it in the db.
+                val networkResult = response.body()?.firstOrNull()
+                if (networkResult != null && dbResult != networkResult) {
+                    dao.insertSpecialization(networkResult)
+                    emit(networkResult)
+                }
+            }
+            .onError {
+                onError(message())
+                Timber.e(message())
+            }
+            .onException {
+                onError(message())
+                Timber.e(message())
+            }
+    }
 }

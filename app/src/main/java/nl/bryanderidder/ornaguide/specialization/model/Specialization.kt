@@ -36,5 +36,24 @@ data class Specialization(
     data class Boost(
         @Json(name = "name") val name: String = "",
         @Json(name = "value") val value: Int = 0
-    )
+    ) {
+        @Ignore
+        fun formattedName(): String = when (name.toLowerCase()) {
+            "hit points" -> "HP"
+            "attack" -> "Att"
+            "defense" -> "Def"
+            "resistance" -> "Res"
+            "magic" -> "Mag"
+            "dexterity" -> "Dex"
+            "mana" -> "Mana"
+            else -> "?"
+        }
+
+        @Ignore
+        fun formattedValue(): String =
+            if (value >= 0)
+                "+$value%"
+            else
+                "$value%"
+    }
 }

@@ -6,73 +6,90 @@
     <data>
 
         <variable
+            name="boostsAdapter"
+            type="nl.bryanderidder.ornaguide.specialization.ui.detail.BoostsAdapter" />
+
+        <variable
             name="specialization"
             type="nl.bryanderidder.ornaguide.specialization.model.Specialization" />
     </data>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView"
-        style="@style/databaseItemCard">
+    <com.skydoves.transformationlayout.TransformationLayout
+        android:id="@+id/transformationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:transformation_duration="200">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:foreground="?attr/selectableItemBackground"
-            app:layout_constrainedWidth="true">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView"
+            style="@style/databaseItemCard">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="20dp"
-                android:scaleType="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:glideSrc="@{specialization.previewImageUrl}"
-                tools:src="@drawable/specializations" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?attr/selectableItemBackground"
+                app:layout_constrainedWidth="true">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/name"
-                android:text="@{specialization.name}"
-                app:autoSizeTextType="uniform"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image"
-                tools:text="Inquisitor"
-                style="@style/databaseItemHeader" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="20dp"
+                    android:scaleType="center"
+                    app:glideSrc="@{specialization.previewImageUrl}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/specializations" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/description"
-                style="@style/databaseItemDescription"
-                android:textAlignment="center"
-                android:paddingHorizontal="@dimen/cardPadding"
-                android:text="@{specialization.description}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name"
-                tools:text="A skilled individual who favours magic over strength. Can wield staves and robes." />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/name"
+                    style="@style/databaseItemHeader"
+                    android:text="@{specialization.name}"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image"
+                    tools:text="Inquisitor" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/cost"
-                style="@style/databaseItemHeader"
-                android:text="@{specialization.cost}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/description"
-                tools:text="2500 orns" />
+                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                    android:id="@+id/boosts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingHorizontal="@dimen/cardPadding"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:boostsAdapter="@{boostsAdapter}"
+                    app:adapterBoostsList="@{specialization.boosts}"
+                    app:justifyContentRecycler="center"
+                    app:gone="@{specialization.boosts.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    tools:listitem="@layout/item_specialization_boost" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tier"
-                android:text="@{`` + specialization.tier}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="1"
-                style="@style/databaseItemTier"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/cost"
+                    style="@style/databaseItemHeader"
+                    android:text="@{specialization.cost}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/boosts"
+                    tools:text="2500 orns" />
 
-    </com.google.android.material.card.MaterialCardView>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tier"
+                    style="@style/databaseItemTier"
+                    android:text="@{`` + specialization.tier}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </com.skydoves.transformationlayout.TransformationLayout>
 </layout>

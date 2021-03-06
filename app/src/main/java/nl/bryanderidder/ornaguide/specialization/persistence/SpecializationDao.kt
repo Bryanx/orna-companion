@@ -14,4 +14,10 @@ interface SpecializationDao {
 
     @Query("SELECT * FROM Specialization ORDER BY tier LIMIT 100")
     suspend fun getSpecializationList(): List<Specialization>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertSpecialization(Specialization: Specialization)
+
+    @Query("SELECT * FROM Specialization WHERE id = :id")
+    suspend fun getSpecialization(id: Int): Specialization
 }

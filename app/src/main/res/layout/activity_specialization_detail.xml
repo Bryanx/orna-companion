@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="nl.bryanderidder.ornaguide.specialization.ui.detail.SpecializationDetailActivity" />
+
+        <variable
+            name="learnsAdapter"
+            type="nl.bryanderidder.ornaguide.characterclass.ui.detail.LearnsAdapter" />
+
+        <variable
+            name="passivesAdapter"
+            type="nl.bryanderidder.ornaguide.characterclass.ui.detail.PassivesAdapter" />
+
+        <variable
+            name="boostsAdapter"
+            type="nl.bryanderidder.ornaguide.specialization.ui.detail.BoostsAdapter" />
+
+        <variable
+            name="vm"
+            type="nl.bryanderidder.ornaguide.specialization.ui.detail.SpecializationDetailViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:toast="@{vm.toastMessage}">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@color/cardColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/cardColor"
+                android:paddingBottom="100dp"
+                android:paddingHorizontal="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/image"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="?actionBarSize"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@{vm.specialization.name}"
+                    android:maxWidth="140dp"
+                    android:paddingBottom="@dimen/cardPadding"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:glideSrcNoPlaceholder="@{vm.specialization.previewImageUrl}"
+                    tools:src="@drawable/specializations" />
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/databaseItemPageHeader"
+                    android:text="@{vm.specialization.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image"
+                    tools:text="Apprentice" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.specialization.description}"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    tools:text="A skilled individual who favours magic over strength. Can wield staves and robes." />
+
+                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                    android:id="@+id/boosts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingTop="6dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:boostsAdapter="@{boostsAdapter}"
+                    app:adapterBoostsList="@{vm.specialization.boosts}"
+                    app:justifyContentRecycler="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/description"
+                    tools:listitem="@layout/item_specialization_boost" />
+
+                <TextView
+                    android:id="@+id/cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@{`Cost: ` + vm.specialization.cost}"
+                    android:textColor="@color/textColorHeader"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/boosts"
+                    tools:text="Cost: 2,500 orns" />
+
+                <View
+                    android:id="@+id/descriptionDivider"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/cardDividerPadding"
+                    android:background="@color/dividerColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cost" />
+
+                <TextView
+                    android:id="@+id/slots"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/cardDividerPadding"
+                    android:text="@{`Additional skill slots: ` + vm.specialization.skills.slots}"
+                    android:textColor="@color/textColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionDivider"
+                    tools:text="Additional skill slots: 3" />
+
+                <TextView
+                    android:id="@+id/passiveSkillsLabels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Passive skills:"
+                    android:textColor="@color/textColor"
+                    app:gone="@{vm.specialization.skills.passives.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/slots" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                    android:id="@+id/passiveSkills"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingTop="6dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:passivesAdapter="@{passivesAdapter}"
+                    app:adapterPassiveList="@{vm.specialization.skills.passives}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/passiveSkillsLabels"
+                    tools:listitem="@layout/item_character_class_passive" />
+
+                <TextView
+                    android:id="@+id/skillsLearnedLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Skills learned:"
+                    android:textColor="@color/textColor"
+                    app:gone="@{vm.specialization.skills.learns.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/passiveSkills" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                    android:id="@+id/skillsLearned"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingTop="6dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:learnsAdapter="@{learnsAdapter}"
+                    app:adapterLearnList="@{vm.specialization.skills.learns}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/skillsLearnedLabel"
+                    tools:listitem="@layout/item_character_class_learn" />
+
+                <TextView
+                    android:id="@+id/classTier"
+                    style="@style/databaseItemPageTier"
+                    android:text="@{`` + vm.specialization.tier}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="1" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:contentDescription="Back button"
+            android:onClick="@{() -> activity.onBackPressed()}"
+            style="@style/backButtonFab"/>
+    </RelativeLayout>
+</layout>

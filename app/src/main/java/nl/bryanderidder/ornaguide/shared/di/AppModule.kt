@@ -29,7 +29,8 @@ import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
 import nl.bryanderidder.ornaguide.skill.ui.detail.SkillDetailViewModel
 import nl.bryanderidder.ornaguide.skill.ui.list.SkillListViewModel
 import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationRepository
-import nl.bryanderidder.ornaguide.specialization.ui.SpecializationListViewModel
+import nl.bryanderidder.ornaguide.specialization.ui.detail.SpecializationDetailViewModel
+import nl.bryanderidder.ornaguide.specialization.ui.list.SpecializationListViewModel
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
@@ -77,6 +78,7 @@ val appModule: Module = module {
     viewModel { SkillDetailViewModel(get(), get()) }
     viewModel { SkillListViewModel(get()) }
     viewModel { SpecializationListViewModel(get()) }
+    viewModel { SpecializationDetailViewModel(get(), get()) }
     viewModel { PetListViewModel(get()) }
     viewModel { ItemListViewModel(get()) }
     viewModel { MonsterListViewModel(get()) }

@@ -6,11 +6,11 @@
     <data>
         <variable
             name="vm"
-            type="nl.bryanderidder.ornaguide.specialization.ui.SpecializationListViewModel" />
+            type="nl.bryanderidder.ornaguide.specialization.ui.list.SpecializationListViewModel" />
 
         <variable
             name="adapter"
-            type="nl.bryanderidder.ornaguide.specialization.ui.SpecializationListAdapter" />
+            type="nl.bryanderidder.ornaguide.specialization.ui.list.SpecializationListAdapter" />
 
     </data>
 
