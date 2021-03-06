@@ -1,12 +1,12 @@
-package nl.bryanderidder.ornaguide.skill.ui
+package nl.bryanderidder.ornaguide.skill.ui.list
 
 import android.os.Bundle
 import android.view.View
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentSkillListBinding
+import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getViewModel
-
 
 /**
  * Displays a list of skills
@@ -19,7 +19,7 @@ class SkillListFragment :
         super.onViewCreated(view, savedInstanceState)
         binding {
             lifecycleOwner = this@SkillListFragment
-            adapter = SkillListAdapter(getViewModel())
+            adapter = SkillListAdapter(get())
             vm = getViewModel()
         }.root
     }

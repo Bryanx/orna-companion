@@ -80,7 +80,11 @@
 
     <style name="databaseItemPageHeader" parent="databaseItemHeader">
         <item name="android:textSize">20sp</item>
+    </style>
 
+    <style name="databaseItemPageDescription" parent="databaseItemDescription">
+        <item name="android:gravity">center</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <style name="databaseItemPageCard" parent="databaseItemCard">

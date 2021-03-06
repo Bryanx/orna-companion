@@ -73,16 +73,16 @@ class OrnaTypeConverters(private val moshi: Moshi) {
     }
 
     @TypeConverter
-    fun fromSkillMonstersUse(type: List<Skill.MonstersUse>): String {
-        val listType = Types.newParameterizedType(List::class.java, Skill.MonstersUse::class.java)
-        val adapter: JsonAdapter<List<Skill.MonstersUse>> = moshi.adapter(listType)
+    fun fromSkillIdNamePair(type: List<Skill.IdNamePair>): String {
+        val listType = Types.newParameterizedType(List::class.java, Skill.IdNamePair::class.java)
+        val adapter: JsonAdapter<List<Skill.IdNamePair>> = moshi.adapter(listType)
         return adapter.toJson(type)
     }
 
     @TypeConverter
-    fun toSkillMonstersUse(value: String): List<Skill.MonstersUse> {
-        val listType = Types.newParameterizedType(List::class.java, Skill.MonstersUse::class.java)
-        val adapter: JsonAdapter<List<Skill.MonstersUse>> = moshi.adapter(listType)
+    fun toSkillIdNamePair(value: String): List<Skill.IdNamePair> {
+        val listType = Types.newParameterizedType(List::class.java, Skill.IdNamePair::class.java)
+        val adapter: JsonAdapter<List<Skill.IdNamePair>> = moshi.adapter(listType)
         return adapter.fromJson(value) ?: listOf()
     }
 

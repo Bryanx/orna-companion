@@ -1,8 +1,7 @@
 package nl.bryanderidder.ornaguide.shared.bindingadapter
 
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.appcompat.widget.AppCompatImageView
@@ -70,7 +69,7 @@ object GeneralViewBindings {
 
     @JvmStatic
     @BindingAdapter("elementColor")
-    fun bindAdapterItemList(view: AppCompatTextView, element: String) {
+    fun bindAdapterItemList(view: TextView, element: String?) {
         val colorId = ColorUtil.getColorForElement(element)
         view.setTextColor(view.context.color(colorId))
     }

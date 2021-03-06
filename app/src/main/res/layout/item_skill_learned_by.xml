@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="learn"
-            type="nl.bryanderidder.ornaguide.characterclass.model.CharacterClass.Learn" />
+            name="learnedBy"
+            type="nl.bryanderidder.ornaguide.skill.model.Skill.LearnedBy" />
     </data>
 
     <com.skydoves.transformationlayout.TransformationLayout
@@ -34,17 +34,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@{learn.name}"
+                    android:text="@{learnedBy.name}"
                     android:textAlignment="center"
                     android:textColor="@color/textColor"
                     android:textStyle="bold"
-                    tools:text="Critical hits" />
+                    tools:text="Assasin" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@{`Lvl ` + learn.level}"
+                    android:text="@{`Lvl ` + learnedBy.level}"
                     android:textAlignment="center"
                     android:textColor="@color/textColor"
                     android:textSize="12sp"

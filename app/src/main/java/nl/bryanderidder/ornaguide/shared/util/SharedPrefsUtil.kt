@@ -15,6 +15,12 @@ class SharedPrefsUtil(private val prefs: SharedPreferences) {
     fun getCharacterClassId(): Int =
         prefs.getInt(CHARACTER_CLASS_ID, 1)
 
+    fun setSkillId(value: Int) =
+        prefs.edit().putInt(SKILL_ID, value).apply()
+
+    fun getSkillId(): Int =
+        prefs.getInt(SKILL_ID, 1)
+
     fun writeLong(key: String, value: Long) =
         prefs.edit().putLong(key, value).apply()
 
@@ -23,5 +29,6 @@ class SharedPrefsUtil(private val prefs: SharedPreferences) {
 
     companion object {
         const val CHARACTER_CLASS_ID: String = "CHARACTER_CLASS_ID"
+        const val SKILL_ID: String = "SKILL_ID"
     }
 }

@@ -22,36 +22,47 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:foreground="?attr/selectableItemBackground"
+                android:paddingBottom="@dimen/cardPadding"
                 app:layout_constrainedWidth="true">
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/cardPadding"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@{skill.type}"
+                    android:maxWidth="140dp"
+                    android:paddingBottom="@dimen/cardPadding"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:skillSrc="@{skill.type}"
+                    tools:src="@drawable/attack" />
+
+                <TextView
                     android:id="@+id/name"
                     style="@style/databaseItemHeader"
                     android:text="@{skill.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image"
                     tools:text="Sorrow II" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <TextView
                     android:id="@+id/type"
                     style="@style/databaseItemDescription"
-                    android:layout_marginStart="@dimen/cardPadding"
-                    android:text="@{skill.type}"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/cardPadding"
+                    android:text="@{skill.formattedTypeAndMana()}"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/name"
-                    tools:text="Magic" />
+                    tools:text="Magic skill - 25 mana" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/mana"
-                    style="@style/databaseItemDescription"
-                    android:paddingEnd="@dimen/cardPadding"
-                    android:text="@{skill.manaCost + ` mana`}"
-                    app:gone="@{skill.manaCost == 0}"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/type"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:text="10 mana" />
-
-                <androidx.appcompat.widget.AppCompatTextView
+                <TextView
                     android:id="@+id/tier"
                     style="@style/databaseItemTier"
                     android:text="@{`` + skill.tier}"
@@ -59,32 +70,49 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="1" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <TextView
                     android:id="@+id/description"
                     style="@style/databaseItemDescription"
                     android:paddingHorizontal="@dimen/cardPadding"
                     android:paddingTop="@dimen/cardPadding"
-                    android:paddingBottom="@dimen/cardPadding"
                     android:text="@{skill.description}"
-                    android:textAlignment="textStart"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/type"
                     tools:text="Grants temporary defenses and grants Ward for 3 turns." />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <TextView
                     android:id="@+id/element"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginBottom="12dp"
                     style="@style/elementStyle"
+                    android:layout_marginTop="@dimen/cardPadding"
+                    android:gravity="center"
                     android:text="@{skill.element}"
+                    android:textAlignment="center"
                     android:textAllCaps="true"
                     app:elementColor="@{skill.element}"
                     app:gone="@{skill.element.isEmpty()}"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/description"
                     tools:text="WATER"
-                    tools:textColor="@color/elementWaterColor"/>
+                    tools:textColor="@color/elementWaterColor" />
+
+                <TextView
+                    android:id="@+id/cost"
+                    style="@style/databaseItemDescription"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/cardPadding"
+                    android:text="@{`Bought from Arcanist\n` + skill.formattedCost() + ` gold`}"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColorHeader"
+                    android:textStyle="bold"
+                    app:gone="@{skill.bought == false}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/element"
+                    tools:text="Bought from Arcanist\n150.000 gold" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

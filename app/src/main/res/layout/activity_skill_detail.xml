@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="nl.bryanderidder.ornaguide.skill.ui.detail.SkillDetailActivity" />
+
+        <variable
+            name="learnedByAdapter"
+            type="nl.bryanderidder.ornaguide.skill.ui.detail.LearnedByAdapter" />
+
+        <variable
+            name="monstersUseAdapter"
+            type="nl.bryanderidder.ornaguide.skill.ui.detail.MonstersUseAdapter" />
+
+        <variable
+            name="petsUseAdapter"
+            type="nl.bryanderidder.ornaguide.skill.ui.detail.PetsUseAdapter" />
+
+        <variable
+            name="vm"
+            type="nl.bryanderidder.ornaguide.skill.ui.detail.SkillDetailViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:toast="@{vm.toastMessage}">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@color/cardColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/cardColor"
+                android:paddingBottom="100dp"
+                android:paddingHorizontal="12dp">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="?actionBarSize"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@{vm.skill.name}"
+                    android:maxWidth="140dp"
+                    android:paddingBottom="@dimen/cardPadding"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:skillSrc="@{vm.skill.type}"
+                    tools:src="@drawable/attack" />
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/databaseItemPageHeader"
+                    android:text="@{vm.skill.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image"
+                    tools:text="Sorrow II" />
+
+                <TextView
+                    android:id="@+id/type"
+                    style="@style/databaseItemPageDescription"
+                    android:paddingBottom="@dimen/cardPadding"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:text="@{vm.skill.formattedTypeAndMana()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    tools:text="Magic skill - 25 mana" />
+
+                <TextView
+                    android:id="@+id/description"
+                    style="@style/databaseItemPageDescription"
+                    android:text="@{vm.skill.description}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/type"
+                    tools:text="A skilled individual who favours magic over strength. Can wield staves and robes." />
+
+                <TextView
+                    android:id="@+id/element"
+                    style="@style/elementStyle"
+                    android:text="@{vm.skill.element}"
+                    android:textAllCaps="true"
+                    android:layout_marginTop="@dimen/cardPadding"
+                    app:elementColor="@{vm.skill.element}"
+                    app:gone="@{vm.skill.element.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/description"
+                    tools:text="WATER"
+                    tools:textColor="@color/elementWaterColor" />
+
+                <TextView
+                    android:id="@+id/cost"
+                    style="@style/databaseItemPageDescription"
+                    android:layout_marginTop="@dimen/cardPadding"
+                    android:text="@{`Bought from Arcanist\n` + vm.skill.formattedCost() + ` gold`}"
+                    android:textColor="@color/textColorHeader"
+                    android:textStyle="bold"
+                    app:gone="@{vm.skill.bought == false}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/element"
+                    tools:text="Bought from Arcanist\n150.000 gold" />
+
+                <View
+                    android:id="@+id/descriptionDivider"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/cardDividerPadding"
+                    android:background="@color/dividerColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cost" />
+
+                <TextView
+                    android:id="@+id/gives"
+                    style="@style/databaseItemPageDescription"
+                    android:text="@{vm.skill.formattedGives()}"
+                    android:paddingTop="@dimen/cardDividerPadding"
+                    app:gone="@{vm.skill.gives.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionDivider"
+                    tools:text="Gives:\nT. Att ↑\nT. Def ↑" />
+
+                <TextView
+                    android:id="@+id/causes"
+                    android:paddingTop="@dimen/cardPadding"
+                    style="@style/databaseItemPageDescription"
+                    android:text="@{vm.skill.formattedCauses()}"
+                    app:gone="@{vm.skill.causes.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/gives"
+                    tools:text="Causes:\nBlight" />
+
+                <TextView
+                    android:id="@+id/learnedBy"
+                    android:paddingTop="@dimen/cardPadding"
+                    style="@style/databaseItemPageDescription"
+                    android:text="Learned by:"
+                    app:gone="@{vm.skill.learnedBy.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/causes" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                    android:id="@+id/learnedByList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingTop="6dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:gone="@{vm.skill.learnedBy.isEmpty()}"
+                    app:learnedByAdapter="@{learnedByAdapter}"
+                    app:learnedByList="@{vm.skill.learnedBy}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/learnedBy"
+                    tools:listitem="@layout/item_skill_learned_by" />
+
+                <TextView
+                    android:id="@+id/monstersUse"
+                    android:paddingTop="@dimen/cardPadding"
+                    style="@style/databaseItemPageDescription"
+                    android:text="Monsters use:"
+                    app:gone="@{vm.skill.monstersUse.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/learnedByList" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                    android:id="@+id/monstersUseList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingTop="6dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:gone="@{vm.skill.monstersUse.isEmpty()}"
+                    app:monstersUseAdapter="@{monstersUseAdapter}"
+                    app:monstersUseList="@{vm.skill.monstersUse}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/monstersUse"
+                    tools:listitem="@layout/item_skill_monsters_use" />
+
+                <TextView
+                    android:id="@+id/petsUse"
+                    android:paddingTop="@dimen/cardPadding"
+                    style="@style/databaseItemPageDescription"
+                    android:text="Pets use:"
+                    app:gone="@{vm.skill.petsUse.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/monstersUseList" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                    android:id="@+id/petsUseList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingTop="6dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:gone="@{vm.skill.petsUse.isEmpty()}"
+                    app:petsUseAdapter="@{petsUseAdapter}"
+                    app:petsUseList="@{vm.skill.petsUse}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/petsUse"
+                    tools:listitem="@layout/item_skill_pets_use" />
+
+                <TextView
+                    android:id="@+id/classTier"
+                    style="@style/databaseItemPageTier"
+                    android:text="@{`` + vm.skill.tier}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="1" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            style="@style/backButtonFab"
+            android:contentDescription="Back button"
+            android:onClick="@{() -> activity.onBackPressed()}" />
+    </RelativeLayout>
+</layout>

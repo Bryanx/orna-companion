@@ -6,9 +6,12 @@ import com.skydoves.bindables.binding
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.databinding.ItemCharacterClassLearnBinding
-import timber.log.Timber
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.skill.ui.detail.SkillDetailActivity
 
-class LearnsAdapter : RecyclerView.Adapter<LearnsAdapter.CharacterClassViewHolder>() {
+class LearnsAdapter(
+    private val sharedPrefsUtil: SharedPrefsUtil
+) : RecyclerView.Adapter<LearnsAdapter.CharacterClassViewHolder>() {
 
     private val items: MutableList<CharacterClass.Learn> = mutableListOf()
 
@@ -17,14 +20,12 @@ class LearnsAdapter : RecyclerView.Adapter<LearnsAdapter.CharacterClassViewHolde
             parent.binding<ItemCharacterClassLearnBinding>(R.layout.item_character_class_learn)
         return CharacterClassViewHolder(binding).apply {
             binding.root.setOnClickListener {
-//                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
-//                    ?: return@setOnClickListener
-//                val currentClickedAt = SystemClock.elapsedRealtime()
-//                if (currentClickedAt - onClickedAt > binding.transformationLayout.duration) {
-//                    sessionVM.characterClass.value = items[position]
-//                    CharacterClassActivity.startActivity(binding.transformationLayout)
-//                    onClickedAt = currentClickedAt
-//                }
+                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+                    ?: return@setOnClickListener
+                if (!binding.transformationLayout.isTransforming) {
+                    sharedPrefsUtil.setSkillId(items[position].id)
+                    SkillDetailActivity.startActivity(binding.transformationLayout)
+                }
             }
         }
     }
@@ -37,7 +38,6 @@ class LearnsAdapter : RecyclerView.Adapter<LearnsAdapter.CharacterClassViewHolde
     }
 
     fun setItemList(classes: List<CharacterClass.Learn>) {
-        Timber.d("setItemList:${classes}")
         val previousItemSize = items.size
         items.clear()
         items.addAll(classes)

@@ -8,7 +8,6 @@ import nl.bryanderidder.ornaguide.databinding.ItemSpecializationBinding
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
-import timber.log.Timber
 
 class SpecializationListAdapter(private val sessionVM: SessionViewModel) :
     StableRecyclerViewAdapter<SpecializationListAdapter.SpecializationViewHolder>() {
@@ -40,7 +39,6 @@ class SpecializationListAdapter(private val sessionVM: SessionViewModel) :
     }
 
     fun setItemList(classes: List<Specialization>) {
-        Timber.d("setItemList:${classes}")
         val previousItemSize = items.size
         items.clear()
         items.addAll(classes)

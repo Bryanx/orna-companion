@@ -3,4 +3,5 @@
     <dimen name="navBarHeight">56dp</dimen>
     <dimen name="fabMargin">16dp</dimen>
     <dimen name="cardPadding">12dp</dimen>
+    <dimen name="cardDividerPadding">18dp</dimen>
 </resources>

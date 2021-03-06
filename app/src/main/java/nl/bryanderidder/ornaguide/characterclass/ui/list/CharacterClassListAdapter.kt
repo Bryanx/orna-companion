@@ -9,7 +9,6 @@ import nl.bryanderidder.ornaguide.characterclass.ui.detail.CharacterClassDetailA
 import nl.bryanderidder.ornaguide.databinding.ItemCharacterClassBinding
 import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
-import timber.log.Timber
 
 class CharacterClassListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     StableRecyclerViewAdapter<CharacterClassListAdapter.CharacterClassViewHolder>() {
@@ -38,7 +37,6 @@ class CharacterClassListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     }
 
     fun setItemList(classes: List<CharacterClass>) {
-        Timber.d("setItemList:${classes}")
         val previousItemSize = items.size
         items.clear()
         items.addAll(classes)

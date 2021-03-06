@@ -1,7 +1,9 @@
 package nl.bryanderidder.ornaguide.characterclass.ui.list
 
 import androidx.databinding.Bindable
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.Dispatchers

@@ -7,11 +7,14 @@ import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentCharacterClassListBinding
-import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
-import org.koin.android.viewmodel.ext.android.getViewModel
 import org.koin.android.ext.android.get
+import org.koin.android.viewmodel.ext.android.getViewModel
 
 
+/**
+ * Displays a list of characterclasses
+ * @author Bryan de Ridder
+ */
 class CharacterClassListFragment : BindingFragment<FragmentCharacterClassListBinding>(R.layout.fragment_character_class_list) {
 
     override fun onCreateView(
@@ -20,10 +23,9 @@ class CharacterClassListFragment : BindingFragment<FragmentCharacterClassListBin
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        val sharedPrefsUtil: SharedPrefsUtil = get()
         return binding {
             lifecycleOwner = this@CharacterClassListFragment
-            adapter = CharacterClassListAdapter(sharedPrefsUtil)
+            adapter = CharacterClassListAdapter(get())
             vm = getViewModel()
         }.root
     }

@@ -6,9 +6,12 @@ import com.skydoves.bindables.binding
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.databinding.ItemCharacterClassPassiveBinding
-import timber.log.Timber
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.skill.ui.detail.SkillDetailActivity
 
-class PassivesAdapter : RecyclerView.Adapter<PassivesAdapter.CharacterClassViewHolder>() {
+class PassivesAdapter(
+    private val sharedPrefsUtil: SharedPrefsUtil
+) : RecyclerView.Adapter<PassivesAdapter.CharacterClassViewHolder>() {
 
     private val items: MutableList<CharacterClass.Passive> = mutableListOf()
 
@@ -17,14 +20,12 @@ class PassivesAdapter : RecyclerView.Adapter<PassivesAdapter.CharacterClassViewH
             parent.binding<ItemCharacterClassPassiveBinding>(R.layout.item_character_class_passive)
         return CharacterClassViewHolder(binding).apply {
             binding.root.setOnClickListener {
-//                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
-//                    ?: return@setOnClickListener
-//                val currentClickedAt = SystemClock.elapsedRealtime()
-//                if (currentClickedAt - onClickedAt > binding.transformationLayout.duration) {
-//                    sessionVM.characterClass.value = items[position]
-//                    CharacterClassActivity.startActivity(binding.transformationLayout)
-//                    onClickedAt = currentClickedAt
-//                }
+                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+                    ?: return@setOnClickListener
+                if (!binding.transformationLayout.isTransforming) {
+                    sharedPrefsUtil.setSkillId(items[position].id)
+                    SkillDetailActivity.startActivity(binding.transformationLayout)
+                }
             }
         }
     }
@@ -37,7 +38,6 @@ class PassivesAdapter : RecyclerView.Adapter<PassivesAdapter.CharacterClassViewH
     }
 
     fun setItemList(classes: List<CharacterClass.Passive>) {
-        Timber.d("setItemList:${classes}")
         val previousItemSize = items.size
         items.clear()
         items.addAll(classes)

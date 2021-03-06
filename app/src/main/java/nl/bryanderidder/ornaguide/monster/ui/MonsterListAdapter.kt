@@ -8,7 +8,6 @@ import nl.bryanderidder.ornaguide.databinding.ItemMonsterBinding
 import nl.bryanderidder.ornaguide.monster.model.Monster
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
-import timber.log.Timber
 
 class MonsterListAdapter(private val sessionVM: SessionViewModel) :
     StableRecyclerViewAdapter<MonsterListAdapter.MonsterViewHolder>() {
@@ -40,7 +39,6 @@ class MonsterListAdapter(private val sessionVM: SessionViewModel) :
     }
 
     fun setItemList(classes: List<Monster>) {
-        Timber.d("setItemList:${classes}")
         val previousItemSize = items.size
         items.clear()
         items.addAll(classes)

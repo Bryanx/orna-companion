@@ -7,7 +7,7 @@ import nl.bryanderidder.ornaguide.R
 
 
 object ColorUtil {
-    fun getColorForElement(element: String): Int {
+    fun getColorForElement(element: String?): Int {
         return when (element) {
             "Dark" -> R.color.elementDarkColor
             "Water" -> R.color.elementWaterColor

@@ -16,18 +16,16 @@ object CharacterClassViewBindings {
     }
 
     @JvmStatic
-    @BindingAdapter("adapterPassiveList")
-    fun bindAdapterPassiveList(view: RecyclerView, items: List<CharacterClass.Passive>?) {
-        if (view.adapter == null)
-            view.adapter = PassivesAdapter()
-        (view.adapter as PassivesAdapter).setItemList(items ?: listOf())
+    @BindingAdapter("passivesAdapter", "adapterPassiveList", requireAll = true)
+    fun bindAdapterPassivesList(view: RecyclerView, adapter: PassivesAdapter, items: List<CharacterClass.Passive>?) {
+        view.adapter = adapter
+        adapter.setItemList(items ?: listOf())
     }
 
     @JvmStatic
-    @BindingAdapter("adapterLearnList")
-    fun bindAdapterLearnList(view: RecyclerView, items: List<CharacterClass.Learn>?) {
-        if (view.adapter == null)
-            view.adapter = LearnsAdapter()
-        (view.adapter as LearnsAdapter).setItemList(items ?: listOf())
+    @BindingAdapter("learnsAdapter", "adapterLearnList", requireAll = true)
+    fun bindAdapterLearnList(view: RecyclerView, adapter: LearnsAdapter, items: List<CharacterClass.Learn>?) {
+        view.adapter = adapter
+        adapter.setItemList(items ?: listOf())
     }
 }

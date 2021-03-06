@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="passive"
-            type="nl.bryanderidder.ornaguide.characterclass.model.CharacterClass.Passive" />
+            name="monstersUse"
+            type="nl.bryanderidder.ornaguide.skill.model.Skill.IdNamePair" />
     </data>
 
 
@@ -29,10 +29,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{passive.name}"
+                android:text="@{monstersUse.name}"
                 android:textColor="@color/textColor"
                 android:textStyle="bold"
-                tools:text="Critical hits" />
+                tools:text="Draugr Mage" />
 
         </com.google.android.material.card.MaterialCardView>
 

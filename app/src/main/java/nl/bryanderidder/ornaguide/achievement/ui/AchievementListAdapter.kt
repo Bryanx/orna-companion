@@ -7,7 +7,6 @@ import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.achievement.model.Achievement
 import nl.bryanderidder.ornaguide.databinding.ItemAchievementBinding
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
-import timber.log.Timber
 
 class AchievementListAdapter(private val sessionVM: SessionViewModel) :
     RecyclerView.Adapter<AchievementListAdapter.AchievementViewHolder>() {
@@ -39,7 +38,6 @@ class AchievementListAdapter(private val sessionVM: SessionViewModel) :
     }
 
     fun setItemList(classes: List<Achievement>) {
-        Timber.d("setItemList:${classes}")
         val previousItemSize = items.size
         items.clear()
         items.addAll(classes)

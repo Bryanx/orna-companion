@@ -6,11 +6,11 @@
     <data>
         <variable
             name="vm"
-            type="nl.bryanderidder.ornaguide.skill.ui.SkillListViewModel" />
+            type="nl.bryanderidder.ornaguide.skill.ui.list.SkillListViewModel" />
 
         <variable
             name="adapter"
-            type="nl.bryanderidder.ornaguide.skill.ui.SkillListAdapter" />
+            type="nl.bryanderidder.ornaguide.skill.ui.list.SkillListAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

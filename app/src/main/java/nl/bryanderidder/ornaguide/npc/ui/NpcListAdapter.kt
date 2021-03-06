@@ -8,7 +8,6 @@ import nl.bryanderidder.ornaguide.databinding.ItemNpcBinding
 import nl.bryanderidder.ornaguide.npc.model.Npc
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
-import timber.log.Timber
 
 class NpcListAdapter(private val sessionVM: SessionViewModel) :
     StableRecyclerViewAdapter<NpcListAdapter.NpcViewHolder>() {
@@ -40,7 +39,6 @@ class NpcListAdapter(private val sessionVM: SessionViewModel) :
     }
 
     fun setItemList(classes: List<Npc>) {
-        Timber.d("setItemList:${classes}")
         val previousItemSize = items.size
         items.clear()
         items.addAll(classes)

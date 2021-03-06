@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".characterclass.ui.detail.CharacterClassDetailActivity" />
+        <activity android:name=".skill.ui.detail.SkillDetailActivity" />
     </application>
 
 </manifest>

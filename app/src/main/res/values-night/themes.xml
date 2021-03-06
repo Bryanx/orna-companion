@@ -18,6 +18,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
+        <item name="android:textAlignment">center</item>
         <item name="android:maxLines">2</item>
         <item name="android:padding">12dp</item>
         <item name="android:textColor">@color/textColorHeader</item>
@@ -66,7 +67,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/elementBackgroundColor</item>
         <item name="android:textSize">10sp</item>
-        <item name="android:layout_margin">12dp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:gravity">center</item>
         <item name="android:textAlignment">center</item>
@@ -75,15 +75,35 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
-    <style name="databaseItemPageHeader">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+
+    <!-- Content for on detail pages: -->
+
+    <style name="databaseItemPageHeader" parent="databaseItemHeader">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="databaseItemPageDescription" parent="databaseItemDescription">
         <item name="android:gravity">center</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:maxLines">2</item>
-        <item name="android:padding">12dp</item>
-        <item name="android:textColor">@color/textColorHeader</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="databaseItemPageCard" parent="databaseItemCard">
+        <item name="cardBackgroundColor">@color/pageCardColor</item>
+    </style>
+
+    <style name="databaseItemPageTier" parent="databaseItemTier">
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+    </style>
+
+    <style name="backButtonFab">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:src">@drawable/ic_baseline_clear_24</item>
+        <item name="tint">@color/textColor</item>
+        <item name="backgroundTint">@color/backButtonColor</item>
+        <item name="useCompatPadding">true</item>
     </style>
 </resources>

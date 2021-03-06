@@ -7,8 +7,8 @@ import com.squareup.moshi.Moshi
 import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRepository
 import nl.bryanderidder.ornaguide.achievement.ui.AchievementListViewModel
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
-import nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListViewModel
 import nl.bryanderidder.ornaguide.characterclass.ui.detail.CharacterClassDetailViewModel
+import nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListViewModel
 import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
 import nl.bryanderidder.ornaguide.item.ui.ItemListViewModel
 import nl.bryanderidder.ornaguide.monster.persistence.MonsterRepository
@@ -20,13 +20,16 @@ import nl.bryanderidder.ornaguide.pet.ui.PetListViewModel
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import nl.bryanderidder.ornaguide.shared.database.OrnaDatabase
 import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
-import nl.bryanderidder.ornaguide.shared.network.*
+import nl.bryanderidder.ornaguide.shared.network.CachingInterceptor
+import nl.bryanderidder.ornaguide.shared.network.NetworkLoggingInterceptor
+import nl.bryanderidder.ornaguide.shared.network.OrnaClient
+import nl.bryanderidder.ornaguide.shared.network.OrnaService
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
-import nl.bryanderidder.ornaguide.skill.ui.SkillListViewModel
+import nl.bryanderidder.ornaguide.skill.ui.detail.SkillDetailViewModel
+import nl.bryanderidder.ornaguide.skill.ui.list.SkillListViewModel
 import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationRepository
 import nl.bryanderidder.ornaguide.specialization.ui.SpecializationListViewModel
-import okhttp3.Cache
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
@@ -71,6 +74,7 @@ val appModule: Module = module {
     single { OrnaClient(get()) }
 
     viewModel { SessionViewModel(get()) }
+    viewModel { SkillDetailViewModel(get(), get()) }
     viewModel { SkillListViewModel(get()) }
     viewModel { SpecializationListViewModel(get()) }
     viewModel { PetListViewModel(get()) }

@@ -10,6 +10,14 @@
             type="nl.bryanderidder.ornaguide.characterclass.ui.detail.CharacterClassDetailActivity" />
 
         <variable
+            name="learnsAdapter"
+            type="nl.bryanderidder.ornaguide.characterclass.ui.detail.LearnsAdapter" />
+
+        <variable
+            name="passivesAdapter"
+            type="nl.bryanderidder.ornaguide.characterclass.ui.detail.PassivesAdapter" />
+
+        <variable
             name="vm"
             type="nl.bryanderidder.ornaguide.characterclass.ui.detail.CharacterClassDetailViewModel" />
     </data>
@@ -29,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:background="@color/cardColor"
+                android:paddingBottom="100dp"
                 android:paddingHorizontal="12dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -86,7 +95,7 @@
                     android:id="@+id/descriptionDivider"
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginTop="@dimen/cardDividerPadding"
                     android:background="@color/dividerColor"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -96,7 +105,7 @@
                     android:id="@+id/slots"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginTop="@dimen/cardDividerPadding"
                     android:text="@{`Slots: ` + vm.characterClass.skills.slots}"
                     android:textColor="@color/textColor"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -137,6 +146,7 @@
                     android:overScrollMode="never"
                     android:paddingTop="6dp"
                     android:scrollbarStyle="outsideOverlay"
+                    app:passivesAdapter="@{passivesAdapter}"
                     app:adapterPassiveList="@{vm.characterClass.skills.passives}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -163,8 +173,8 @@
                     android:fadeScrollbars="false"
                     android:overScrollMode="never"
                     android:paddingTop="6dp"
-                    android:paddingBottom="100dp"
                     android:scrollbarStyle="outsideOverlay"
+                    app:learnsAdapter="@{learnsAdapter}"
                     app:adapterLearnList="@{vm.characterClass.skills.learns}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

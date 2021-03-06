@@ -8,7 +8,6 @@ import nl.bryanderidder.ornaguide.databinding.ItemPetBinding
 import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
-import timber.log.Timber
 
 class PetListAdapter(private val sessionVM: SessionViewModel) :
     StableRecyclerViewAdapter<PetListAdapter.PetViewHolder>() {
@@ -40,7 +39,6 @@ class PetListAdapter(private val sessionVM: SessionViewModel) :
     }
 
     fun setItemList(classes: List<Pet>) {
-        Timber.d("setItemList:${classes}")
         val previousItemSize = items.size
         items.clear()
         items.addAll(classes)
