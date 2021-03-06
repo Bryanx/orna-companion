@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.characterclass.ui.detail
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import com.skydoves.bindables.BindingActivity
 import com.skydoves.bundler.intentOf
@@ -13,6 +14,7 @@ import org.koin.android.viewmodel.ext.android.getViewModel
  * Activity for a single character class
  * @author Bryan de Ridder
  */
+@SuppressLint("MissingSuperCall")
 class CharacterClassDetailActivity :
     BindingActivity<ActivityCharacterClassDetailBinding>(R.layout.activity_character_class_detail) {
 

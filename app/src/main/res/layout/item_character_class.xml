@@ -35,7 +35,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:paletteImage="@{characterClass.previewImageUrl}"
+                    app:glideSrc="@{characterClass.previewImageUrl}"
                     tools:src="@drawable/classes" />
 
                 <androidx.appcompat.widget.AppCompatTextView

@@ -37,7 +37,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:paletteImage="@{pet.previewImageUrl}"
+                app:glideSrc="@{pet.previewImageUrl}"
                 tools:src="@drawable/pets" />
 
             <androidx.appcompat.widget.AppCompatTextView

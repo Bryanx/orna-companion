@@ -54,7 +54,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:paletteImage="@{monster.previewImageUrl}"
+                app:glideSrc="@{monster.previewImageUrl}"
                 tools:src="@drawable/monsters" />
 
             <androidx.appcompat.widget.AppCompatTextView

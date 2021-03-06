@@ -29,7 +29,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:paletteImage="@{npc.previewImageUrl}"
+                app:glideSrc="@{npc.previewImageUrl}"
                 tools:src="@drawable/npcs" />
 
             <androidx.appcompat.widget.AppCompatTextView
