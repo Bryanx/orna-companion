@@ -19,7 +19,7 @@ class SpecializationListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpecializationViewHolder {
         val binding = parent.binding<ItemSpecializationBinding>(R.layout.item_specialization)
         return SpecializationViewHolder(binding).apply {
-            binding.root.setOnClickListener {
+            binding.cardView.setOnClickListener {
                 val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
                     ?: return@setOnClickListener
                 if (!binding.transformationLayout.isTransforming) {

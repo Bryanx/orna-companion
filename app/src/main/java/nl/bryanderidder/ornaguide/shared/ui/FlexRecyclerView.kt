@@ -13,7 +13,7 @@ import nl.bryanderidder.ornaguide.R.styleable.*
  * Recyclerview with a customizable FlexboxLayoutManager
  * @author Bryan de Ridder
  */
-class FlexRecyclerView(context: Context, attrs: AttributeSet) : RecyclerView(context, attrs) {
+open class FlexRecyclerView(context: Context, attrs: AttributeSet) : RecyclerView(context, attrs) {
 
     init {
         val layoutManager = FlexboxLayoutManager(context)

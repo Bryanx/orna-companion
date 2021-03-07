@@ -22,7 +22,8 @@ data class Monster(
     @Json(name = "weak_to") val weakTo: List<String> = listOf(),
     @Json(name = "drops") val drops: List<IdNamePair> = listOf(),
     @Json(name = "skills") val skills: List<IdNamePair> = listOf(),
-    @Json(name = "buffs") val buffs: List<IdNamePair> = listOf()
+    @Json(name = "buffs") val buffs: List<IdNamePair> = listOf(),
+    @Json(name = "quests") val quests: List<IdNamePair> = listOf()
 ) {
 
     @Ignore val previewImageUrl: String = ORNA_IMAGE_PREFIX + image
@@ -32,4 +33,8 @@ data class Monster(
         @Json(name = "id") val id: Int = 0,
         @Json(name = "name") val name: String = ""
     )
+
+    @Ignore fun formattedSpawns(): String {
+        return "Spawn: ${spawns.joinToString(",")}"
+    }
 }

@@ -14,14 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:transformation_duration="200">
-        <com.google.android.material.card.MaterialCardView
+        <nl.bryanderidder.ornaguide.shared.ui.InterceptTouchCardView
             android:id="@+id/cardView"
             style="@style/databaseItemCard">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:foreground="?attr/selectableItemBackground"
                 app:layout_constrainedWidth="true">
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -63,6 +62,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </com.google.android.material.card.MaterialCardView>
+        </nl.bryanderidder.ornaguide.shared.ui.InterceptTouchCardView>
     </com.skydoves.transformationlayout.TransformationLayout>
 </layout>

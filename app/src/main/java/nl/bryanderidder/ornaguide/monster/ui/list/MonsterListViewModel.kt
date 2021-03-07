@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.monster.ui
+package nl.bryanderidder.ornaguide.monster.ui.list
 
 import androidx.databinding.Bindable
 import androidx.lifecycle.LiveData

@@ -13,12 +13,11 @@ class NpcListAdapter(private val sessionVM: SessionViewModel) :
     StableRecyclerViewAdapter<NpcListAdapter.NpcViewHolder>() {
 
     private val items: MutableList<Npc> = mutableListOf()
-    private var onClickedAt = 0L
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NpcViewHolder {
         val binding = parent.binding<ItemNpcBinding>(R.layout.item_npc)
         return NpcViewHolder(binding).apply {
-            binding.root.setOnClickListener {
+            binding.cardView.setOnClickListener {
 //                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
 //                    ?: return@setOnClickListener
 //                val currentClickedAt = SystemClock.elapsedRealtime()

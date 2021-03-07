@@ -18,7 +18,7 @@ class CharacterClassListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterClassViewHolder {
         val binding = parent.binding<ItemCharacterClassBinding>(R.layout.item_character_class)
         return CharacterClassViewHolder(binding).apply {
-            binding.root.setOnClickListener {
+            binding.cardView.setOnClickListener {
                 val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
                     ?: return@setOnClickListener
                 if (!binding.transformationLayout.isTransforming) {

@@ -18,7 +18,7 @@ class PetListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetViewHolder {
         val binding = parent.binding<ItemPetBinding>(R.layout.item_pet)
         return PetViewHolder(binding).apply {
-            binding.root.setOnClickListener {
+            binding.cardView.setOnClickListener {
                 val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
                     ?: return@setOnClickListener
                 if (!binding.transformationLayout.isTransforming) {

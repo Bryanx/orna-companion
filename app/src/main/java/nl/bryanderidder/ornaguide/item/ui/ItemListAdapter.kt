@@ -13,12 +13,11 @@ class ItemListAdapter(private val sessionVM: SessionViewModel) :
     StableRecyclerViewAdapter<ItemListAdapter.ItemViewHolder>() {
 
     private val items: MutableList<Item> = mutableListOf()
-    private var onClickedAt = 0L
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val binding = parent.binding<ItemItemBinding>(R.layout.item_item)
         return ItemViewHolder(binding).apply {
-            binding.root.setOnClickListener {
+            binding.cardView.setOnClickListener {
 //                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
 //                    ?: return@setOnClickListener
 //                val currentClickedAt = SystemClock.elapsedRealtime()

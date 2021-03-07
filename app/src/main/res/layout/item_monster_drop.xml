@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="drop"
+            type="nl.bryanderidder.ornaguide.monster.model.Monster.IdNamePair" />
+    </data>
+
+
+    <com.skydoves.transformationlayout.TransformationLayout
+        android:id="@+id/transformationLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:transformation_duration="200">
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/databaseItemPageCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:contentPaddingBottom="8dp"
+            app:contentPaddingLeft="12dp"
+            app:contentPaddingRight="12dp"
+            app:contentPaddingTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{drop.name}"
+                android:textColor="@color/textColor"
+                android:textStyle="bold"
+                tools:text="Sword" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </com.skydoves.transformationlayout.TransformationLayout>
+</layout>

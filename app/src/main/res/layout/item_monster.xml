@@ -10,132 +10,156 @@
             type="nl.bryanderidder.ornaguide.monster.model.Monster" />
     </data>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView"
-        style="@style/databaseItemCard">
+    <com.skydoves.transformationlayout.TransformationLayout
+        android:id="@+id/transformationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:transformation_duration="200">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/cardPadding"
-            android:foreground="?attr/selectableItemBackground"
-            app:layout_constrainedWidth="true">
+        <nl.bryanderidder.ornaguide.shared.ui.InterceptTouchCardView
+            android:id="@+id/cardView"
+            style="@style/databaseItemCard">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tier"
-                android:text="@{`` + monster.tier}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="1"
-                style="@style/databaseItemTier" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/isBoss"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:text="BOSS"
-                android:textColor="@color/red"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                app:gone="@{!monster.boss}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="BOSS" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/image"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_margin="20dp"
-                android:scaleType="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:glideSrc="@{monster.previewImageUrl}"
-                tools:src="@drawable/monsters" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/name"
-                android:text="@{monster.name}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image"
-                tools:text="Goblin King"
-                style="@style/databaseItemHeader" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/weaknesses"
-                android:text="Weakness:"
-                android:layout_marginBottom="@dimen/cardPadding"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name"
-                app:gone="@{monster.weakTo.isEmpty()}"
-                style="@style/databaseItemDescription" />
-
-            <com.google.android.flexbox.FlexboxLayout
-                android:id="@+id/elementWeaknesses"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/cardPadding"
-                app:addTextViewElementForItems="@{monster.weakTo}"
-                app:gone="@{monster.weakTo.isEmpty()}"
-                app:flexWrap="wrap"
-                app:justifyContent="center"
-                app:layout_constraintTop_toBottomOf="@+id/weaknesses"/>
+                android:paddingBottom="@dimen/cardPadding"
+                app:layout_constrainedWidth="true">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/resistant"
-                android:text="Resistant to:"
-                android:layout_marginBottom="@dimen/cardPadding"
-                android:layout_marginTop="@dimen/cardPadding"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/elementWeaknesses"
-                app:gone="@{monster.resistantTo.isEmpty()}"
-                style="@style/databaseItemDescription" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tier"
+                    style="@style/databaseItemTier"
+                    android:text="@{`` + monster.tier}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="1" />
 
-            <com.google.android.flexbox.FlexboxLayout
-                android:id="@+id/elementResistants"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/cardPadding"
-                app:addTextViewElementForItems="@{monster.resistantTo}"
-                app:gone="@{monster.resistantTo.isEmpty()}"
-                app:flexWrap="wrap"
-                app:justifyContent="center"
-                app:layout_constraintTop_toBottomOf="@+id/resistant"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/isBoss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:padding="12dp"
+                    android:text="BOSS"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:gone="@{!monster.boss}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="BOSS" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/immunities"
-                android:text="Immune to:"
-                android:layout_marginBottom="@dimen/cardPadding"
-                android:layout_marginTop="@dimen/cardPadding"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/elementResistants"
-                app:gone="@{monster.immuneTo.isEmpty()}"
-                style="@style/databaseItemDescription" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/image"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="20dp"
+                    android:scaleType="center"
+                    app:glideSrc="@{monster.previewImageUrl}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/monsters" />
 
-            <com.google.android.flexbox.FlexboxLayout
-                android:id="@+id/elementImmunities"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/cardPadding"
-                app:addTextViewElementForItems="@{monster.immuneTo}"
-                app:gone="@{monster.immuneTo.isEmpty()}"
-                app:flexWrap="wrap"
-                app:justifyContent="center"
-                app:layout_constraintTop_toBottomOf="@+id/immunities"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/name"
+                    style="@style/databaseItemHeader"
+                    android:text="@{monster.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image"
+                    tools:text="Goblin King" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/weaknesses"
+                    style="@style/databaseItemDescription"
+                    android:layout_marginBottom="@dimen/cardPadding"
+                    android:text="Weakness:"
+                    app:gone="@{monster.weakTo.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name" />
 
-    </com.google.android.material.card.MaterialCardView>
+                <nl.bryanderidder.ornaguide.shared.ui.element.ElementsRecyclerView
+                    android:id="@+id/elementWeaknesses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingHorizontal="@dimen/cardPadding"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:elementsList="@{monster.weakTo}"
+                    app:justifyContentRecycler="center"
+                    app:gone="@{monster.weakTo.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weaknesses"
+                    tools:listitem="@layout/item_element" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/resistant"
+                    style="@style/databaseItemDescription"
+                    android:layout_marginTop="@dimen/cardPadding"
+                    android:layout_marginBottom="@dimen/cardPadding"
+                    android:text="Resistant to:"
+                    app:gone="@{monster.resistantTo.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/elementWeaknesses" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.element.ElementsRecyclerView
+                    android:id="@+id/elementResistants"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingHorizontal="@dimen/cardPadding"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:elementsList="@{monster.resistantTo}"
+                    app:justifyContentRecycler="center"
+                    app:gone="@{monster.resistantTo.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/resistant"
+                    tools:listitem="@layout/item_element" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/immunities"
+                    style="@style/databaseItemDescription"
+                    android:layout_marginTop="@dimen/cardPadding"
+                    android:layout_marginBottom="@dimen/cardPadding"
+                    android:text="Immune to:"
+                    app:gone="@{monster.immuneTo.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/elementResistants" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.element.ElementsRecyclerView
+                    android:id="@+id/elementImmunities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingHorizontal="@dimen/cardPadding"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:elementsList="@{monster.immuneTo}"
+                    app:justifyContentRecycler="center"
+                    app:gone="@{monster.immuneTo.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/immunities"
+                    tools:listitem="@layout/item_element" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </nl.bryanderidder.ornaguide.shared.ui.InterceptTouchCardView>
+    </com.skydoves.transformationlayout.TransformationLayout>
 </layout>

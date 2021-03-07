@@ -18,7 +18,7 @@ class SkillListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SkillViewHolder {
         val binding = parent.binding<ItemSkillBinding>(R.layout.item_skill)
         return SkillViewHolder(binding).apply {
-            binding.root.setOnClickListener {
+            binding.cardView.setOnClickListener {
                 val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
                     ?: return@setOnClickListener
                 if (!binding.transformationLayout.isTransforming) {

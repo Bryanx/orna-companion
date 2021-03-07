@@ -46,4 +46,29 @@ class MonsterRepository(
                 Timber.e(message())
             }
     }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
+
+    fun fetchMonster(
+        id: Int,
+        onError: (String?) -> Unit
+    ) = flow<Monster> {
+        val dbResult = dao.getMonster(id)
+        emit(dbResult)
+        client.fetchMonsterList(MonsterRequestBody(id))
+            .suspendOnSuccess {
+                // the network object has changed replace it in the db.
+                val networkResult = response.body()?.firstOrNull()
+                if (networkResult != null && dbResult != networkResult) {
+                    dao.insertMonster(networkResult)
+                    emit(networkResult)
+                }
+            }
+            .onError {
+                onError(message())
+                Timber.e(message())
+            }
+            .onException {
+                onError(message())
+                Timber.e(message())
+            }
+    }
 }

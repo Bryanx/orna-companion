@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="nl.bryanderidder.ornaguide.monster.ui.detail.MonsterDetailActivity" />
+
+        <variable
+            name="monsterSkillsAdapter"
+            type="nl.bryanderidder.ornaguide.monster.ui.detail.MonsterSkillsAdapter" />
+
+        <variable
+            name="monsterDropsAdapter"
+            type="nl.bryanderidder.ornaguide.monster.ui.detail.MonsterDropsAdapter" />
+
+        <variable
+            name="monsterQuestsAdapter"
+            type="nl.bryanderidder.ornaguide.monster.ui.detail.MonsterQuestsAdapter" />
+
+        <variable
+            name="vm"
+            type="nl.bryanderidder.ornaguide.monster.ui.detail.MonsterDetailViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:toast="@{vm.toastMessage}">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@color/cardColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/cardColor"
+                android:paddingBottom="100dp"
+                android:paddingHorizontal="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/image"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="?actionBarSize"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@{vm.monster.name}"
+                    android:maxWidth="140dp"
+                    android:paddingBottom="@dimen/cardPadding"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:glideSrcNoPlaceholder="@{vm.monster.previewImageUrl}"
+                    tools:src="@drawable/monsters" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/isBoss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/cardPadding"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="BOSS"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:gone="@{!vm.monster.boss}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image"
+                    tools:text="BOSS" />
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/databaseItemPageHeader"
+                    android:text="@{vm.monster.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/isBoss"
+                    tools:text="Nothren Valkyrie" />
+
+                <TextView
+                    android:id="@+id/spawn"
+                    style="@style/databaseItemDescription"
+                    android:text="@{vm.monster.formattedSpawns()}"
+                    app:gone="@{vm.monster.spawns.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    tools:text="Spawn: Day Only" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/weaknesses"
+                    style="@style/databaseItemDescription"
+                    android:layout_marginTop="@dimen/cardPadding"
+                    android:layout_marginBottom="@dimen/cardPadding"
+                    android:text="Weakness:"
+                    app:gone="@{vm.monster.weakTo.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spawn" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.element.ElementsRecyclerView
+                    android:id="@+id/elementWeaknesses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingHorizontal="@dimen/cardPadding"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:elementsList="@{vm.monster.weakTo}"
+                    app:justifyContentRecycler="center"
+                    app:gone="@{vm.monster.weakTo.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weaknesses"
+                    tools:listitem="@layout/item_element" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/resistant"
+                    style="@style/databaseItemDescription"
+                    android:layout_marginTop="@dimen/cardPadding"
+                    android:layout_marginBottom="@dimen/cardPadding"
+                    android:text="Resistant to:"
+                    app:gone="@{vm.monster.resistantTo.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/elementWeaknesses" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.element.ElementsRecyclerView
+                    android:id="@+id/elementResistants"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingHorizontal="@dimen/cardPadding"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:elementsList="@{vm.monster.resistantTo}"
+                    app:justifyContentRecycler="center"
+                    app:gone="@{vm.monster.resistantTo.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/resistant"
+                    tools:listitem="@layout/item_element" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/immunities"
+                    style="@style/databaseItemDescription"
+                    android:layout_marginTop="@dimen/cardPadding"
+                    android:layout_marginBottom="@dimen/cardPadding"
+                    android:text="Immune to:"
+                    app:gone="@{vm.monster.immuneTo.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/elementResistants" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.element.ElementsRecyclerView
+                    android:id="@+id/elementImmunities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingHorizontal="@dimen/cardPadding"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:elementsList="@{vm.monster.immuneTo}"
+                    app:justifyContentRecycler="center"
+                    app:gone="@{vm.monster.immuneTo.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/immunities"
+                    tools:listitem="@layout/item_element" />
+
+                <View
+                    android:id="@+id/descriptionDivider"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/cardDividerPadding"
+                    android:background="@color/dividerColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/elementImmunities" />
+
+                <TextView
+                    android:id="@+id/monsterBuffsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/cardDividerPadding"
+                    android:text="Buffs:"
+                    android:textColor="@color/textColor"
+                    app:gone="@{vm.monster.buffs.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionDivider" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                    android:id="@+id/monsterBuffs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingTop="6dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:monsterSkillsAdapter="@{monsterSkillsAdapter}"
+                    app:monsterSkillsList="@{vm.monster.buffs}"
+                    app:gone="@{vm.monster.buffs.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/monsterBuffsLabel"
+                    tools:listitem="@layout/item_monster_skill" />
+
+                <TextView
+                    android:id="@+id/monsterSkillsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/cardPadding"
+                    android:text="Skills:"
+                    android:textColor="@color/textColor"
+                    app:gone="@{vm.monster.skills.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/monsterBuffs" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                    android:id="@+id/monsterSkills"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingTop="6dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:monsterSkillsAdapter="@{monsterSkillsAdapter}"
+                    app:monsterSkillsList="@{vm.monster.skills}"
+                    app:gone="@{vm.monster.skills.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/monsterSkillsLabel"
+                    tools:listitem="@layout/item_monster_skill" />
+
+                <TextView
+                    android:id="@+id/monsterDropsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/cardPadding"
+                    android:text="Drops:"
+                    android:textColor="@color/textColor"
+                    app:gone="@{vm.monster.drops.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/monsterSkills" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                    android:id="@+id/monsterDrops"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingTop="6dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:monsterDropsAdapter="@{monsterDropsAdapter}"
+                    app:monsterDropsList="@{vm.monster.drops}"
+                    app:gone="@{vm.monster.drops.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/monsterDropsLabel"
+                    tools:listitem="@layout/item_monster_drop" />
+
+                <TextView
+                    android:id="@+id/monsterQuestsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/cardPadding"
+                    android:text="Quests:"
+                    android:textColor="@color/textColor"
+                    app:gone="@{vm.monster.quests.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/monsterDrops" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                    android:id="@+id/monsterQuests"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingTop="6dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:monsterQuestsAdapter="@{monsterQuestsAdapter}"
+                    app:monsterQuestsList="@{vm.monster.quests}"
+                    app:gone="@{vm.monster.quests.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/monsterQuestsLabel"
+                    tools:listitem="@layout/item_monster_quest" />
+
+                <TextView
+                    android:id="@+id/classTier"
+                    style="@style/databaseItemPageTier"
+                    android:text="@{`` + vm.monster.tier}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="1" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:contentDescription="Back button"
+            android:onClick="@{() -> activity.onBackPressed()}"
+            style="@style/backButtonFab"/>
+    </RelativeLayout>
+</layout>
