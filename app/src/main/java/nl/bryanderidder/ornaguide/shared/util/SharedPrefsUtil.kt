@@ -45,6 +45,18 @@ class SharedPrefsUtil(private val prefs: SharedPreferences) {
     fun getItemId(): Int =
         prefs.getInt(ITEM_ID, 1)
 
+    fun setNpcId(value: Int) =
+        prefs.edit().putInt(NPC_ID, value).apply()
+
+    fun getNpcId(): Int =
+        prefs.getInt(NPC_ID, 1)
+
+    fun setAchievementId(value: Int) =
+        prefs.edit().putInt(ACHIEVEMENT_ID, value).apply()
+
+    fun getAchievementId(): Int =
+        prefs.getInt(ACHIEVEMENT_ID, 1)
+
     fun writeLong(key: String, value: Long) =
         prefs.edit().putLong(key, value).apply()
 
@@ -58,5 +70,7 @@ class SharedPrefsUtil(private val prefs: SharedPreferences) {
         const val PET_ID: String = "PET_ID"
         const val MONSTER_ID: String = "MONSTER_ID"
         const val ITEM_ID: String = "ITEM_ID"
+        const val NPC_ID: String = "NPC_ID"
+        const val ACHIEVEMENT_ID: String = "ACHIEVEMENT_ID"
     }
 }

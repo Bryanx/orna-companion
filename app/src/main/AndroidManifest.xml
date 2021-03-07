@@ -25,6 +25,7 @@
         <activity android:name=".specialization.ui.detail.SpecializationDetailActivity" />
         <activity android:name=".pet.ui.detail.PetDetailActivity" />
         <activity android:name=".monster.ui.detail.MonsterDetailActivity" />
+        <activity android:name=".npc.ui.detail.NpcDetailActivity" />
     </application>
 
 </manifest>

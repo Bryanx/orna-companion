@@ -41,8 +41,8 @@
         <item name="android:layout_marginTop">12dp</item>
         <item name="android:layout_marginEnd">12dp</item>
         <item name="android:maxLines">1</item>
-        <item name="android:drawableStart">@drawable/ic_baseline_star_24</item>
-        <item name="android:drawableTint">@color/textColor</item>
+        <item name="drawableStartCompat">@drawable/ic_baseline_star_24</item>
+        <item name="drawableTint">@color/textColor</item>
     </style>
 
     <style name="databaseItemDescription">

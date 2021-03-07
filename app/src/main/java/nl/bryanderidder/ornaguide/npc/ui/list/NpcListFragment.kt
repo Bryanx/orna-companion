@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.npc.ui
+package nl.bryanderidder.ornaguide.npc.ui.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentNpcListBinding
+import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getViewModel
 
 
@@ -20,7 +21,7 @@ class NpcListFragment : BindingFragment<FragmentNpcListBinding>(R.layout.fragmen
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
             lifecycleOwner = this@NpcListFragment
-            adapter = NpcListAdapter(getViewModel())
+            adapter = NpcListAdapter(get())
             vm = getViewModel()
         }.root
     }

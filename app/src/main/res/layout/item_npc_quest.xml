@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="quest"
+            type="nl.bryanderidder.ornaguide.npc.model.Npc.Quest" />
+    </data>
+
+
+    <com.skydoves.transformationlayout.TransformationLayout
+        android:id="@+id/transformationLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:transformation_duration="200">
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/databaseItemPageCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:contentPaddingBottom="8dp"
+            app:contentPaddingLeft="12dp"
+            app:contentPaddingRight="12dp"
+            app:contentPaddingTop="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/classTier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColor"
+                    android:maxLines="1"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:text="@{`` + quest.tier}"
+                    tools:text="1"
+                    app:drawableStartCompat="@drawable/ic_baseline_star_24"
+                    app:drawableTint="@color/textColor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{quest.name}"
+                    android:textColor="@color/textColor"
+                    android:textStyle="bold"
+                    tools:text="Boss Slayer VI" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </com.skydoves.transformationlayout.TransformationLayout>
+</layout>

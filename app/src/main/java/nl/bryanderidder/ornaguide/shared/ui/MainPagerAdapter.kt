@@ -8,7 +8,7 @@ import nl.bryanderidder.ornaguide.achievement.ui.AchievementListFragment
 import nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListFragment
 import nl.bryanderidder.ornaguide.item.ui.ItemListFragment
 import nl.bryanderidder.ornaguide.monster.ui.list.MonsterListFragment
-import nl.bryanderidder.ornaguide.npc.ui.NpcListFragment
+import nl.bryanderidder.ornaguide.npc.ui.list.NpcListFragment
 import nl.bryanderidder.ornaguide.pet.ui.list.PetListFragment
 import nl.bryanderidder.ornaguide.skill.ui.list.SkillListFragment
 import nl.bryanderidder.ornaguide.specialization.ui.list.SpecializationListFragment

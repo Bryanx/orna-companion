@@ -6,11 +6,11 @@
     <data>
         <variable
             name="vm"
-            type="nl.bryanderidder.ornaguide.npc.ui.NpcListViewModel" />
+            type="nl.bryanderidder.ornaguide.npc.ui.list.NpcListViewModel" />
 
         <variable
             name="adapter"
-            type="nl.bryanderidder.ornaguide.npc.ui.NpcListAdapter" />
+            type="nl.bryanderidder.ornaguide.npc.ui.list.NpcListAdapter" />
 
     </data>
 
