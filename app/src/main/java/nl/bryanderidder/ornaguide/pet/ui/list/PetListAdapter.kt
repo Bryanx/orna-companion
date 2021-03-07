@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.pet.ui
+package nl.bryanderidder.ornaguide.pet.ui.list
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -6,27 +6,25 @@ import com.skydoves.bindables.binding
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.ItemPetBinding
 import nl.bryanderidder.ornaguide.pet.model.Pet
-import nl.bryanderidder.ornaguide.shared.SessionViewModel
+import nl.bryanderidder.ornaguide.pet.ui.detail.PetDetailActivity
 import nl.bryanderidder.ornaguide.shared.ui.StableRecyclerViewAdapter
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
-class PetListAdapter(private val sessionVM: SessionViewModel) :
+class PetListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     StableRecyclerViewAdapter<PetListAdapter.PetViewHolder>() {
 
     private val items: MutableList<Pet> = mutableListOf()
-    private var onClickedAt = 0L
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetViewHolder {
         val binding = parent.binding<ItemPetBinding>(R.layout.item_pet)
         return PetViewHolder(binding).apply {
             binding.root.setOnClickListener {
-//                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
-//                    ?: return@setOnClickListener
-//                val currentClickedAt = SystemClock.elapsedRealtime()
-//                if (currentClickedAt - onClickedAt > binding.transformationLayout.duration) {
-//                    sessionVM.pet.value = items[position]
-//                    PetActivity.startActivity(binding.transformationLayout)
-//                    onClickedAt = currentClickedAt
-//                }
+                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+                    ?: return@setOnClickListener
+                if (!binding.transformationLayout.isTransforming) {
+                    sharedPrefsUtil.setPetId(items[position].id)
+                    PetDetailActivity.startActivity(binding.transformationLayout)
+                }
             }
         }
     }
@@ -38,11 +36,11 @@ class PetListAdapter(private val sessionVM: SessionViewModel) :
         }
     }
 
-    fun setItemList(classes: List<Pet>) {
+    fun setItemList(pets: List<Pet>) {
         val previousItemSize = items.size
         items.clear()
-        items.addAll(classes)
-        notifyItemRangeChanged(previousItemSize, classes.size)
+        items.addAll(pets)
+        notifyItemRangeChanged(previousItemSize, pets.size)
     }
 
     override fun getItemCount() = items.size

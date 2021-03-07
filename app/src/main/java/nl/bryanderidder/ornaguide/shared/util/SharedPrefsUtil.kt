@@ -27,6 +27,12 @@ class SharedPrefsUtil(private val prefs: SharedPreferences) {
     fun getSkillId(): Int =
         prefs.getInt(SKILL_ID, 1)
 
+    fun setPetId(value: Int) =
+        prefs.edit().putInt(PET_ID, value).apply()
+
+    fun getPetId(): Int =
+        prefs.getInt(PET_ID, 1)
+
     fun writeLong(key: String, value: Long) =
         prefs.edit().putLong(key, value).apply()
 
@@ -37,5 +43,6 @@ class SharedPrefsUtil(private val prefs: SharedPreferences) {
         const val CHARACTER_CLASS_ID: String = "CHARACTER_CLASS_ID"
         const val SPECIALIZATION_ID: String = "SPECIALIZATION_ID"
         const val SKILL_ID: String = "SKILL_ID"
+        const val PET_ID: String = "PET_ID"
     }
 }

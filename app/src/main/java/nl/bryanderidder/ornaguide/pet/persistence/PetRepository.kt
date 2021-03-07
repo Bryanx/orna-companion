@@ -43,4 +43,29 @@ class PetRepository(
                 Timber.e(message())
             }
     }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
+
+    fun fetchPet(
+        id: Int,
+        onError: (String?) -> Unit
+    ) = flow<Pet> {
+        val dbResult = dao.getPet(id)
+        emit(dbResult)
+        client.fetchPetList(PetRequestBody(id))
+            .suspendOnSuccess {
+                // the network object has changed replace it in the db.
+                val networkResult = response.body()?.firstOrNull()
+                if (networkResult != null && dbResult != networkResult) {
+                    dao.insertPet(networkResult)
+                    emit(networkResult)
+                }
+            }
+            .onError {
+                onError(message())
+                Timber.e(message())
+            }
+            .onException {
+                onError(message())
+                Timber.e(message())
+            }
+    }
 }

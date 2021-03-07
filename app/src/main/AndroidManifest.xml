@@ -23,6 +23,7 @@
         <activity android:name=".characterclass.ui.detail.CharacterClassDetailActivity" />
         <activity android:name=".skill.ui.detail.SkillDetailActivity" />
         <activity android:name=".specialization.ui.detail.SpecializationDetailActivity" />
+        <activity android:name=".pet.ui.detail.PetDetailActivity" />
     </application>
 
 </manifest>

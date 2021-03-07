@@ -16,7 +16,8 @@ import nl.bryanderidder.ornaguide.monster.ui.MonsterListViewModel
 import nl.bryanderidder.ornaguide.npc.persistence.NpcRepository
 import nl.bryanderidder.ornaguide.npc.ui.NpcListViewModel
 import nl.bryanderidder.ornaguide.pet.persistence.PetRepository
-import nl.bryanderidder.ornaguide.pet.ui.PetListViewModel
+import nl.bryanderidder.ornaguide.pet.ui.detail.PetDetailViewModel
+import nl.bryanderidder.ornaguide.pet.ui.list.PetListViewModel
 import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import nl.bryanderidder.ornaguide.shared.database.OrnaDatabase
 import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
@@ -75,11 +76,12 @@ val appModule: Module = module {
     single { OrnaClient(get()) }
 
     viewModel { SessionViewModel(get()) }
-    viewModel { SkillDetailViewModel(get(), get()) }
     viewModel { SkillListViewModel(get()) }
+    viewModel { SkillDetailViewModel(get(), get()) }
     viewModel { SpecializationListViewModel(get()) }
     viewModel { SpecializationDetailViewModel(get(), get()) }
     viewModel { PetListViewModel(get()) }
+    viewModel { PetDetailViewModel(get(), get()) }
     viewModel { ItemListViewModel(get()) }
     viewModel { MonsterListViewModel(get()) }
     viewModel { NpcListViewModel(get()) }

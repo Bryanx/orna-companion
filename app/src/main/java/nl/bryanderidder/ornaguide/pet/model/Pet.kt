@@ -6,6 +6,7 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import nl.bryanderidder.ornaguide.shared.util.NumberUtil
 import nl.bryanderidder.ornaguide.shared.util.ORNA_IMAGE_PREFIX
 
 @Entity
@@ -38,6 +39,8 @@ data class Pet(
         @Json(name = "name") val name: String = ""
     )
 
+    @Ignore
+    fun formattedCost(): String = "${NumberUtil.formatNumber(cost)} orns"
 
     @Ignore
     fun formattedStats(): String {

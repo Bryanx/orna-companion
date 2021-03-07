@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.pet.ui
+package nl.bryanderidder.ornaguide.pet.ui.list
 
 import androidx.databinding.Bindable
 import androidx.lifecycle.LiveData

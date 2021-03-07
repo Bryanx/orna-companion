@@ -6,11 +6,11 @@
     <data>
         <variable
             name="vm"
-            type="nl.bryanderidder.ornaguide.pet.ui.PetListViewModel" />
+            type="nl.bryanderidder.ornaguide.pet.ui.list.PetListViewModel" />
 
         <variable
             name="adapter"
-            type="nl.bryanderidder.ornaguide.pet.ui.PetListAdapter" />
+            type="nl.bryanderidder.ornaguide.pet.ui.list.PetListAdapter" />
 
     </data>
 

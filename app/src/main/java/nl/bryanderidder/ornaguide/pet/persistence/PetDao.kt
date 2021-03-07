@@ -14,4 +14,10 @@ interface PetDao {
 
     @Query("SELECT * FROM Pet ORDER BY tier LIMIT 100")
     suspend fun getPetList(): List<Pet>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertPet(Pet: Pet)
+
+    @Query("SELECT * FROM Pet WHERE id = :id")
+    suspend fun getPet(id: Int): Pet
 }
