@@ -5,7 +5,8 @@ import com.huma.room_for_asset.RoomAsset
 import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import com.squareup.moshi.Moshi
 import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRepository
-import nl.bryanderidder.ornaguide.achievement.ui.AchievementListViewModel
+import nl.bryanderidder.ornaguide.achievement.ui.detail.AchievementDetailViewModel
+import nl.bryanderidder.ornaguide.achievement.ui.list.AchievementListViewModel
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
 import nl.bryanderidder.ornaguide.characterclass.ui.detail.CharacterClassDetailViewModel
 import nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListViewModel
@@ -90,6 +91,7 @@ val appModule: Module = module {
     viewModel { NpcListViewModel(get()) }
     viewModel { NpcDetailViewModel(get(), get()) }
     viewModel { AchievementListViewModel(get()) }
+    viewModel { AchievementDetailViewModel(get(), get()) }
     viewModel { CharacterClassListViewModel(get()) }
     viewModel { CharacterClassDetailViewModel(get(), get()) }
 

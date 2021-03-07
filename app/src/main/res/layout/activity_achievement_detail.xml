@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="nl.bryanderidder.ornaguide.achievement.ui.detail.AchievementDetailActivity" />
+
+        <variable
+            name="vm"
+            type="nl.bryanderidder.ornaguide.achievement.ui.detail.AchievementDetailViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:toast="@{vm.toastMessage}">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@color/cardColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/cardColor"
+                android:paddingBottom="100dp"
+                android:paddingHorizontal="12dp">
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/databaseItemPageHeader"
+                    android:text="@{vm.achievement.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="100dp"
+                    tools:text="Monster Slayer VI" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.achievement.requirement}"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    tools:text="A skilled individual who favours magic over strength. Can wield staves and robes." />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/reward"
+                    style="@style/databaseItemDescription"
+                    android:padding="@dimen/cardPadding"
+                    android:text="@{vm.achievement.formattedReward()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/description"
+                    tools:text="Reward: 25000 orns" />
+
+                <TextView
+                    android:id="@+id/classTier"
+                    style="@style/databaseItemPageTier"
+                    android:text="@{`` + vm.achievement.tier}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="1" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:contentDescription="Back button"
+            android:onClick="@{() -> activity.onBackPressed()}"
+            style="@style/backButtonFab"/>
+    </RelativeLayout>
+</layout>

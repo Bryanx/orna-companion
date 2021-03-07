@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.achievement.ui
+package nl.bryanderidder.ornaguide.achievement.ui.list
 
 import androidx.databinding.Bindable
 import androidx.lifecycle.LiveData

@@ -43,14 +43,14 @@
                     tools:text="Slay 50 bosses" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/typez"
+                    android:id="@+id/reward"
                     style="@style/databaseItemDescription"
                     android:paddingHorizontal="@dimen/cardPadding"
                     android:paddingBottom="@dimen/cardPadding"
-                    android:text="@{`Reward: ` + achievement.reward + ` orns`}"
+                    android:text="@{achievement.formattedReward()}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/requirement"
-                    tools:text="Reward: 25000 orns" />
+                    tools:text="Reward: 25,000 orns" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tier"

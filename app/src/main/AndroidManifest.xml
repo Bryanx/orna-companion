@@ -26,6 +26,7 @@
         <activity android:name=".pet.ui.detail.PetDetailActivity" />
         <activity android:name=".monster.ui.detail.MonsterDetailActivity" />
         <activity android:name=".npc.ui.detail.NpcDetailActivity" />
+        <activity android:name=".achievement.ui.detail.AchievementDetailActivity" />
     </application>
 
 </manifest>

@@ -1,31 +1,29 @@
-package nl.bryanderidder.ornaguide.achievement.ui
+package nl.bryanderidder.ornaguide.achievement.ui.list
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.skydoves.bindables.binding
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.achievement.model.Achievement
+import nl.bryanderidder.ornaguide.achievement.ui.detail.AchievementDetailActivity
 import nl.bryanderidder.ornaguide.databinding.ItemAchievementBinding
-import nl.bryanderidder.ornaguide.shared.SessionViewModel
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
-class AchievementListAdapter(private val sessionVM: SessionViewModel) :
+class AchievementListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     RecyclerView.Adapter<AchievementListAdapter.AchievementViewHolder>() {
 
     private val items: MutableList<Achievement> = mutableListOf()
-    private var onClickedAt = 0L
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AchievementViewHolder {
         val binding = parent.binding<ItemAchievementBinding>(R.layout.item_achievement)
         return AchievementViewHolder(binding).apply {
             binding.root.setOnClickListener {
-//                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
-//                    ?: return@setOnClickListener
-//                val currentClickedAt = SystemClock.elapsedRealtime()
-//                if (currentClickedAt - onClickedAt > binding.transformationLayout.duration) {
-//                    sessionVM.achievement.value = items[position]
-//                    AchievementActivity.startActivity(binding.transformationLayout)
-//                    onClickedAt = currentClickedAt
-//                }
+                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+                    ?: return@setOnClickListener
+                if (!binding.transformationLayout.isTransforming) {
+                    sharedPrefsUtil.setAchievementId(items[position].id)
+                    AchievementDetailActivity.startActivity(binding.transformationLayout)
+                }
             }
         }
     }

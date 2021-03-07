@@ -46,4 +46,29 @@ class AchievementRepository(
                 Timber.e(message())
             }
     }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
+
+    fun fetchAchievement(
+        id: Int,
+        onError: (String?) -> Unit
+    ) = flow<Achievement> {
+        val dbResult = dao.getAchievement(id)
+        emit(dbResult)
+        client.fetchAchievementList(AchievementRequestBody(id))
+            .suspendOnSuccess {
+                // the network object has changed replace it in the db.
+                val networkResult = response.body()?.firstOrNull()
+                if (networkResult != null && dbResult != networkResult) {
+                    dao.insertAchievement(networkResult)
+                    emit(networkResult)
+                }
+            }
+            .onError {
+                onError(message())
+                Timber.e(message())
+            }
+            .onException {
+                onError(message())
+                Timber.e(message())
+            }
+    }
 }

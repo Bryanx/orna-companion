@@ -14,4 +14,10 @@ interface AchievementDao {
 
     @Query("SELECT * FROM Achievement ORDER BY tier LIMIT 100")
     suspend fun getAchievementList(): List<Achievement>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAchievement(Achievement: Achievement)
+
+    @Query("SELECT * FROM Achievement WHERE id = :id")
+    suspend fun getAchievement(id: Int): Achievement
 }

@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.achievement.ui
+package nl.bryanderidder.ornaguide.achievement.ui.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentAchievementListBinding
+import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getViewModel
-
 
 class AchievementListFragment : BindingFragment<FragmentAchievementListBinding>(R.layout.fragment_achievement_list) {
 
@@ -20,7 +20,7 @@ class AchievementListFragment : BindingFragment<FragmentAchievementListBinding>(
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
             lifecycleOwner = this@AchievementListFragment
-            adapter = AchievementListAdapter(getViewModel())
+            adapter = AchievementListAdapter(get())
             vm = getViewModel()
         }.root
     }

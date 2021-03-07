@@ -6,11 +6,11 @@
     <data>
         <variable
             name="vm"
-            type="nl.bryanderidder.ornaguide.achievement.ui.AchievementListViewModel" />
+            type="nl.bryanderidder.ornaguide.achievement.ui.list.AchievementListViewModel" />
 
         <variable
             name="adapter"
-            type="nl.bryanderidder.ornaguide.achievement.ui.AchievementListAdapter" />
+            type="nl.bryanderidder.ornaguide.achievement.ui.list.AchievementListAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +30,7 @@
             android:scrollbars="vertical"
             app:adapter="@{adapter}"
             app:adapterAchievementList="@{vm.achievementList}"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent"
