@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.item.ui
+package nl.bryanderidder.ornaguide.item.ui.list
 
 import androidx.databinding.Bindable
 import androidx.lifecycle.LiveData

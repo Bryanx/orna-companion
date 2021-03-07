@@ -27,6 +27,7 @@
         <activity android:name=".monster.ui.detail.MonsterDetailActivity" />
         <activity android:name=".npc.ui.detail.NpcDetailActivity" />
         <activity android:name=".achievement.ui.detail.AchievementDetailActivity" />
+        <activity android:name=".item.ui.detail.ItemDetailActivity" />
     </application>
 
 </manifest>

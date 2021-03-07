@@ -6,7 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import nl.bryanderidder.ornaguide.achievement.ui.list.AchievementListFragment
 import nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListFragment
-import nl.bryanderidder.ornaguide.item.ui.ItemListFragment
+import nl.bryanderidder.ornaguide.item.ui.list.ItemListFragment
 import nl.bryanderidder.ornaguide.monster.ui.list.MonsterListFragment
 import nl.bryanderidder.ornaguide.npc.ui.list.NpcListFragment
 import nl.bryanderidder.ornaguide.pet.ui.list.PetListFragment

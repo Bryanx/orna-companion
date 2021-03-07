@@ -10,58 +10,67 @@
             type="nl.bryanderidder.ornaguide.item.model.Item" />
     </data>
 
-    <nl.bryanderidder.ornaguide.shared.ui.InterceptTouchCardView
-        android:id="@+id/cardView"
-        style="@style/databaseItemCard">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constrainedWidth="true">
+    <com.skydoves.transformationlayout.TransformationLayout
+        android:id="@+id/transformationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:transformation_duration="200">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/image"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="20dp"
-                android:scaleType="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:glideSrc="@{item.previewImageUrl}"
-                tools:src="@drawable/items" />
+        <nl.bryanderidder.ornaguide.shared.ui.InterceptTouchCardView
+            android:id="@+id/cardView"
+            style="@style/databaseItemCard">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/name"
-                android:text="@{item.name}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image"
-                tools:text="Small health potion"
-                style="@style/databaseItemHeader" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constrainedWidth="true">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/category"
-                style="@style/databaseItemStat"
-                android:paddingHorizontal="@dimen/cardPadding"
-                android:paddingBottom="@dimen/cardPadding"
-                android:text="@{item.formattedStats()}"
-                app:gone="@{item.formattedStats().isEmpty()}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name"
-                tools:text="Att: 178 Def: 123" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="20dp"
+                    android:scaleType="center"
+                    app:glideSrc="@{item.previewImageUrl}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/items" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tier"
-                android:text="@{`` + item.tier}"
-                android:drawableStart="@drawable/ic_baseline_star_24"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="1"
-                style="@style/databaseItemTier" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/databaseItemHeader"
+                    android:text="@{item.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image"
+                    tools:text="Small health potion" />
 
-    </nl.bryanderidder.ornaguide.shared.ui.InterceptTouchCardView>
+                <TextView
+                    android:id="@+id/category"
+                    style="@style/databaseItemStat"
+                    android:paddingHorizontal="@dimen/cardPadding"
+                    android:paddingBottom="@dimen/cardPadding"
+                    android:text="@{item.formattedStats()}"
+                    app:gone="@{item.formattedStats().isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    tools:text="Att: 178 Def: 123" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tier"
+                    style="@style/databaseItemTier"
+                    android:drawableStart="@drawable/ic_baseline_star_24"
+                    android:text="@{`` + item.tier}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </nl.bryanderidder.ornaguide.shared.ui.InterceptTouchCardView>
+
+    </com.skydoves.transformationlayout.TransformationLayout>
 </layout>

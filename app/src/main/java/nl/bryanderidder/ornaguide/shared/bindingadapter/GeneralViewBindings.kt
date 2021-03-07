@@ -1,7 +1,6 @@
 package nl.bryanderidder.ornaguide.shared.bindingadapter
 
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
@@ -10,8 +9,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import nl.bryanderidder.ornaguide.R
-import nl.bryanderidder.ornaguide.shared.util.ColorUtil
-import nl.bryanderidder.ornaguide.shared.util.color
 
 
 object GeneralViewBindings {
@@ -62,12 +59,5 @@ object GeneralViewBindings {
         Glide.with(view.context)
             .load(url)
             .into(view)
-    }
-
-    @JvmStatic
-    @BindingAdapter("elementColor")
-    fun bindAdapterItemList(view: TextView, element: String?) {
-        val colorId = ColorUtil.getColorForElement(element)
-        view.setTextColor(view.context.color(colorId))
     }
 }

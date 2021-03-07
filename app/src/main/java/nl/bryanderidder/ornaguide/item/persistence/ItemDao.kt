@@ -14,4 +14,10 @@ interface ItemDao {
 
     @Query("SELECT * FROM Item WHERE tier = 10 ORDER BY tier LIMIT 100")
     suspend fun getItemList(): List<Item>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertItem(Item: Item)
+
+    @Query("SELECT * FROM Item WHERE id = :id")
+    suspend fun getItem(id: Int): Item
 }

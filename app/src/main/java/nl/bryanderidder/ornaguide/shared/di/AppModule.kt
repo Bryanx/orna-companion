@@ -11,7 +11,8 @@ import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepos
 import nl.bryanderidder.ornaguide.characterclass.ui.detail.CharacterClassDetailViewModel
 import nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListViewModel
 import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
-import nl.bryanderidder.ornaguide.item.ui.ItemListViewModel
+import nl.bryanderidder.ornaguide.item.ui.detail.ItemDetailViewModel
+import nl.bryanderidder.ornaguide.item.ui.list.ItemListViewModel
 import nl.bryanderidder.ornaguide.monster.persistence.MonsterRepository
 import nl.bryanderidder.ornaguide.monster.ui.detail.MonsterDetailViewModel
 import nl.bryanderidder.ornaguide.monster.ui.list.MonsterListViewModel
@@ -86,6 +87,7 @@ val appModule: Module = module {
     viewModel { PetListViewModel(get()) }
     viewModel { PetDetailViewModel(get(), get()) }
     viewModel { ItemListViewModel(get()) }
+    viewModel { ItemDetailViewModel(get(), get()) }
     viewModel { MonsterListViewModel(get()) }
     viewModel { MonsterDetailViewModel(get(), get()) }
     viewModel { NpcListViewModel(get()) }

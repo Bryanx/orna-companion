@@ -20,7 +20,8 @@ data class Item(
     @Json(name = "stats") @Embedded val stats: Stats = Stats(),
     @Json(name = "materials") val materials: List<IdNamePair> = listOf(),
     @Json(name = "dropped_by") val droppedBy: List<IdNamePair> = listOf(),
-    @Json(name = "equipped_by") val equippedBy: List<IdNamePair> = listOf()
+    @Json(name = "equipped_by") val equippedBy: List<IdNamePair> = listOf(),
+    @Json(name = "quests") val quests: List<IdNamePair> = listOf()
 ) {
 
     @Ignore
@@ -83,6 +84,20 @@ data class Item(
         @Json(name = "id") val id: Int = 0,
         @Json(name = "name") val name: String = ""
     )
+
+    @Ignore
+    fun droppedByIncludingArena(): List<IdNamePair> =
+        if (arena)
+            droppedBy + IdNamePair(0, "Arena")
+        else
+            droppedBy
+
+    @Ignore
+    fun formattedMaterialsLabel(): String =
+        if (type == "Material")
+            "Material for:"
+        else
+            "Materials:"
 
     @Ignore
     fun formattedStats(): String {
