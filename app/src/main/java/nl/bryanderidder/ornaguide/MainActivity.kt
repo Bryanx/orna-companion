@@ -1,51 +1,35 @@
 package nl.bryanderidder.ornaguide
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import com.google.android.material.bottomsheet.BottomSheetBehavior
+import android.view.MenuItem
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import com.skydoves.bindables.BindingActivity
 import com.skydoves.transformationlayout.onTransformationStartContainer
 import nl.bryanderidder.ornaguide.databinding.ActivityMainBinding
-import nl.bryanderidder.ornaguide.shared.ui.MainPagerAdapter
-import nl.bryanderidder.ornaguide.shared.util.dp
-import nl.bryanderidder.ornaguide.shared.util.onPageSelected
-import nl.bryanderidder.ornaguide.shared.util.onSlide
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
 
+@SuppressLint("MissingSuperCall")
 class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main) {
+
+    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         onTransformationStartContainer()
         super.onCreate(savedInstanceState)
         if (BuildConfig.DEBUG)
             Timber.plant(DebugTree())
-        initializeUI()
+        setUpNavigation();
     }
 
-    private fun initializeUI() = with(binding) {
-        mainViewpager.adapter = MainPagerAdapter(supportFragmentManager, lifecycle)
-        mainViewpager.offscreenPageLimit = 3
-        val sheetBehavior = BottomSheetBehavior.from(includeMenu.bottomMenuContainer)
-        mainViewpager.onPageSelected {
-            toolbarTitle = includeMenu.bottomMenu.getName(mainViewpager.currentItem)
-            includeMenu.bottomMenu.setSelectedItem(mainViewpager.currentItem)
-        }
-        sheetBehavior.isFitToContents = true
-        sheetBehavior.peekHeight = 56.dp
-        sheetBehavior.onSlide { offset -> bottomSheetBackground.alpha = offset }
-        includeMenu.bottomMenu.setSelectedItem(mainViewpager.currentItem)
-        toolbarTitle = includeMenu.bottomMenu.getName(mainViewpager.currentItem)
-        includeMenu.bottomMenu.getName(mainViewpager.currentItem)
-        includeMenu.bottomMenu.setOnItemSelectedListener { _, index ->
-            mainViewpager.currentItem = index
-            sheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-        }
-        includeMenu.menuBtn.setOnClickListener {
-            if (sheetBehavior.state == BottomSheetBehavior.STATE_EXPANDED)
-                sheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-            else
-                sheetBehavior.state =BottomSheetBehavior.STATE_EXPANDED
-        }
+    fun setUpNavigation() {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
+        NavigationUI.setupWithNavController(binding.bottomNav, navHostFragment.navController)
     }
 }

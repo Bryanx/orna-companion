@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dicoverFragment">
+
+    <fragment
+        android:id="@+id/dicoverFragment"
+        android:name="nl.bryanderidder.ornaguide.shared.ui.menu.DicoverFragment"
+        android:label="DicoverFragment" />
+    <fragment
+        android:id="@+id/guidesFragment"
+        android:name="nl.bryanderidder.ornaguide.shared.ui.menu.GuidesFragment"
+        android:label="GuidesFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="nl.bryanderidder.ornaguide.shared.ui.menu.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/myListsFragment"
+        android:name="nl.bryanderidder.ornaguide.shared.ui.menu.MyListsFragment"
+        android:label="MyListsFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="nl.bryanderidder.ornaguide.shared.ui.menu.SettingsFragment"
+        android:label="SettingsFragment" />
+</navigation>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/dicoverFragment"
+        android:icon="@drawable/ic_explore_black_18dp"
+        android:title="Discover" />
+
+    <item
+        android:id="@+id/myListsFragment"
+        android:icon="@drawable/ic_baseline_bookmark_border_24"
+        android:title="Saved" />
+
+    <item
+        android:id="@+id/searchFragment"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="Search" />
+
+    <item
+        android:id="@+id/guidesFragment"
+        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:title="Guides" />
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_settings_24dp"
+        android:title="Settings" />
+
+</menu>

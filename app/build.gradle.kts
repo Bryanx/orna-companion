@@ -88,6 +88,11 @@ dependencies {
     implementation("com.squareup.moshi:moshi-kotlin:1.9.2")
     kapt("com.squareup.moshi:moshi-kotlin-codegen:1.9.2")
 
+    // Navigation component
+    implementation("androidx.navigation:navigation-fragment-ktx:2.3.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.3")
+    implementation("androidx.navigation:navigation-compose:1.0.0-alpha08")
+
     testImplementation("junit:junit:4.+")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.9.0")
     testImplementation("androidx.arch.core:core-testing:2.1.0")

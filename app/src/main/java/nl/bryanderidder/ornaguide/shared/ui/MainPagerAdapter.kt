@@ -17,17 +17,25 @@ class MainPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fm, lifecycle) {
 
     override fun createFragment(position: Int): Fragment {
-        return when (position) {
-            0 -> CharacterClassListFragment()
-            1 -> SpecializationListFragment()
-            2 -> SkillListFragment()
-            3 -> PetListFragment()
-            4 -> ItemListFragment()
-            5 -> MonsterListFragment()
-            6 -> NpcListFragment()
-            7 -> AchievementListFragment()
-            else -> CharacterClassListFragment()
-        }
+        if (position >= itemCount)
+            return CharacterClassListFragment()
+        return DISCOVER_MENU_ITEMS.values.toList()[position].invoke()
     }
+
     override fun getItemCount() = 8
+
+    companion object {
+        val DISCOVER_MENU_ITEMS = mapOf<String, () -> Fragment>(
+            "Items" to { ItemListFragment() },
+            "Monsters" to { MonsterListFragment() },
+            "Skills" to { SkillListFragment() },
+            "Classes" to { CharacterClassListFragment() },
+            "Pets" to { PetListFragment() },
+            "Specializations" to { SpecializationListFragment() },
+            "NPCs" to { NpcListFragment() },
+            "Achievements" to { AchievementListFragment() },
+        )
+
+        val DISCOVER_MENU_LABELS: List<String> = DISCOVER_MENU_ITEMS.keys.toList()
+    }
 }
