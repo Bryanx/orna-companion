@@ -2,10 +2,8 @@ package nl.bryanderidder.ornaguide
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.skydoves.bindables.BindingActivity
 import com.skydoves.transformationlayout.onTransformationStartContainer

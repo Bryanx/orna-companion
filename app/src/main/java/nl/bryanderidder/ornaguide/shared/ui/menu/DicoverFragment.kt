@@ -28,7 +28,7 @@ class DicoverFragment :
         return binding {
             mainViewpager.adapter =
                 MainPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
-            mainViewpager.offscreenPageLimit = 3
+            mainViewpager.offscreenPageLimit = 8
             mainViewpager.onPageSelected {
             }
         }.root
