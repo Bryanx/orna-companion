@@ -24,7 +24,6 @@ import nl.bryanderidder.ornaguide.npc.ui.list.NpcListViewModel
 import nl.bryanderidder.ornaguide.pet.persistence.PetRepository
 import nl.bryanderidder.ornaguide.pet.ui.detail.PetDetailViewModel
 import nl.bryanderidder.ornaguide.pet.ui.list.PetListViewModel
-import nl.bryanderidder.ornaguide.shared.SessionViewModel
 import nl.bryanderidder.ornaguide.shared.database.OrnaDatabase
 import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
 import nl.bryanderidder.ornaguide.shared.network.CachingInterceptor
@@ -82,7 +81,6 @@ val appModule: Module = module {
 
     single { OrnaClient(get()) }
 
-    viewModel { SessionViewModel(get()) }
     viewModel { SkillListViewModel(get()) }
     viewModel { SkillDetailViewModel(get(), get()) }
     viewModel { SpecializationListViewModel(get()) }

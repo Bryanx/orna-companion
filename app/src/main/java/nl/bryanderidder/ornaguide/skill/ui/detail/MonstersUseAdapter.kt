@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.skydoves.bindables.binding
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.ItemSkillMonstersUseBinding
+import nl.bryanderidder.ornaguide.monster.ui.detail.MonsterDetailActivity
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.skill.model.Skill
 
@@ -22,8 +23,8 @@ class MonstersUseAdapter(
                 val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
                     ?: return@setOnClickListener
                 if (!binding.transformationLayout.isTransforming) {
-//                    sharedPrefsUtil.setMonsterId(items[position].id)
-//                    MonsterDetailActivity.startActivity(binding.transformationLayout)
+                    sharedPrefsUtil.setMonsterId(items[position].id)
+                    MonsterDetailActivity.startActivity(binding.transformationLayout)
                 }
             }
         }

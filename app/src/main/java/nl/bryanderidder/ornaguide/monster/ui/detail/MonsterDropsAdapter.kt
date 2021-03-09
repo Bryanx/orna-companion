@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.skydoves.bindables.binding
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.ItemMonsterDropBinding
+import nl.bryanderidder.ornaguide.item.ui.detail.ItemDetailActivity
 import nl.bryanderidder.ornaguide.monster.model.Monster
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
@@ -19,12 +20,12 @@ class MonsterDropsAdapter(
             parent.binding<ItemMonsterDropBinding>(R.layout.item_monster_drop)
         return MonsterViewHolder(binding).apply {
             binding.root.setOnClickListener {
-//                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
-//                    ?: return@setOnClickListener
-//                if (!binding.transformationLayout.isTransforming) {
-//                    sharedPrefsUtil.setItemId(items[position].id)
-//                    ItemDetailActivity.startActivity(binding.transformationLayout)
-//                }
+                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+                    ?: return@setOnClickListener
+                if (!binding.transformationLayout.isTransforming) {
+                    sharedPrefsUtil.setItemId(items[position].id)
+                    ItemDetailActivity.startActivity(binding.transformationLayout)
+                }
             }
         }
     }

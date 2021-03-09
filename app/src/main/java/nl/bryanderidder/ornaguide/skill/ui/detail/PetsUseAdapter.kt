@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.skydoves.bindables.binding
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.ItemSkillPetsUseBinding
+import nl.bryanderidder.ornaguide.pet.ui.detail.PetDetailActivity
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.skill.model.Skill
 
@@ -22,8 +23,8 @@ class PetsUseAdapter(
                 val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
                     ?: return@setOnClickListener
                 if (!binding.transformationLayout.isTransforming) {
-//                    sharedPrefsUtil.setPetId(items[position].id)
-//                    PetDetailActivity.startActivity(binding.transformationLayout)
+                    sharedPrefsUtil.setPetId(items[position].id)
+                    PetDetailActivity.startActivity(binding.transformationLayout)
                 }
             }
         }
