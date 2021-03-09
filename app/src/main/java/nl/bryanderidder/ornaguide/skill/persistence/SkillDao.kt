@@ -20,4 +20,14 @@ interface SkillDao {
 
     @Query("SELECT * FROM Skill WHERE id = :id")
     suspend fun getSkill(id: Int): Skill
+
+    @Query(
+        """
+      SELECT *
+      FROM Skill
+      JOIN SkillFTS ON Skill.name = SkillFTS.name
+      WHERE SkillFTS MATCH :query
+    """
+    )
+    suspend fun search(query: String): List<Skill>
 }

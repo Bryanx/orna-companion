@@ -20,4 +20,14 @@ interface NpcDao {
 
     @Query("SELECT * FROM Npc WHERE id = :id")
     suspend fun getNpc(id: Int): Npc
+
+    @Query(
+        """
+      SELECT *
+      FROM Npc
+      JOIN NpcFTS ON Npc.name = NpcFTS.name
+      WHERE NpcFTS MATCH :query
+    """
+    )
+    suspend fun search(query: String): List<Npc>
 }

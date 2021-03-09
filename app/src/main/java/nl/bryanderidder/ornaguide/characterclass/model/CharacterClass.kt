@@ -42,4 +42,17 @@ data class CharacterClass(
         @Json(name = "id") val id: Int = 0,
         @Json(name = "name") val name: String = ""
     )
+
+    @Ignore
+    fun formattedLearns(): String = "Learns ${learns.toLowerCase()}"
+
+    companion object {
+        const val NAME = "class"
+    }
 }
+
+@Entity
+@Fts4(contentEntity = CharacterClass::class)
+data class CharacterClassFTS(
+    val name: String,
+)

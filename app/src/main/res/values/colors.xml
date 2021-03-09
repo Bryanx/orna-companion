@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="backgroundColorDark">#282321</color>
+    <color name="backgroundColorDark">#1E1B1A</color>
     <color name="cardColor">#37302D</color>
     <color name="pageCardColor">#3C3532</color>
     <color name="menuColor">#3C3532</color>

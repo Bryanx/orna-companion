@@ -71,4 +71,10 @@ class SpecializationRepository(
                 Timber.e(message())
             }
     }
+
+    @WorkerThread
+    fun search(query: String) = flow<List<Specialization>> {
+        val results = dao.search("*$query*")
+        emit(results)
+    }.flowOn(Dispatchers.IO)
 }

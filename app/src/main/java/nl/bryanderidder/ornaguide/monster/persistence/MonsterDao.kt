@@ -20,4 +20,14 @@ interface MonsterDao {
 
     @Query("SELECT * FROM Monster WHERE id = :id")
     suspend fun getMonster(id: Int): Monster
+
+    @Query(
+        """
+      SELECT *
+      FROM Monster
+      JOIN MonsterFTS ON Monster.name = MonsterFTS.name
+      WHERE MonsterFTS MATCH :query
+    """
+    )
+    suspend fun search(query: String): List<Monster>
 }

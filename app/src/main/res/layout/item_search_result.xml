@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="searchResult"
+            type="nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult" />
+    </data>
+
+    <com.skydoves.transformationlayout.TransformationLayout
+        android:id="@+id/transformationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:transformation_duration="200">
+
+        <nl.bryanderidder.ornaguide.shared.ui.InterceptTouchCardView
+            android:id="@+id/cardView"
+            style="@style/databaseItemCard">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:layout_constrainedWidth="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/image"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="20dp"
+                    android:scaleType="center"
+                    app:glideSrc="@{searchResult.image}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/classes" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{searchResult.name}"
+                    android:layout_marginStart="@dimen/cardPadding"
+                    android:textColor="@color/textColorHeader"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/subText"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@+id/image"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="Warrior" />
+
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{searchResult.type}"
+                    android:textColor="@color/textColor"
+                    android:textAllCaps="true"
+                    android:paddingStart="6dp"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/name"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/name"
+                    tools:text="CLASS" />
+
+                <TextView
+                    android:id="@+id/subText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/cardPadding"
+                    android:layout_marginEnd="@dimen/cardPadding"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{searchResult.subText}"
+                    android:textColor="@color/textColor"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@+id/image"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    tools:text="Learns skills that boost attack" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tier"
+                    style="@style/databaseItemTier"
+                    android:text="@{`` + searchResult.tier}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </nl.bryanderidder.ornaguide.shared.ui.InterceptTouchCardView>
+    </com.skydoves.transformationlayout.TransformationLayout>
+</layout>

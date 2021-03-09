@@ -40,7 +40,7 @@ class CharacterClassListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
         val previousItemSize = items.size
         items.clear()
         items.addAll(classes)
-        notifyItemRangeChanged(previousItemSize, classes.size)
+        notifyDataSetChanged()
     }
 
     override fun getItemCount() = items.size

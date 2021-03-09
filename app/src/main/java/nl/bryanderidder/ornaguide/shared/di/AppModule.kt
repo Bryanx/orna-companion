@@ -1,7 +1,9 @@
 package nl.bryanderidder.ornaguide.shared.di
 
 import android.content.Context
-import com.huma.room_for_asset.RoomAsset
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import com.squareup.moshi.Moshi
 import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRepository
@@ -29,6 +31,7 @@ import nl.bryanderidder.ornaguide.shared.network.CachingInterceptor
 import nl.bryanderidder.ornaguide.shared.network.NetworkLoggingInterceptor
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import nl.bryanderidder.ornaguide.shared.network.OrnaService
+import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchViewModel
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
 import nl.bryanderidder.ornaguide.skill.ui.detail.SkillDetailViewModel
@@ -96,6 +99,7 @@ val appModule: Module = module {
     viewModel { AchievementDetailViewModel(get(), get()) }
     viewModel { CharacterClassListViewModel(get()) }
     viewModel { CharacterClassDetailViewModel(get(), get()) }
+    viewModel { SearchViewModel(get(), get(), get(), get(), get(), get(), get(), get()) }
 
     // DB:
 
@@ -103,7 +107,8 @@ val appModule: Module = module {
     single { OrnaTypeConverters(get()) }
 
     single {
-        RoomAsset.databaseBuilder(androidApplication(), OrnaDatabase::class.java, "Orna.db")
+        Room.databaseBuilder(androidApplication(), OrnaDatabase::class.java, "Orna.db")
+            .createFromAsset("databases/Orna.db")
             .addTypeConverter(get<OrnaTypeConverters>())
             .build()
     }

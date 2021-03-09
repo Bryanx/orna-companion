@@ -71,4 +71,10 @@ class NpcRepository(
                 Timber.e(message())
             }
     }
+
+    @WorkerThread
+    fun search(query: String) = flow<List<Npc>> {
+        val results = dao.search("*$query*")
+        emit(results)
+    }.flowOn(Dispatchers.IO)
 }

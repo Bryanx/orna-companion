@@ -7,7 +7,11 @@ import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentMenuSearchBinding
-
+import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchListAdapter
+import nl.bryanderidder.ornaguide.shared.util.color
+import nl.bryanderidder.ornaguide.shared.util.focusAndShowKeyboard
+import org.koin.android.ext.android.get
+import org.koin.android.viewmodel.ext.android.getViewModel
 
 /**
  * Main search fragment
@@ -22,6 +26,12 @@ class SearchFragment :
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        return binding.root
+        requireActivity().window.statusBarColor = requireContext().color(R.color.cardColor)
+        return binding {
+            lifecycleOwner = this@SearchFragment
+            adapter = SearchListAdapter(get())
+            vm = getViewModel()
+            searchInputField.focusAndShowKeyboard()
+        }.root
     }
 }

@@ -71,4 +71,10 @@ class ItemRepository(
                 Timber.e(message())
             }
     }
+
+    @WorkerThread
+    fun search(query: String) = flow<List<Item>> {
+        val results = dao.search("*$query*")
+        emit(results)
+    }.flowOn(Dispatchers.IO)
 }

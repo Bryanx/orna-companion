@@ -1,9 +1,6 @@
 package nl.bryanderidder.ornaguide.specialization.model
 
-import androidx.room.Embedded
-import androidx.room.Entity
-import androidx.room.Ignore
-import androidx.room.PrimaryKey
+import androidx.room.*
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
@@ -56,4 +53,14 @@ data class Specialization(
             else
                 "$value%"
     }
+
+    companion object {
+        const val NAME = "specialization"
+    }
 }
+
+@Entity
+@Fts4(contentEntity = Specialization::class)
+data class SpecializationFTS(
+    val name: String,
+)

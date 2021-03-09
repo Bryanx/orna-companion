@@ -1,11 +1,13 @@
 package nl.bryanderidder.ornaguide.skill.model
 
 import androidx.room.Entity
+import androidx.room.Fts4
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.shared.util.NumberUtil
+import nl.bryanderidder.ornaguide.shared.util.ORNA_ICON_IMAGE_PREFIX
 
 @Entity
 @JsonClass(generateAdapter = true)
@@ -41,6 +43,13 @@ data class Skill(
     )
 
     @Ignore
+    val previewImageUrl: String = when {
+        type.contains("Attack") -> "${ORNA_ICON_IMAGE_PREFIX}weapon.png"
+        type.contains("Passive") -> "${ORNA_ICON_IMAGE_PREFIX}time.png"
+        else -> "${ORNA_ICON_IMAGE_PREFIX}staff.png"
+    }
+
+    @Ignore
     fun formattedGives(): String = "Gives:\n" + gives.joinToString("\n")
 
     @Ignore
@@ -51,4 +60,14 @@ data class Skill(
 
     @Ignore
     fun formattedTypeAndMana(): String = type + if (manaCost == 0) "" else " - $manaCost\u00A0mana"
+
+    companion object {
+        const val NAME = "skill"
+    }
 }
+
+@Entity
+@Fts4(contentEntity = Skill::class)
+data class SkillFTS(
+    val name: String,
+)

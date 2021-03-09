@@ -112,4 +112,14 @@ data class Item(
         if (stats.ward.base != 0) formattedStats += "Ward: ${stats.ward.base}%"
         return formattedStats.joinToString("   ")
     }
+
+    companion object {
+        const val NAME = "item"
+    }
 }
+
+@Entity
+@Fts4(contentEntity = Item::class)
+data class ItemFTS(
+    val name: String,
+)

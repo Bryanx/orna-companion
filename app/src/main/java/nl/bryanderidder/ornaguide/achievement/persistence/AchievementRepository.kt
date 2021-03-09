@@ -71,4 +71,10 @@ class AchievementRepository(
                 Timber.e(message())
             }
     }
+
+    @WorkerThread
+    fun search(query: String) = flow<List<Achievement>> {
+        val results = dao.search("*$query*")
+        emit(results)
+    }.flowOn(Dispatchers.IO)
 }

@@ -9,6 +9,7 @@ import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentMenuDiscoverBinding
 import nl.bryanderidder.ornaguide.shared.ui.MainPagerAdapter
+import nl.bryanderidder.ornaguide.shared.util.color
 import nl.bryanderidder.ornaguide.shared.util.onPageSelected
 
 
@@ -25,6 +26,7 @@ class DicoverFragment :
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
+        requireActivity().window.statusBarColor = requireContext().color(R.color.backgroundColorDark)
         return binding {
             mainViewpager.adapter =
                 MainPagerAdapter(requireActivity().supportFragmentManager, lifecycle)

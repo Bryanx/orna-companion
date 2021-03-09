@@ -20,4 +20,14 @@ interface ItemDao {
 
     @Query("SELECT * FROM Item WHERE id = :id")
     suspend fun getItem(id: Int): Item
+
+    @Query(
+        """
+      SELECT *
+      FROM Item
+      JOIN ItemFTS ON Item.name = ItemFTS.name
+      WHERE ItemFTS MATCH :query
+    """
+    )
+    suspend fun search(query: String): List<Item>
 }

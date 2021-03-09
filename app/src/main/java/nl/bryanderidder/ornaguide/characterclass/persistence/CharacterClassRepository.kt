@@ -47,6 +47,7 @@ class CharacterClassRepository(
             }
     }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
 
+    @WorkerThread
     fun fetchCharacterClass(
         id: Int,
         onError: (String?) -> Unit
@@ -71,4 +72,10 @@ class CharacterClassRepository(
                 Timber.e(message())
             }
     }
+
+    @WorkerThread
+    fun search(query: String) = flow<List<CharacterClass>> {
+        val results = dao.search("*$query*")
+        emit(results)
+    }.flowOn(Dispatchers.IO)
 }

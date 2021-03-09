@@ -52,7 +52,7 @@
                     style="@style/databaseItemDescription"
                     android:textAlignment="center"
                     android:paddingHorizontal="@dimen/cardPadding"
-                    android:text="@{`Learns ` + characterClass.learns.toLowerCase()}"
+                    android:text="@{characterClass.formattedLearns()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"

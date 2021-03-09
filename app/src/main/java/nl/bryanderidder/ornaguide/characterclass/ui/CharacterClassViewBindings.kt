@@ -10,8 +10,10 @@ import nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListAdapt
 object CharacterClassViewBindings {
 
     @JvmStatic
-    @BindingAdapter("adapterCharacterClassList")
-    fun bindAdapterCharacterClassList(view: RecyclerView, items: List<CharacterClass>?) {
+    @BindingAdapter("characterClassAdapter", "characterClassList")
+    fun bindAdapterCharacterClassList(view: RecyclerView, adapter: CharacterClassListAdapter, items: List<CharacterClass>?) {
+        if (view.adapter == null)
+            view.adapter = adapter
         (view.adapter as CharacterClassListAdapter).setItemList(items ?: listOf())
     }
 

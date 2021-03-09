@@ -20,4 +20,14 @@ interface PetDao {
 
     @Query("SELECT * FROM Pet WHERE id = :id")
     suspend fun getPet(id: Int): Pet
+
+    @Query(
+        """
+      SELECT *
+      FROM Pet
+      JOIN PetFTS ON Pet.name = PetFTS.name
+      WHERE PetFTS MATCH :query
+    """
+    )
+    suspend fun search(query: String): List<Pet>
 }

@@ -4,20 +4,28 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import nl.bryanderidder.ornaguide.achievement.model.Achievement
+import nl.bryanderidder.ornaguide.achievement.model.AchievementFTS
 import nl.bryanderidder.ornaguide.achievement.persistence.AchievementDao
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
+import nl.bryanderidder.ornaguide.characterclass.model.CharacterClassFTS
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassDao
 import nl.bryanderidder.ornaguide.item.model.Item
+import nl.bryanderidder.ornaguide.item.model.ItemFTS
 import nl.bryanderidder.ornaguide.item.persistence.ItemDao
 import nl.bryanderidder.ornaguide.monster.model.Monster
+import nl.bryanderidder.ornaguide.monster.model.MonsterFTS
 import nl.bryanderidder.ornaguide.monster.persistence.MonsterDao
 import nl.bryanderidder.ornaguide.npc.model.Npc
+import nl.bryanderidder.ornaguide.npc.model.NpcFTS
 import nl.bryanderidder.ornaguide.npc.persistence.NpcDao
 import nl.bryanderidder.ornaguide.pet.model.Pet
+import nl.bryanderidder.ornaguide.pet.model.PetFTS
 import nl.bryanderidder.ornaguide.pet.persistence.PetDao
 import nl.bryanderidder.ornaguide.skill.model.Skill
+import nl.bryanderidder.ornaguide.skill.model.SkillFTS
 import nl.bryanderidder.ornaguide.skill.persistence.SkillDao
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
+import nl.bryanderidder.ornaguide.specialization.model.SpecializationFTS
 import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationDao
 
 
@@ -28,15 +36,23 @@ import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationDao
 @Database(
     entities = [
         CharacterClass::class,
+        CharacterClassFTS::class,
         Skill::class,
+        SkillFTS::class,
         Specialization::class,
+        SpecializationFTS::class,
         Pet::class,
+        PetFTS::class,
         Item::class,
+        ItemFTS::class,
         Monster::class,
+        MonsterFTS::class,
         Npc::class,
+        NpcFTS::class,
         Achievement::class,
+        AchievementFTS::class,
     ],
-    version = 2
+    version = 3
 )
 @TypeConverters(OrnaTypeConverters::class)
 abstract class OrnaDatabase : RoomDatabase() {

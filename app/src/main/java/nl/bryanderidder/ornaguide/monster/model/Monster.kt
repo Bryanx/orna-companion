@@ -1,6 +1,7 @@
 package nl.bryanderidder.ornaguide.monster.model
 
 import androidx.room.Entity
+import androidx.room.Fts4
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
@@ -34,7 +35,25 @@ data class Monster(
         @Json(name = "name") val name: String = ""
     )
 
-    @Ignore fun formattedSpawns(): String {
-        return "Spawn: ${spawns.joinToString(",")}"
+    @Ignore fun formattedSpawns(): String =
+        if
+            (spawns.isEmpty()) ""
+        else
+            "Spawn: ${spawns.joinToString(",")}"
+
+    @Ignore fun searchFormat(): String =
+        if (boss)
+            "BOSS"
+        else
+            formattedSpawns()
+
+    companion object {
+        const val NAME = "monster"
     }
 }
+
+@Entity
+@Fts4(contentEntity = Monster::class)
+data class MonsterFTS(
+    val name: String,
+)

@@ -7,23 +7,32 @@ import android.os.Handler
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import androidx.annotation.ColorInt
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.util.concurrent.atomic.AtomicInteger
 
 
 fun View.setViewPadding(
     left: Float? = null, top: Float? = null,
     right: Float? = null, bottom: Float? = null,
     horizontal: Float? = null, vertical: Float? = null,
-    all: Float? = null
+    all: Float? = null,
 ) {
     if (listOfNotNull(left, top, right, bottom, horizontal, vertical, all).any { it < 0f }) return
     all?.let { setPadding(it.toInt(), it.toInt(), it.toInt(), it.toInt()) }
@@ -37,11 +46,28 @@ fun View.setViewPadding(
     )
 }
 
+
+fun <T> ViewModel.flowForkJoin(
+    vararg flows: Flow<List<T>>,
+    action: suspend (value: List<T>) -> Unit
+) =
+    viewModelScope.launch {
+        var resultCount = AtomicInteger(0)
+        var results = listOf<T>()
+        flows.forEach { flow ->
+            flow.collect {
+                results = results.plus(it)
+                if (resultCount.incrementAndGet() == flows.size)
+                    action(results)
+            }
+        }
+    }
+
 fun View.setViewMargin(
     left: Int? = null, top: Int? = null,
     right: Int? = null, bottom: Int? = null,
     horizontal: Int? = null, vertical: Int? = null,
-    all: Int? = null
+    all: Int? = null,
 ) {
     if (listOfNotNull(left, top, right, bottom, horizontal, vertical, all).any { it < 0f }) return
     layoutParams = (layoutParams as ViewGroup.MarginLayoutParams).apply {
@@ -87,7 +113,7 @@ fun Context.getActionBarHeight(): Int {
 }
 
 fun <V : View> BottomSheetBehavior<V>.onSlide(onSlide: (Float) -> Unit) {
-    addBottomSheetCallback(object: BottomSheetBehavior.BottomSheetCallback() {
+    addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
         override fun onStateChanged(bottomSheet: View, newState: Int) {
         }
 
@@ -98,12 +124,25 @@ fun <V : View> BottomSheetBehavior<V>.onSlide(onSlide: (Float) -> Unit) {
 }
 
 fun ViewPager2.onPageSelected(onSelected: (Int) -> Unit) {
-    registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+    registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
             super.onPageSelected(position)
             onSelected(position)
         }
     })
+}
+
+fun AppCompatActivity.updateStatusBarColor(color: Int) { // Color must be in hexadecimal fromat
+    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+    window.statusBarColor = color
+}
+
+fun TextInputEditText.focusAndShowKeyboard() {
+    post {
+        requestFocus()
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+    }
 }
 
 fun Context.getNavBarHeight(): Int = 56.dp

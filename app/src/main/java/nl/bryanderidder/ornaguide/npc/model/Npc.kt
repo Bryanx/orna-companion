@@ -1,6 +1,7 @@
 package nl.bryanderidder.ornaguide.npc.model
 
 import androidx.room.Entity
+import androidx.room.Fts4
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
@@ -26,4 +27,14 @@ data class Npc(
         @Json(name = "name") val name: String = "",
         @Json(name = "tier") val tier: Int = 0
     )
+
+    companion object {
+        const val NAME = "npc"
+    }
 }
+
+@Entity
+@Fts4(contentEntity = Npc::class)
+data class NpcFTS(
+    val name: String,
+)

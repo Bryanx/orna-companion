@@ -20,4 +20,14 @@ interface CharacterClassDao {
 
     @Query("SELECT * FROM CharacterClass WHERE id = :id")
     suspend fun getCharacterClass(id: Int): CharacterClass
+
+    @Query(
+        """
+      SELECT *
+      FROM CharacterClass
+      JOIN CharacterClassFTS ON CharacterClass.name = CharacterClassFTS.name
+      WHERE CharacterClassFTS MATCH :query
+    """
+    )
+    suspend fun search(query: String): List<CharacterClass>
 }

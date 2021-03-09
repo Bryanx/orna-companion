@@ -1,9 +1,6 @@
 package nl.bryanderidder.ornaguide.pet.model
 
-import androidx.room.Embedded
-import androidx.room.Entity
-import androidx.room.Ignore
-import androidx.room.PrimaryKey
+import androidx.room.*
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.shared.util.NumberUtil
@@ -53,4 +50,14 @@ data class Pet(
         if (stats.heal != 0) formattedStats += "Heal chance ${stats.heal}%"
         return formattedStats.joinToString("\n")
     }
+
+    companion object {
+        const val NAME = "pet"
+    }
 }
+
+@Entity
+@Fts4(contentEntity = Pet::class)
+data class PetFTS(
+    val name: String,
+)

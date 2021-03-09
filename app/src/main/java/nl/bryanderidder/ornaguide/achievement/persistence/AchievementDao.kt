@@ -20,4 +20,14 @@ interface AchievementDao {
 
     @Query("SELECT * FROM Achievement WHERE id = :id")
     suspend fun getAchievement(id: Int): Achievement
+
+    @Query(
+        """
+      SELECT *
+      FROM Achievement
+      JOIN AchievementFTS ON Achievement.name = AchievementFTS.name
+      WHERE AchievementFTS MATCH :query
+    """
+    )
+    suspend fun search(query: String): List<Achievement>
 }

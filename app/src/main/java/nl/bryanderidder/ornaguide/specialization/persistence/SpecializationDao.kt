@@ -20,4 +20,14 @@ interface SpecializationDao {
 
     @Query("SELECT * FROM Specialization WHERE id = :id")
     suspend fun getSpecialization(id: Int): Specialization
+
+    @Query(
+        """
+      SELECT *
+      FROM Specialization
+      JOIN SpecializationFTS ON Specialization.name = SpecializationFTS.name
+      WHERE SpecializationFTS MATCH :query
+    """
+    )
+    suspend fun search(query: String): List<Specialization>
 }
