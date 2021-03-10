@@ -27,7 +27,6 @@ class CharacterClassListViewModel(
 
     init {
         characterClassList = repository.fetchCharacterClassList(
-            requestBody = CharacterClassRequestBody(),
             onStart = { loading = true },
             onComplete = { loading = false },
             onError = { toastMessage = it }
