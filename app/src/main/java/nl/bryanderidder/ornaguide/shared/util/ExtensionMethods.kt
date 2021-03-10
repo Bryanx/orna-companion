@@ -8,6 +8,7 @@ import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
@@ -40,6 +41,16 @@ fun View.setViewPadding(
         bottom?.toInt() ?: paddingBottom
     )
 }
+
+var View.layoutGravity
+    get() = (layoutParams as FrameLayout.LayoutParams).gravity
+    set(value) {
+        layoutParams = FrameLayout.LayoutParams(
+            layoutParams.width,
+            layoutParams.height,
+            value
+        )
+    }
 
 fun View.setViewMargin(
     left: Int? = null, top: Int? = null,

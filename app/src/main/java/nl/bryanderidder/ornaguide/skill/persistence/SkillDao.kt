@@ -12,7 +12,7 @@ interface SkillDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSkillList(CharacterClassList: List<Skill>)
 
-    @Query("SELECT * FROM Skill WHERE tier = 10 ORDER BY tier LIMIT 100")
+    @Query("SELECT * FROM Skill ORDER BY tier LIMIT 50")
     suspend fun getSkillList(): List<Skill>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -12,7 +12,7 @@ interface PetDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPetList(PetList: List<Pet>)
 
-    @Query("SELECT * FROM Pet ORDER BY tier LIMIT 100")
+    @Query("SELECT * FROM Pet ORDER BY tier LIMIT 50")
     suspend fun getPetList(): List<Pet>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

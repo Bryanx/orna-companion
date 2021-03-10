@@ -2,8 +2,6 @@ package nl.bryanderidder.ornaguide.shared.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import com.squareup.moshi.Moshi
 import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRepository
@@ -15,6 +13,7 @@ import nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListViewM
 import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
 import nl.bryanderidder.ornaguide.item.ui.detail.ItemDetailViewModel
 import nl.bryanderidder.ornaguide.item.ui.list.ItemListViewModel
+import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemListFilterViewModel
 import nl.bryanderidder.ornaguide.monster.persistence.MonsterRepository
 import nl.bryanderidder.ornaguide.monster.ui.detail.MonsterDetailViewModel
 import nl.bryanderidder.ornaguide.monster.ui.list.MonsterListViewModel
@@ -88,6 +87,7 @@ val appModule: Module = module {
     viewModel { PetListViewModel(get()) }
     viewModel { PetDetailViewModel(get(), get()) }
     viewModel { ItemListViewModel(get()) }
+    viewModel { ItemListFilterViewModel(get()) }
     viewModel { ItemDetailViewModel(get(), get()) }
     viewModel { MonsterListViewModel(get()) }
     viewModel { MonsterDetailViewModel(get(), get()) }

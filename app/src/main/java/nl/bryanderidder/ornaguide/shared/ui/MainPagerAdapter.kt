@@ -22,7 +22,7 @@ class MainPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
         return DISCOVER_MENU_ITEMS.values.toList()[position].invoke()
     }
 
-    override fun getItemCount() = 8
+    override fun getItemCount() = DISCOVER_MENU_ITEMS.size
 
     companion object {
         val DISCOVER_MENU_ITEMS = mapOf<String, () -> Fragment>(

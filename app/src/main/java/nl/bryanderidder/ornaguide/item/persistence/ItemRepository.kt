@@ -77,4 +77,28 @@ class ItemRepository(
         val results = dao.search("*$query*")
         emit(results)
     }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleTiers() = flow<List<Int>> {
+        val results = dao.getAllPossibleTiers()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleTypes() = flow<List<String>> {
+        val results = dao.getAllPossibleTypes()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleElements() = flow<List<String>> {
+        val results = dao.getAllPossibleElements()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleEquippedBy() = flow<List<String>> {
+        val results = dao.getAllPossibleEquippedBy()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
 }

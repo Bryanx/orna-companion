@@ -10,6 +10,9 @@
     <color name="textColor">#C2BAB2</color>
     <color name="inactiveTabTextColor">#98938E</color>
     <color name="textColorHeader">#DAD5D0</color>
+
+    <color name="inactiveButtonColor">#2E2926</color>
+
     <color name="green">#74EA68</color>
     <color name="red">#E14D5B</color>
     <color name="purple">#B102FF</color>

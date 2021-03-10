@@ -12,7 +12,7 @@ interface ItemDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertItemList(ItemList: List<Item>)
 
-    @Query("SELECT * FROM Item WHERE tier = 10 ORDER BY tier LIMIT 100")
+    @Query("SELECT * FROM Item ORDER BY tier LIMIT 50")
     suspend fun getItemList(): List<Item>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -20,6 +20,18 @@ interface ItemDao {
 
     @Query("SELECT * FROM Item WHERE id = :id")
     suspend fun getItem(id: Int): Item
+
+    @Query("SELECT DISTINCT tier FROM Item")
+    suspend fun getAllPossibleTiers(): List<Int>
+
+    @Query("SELECT DISTINCT type FROM Item")
+    suspend fun getAllPossibleTypes(): List<String>
+
+    @Query("SELECT DISTINCT element FROM Item")
+    suspend fun getAllPossibleElements(): List<String>
+
+    @Query("SELECT DISTINCT equippedBy FROM Item")
+    suspend fun getAllPossibleEquippedBy(): List<String>
 
     @Query(
         """
