@@ -5,10 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRepository
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
@@ -16,10 +13,8 @@ import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
 import nl.bryanderidder.ornaguide.monster.persistence.MonsterRepository
 import nl.bryanderidder.ornaguide.npc.persistence.NpcRepository
 import nl.bryanderidder.ornaguide.pet.persistence.PetRepository
-import nl.bryanderidder.ornaguide.shared.util.flowForkJoin
 import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
 import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationRepository
-import timber.log.Timber
 
 class SearchViewModel(
     private val characterClassRepo: CharacterClassRepository,
@@ -44,13 +39,10 @@ class SearchViewModel(
 
     var searchResults: MutableLiveData<List<SearchResult>> = MutableLiveData(listOf())
 
-    private var searchJob: Job? = null
-
     init {
         viewModelScope.launch {
             searchQuery.collectLatest { query ->
-                searchJob?.cancel()
-                searchJob = flowForkJoin(
+                combine(
                     characterClassRepo.search(query).map { it.map(SearchResult::ofCharacterClass).toList() },
                     skillRepo.search(query).map { it.map(SearchResult::ofSkill).toList() },
                     specializationRepo.search(query).map { it.map(SearchResult::ofSpecialization).toList() },
@@ -60,6 +52,8 @@ class SearchViewModel(
                     npcRepo.search(query).map { it.map(SearchResult::ofNpc).toList() },
                     achievementRepo.search(query).map { it.map(SearchResult::ofAchievement).toList() },
                 ) {
+                    it.asList().flatten()
+                }.collect {
                     searchResults.postValue(it)
                 }
             }

@@ -82,7 +82,7 @@ object GeneralViewBindings {
     ) {
         if (view.adapter == null)
             view.adapter = adapter
-        (view.adapter as SearchListAdapter).submitList(items)
+        (view.adapter as SearchListAdapter).submitList(items?.take(50))
     }
 
     @JvmStatic
