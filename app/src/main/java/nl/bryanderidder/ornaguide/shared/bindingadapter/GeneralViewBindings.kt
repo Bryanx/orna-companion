@@ -21,6 +21,7 @@ import com.google.android.material.textfield.TextInputEditText
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchListAdapter
 import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
+import nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
 
 
 object GeneralViewBindings {
@@ -129,8 +130,27 @@ object GeneralViewBindings {
             false
         })
     }
+
+    @JvmStatic
+    @BindingAdapter("onChanged")
+    fun bindButtonGroupChanged(view: ThemedToggleButtonGroup, callback: StringListConsumer) {
+        view.setOnSelectListener {
+            callback.accept(view.selectedButtons.map { it.text }.toList())
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("listenOnClick")
+    fun bindButtonGroupChanged(view: View, callback: () -> Unit) {
+        view.setOnClickListener {
+            callback.invoke()
+        }
+    }
 }
 
 interface StringConsumer {
     fun accept(value: String)
+}
+interface StringListConsumer {
+    fun accept(value: List<String>)
 }

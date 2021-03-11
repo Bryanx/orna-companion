@@ -5,6 +5,13 @@
 
     <data>
 
+        <variable
+            name="dialog"
+            type="nl.bryanderidder.ornaguide.item.ui.list.filter.ItemListFilterDialogFragment" />
+
+        <variable
+            name="vm"
+            type="nl.bryanderidder.ornaguide.item.ui.list.ItemListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,6 +51,7 @@
             app:cardBackgroundColor="@color/inactiveButtonColor"
             app:cardCornerRadius="0dp"
             app:cardElevation="0dp"
+            app:listenOnClick="@{() -> vm.onSubmit(dialog)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/startVerticalGuideline">

@@ -8,6 +8,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.skydoves.bindables.BindingBottomSheetDialogFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentDialogItemFilterBinding
+import org.koin.android.viewmodel.ext.android.getViewModel
 
 
 /**
@@ -23,6 +24,9 @@ class ItemListFilterDialogFragment : BindingBottomSheetDialogFragment<FragmentDi
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
+            lifecycleOwner = this@ItemListFilterDialogFragment
+            vm = getViewModel()
+            dialog = this@ItemListFilterDialogFragment
             filterViewpager.adapter = ItemListFilterPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
         }.root
     }

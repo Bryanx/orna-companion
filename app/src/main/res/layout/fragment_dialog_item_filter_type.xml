@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="nl.bryanderidder.ornaguide.item.ui.list.filter.ItemListFilterViewModel" />
+            type="nl.bryanderidder.ornaguide.item.ui.list.ItemListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

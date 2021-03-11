@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="nl.bryanderidder.ornaguide.item.ui.list.filter.ItemListFilterViewModel" />
+            type="nl.bryanderidder.ornaguide.item.ui.list.ItemListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,6 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:toggleTierButtons="@{vm.allPossibleTiers}"
+            app:onChanged="@{v -> vm.updateSelectedTiers(v)}"
             app:toggle_requiredAmount="0"
             app:toggle_selectableAmount="10" />
     </androidx.constraintlayout.widget.ConstraintLayout>
