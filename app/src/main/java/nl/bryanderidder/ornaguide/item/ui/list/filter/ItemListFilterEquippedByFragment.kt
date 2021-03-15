@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentDialogItemFilterEquippedByBinding
-import org.koin.android.viewmodel.ext.android.getViewModel
+import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
 
 /**
@@ -24,7 +24,7 @@ class ItemListFilterEquippedByFragment : BindingFragment<FragmentDialogItemFilte
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
             lifecycleOwner = this@ItemListFilterEquippedByFragment
-            vm = getViewModel()
+            vm = getSharedViewModel()
         }.root
     }
 }

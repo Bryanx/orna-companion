@@ -3,16 +3,21 @@ package nl.bryanderidder.ornaguide.item.ui.list
 import androidx.databinding.Bindable
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
+import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemFilter
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
-import timber.log.Timber
 
 class ItemListViewModel(
     repository: ItemRepository,
@@ -27,17 +32,12 @@ class ItemListViewModel(
     var isLoading: Boolean by bindingProperty(false)
         private set
 
-    val itemList: LiveData<List<Item>> by lazy {
-        repository.fetchItemList(
-            onStart = { isLoading = true },
-            onComplete = { isLoading = false },
-            onError = { toastMessage = it }
-        ).asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
-    }
+    private var applyFilter = MutableStateFlow(0)
 
-    val allPossibleTiers: LiveData<List<String>> by lazy {
+    val itemList: MutableLiveData<List<Item>> = MutableLiveData()
+
+    val allPossibleTiers: LiveData<List<Int>> by lazy {
         repository.fetchAllPossibleTiers()
-            .map { it.map(Int::toString).toList() }
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
@@ -58,13 +58,42 @@ class ItemListViewModel(
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
-    private var selectedTiers = mutableListOf<Int>()
+    var itemFilter: MutableLiveData<ItemFilter> = MutableLiveData(ItemFilter())
+    var sessionItemFilter: MutableLiveData<ItemFilter> = MutableLiveData(ItemFilter())
+
+    init {
+        viewModelScope.launch {
+            applyFilter.collectLatest {
+                repository.fetchItemList(
+                    onStart = { isLoading = true },
+                    onComplete = { isLoading = false },
+                    onError = { toastMessage = it }
+                ).map {
+                    val tiers = itemFilter.value?.tiers?.toList() ?: listOf()
+                    val types = itemFilter.value?.types?.toList() ?: listOf()
+                    val elements = itemFilter.value?.elements?.toList() ?: listOf()
+                    it.filter { item -> tiers.isEmpty() || tiers.contains(item.tier) }
+                        .filter { item -> types.isEmpty() || types.contains(item.type) }
+                        .filter { item -> elements.isEmpty() || elements.contains(item.element) }
+                }.collect(itemList::postValue)
+            }
+        }
+    }
 
     fun updateSelectedTiers(tiers: List<String>) {
-        selectedTiers = tiers.map { it.toInt() }.toMutableList()
+        sessionItemFilter.value?.tiers = tiers.map(String::toInt).toList()
+    }
+
+    fun updateSelectedType(types: List<String>) {
+        sessionItemFilter.value?.types = types
+    }
+    fun updateSelectedElement(elements: List<String>) {
+        sessionItemFilter.value?.elements = elements
     }
 
     fun onSubmit(dialog: DialogFragment) {
+        itemFilter.postValue(sessionItemFilter.value)
+        applyFilter.value = applyFilter.value + 1
         dialog.dismiss()
     }
 }

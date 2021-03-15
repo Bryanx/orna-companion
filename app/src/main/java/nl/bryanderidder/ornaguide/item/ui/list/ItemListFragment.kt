@@ -8,7 +8,7 @@ import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentItemListBinding
 import org.koin.android.ext.android.get
-import org.koin.android.viewmodel.ext.android.getViewModel
+import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
 
 class ItemListFragment : BindingFragment<FragmentItemListBinding>(R.layout.fragment_item_list) {
@@ -22,7 +22,7 @@ class ItemListFragment : BindingFragment<FragmentItemListBinding>(R.layout.fragm
         return binding {
             lifecycleOwner = this@ItemListFragment
             adapter = ItemListAdapter(get())
-            vm = getViewModel()
+            vm = getSharedViewModel()
         }.root
     }
 }

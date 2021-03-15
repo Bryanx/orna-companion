@@ -1,7 +1,10 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="navBarHeight">56dp</dimen>
-    <dimen name="fabMargin">16dp</dimen>
+    <dimen name="buttonMargin">16dp</dimen>
+    <dimen name="buttonMarginHalf">8dp</dimen>
     <dimen name="cardPadding">12dp</dimen>
+    <dimen name="cardPaddingHalf">6dp</dimen>
     <dimen name="cardDividerPadding">18dp</dimen>
+    <dimen name="cardCornerRadius">5dp</dimen>
 </resources>

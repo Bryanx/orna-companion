@@ -12,7 +12,7 @@ interface ItemDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertItemList(ItemList: List<Item>)
 
-    @Query("SELECT * FROM Item ORDER BY tier LIMIT 50")
+    @Query("SELECT * FROM Item ORDER BY tier")
     suspend fun getItemList(): List<Item>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -26,6 +26,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:toggleButtons="@{vm.allPossibleTypes}"
+            app:toggleInitiallySelectedButtons="@{vm.itemFilter.types}"
+            app:onChanged="@{v -> vm.updateSelectedType(v)}"
             app:toggle_requiredAmount="0"
             app:toggle_selectableAmount="10" />
     </androidx.constraintlayout.widget.ConstraintLayout>

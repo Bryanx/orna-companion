@@ -53,7 +53,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2")
     implementation("com.github.skydoves:transformationlayout:1.0.7")
     implementation("com.github.skydoves:bundler:1.0.3")
-    implementation("nl.bryanderidder:themed-toggle-button-group:1.3.2")
+    implementation("nl.bryanderidder:themed-toggle-button-group:1.3.4")
 
     // Room
     implementation("androidx.room:room-runtime:2.3.0-beta02")

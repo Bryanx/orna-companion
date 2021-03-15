@@ -20,24 +20,31 @@ import nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
 object ItemViewBinding {
 
     @JvmStatic
-    @BindingAdapter("adapterItemList")
-    fun bindAdapterItemList(view: RecyclerView, items: List<Item>?) {
-        (view.adapter as ItemListAdapter).setItemList(items ?: listOf())
+    @BindingAdapter("itemAdapter", "itemAdapterList")
+    fun bindAdapterItemList(
+        view: RecyclerView,
+        itemListAdapter: ItemListAdapter,
+        items: List<Item>?,
+    ) {
+        if (view.adapter == null)
+            view.adapter = itemListAdapter
+        (view.adapter as ItemListAdapter).submitList(items ?: listOf())
     }
 
     @JvmStatic
-    @BindingAdapter("toggleTierButtons")
-    fun bindToggleTierButtons(view: ThemedToggleButtonGroup, items: List<String>?) {
-        items?.forEach {
+    @BindingAdapter("toggleTierButtons", "toggleTierInitiallySelectedButtons")
+    fun bindToggleTierButtons(view: ThemedToggleButtonGroup, items: List<Int>?, selectedItems: List<Int>?) {
+        val presentButtons = view.buttons.map(ThemedButton::text).toList()
+        items?.filter { !presentButtons.contains(it.toString()) }
+            ?.forEach { item ->
             val btn = ThemedButton(view.context)
-            btn.text = it
+            btn.text = item.toString()
             btn.bgColor = view.context.color(R.color.cardColor)
             btn.selectedBgColor = view.context.attrColor(R.attr.colorPrimary)
             btn.applyToTexts {
                 it.layoutGravity = Gravity.CENTER
                 it.setViewMargin(left = 10.dp)
             }
-            btn.setViewMargin(6.dp)
             ContextCompat.getDrawable(view.context, R.drawable.ic_baseline_star_24)?.let {
                 btn.applyToIcons {  icon ->
                     icon.setImageDrawable(it)
@@ -55,18 +62,21 @@ object ItemViewBinding {
                 it.setViewMargin(vertical = 6.dp)
                 it.setViewPadding(horizontal = 12.dp.toFloat(), vertical = 4.dp.toFloat())
             }
+            if (selectedItems?.contains(item) == true)
+                view.selectButton(btn)
         }
     }
 
     @JvmStatic
-    @BindingAdapter("toggleButtons")
-    fun bindToggleButtons(view: ThemedToggleButtonGroup, items: List<String>?) {
-        items?.forEach {
+    @BindingAdapter("toggleButtons", "toggleInitiallySelectedButtons")
+    fun bindToggleButtons(view: ThemedToggleButtonGroup, items: List<String>?, selectedItems: List<String>?) {
+        val presentButtons = view.buttons.map(ThemedButton::text).toList()
+        items?.filter { !presentButtons.contains(it) }
+            ?.forEach { item ->
             val btn = ThemedButton(view.context)
-            btn.text = it
+            btn.text = item
             btn.bgColor = view.context.color(R.color.cardColor)
             btn.selectedBgColor = view.context.attrColor(R.attr.colorPrimary)
-            btn.setViewMargin(6.dp)
             view.addView(btn,
                 ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -77,6 +87,8 @@ object ItemViewBinding {
                 it.setViewMargin(vertical = 6.dp)
                 it.setViewPadding(horizontal = 8.dp.toFloat(), vertical = 0.dp.toFloat())
             }
+            if (selectedItems?.contains(item) == true)
+                view.selectButton(btn)
         }
     }
 

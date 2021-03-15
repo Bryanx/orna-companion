@@ -9,7 +9,6 @@ import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.Dispatchers
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
-import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRequestBody
 
 class CharacterClassListViewModel(
     repository: CharacterClassRepository

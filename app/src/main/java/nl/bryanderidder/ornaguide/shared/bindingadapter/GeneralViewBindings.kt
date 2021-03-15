@@ -17,10 +17,12 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textfield.TextInputEditText
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchListAdapter
 import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
+import nl.bryanderidder.ornaguide.shared.util.attrColor
 import nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
 
 
@@ -146,6 +148,13 @@ object GeneralViewBindings {
             callback.invoke()
         }
     }
+
+    @JvmStatic
+    @BindingAdapter("primaryColorIf")
+    fun bindPrimaryColorIf(view: MaterialCardView, condition: Boolean) {
+        if (condition)
+            view.setCardBackgroundColor(view.context.attrColor(R.attr.colorPrimary))
+    }
 }
 
 interface StringConsumer {
@@ -153,4 +162,7 @@ interface StringConsumer {
 }
 interface StringListConsumer {
     fun accept(value: List<String>)
+}
+interface ToggleGroupConsumer {
+    fun accept(value: ThemedToggleButtonGroup)
 }
