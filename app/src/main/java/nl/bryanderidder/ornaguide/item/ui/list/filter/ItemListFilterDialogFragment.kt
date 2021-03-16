@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.item.ui.list.filter
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import org.koin.android.viewmodel.ext.android.getSharedViewModel
  * Filter items in a bottom sheet
  * @author Bryan de Ridder
  */
+@SuppressLint("MissingSuperCall")
 class ItemListFilterDialogFragment : BindingBottomSheetDialogFragment<FragmentDialogItemFilterBinding>(R.layout.fragment_dialog_item_filter) {
 
     override fun onCreateView(
@@ -27,12 +29,14 @@ class ItemListFilterDialogFragment : BindingBottomSheetDialogFragment<FragmentDi
             lifecycleOwner = this@ItemListFilterDialogFragment
             vm = getSharedViewModel()
             dialog = this@ItemListFilterDialogFragment
-            filterViewpager.adapter = ItemListFilterPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
         }.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding {
+            filterViewpager.adapter = ItemListFilterPagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
+        }
         TabLayoutMediator(binding.filterTabLayout, binding.filterViewpager) { tab, position ->
             tab.text = ItemListFilterPagerAdapter.FILTER_TAB_LABELS[(position)]
         }.attach()

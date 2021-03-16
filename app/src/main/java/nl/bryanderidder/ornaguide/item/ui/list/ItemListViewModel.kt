@@ -9,9 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.item.model.Item
@@ -32,8 +30,7 @@ class ItemListViewModel(
     var isLoading: Boolean by bindingProperty(false)
         private set
 
-    private var applyFilter = MutableStateFlow(0)
-
+    private var sessionItems = listOf<Item>()
     val itemList: MutableLiveData<List<Item>> = MutableLiveData()
 
     val allPossibleTiers: LiveData<List<Int>> by lazy {
@@ -54,46 +51,62 @@ class ItemListViewModel(
 
     val allPossibleEquippedBy: LiveData<List<String>> by lazy {
         repository.fetchAllPossibleEquippedBy()
-            .map { it.filter(String::isNotEmpty).toList() }
+            .map { it.map(Item.IdNamePair::name).toList() }
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
+    private var sessionItemFilter: ItemFilter = ItemFilter()
     var itemFilter: MutableLiveData<ItemFilter> = MutableLiveData(ItemFilter())
-    var sessionItemFilter: MutableLiveData<ItemFilter> = MutableLiveData(ItemFilter())
 
     init {
         viewModelScope.launch {
-            applyFilter.collectLatest {
-                repository.fetchItemList(
-                    onStart = { isLoading = true },
-                    onComplete = { isLoading = false },
-                    onError = { toastMessage = it }
-                ).map {
-                    val tiers = itemFilter.value?.tiers?.toList() ?: listOf()
-                    val types = itemFilter.value?.types?.toList() ?: listOf()
-                    val elements = itemFilter.value?.elements?.toList() ?: listOf()
-                    it.filter { item -> tiers.isEmpty() || tiers.contains(item.tier) }
-                        .filter { item -> types.isEmpty() || types.contains(item.type) }
-                        .filter { item -> elements.isEmpty() || elements.contains(item.element) }
-                }.collect(itemList::postValue)
+            repository.fetchItemList(
+                onStart = { isLoading = true },
+                onComplete = { isLoading = false },
+                onError = { toastMessage = it }
+            ).collect {
+                sessionItems = it
+                loadItems()
             }
         }
     }
 
+    private fun loadItems() = viewModelScope.launch {
+        val tiers = itemFilter.value?.tiers?.toList() ?: listOf()
+        val types = itemFilter.value?.types?.toList() ?: listOf()
+        val elements = itemFilter.value?.elements?.toList() ?: listOf()
+        val equippedByList = itemFilter.value?.equippedByList?.toList() ?: listOf()
+        var newItems = sessionItems
+        if (tiers.isNotEmpty())
+            newItems = newItems.filter { item -> tiers.contains(item.tier) }
+        if (types.isNotEmpty())
+            newItems = newItems.filter { item -> types.contains(item.type) }
+        if (elements.isNotEmpty())
+            newItems = newItems.filter { item -> elements.contains(item.element) }
+        if (equippedByList.isNotEmpty())
+            newItems = newItems.filter { item -> equippedByList.any(item.equippedBy.toString()::contains) }
+        itemList.postValue(newItems)
+    }
+
     fun updateSelectedTiers(tiers: List<String>) {
-        sessionItemFilter.value?.tiers = tiers.map(String::toInt).toList()
+        sessionItemFilter.tiers = tiers.map(String::toInt).toList()
     }
 
     fun updateSelectedType(types: List<String>) {
-        sessionItemFilter.value?.types = types
+        sessionItemFilter.types = types
     }
+
     fun updateSelectedElement(elements: List<String>) {
-        sessionItemFilter.value?.elements = elements
+        sessionItemFilter.elements = elements
+    }
+
+    fun updateSelectedEquippedByList(equippedByList: List<String>) {
+        sessionItemFilter.equippedByList = equippedByList
     }
 
     fun onSubmit(dialog: DialogFragment) {
-        itemFilter.postValue(sessionItemFilter.value)
-        applyFilter.value = applyFilter.value + 1
+        itemFilter.value = sessionItemFilter
+        loadItems()
         dialog.dismiss()
     }
 }

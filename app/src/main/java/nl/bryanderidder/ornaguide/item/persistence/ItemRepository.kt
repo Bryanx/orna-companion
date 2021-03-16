@@ -97,8 +97,8 @@ class ItemRepository(
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleEquippedBy() = flow<List<String>> {
-        val results = dao.getAllPossibleEquippedBy()
+    fun fetchAllPossibleEquippedBy() = flow<List<Item.IdNamePair>> {
+        val results = dao.getAllPossibleEquippedBy().flatMap { it.equippedBy }.distinct().toList()
         emit(results)
     }.flowOn(Dispatchers.IO)
 }

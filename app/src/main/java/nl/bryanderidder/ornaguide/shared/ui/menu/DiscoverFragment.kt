@@ -19,7 +19,7 @@ import nl.bryanderidder.ornaguide.shared.util.showBottomSheet
  * Main discover fragment
  * @author Bryan de Ridder
  */
-class DicoverFragment :
+class DiscoverFragment :
     BindingFragment<FragmentMenuDiscoverBinding>(R.layout.fragment_menu_discover) {
 
     override fun onCreateView(
@@ -29,17 +29,18 @@ class DicoverFragment :
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         requireActivity().window.statusBarColor = requireContext().color(R.color.backgroundColorDark)
-        return binding {
-            mainViewpager.adapter = MainPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
-            mainViewpager.offscreenPageLimit = ViewPager2.OFFSCREEN_PAGE_LIMIT_DEFAULT
-            filterFab.setOnClickListener {
-                onClickFilterFab(MainPagerAdapter.DISCOVER_MENU_LABELS[(mainViewpager.currentItem)])
-            }
-        }.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding {
+            mainViewpager.adapter = MainPagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
+            mainViewpager.offscreenPageLimit = ViewPager2.OFFSCREEN_PAGE_LIMIT_DEFAULT
+            filterFab.setOnClickListener {
+                onClickFilterFab(MainPagerAdapter.DISCOVER_MENU_LABELS[(mainViewpager.currentItem)])
+            }
+        }
         TabLayoutMediator(binding.tabLayout, binding.mainViewpager) { tab, position ->
             tab.text = MainPagerAdapter.DISCOVER_MENU_LABELS[(position)]
         }.attach()

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/dicoverFragment"
-        android:name="nl.bryanderidder.ornaguide.shared.ui.menu.DicoverFragment"
+        android:name="nl.bryanderidder.ornaguide.shared.ui.menu.DiscoverFragment"
         android:label="DicoverFragment" />
     <fragment
         android:id="@+id/guidesFragment"
