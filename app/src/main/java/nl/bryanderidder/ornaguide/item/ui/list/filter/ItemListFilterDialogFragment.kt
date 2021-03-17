@@ -1,6 +1,7 @@
 package nl.bryanderidder.ornaguide.item.ui.list.filter
 
 import android.annotation.SuppressLint
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -40,6 +41,11 @@ class ItemListFilterDialogFragment : BindingBottomSheetDialogFragment<FragmentDi
         TabLayoutMediator(binding.filterTabLayout, binding.filterViewpager) { tab, position ->
             tab.text = ItemListFilterPagerAdapter.FILTER_TAB_LABELS[(position)]
         }.attach()
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        binding.vm?.onDismissed()
     }
 
 }

@@ -89,8 +89,12 @@ class ItemListViewModel(repository: ItemRepository) : BindingViewModel() {
     }
 
     fun onSubmit(dialog: DialogFragment) {
-        itemFilter.value = sessionItemFilter
+        itemFilter.value = sessionItemFilter.copy()
         loadItems()
         dialog.dismiss()
+    }
+
+    fun onDismissed() {
+        sessionItemFilter = itemFilter.value?.copy() ?: ItemFilter()
     }
 }
