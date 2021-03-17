@@ -15,12 +15,8 @@ import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
 import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemFilter
-import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
-class ItemListViewModel(
-    repository: ItemRepository,
-    private val sharedPrefsUtil: SharedPrefsUtil
-) : BindingViewModel() {
+class ItemListViewModel(repository: ItemRepository) : BindingViewModel() {
 
     @get:Bindable
     var toastMessage: String? by bindingProperty(null)
@@ -72,20 +68,8 @@ class ItemListViewModel(
     }
 
     private fun loadItems() = viewModelScope.launch {
-        val tiers = itemFilter.value?.tiers?.toList() ?: listOf()
-        val types = itemFilter.value?.types?.toList() ?: listOf()
-        val elements = itemFilter.value?.elements?.toList() ?: listOf()
-        val equippedByList = itemFilter.value?.equippedByList?.toList() ?: listOf()
-        var newItems = sessionItems
-        if (tiers.isNotEmpty())
-            newItems = newItems.filter { item -> tiers.contains(item.tier) }
-        if (types.isNotEmpty())
-            newItems = newItems.filter { item -> types.contains(item.type) }
-        if (elements.isNotEmpty())
-            newItems = newItems.filter { item -> elements.contains(item.element) }
-        if (equippedByList.isNotEmpty())
-            newItems = newItems.filter { item -> equippedByList.any(item.equippedBy.toString()::contains) }
-        itemList.postValue(newItems)
+        val filteredItems = itemFilter.value?.applyFilter(sessionItems)
+        itemList.postValue(filteredItems)
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
