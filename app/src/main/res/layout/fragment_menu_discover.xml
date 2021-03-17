@@ -71,6 +71,7 @@
             android:src="@drawable/ic_baseline_filter_list_24"
             android:layout_marginBottom="@dimen/buttonMargin"
             android:layout_marginEnd="@dimen/buttonMargin"
+            app:layout_behavior="nl.bryanderidder.ornaguide.shared.ui.behaviors.FabAwareScrollingBehavior"
             app:layout_anchor="@+id/main_viewpager"
             app:layout_anchorGravity="bottom|right|end"
             android:contentDescription="filter" />
