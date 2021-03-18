@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "205272872060",
+    "project_id": "ornaguide",
+    "storage_bucket": "ornaguide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:205272872060:android:c32e8e8a6159c8930985f9",
+        "android_client_info": {
+          "package_name": "nl.bryanderidder.ornaguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "205272872060-5gu0pqt1n6h7hq8ubja2kn1hcprnevpd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUwd3fcGHZl3rTlxFI08-4vwYh_1KGc6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "205272872060-5gu0pqt1n6h7hq8ubja2kn1hcprnevpd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

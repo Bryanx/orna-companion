@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -54,6 +56,11 @@ dependencies {
     implementation("com.github.skydoves:transformationlayout:1.0.7")
     implementation("com.github.skydoves:bundler:1.0.3")
     implementation("nl.bryanderidder:themed-toggle-button-group:1.3.4")
+
+    // Firebase
+    implementation(platform("com.google.firebase:firebase-bom:26.7.0"))
+    implementation("com.google.firebase:firebase-crashlytics-ktx")
+    implementation("com.google.firebase:firebase-analytics-ktx")
 
     // Room
     implementation("androidx.room:room-runtime:2.3.0-beta02")
