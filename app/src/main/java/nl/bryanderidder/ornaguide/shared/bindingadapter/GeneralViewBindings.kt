@@ -13,7 +13,6 @@ import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
-import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -21,8 +20,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textfield.TextInputEditText
 import nl.bryanderidder.ornaguide.R
-import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchListAdapter
-import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
 import nl.bryanderidder.ornaguide.shared.util.attrColor
 import nl.bryanderidder.themedtogglebuttongroup.ThemedButton
 import nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
@@ -76,18 +73,6 @@ object GeneralViewBindings {
         Glide.with(view.context)
             .load(url)
             .into(view)
-    }
-
-    @JvmStatic
-    @BindingAdapter("searchResultAdapter", "searchResultList")
-    fun bindAdapterSearchResultList(
-        view: RecyclerView,
-        adapter: SearchListAdapter,
-        items: List<SearchResult>?,
-    ) {
-        if (view.adapter == null)
-            view.adapter = adapter
-        (view.adapter as SearchListAdapter).submitList(items?.take(50))
     }
 
     @JvmStatic

@@ -13,24 +13,11 @@ import nl.bryanderidder.ornaguide.item.ui.detail.ItemDroppedByAdapter
 import nl.bryanderidder.ornaguide.item.ui.detail.ItemEquippedByAdapter
 import nl.bryanderidder.ornaguide.item.ui.detail.ItemMaterialsAdapter
 import nl.bryanderidder.ornaguide.item.ui.detail.ItemQuestsAdapter
-import nl.bryanderidder.ornaguide.item.ui.list.ItemListAdapter
 import nl.bryanderidder.ornaguide.shared.util.*
 import nl.bryanderidder.themedtogglebuttongroup.ThemedButton
 import nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
 
 object ItemViewBinding {
-
-    @JvmStatic
-    @BindingAdapter("itemAdapter", "itemAdapterList")
-    fun bindAdapterItemList(
-        view: RecyclerView,
-        itemListAdapter: ItemListAdapter,
-        items: List<Item>?,
-    ) {
-        if (view.adapter == null)
-            view.adapter = itemListAdapter
-        (view.adapter as ItemListAdapter).submitList(items ?: listOf())
-    }
 
     @JvmStatic
     @BindingAdapter("toggleTierButtons", "toggleTierInitiallySelectedButtons")

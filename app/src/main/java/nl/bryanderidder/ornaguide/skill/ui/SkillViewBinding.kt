@@ -9,16 +9,8 @@ import nl.bryanderidder.ornaguide.skill.model.Skill
 import nl.bryanderidder.ornaguide.skill.ui.detail.LearnedByAdapter
 import nl.bryanderidder.ornaguide.skill.ui.detail.MonstersUseAdapter
 import nl.bryanderidder.ornaguide.skill.ui.detail.PetsUseAdapter
-import nl.bryanderidder.ornaguide.skill.ui.list.SkillListAdapter
 
 object SkillViewBinding {
-    @JvmStatic
-    @BindingAdapter("skillAdapter", "skillAdapterList")
-    fun bindSkillList(view: RecyclerView, adapter: SkillListAdapter, items: List<Skill>?) {
-        if (view.adapter == null)
-            view.adapter = adapter
-        (view.adapter as SkillListAdapter).submitList(items ?: listOf())
-    }
 
     @JvmStatic
     @BindingAdapter("skillSrc")
