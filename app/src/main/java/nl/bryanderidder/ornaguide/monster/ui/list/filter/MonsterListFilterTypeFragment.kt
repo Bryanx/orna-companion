@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.monster.ui.list
+package nl.bryanderidder.ornaguide.monster.ui.list.filter
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,12 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
-import nl.bryanderidder.ornaguide.databinding.FragmentMonsterListBinding
-import org.koin.android.ext.android.get
+import nl.bryanderidder.ornaguide.databinding.FragmentDialogMonsterFilterTypeBinding
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
-
-class MonsterListFragment : BindingFragment<FragmentMonsterListBinding>(R.layout.fragment_monster_list) {
+class MonsterListFilterTypeFragment : BindingFragment<FragmentDialogMonsterFilterTypeBinding>(R.layout.fragment_dialog_monster_filter_type) {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,8 +18,7 @@ class MonsterListFragment : BindingFragment<FragmentMonsterListBinding>(R.layout
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
-            lifecycleOwner = this@MonsterListFragment
-            adapter = MonsterListAdapter(get())
+            lifecycleOwner = this@MonsterListFilterTypeFragment
             vm = getSharedViewModel()
         }.root
     }

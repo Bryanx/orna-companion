@@ -10,6 +10,7 @@ import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentMenuDiscoverBinding
 import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemListFilterDialogFragment
+import nl.bryanderidder.ornaguide.monster.ui.list.filter.MonsterListFilterDialogFragment
 import nl.bryanderidder.ornaguide.shared.ui.MainPagerAdapter
 import nl.bryanderidder.ornaguide.shared.util.color
 import nl.bryanderidder.ornaguide.shared.util.showBottomSheet
@@ -49,6 +50,7 @@ class DiscoverFragment :
     private fun onClickFilterFab(currentTab: String) {
         when (currentTab) {
             "Items" -> showBottomSheet(ItemListFilterDialogFragment())
+            "Monsters" -> showBottomSheet(MonsterListFilterDialogFragment())
             else -> null
         }
     }

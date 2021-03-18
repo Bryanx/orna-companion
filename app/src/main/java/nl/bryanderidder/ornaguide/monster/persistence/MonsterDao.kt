@@ -12,7 +12,7 @@ interface MonsterDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMonsterList(MonsterList: List<Monster>)
 
-    @Query("SELECT * FROM Monster ORDER BY tier LIMIT 50")
+    @Query("SELECT * FROM Monster ORDER BY tier")
     suspend fun getMonsterList(): List<Monster>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -20,6 +20,12 @@ interface MonsterDao {
 
     @Query("SELECT * FROM Monster WHERE id = :id")
     suspend fun getMonster(id: Int): Monster
+
+    @Query("SELECT DISTINCT tier FROM Monster")
+    fun getAllPossibleTiers(): List<Int>
+
+    @Query("SELECT DISTINCT spawns FROM Monster")
+    fun getAllPossibleSpawns(): List<String>
 
     @Query(
         """

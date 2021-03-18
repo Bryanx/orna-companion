@@ -26,9 +26,6 @@ class ItemListViewModel(repository: ItemRepository) : BindingViewModel() {
     var isLoading: Boolean by bindingProperty(false)
         private set
 
-    private var sessionItems = listOf<Item>()
-    val itemList: MutableLiveData<List<Item>> = MutableLiveData()
-
     val allPossibleTiers: LiveData<List<Int>> by lazy {
         repository.fetchAllPossibleTiers()
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
@@ -50,6 +47,9 @@ class ItemListViewModel(repository: ItemRepository) : BindingViewModel() {
             .map { it.map(Item.IdNamePair::name).toList() }
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
+
+    private var sessionItems = listOf<Item>()
+    val itemList: MutableLiveData<List<Item>> = MutableLiveData()
 
     private var sessionItemFilter: ItemFilter = ItemFilter()
     var itemFilter: MutableLiveData<ItemFilter> = MutableLiveData(ItemFilter())

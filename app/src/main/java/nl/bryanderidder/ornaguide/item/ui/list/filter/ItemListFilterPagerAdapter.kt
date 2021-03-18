@@ -20,10 +20,10 @@ class ItemListFilterPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
 
     companion object {
         val FILTER_TAB_ITEMS = mapOf<String, () -> Fragment>(
-            "Tier" to { ItemListFilterTierFragment() },
-            "Type" to { ItemListFilterTypeFragment() },
-            "Element" to { ItemListFilterElementFragment() },
-            "Equip class" to { ItemListFilterEquippedByFragment() },
+            "Tier" to ::ItemListFilterTierFragment,
+            "Type" to ::ItemListFilterTypeFragment,
+            "Element" to ::ItemListFilterElementFragment,
+            "Equip class" to ::ItemListFilterEquippedByFragment,
         )
 
         val FILTER_TAB_LABELS: List<String> = FILTER_TAB_ITEMS.keys.toList()

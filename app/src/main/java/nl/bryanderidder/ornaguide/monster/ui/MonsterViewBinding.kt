@@ -16,9 +16,15 @@ import nl.bryanderidder.ornaguide.shared.util.setTint
 object MonsterViewBinding {
 
     @JvmStatic
-    @BindingAdapter("adapterMonsterList")
-    fun bindAdapterMonsterList(view: RecyclerView, items: List<Monster>?) {
-        (view.adapter as MonsterListAdapter).setItemList(items ?: listOf())
+    @BindingAdapter("monsterAdapter", "monsterAdapterList")
+    fun bindAdapterMonsterList(
+        view: RecyclerView,
+        itemListAdapter: MonsterListAdapter,
+        items: List<Monster>?,
+    ) {
+        if (view.adapter == null)
+            view.adapter = itemListAdapter
+        (view.adapter as MonsterListAdapter).submitList(items ?: listOf())
     }
 
     @JvmStatic

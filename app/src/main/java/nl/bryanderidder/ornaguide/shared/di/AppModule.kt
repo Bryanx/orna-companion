@@ -87,7 +87,7 @@ val appModule: Module = module {
     viewModel { PetDetailViewModel(get(), get()) }
     viewModel { ItemListViewModel(get()) }
     viewModel { ItemDetailViewModel(get(), get()) }
-    viewModel { MonsterListViewModel(get()) }
+    viewModel { MonsterListViewModel(get(), get()) }
     viewModel { MonsterDetailViewModel(get(), get()) }
     viewModel { NpcListViewModel(get()) }
     viewModel { NpcDetailViewModel(get(), get()) }

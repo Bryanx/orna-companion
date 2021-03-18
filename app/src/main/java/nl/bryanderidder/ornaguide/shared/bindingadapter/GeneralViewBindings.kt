@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.FrameLayout
 import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
@@ -23,6 +24,7 @@ import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchListAdapter
 import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
 import nl.bryanderidder.ornaguide.shared.util.attrColor
+import nl.bryanderidder.themedtogglebuttongroup.ThemedButton
 import nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
 
 
@@ -137,7 +139,8 @@ object GeneralViewBindings {
     @BindingAdapter("onChanged")
     fun bindButtonGroupChanged(view: ThemedToggleButtonGroup, callback: StringListConsumer) {
         view.setOnSelectListener {
-            callback.accept(view.selectedButtons.map { it.text }.toList())
+            it.btnHeight = FrameLayout.LayoutParams.WRAP_CONTENT
+            callback.accept(view.selectedButtons.map(ThemedButton::text).toList())
         }
     }
 

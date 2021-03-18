@@ -26,14 +26,14 @@ class MainPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
 
     companion object {
         val DISCOVER_MENU_ITEMS = mapOf<String, () -> Fragment>(
-            "Items" to { ItemListFragment() },
-            "Monsters" to { MonsterListFragment() },
-            "Skills" to { SkillListFragment() },
-            "Classes" to { CharacterClassListFragment() },
-            "Pets" to { PetListFragment() },
-            "Specializations" to { SpecializationListFragment() },
-            "NPCs" to { NpcListFragment() },
-            "Achievements" to { AchievementListFragment() },
+            "Items" to ::ItemListFragment,
+            "Monsters" to ::MonsterListFragment,
+            "Skills" to ::SkillListFragment,
+            "Classes" to ::CharacterClassListFragment,
+            "Pets" to ::PetListFragment,
+            "Specializations" to ::SpecializationListFragment,
+            "NPCs" to ::NpcListFragment,
+            "Achievements" to ::AchievementListFragment,
         )
 
         val DISCOVER_MENU_LABELS: List<String> = DISCOVER_MENU_ITEMS.keys.toList()
