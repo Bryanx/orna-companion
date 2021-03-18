@@ -8,8 +8,10 @@ import nl.bryanderidder.ornaguide.achievement.ui.list.AchievementListAdapter
 object AchievementViewBinding {
 
     @JvmStatic
-    @BindingAdapter("adapterAchievementList")
-    fun bindAdapterAchievementList(view: RecyclerView, items: List<Achievement>?) {
-        (view.adapter as AchievementListAdapter).setItemList(items ?: listOf())
+    @BindingAdapter("achievementAdapter", "achievementAdapterList")
+    fun bindAdapterAchievementList(view: RecyclerView, adapter: AchievementListAdapter, items: List<Achievement>?) {
+        if (view.adapter == null)
+            view.adapter = adapter
+        (view.adapter as AchievementListAdapter).submitList(items ?: listOf())
     }
 }

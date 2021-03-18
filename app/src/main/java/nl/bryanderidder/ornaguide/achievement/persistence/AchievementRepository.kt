@@ -77,4 +77,10 @@ class AchievementRepository(
         val results = dao.search("*$query*")
         emit(results)
     }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleTiers() = flow<List<Int>> {
+        val results = dao.getAllPossibleTiers()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
 }
