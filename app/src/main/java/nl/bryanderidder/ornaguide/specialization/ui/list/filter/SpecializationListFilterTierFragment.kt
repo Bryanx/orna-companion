@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.specialization.ui.list
+package nl.bryanderidder.ornaguide.specialization.ui.list.filter
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
-import nl.bryanderidder.ornaguide.databinding.FragmentSpecializationListBinding
-import org.koin.android.ext.android.get
+import nl.bryanderidder.ornaguide.databinding.FragmentDialogSpecializationFilterTierBinding
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
-class SpecializationListFragment : BindingFragment<FragmentSpecializationListBinding>(R.layout.fragment_specialization_list) {
+class SpecializationListFilterTierFragment : BindingFragment<FragmentDialogSpecializationFilterTierBinding>(R.layout.fragment_dialog_specialization_filter_tier) {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,8 +18,7 @@ class SpecializationListFragment : BindingFragment<FragmentSpecializationListBin
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
-            lifecycleOwner = this@SpecializationListFragment
-            adapter = SpecializationListAdapter(get())
+            lifecycleOwner = this@SpecializationListFilterTierFragment
             vm = getSharedViewModel()
         }.root
     }

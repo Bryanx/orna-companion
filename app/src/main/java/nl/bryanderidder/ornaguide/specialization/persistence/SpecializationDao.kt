@@ -12,7 +12,7 @@ interface SpecializationDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSpecializationList(SpecializationList: List<Specialization>)
 
-    @Query("SELECT * FROM Specialization ORDER BY tier LIMIT 50")
+    @Query("SELECT * FROM Specialization ORDER BY tier")
     suspend fun getSpecializationList(): List<Specialization>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -20,6 +20,9 @@ interface SpecializationDao {
 
     @Query("SELECT * FROM Specialization WHERE id = :id")
     suspend fun getSpecialization(id: Int): Specialization
+
+    @Query("SELECT DISTINCT tier FROM Specialization ORDER BY tier")
+    suspend fun getAllPossibleTiers(): List<Int>
 
     @Query(
         """

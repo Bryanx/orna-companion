@@ -12,14 +12,16 @@ import nl.bryanderidder.ornaguide.specialization.ui.list.SpecializationListAdapt
 object SpecializationViewBinding {
 
     @JvmStatic
-    @BindingAdapter("adapterSpecializationList")
-    fun bindAdapterSpecializationList(view: RecyclerView, items: List<Specialization>?) {
-        (view.adapter as SpecializationListAdapter).setItemList(items ?: listOf())
+    @BindingAdapter("adapterSpecialization", "adapterSpecializationList")
+    fun bindAdapterSpecializationList(view: RecyclerView, adapter: SpecializationListAdapter, items: List<Specialization>?) {
+        if (view.adapter == null)
+            view.adapter = adapter
+        (view.adapter as SpecializationListAdapter).submitList(items ?: listOf())
     }
 
     @JvmStatic
     @BindingAdapter("boostsAdapter", "adapterBoostsList", requireAll = true)
-    fun bindAdapterLearnList(view: RecyclerView, adapter: BoostsAdapter, items: List<Specialization.Boost>?) {
+    fun bindAdapterBoostList(view: RecyclerView, adapter: BoostsAdapter, items: List<Specialization.Boost>?) {
         view.adapter = adapter
         adapter.setItemList(items ?: listOf())
     }

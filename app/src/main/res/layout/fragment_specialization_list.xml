@@ -28,7 +28,7 @@
             android:padding="6dp"
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical"
-            app:adapter="@{adapter}"
+            app:adapterSpecialization="@{adapter}"
             app:adapterSpecializationList="@{vm.specializationList}"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"

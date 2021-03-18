@@ -17,6 +17,7 @@ import nl.bryanderidder.ornaguide.shared.ui.MainPagerAdapter
 import nl.bryanderidder.ornaguide.shared.util.color
 import nl.bryanderidder.ornaguide.shared.util.showBottomSheet
 import nl.bryanderidder.ornaguide.skill.ui.list.filter.SkillListFilterDialogFragment
+import nl.bryanderidder.ornaguide.specialization.ui.list.filter.SpecializationListFilterDialogFragment
 
 
 /**
@@ -57,6 +58,7 @@ class DiscoverFragment :
             "Skills" -> showBottomSheet(SkillListFilterDialogFragment())
             "Classes" -> showBottomSheet(CharacterClassListFilterDialogFragment())
             "Pets" -> showBottomSheet(PetListFilterDialogFragment())
+            "Specializations" -> showBottomSheet(SpecializationListFilterDialogFragment())
             else -> null
         }
     }
