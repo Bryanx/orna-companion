@@ -6,7 +6,7 @@ import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentSkillListBinding
 import org.koin.android.ext.android.get
-import org.koin.android.viewmodel.ext.android.getViewModel
+import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
 /**
  * Displays a list of skills
@@ -20,7 +20,7 @@ class SkillListFragment :
         binding {
             lifecycleOwner = this@SkillListFragment
             adapter = SkillListAdapter(get())
-            vm = getViewModel()
+            vm = getSharedViewModel()
         }.root
     }
 }

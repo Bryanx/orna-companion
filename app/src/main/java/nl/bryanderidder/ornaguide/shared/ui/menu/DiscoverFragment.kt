@@ -14,6 +14,7 @@ import nl.bryanderidder.ornaguide.monster.ui.list.filter.MonsterListFilterDialog
 import nl.bryanderidder.ornaguide.shared.ui.MainPagerAdapter
 import nl.bryanderidder.ornaguide.shared.util.color
 import nl.bryanderidder.ornaguide.shared.util.showBottomSheet
+import nl.bryanderidder.ornaguide.skill.ui.list.filter.SkillListFilterDialogFragment
 
 
 /**
@@ -51,6 +52,7 @@ class DiscoverFragment :
         when (currentTab) {
             "Items" -> showBottomSheet(ItemListFilterDialogFragment())
             "Monsters" -> showBottomSheet(MonsterListFilterDialogFragment())
+            "Skills" -> showBottomSheet(SkillListFilterDialogFragment())
             else -> null
         }
     }

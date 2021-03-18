@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dialog"
+            type="nl.bryanderidder.ornaguide.skill.ui.list.filter.SkillListFilterDialogFragment" />
+
+        <variable
+            name="vm"
+            type="nl.bryanderidder.ornaguide.skill.ui.list.SkillListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backgroundColorDark">
+
+        <View
+            android:id="@+id/bottomSheetTopDivider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/dividerColor"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/filter_tab_layout"
+            android:layout_width="0dp"
+            android:layout_height="?actionBarSize"
+            android:background="@color/cardColor"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bottomSheetTopDivider"
+            app:tabGravity="center"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="?android:attr/colorSecondary"
+            app:tabTextAppearance="@style/tabMenuText"
+            app:tabTextColor="@color/inactiveTabTextColor" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/filter_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toTopOf="@+id/applyFilterButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/filter_tab_layout" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/applyFilterButton"
+            android:layout_width="0dp"
+            android:layout_height="?actionBarSize"
+            android:layout_marginHorizontal="@dimen/buttonMargin"
+            android:layout_marginBottom="@dimen/buttonMargin"
+            android:clickable="true"
+            app:cardBackgroundColor="@color/inactiveButtonColor"
+            app:cardCornerRadius="@dimen/cardCornerRadius"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:listenOnClick="@{() -> vm.onSubmit(dialog)}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Apply filter"
+                android:textAllCaps="true"
+                android:textColor="@color/textColor" />
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

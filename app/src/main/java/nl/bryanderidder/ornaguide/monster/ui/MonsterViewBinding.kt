@@ -19,11 +19,11 @@ object MonsterViewBinding {
     @BindingAdapter("monsterAdapter", "monsterAdapterList")
     fun bindAdapterMonsterList(
         view: RecyclerView,
-        itemListAdapter: MonsterListAdapter,
+        adapter: MonsterListAdapter,
         items: List<Monster>?,
     ) {
         if (view.adapter == null)
-            view.adapter = itemListAdapter
+            view.adapter = adapter
         (view.adapter as MonsterListAdapter).submitList(items ?: listOf())
     }
 

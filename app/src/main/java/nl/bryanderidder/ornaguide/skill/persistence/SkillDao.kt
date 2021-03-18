@@ -12,7 +12,7 @@ interface SkillDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSkillList(CharacterClassList: List<Skill>)
 
-    @Query("SELECT * FROM Skill ORDER BY tier LIMIT 50")
+    @Query("SELECT * FROM Skill ORDER BY tier")
     suspend fun getSkillList(): List<Skill>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -20,6 +20,15 @@ interface SkillDao {
 
     @Query("SELECT * FROM Skill WHERE id = :id")
     suspend fun getSkill(id: Int): Skill
+
+    @Query("SELECT DISTINCT tier FROM Skill")
+    fun getAllPossibleTiers(): List<Int>
+
+    @Query("SELECT DISTINCT type FROM Skill")
+    fun getAllPossibleTypes(): List<String>
+
+    @Query("SELECT DISTINCT element FROM Skill")
+    fun getAllPossibleElements(): List<String>
 
     @Query(
         """

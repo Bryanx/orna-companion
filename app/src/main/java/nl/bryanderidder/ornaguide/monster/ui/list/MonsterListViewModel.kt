@@ -16,7 +16,6 @@ import nl.bryanderidder.ornaguide.monster.model.Monster
 import nl.bryanderidder.ornaguide.monster.persistence.MonsterRepository
 import nl.bryanderidder.ornaguide.monster.ui.list.filter.MonsterFilter
 import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
-import timber.log.Timber
 
 class MonsterListViewModel(
     repository: MonsterRepository,
@@ -50,8 +49,8 @@ class MonsterListViewModel(
     private var sessionItems = listOf<Monster>()
     val monsterList: MutableLiveData<List<Monster>> = MutableLiveData()
 
-    private var sessionMonsterFilter: MonsterFilter = MonsterFilter()
-    var monsterFilter: MutableLiveData<MonsterFilter> = MutableLiveData(MonsterFilter())
+    private var sessionMonsterFilter: MonsterFilter = MonsterFilter(tiers = listOf(1))
+    var monsterFilter: MutableLiveData<MonsterFilter> = MutableLiveData(MonsterFilter(tiers = listOf(1)))
 
     init {
         viewModelScope.launch {
@@ -68,7 +67,6 @@ class MonsterListViewModel(
     
     private fun loadItems() = viewModelScope.launch {
         val filteredMonsters = monsterFilter.value?.applyFilter(sessionItems)
-        Timber.d("postvalue: ${filteredMonsters?.size}")
         monsterList.postValue(filteredMonsters)
     }
     

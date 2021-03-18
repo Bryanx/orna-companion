@@ -51,8 +51,8 @@ class ItemListViewModel(repository: ItemRepository) : BindingViewModel() {
     private var sessionItems = listOf<Item>()
     val itemList: MutableLiveData<List<Item>> = MutableLiveData()
 
-    private var sessionItemFilter: ItemFilter = ItemFilter()
-    var itemFilter: MutableLiveData<ItemFilter> = MutableLiveData(ItemFilter())
+    private var sessionItemFilter: ItemFilter = ItemFilter(tiers = listOf(1))
+    var itemFilter: MutableLiveData<ItemFilter> = MutableLiveData(ItemFilter(tiers = listOf(1)))
 
     init {
         viewModelScope.launch {

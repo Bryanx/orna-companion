@@ -13,9 +13,11 @@ import nl.bryanderidder.ornaguide.skill.ui.list.SkillListAdapter
 
 object SkillViewBinding {
     @JvmStatic
-    @BindingAdapter("adapterSkillList")
-    fun bindSkillList(view: RecyclerView, items: List<Skill>?) {
-        (view.adapter as SkillListAdapter).setItemList(items ?: listOf())
+    @BindingAdapter("skillAdapter", "skillAdapterList")
+    fun bindSkillList(view: RecyclerView, adapter: SkillListAdapter, items: List<Skill>?) {
+        if (view.adapter == null)
+            view.adapter = adapter
+        (view.adapter as SkillListAdapter).submitList(items ?: listOf())
     }
 
     @JvmStatic
