@@ -28,7 +28,6 @@ class SkillListViewModel(repository: SkillRepository) : BindingViewModel() {
 
     val allPossibleTiers: LiveData<List<Int>> by lazy {
         repository.fetchAllPossibleTiers()
-            .map { it.sorted() }
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 

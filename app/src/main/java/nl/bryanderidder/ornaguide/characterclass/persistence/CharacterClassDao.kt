@@ -12,7 +12,7 @@ interface CharacterClassDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCharacterClassList(CharacterClassList: List<CharacterClass>)
 
-    @Query("SELECT * FROM CharacterClass ORDER BY tier LIMIT 50")
+    @Query("SELECT * FROM CharacterClass ORDER BY tier")
     suspend fun getCharacterClassList(): List<CharacterClass>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -20,6 +20,9 @@ interface CharacterClassDao {
 
     @Query("SELECT * FROM CharacterClass WHERE id = :id")
     suspend fun getCharacterClass(id: Int): CharacterClass
+
+    @Query("SELECT DISTINCT tier FROM CharacterClass ORDER BY tier")
+    suspend fun getAllPossibleTiers(): List<Int>
 
     @Query(
         """

@@ -8,6 +8,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
+import nl.bryanderidder.ornaguide.characterclass.ui.list.filter.CharacterClassListFilterDialogFragment
 import nl.bryanderidder.ornaguide.databinding.FragmentMenuDiscoverBinding
 import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemListFilterDialogFragment
 import nl.bryanderidder.ornaguide.monster.ui.list.filter.MonsterListFilterDialogFragment
@@ -53,6 +54,7 @@ class DiscoverFragment :
             "Items" -> showBottomSheet(ItemListFilterDialogFragment())
             "Monsters" -> showBottomSheet(MonsterListFilterDialogFragment())
             "Skills" -> showBottomSheet(SkillListFilterDialogFragment())
+            "Classes" -> showBottomSheet(CharacterClassListFilterDialogFragment())
             else -> null
         }
     }

@@ -14,7 +14,7 @@ object CharacterClassViewBindings {
     fun bindAdapterCharacterClassList(view: RecyclerView, adapter: CharacterClassListAdapter, items: List<CharacterClass>?) {
         if (view.adapter == null)
             view.adapter = adapter
-        (view.adapter as CharacterClassListAdapter).setItemList(items ?: listOf())
+        (view.adapter as CharacterClassListAdapter).submitList(items ?: listOf())
     }
 
     @JvmStatic

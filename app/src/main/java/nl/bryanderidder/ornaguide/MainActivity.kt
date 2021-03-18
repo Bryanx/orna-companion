@@ -22,7 +22,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         super.onCreate(savedInstanceState)
         if (BuildConfig.DEBUG)
             Timber.plant(DebugTree())
-        setUpNavigation();
+        setUpNavigation()
     }
 
     fun setUpNavigation() {

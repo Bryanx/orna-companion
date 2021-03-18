@@ -21,7 +21,7 @@ interface SkillDao {
     @Query("SELECT * FROM Skill WHERE id = :id")
     suspend fun getSkill(id: Int): Skill
 
-    @Query("SELECT DISTINCT tier FROM Skill")
+    @Query("SELECT DISTINCT tier FROM Skill ORDER BY tier")
     fun getAllPossibleTiers(): List<Int>
 
     @Query("SELECT DISTINCT type FROM Skill")
