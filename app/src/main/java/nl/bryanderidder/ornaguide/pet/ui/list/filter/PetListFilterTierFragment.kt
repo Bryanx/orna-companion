@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.pet.ui.list
+package nl.bryanderidder.ornaguide.pet.ui.list.filter
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
-import nl.bryanderidder.ornaguide.databinding.FragmentPetListBinding
-import org.koin.android.ext.android.get
+import nl.bryanderidder.ornaguide.databinding.FragmentDialogPetFilterTierBinding
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
-class PetListFragment : BindingFragment<FragmentPetListBinding>(R.layout.fragment_pet_list) {
+class PetListFilterTierFragment : BindingFragment<FragmentDialogPetFilterTierBinding>(R.layout.fragment_dialog_pet_filter_tier) {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,8 +18,7 @@ class PetListFragment : BindingFragment<FragmentPetListBinding>(R.layout.fragmen
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
-            lifecycleOwner = this@PetListFragment
-            adapter = PetListAdapter(get())
+            lifecycleOwner = this@PetListFilterTierFragment
             vm = getSharedViewModel()
         }.root
     }

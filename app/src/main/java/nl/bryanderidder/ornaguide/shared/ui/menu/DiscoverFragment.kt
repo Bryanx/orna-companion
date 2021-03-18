@@ -12,6 +12,7 @@ import nl.bryanderidder.ornaguide.characterclass.ui.list.filter.CharacterClassLi
 import nl.bryanderidder.ornaguide.databinding.FragmentMenuDiscoverBinding
 import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemListFilterDialogFragment
 import nl.bryanderidder.ornaguide.monster.ui.list.filter.MonsterListFilterDialogFragment
+import nl.bryanderidder.ornaguide.pet.ui.list.filter.PetListFilterDialogFragment
 import nl.bryanderidder.ornaguide.shared.ui.MainPagerAdapter
 import nl.bryanderidder.ornaguide.shared.util.color
 import nl.bryanderidder.ornaguide.shared.util.showBottomSheet
@@ -55,6 +56,7 @@ class DiscoverFragment :
             "Monsters" -> showBottomSheet(MonsterListFilterDialogFragment())
             "Skills" -> showBottomSheet(SkillListFilterDialogFragment())
             "Classes" -> showBottomSheet(CharacterClassListFilterDialogFragment())
+            "Pets" -> showBottomSheet(PetListFilterDialogFragment())
             else -> null
         }
     }

@@ -8,9 +8,11 @@ import nl.bryanderidder.ornaguide.pet.ui.list.PetListAdapter
 
 object PetViewBindings {
     @JvmStatic
-    @BindingAdapter("adapterPetList")
-    fun bindAdapterPetList(view: RecyclerView, items: List<Pet>?) {
-        (view.adapter as PetListAdapter).setItemList(items ?: listOf())
+    @BindingAdapter("petAdapter", "petAdapterList")
+    fun bindAdapterPetList(view: RecyclerView, adapter: PetListAdapter, items: List<Pet>?) {
+        if (view.adapter == null)
+            view.adapter = adapter
+        (view.adapter as PetListAdapter).submitList(items ?: listOf())
     }
 
     @JvmStatic
