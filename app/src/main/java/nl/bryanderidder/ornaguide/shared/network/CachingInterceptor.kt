@@ -32,12 +32,12 @@ class CachingInterceptor(
         val bodyAndPath = NetworkUtil.requestBodyToString(request.body) + request.url.encodedPath
         val currentTime = Calendar.getInstance().timeInMillis
 
-        // cancel request if 15 minutes have not passed since last request
+        // cancel request if TTL has not passed since last request
         val elapsedTimeSinceLastRequest = currentTime - sharedPrefsUtil.readLong(bodyAndPath)
         if (elapsedTimeSinceLastRequest < CACHE_TTL)
             return getEmptyResponse(chain)
 
-        // 15 minutes have passed, request can pass.
+        // TTL has passed, request can pass.
         sharedPrefsUtil.writeLong(bodyAndPath, currentTime)
         return chain.proceed(request)
     }
@@ -54,6 +54,6 @@ class CachingInterceptor(
         .build()
 
     companion object {
-        const val CACHE_TTL = 900000 // 15 minutes
+        const val CACHE_TTL = 3600000 // 1 hour
     }
 }

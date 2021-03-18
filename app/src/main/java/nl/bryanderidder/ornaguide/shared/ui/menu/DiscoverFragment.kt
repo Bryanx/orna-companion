@@ -43,7 +43,7 @@ class DiscoverFragment :
         super.onViewCreated(view, savedInstanceState)
         binding {
             mainViewpager.adapter = MainPagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
-            mainViewpager.offscreenPageLimit = ViewPager2.OFFSCREEN_PAGE_LIMIT_DEFAULT
+            mainViewpager.offscreenPageLimit = 3
             filterFab.setOnClickListener {
                 onClickFilterFab(MainPagerAdapter.DISCOVER_MENU_LABELS[(mainViewpager.currentItem)])
             }
