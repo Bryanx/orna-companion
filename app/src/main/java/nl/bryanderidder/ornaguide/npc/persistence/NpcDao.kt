@@ -21,6 +21,9 @@ interface NpcDao {
     @Query("SELECT * FROM Npc WHERE id = :id")
     suspend fun getNpc(id: Int): Npc
 
+    @Query("SELECT DISTINCT tier FROM Npc ORDER BY tier")
+    fun getAllPossibleTiers(): List<Int>
+
     @Query(
         """
       SELECT *

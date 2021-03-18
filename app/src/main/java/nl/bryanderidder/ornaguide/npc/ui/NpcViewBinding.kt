@@ -9,9 +9,11 @@ import nl.bryanderidder.ornaguide.npc.ui.list.NpcListAdapter
 object NpcViewBinding {
 
     @JvmStatic
-    @BindingAdapter("adapterNpcList")
-    fun bindAdapterNpcList(view: RecyclerView, items: List<Npc>?) {
-        (view.adapter as NpcListAdapter).setItemList(items ?: listOf())
+    @BindingAdapter("npcAdapter", "npcAdapterList")
+    fun bindAdapterNpcList(view: RecyclerView, adapter: NpcListAdapter, items: List<Npc>?) {
+        if (view.adapter == null)
+            view.adapter = adapter
+        (view.adapter as NpcListAdapter).submitList(items ?: listOf())
     }
 
     @JvmStatic

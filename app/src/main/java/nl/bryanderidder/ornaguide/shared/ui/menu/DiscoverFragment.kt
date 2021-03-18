@@ -12,6 +12,7 @@ import nl.bryanderidder.ornaguide.characterclass.ui.list.filter.CharacterClassLi
 import nl.bryanderidder.ornaguide.databinding.FragmentMenuDiscoverBinding
 import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemListFilterDialogFragment
 import nl.bryanderidder.ornaguide.monster.ui.list.filter.MonsterListFilterDialogFragment
+import nl.bryanderidder.ornaguide.npc.ui.list.filter.NpcListFilterDialogFragment
 import nl.bryanderidder.ornaguide.pet.ui.list.filter.PetListFilterDialogFragment
 import nl.bryanderidder.ornaguide.shared.ui.MainPagerAdapter
 import nl.bryanderidder.ornaguide.shared.util.color
@@ -59,6 +60,7 @@ class DiscoverFragment :
             "Classes" -> showBottomSheet(CharacterClassListFilterDialogFragment())
             "Pets" -> showBottomSheet(PetListFilterDialogFragment())
             "Specializations" -> showBottomSheet(SpecializationListFilterDialogFragment())
+            "NPCs" -> showBottomSheet(NpcListFilterDialogFragment())
             else -> null
         }
     }
