@@ -22,8 +22,9 @@ object SpecializationViewBinding {
     @JvmStatic
     @BindingAdapter("boostsAdapter", "adapterBoostsList", requireAll = true)
     fun bindAdapterBoostList(view: RecyclerView, adapter: BoostsAdapter, items: List<Specialization.Boost>?) {
-        view.adapter = adapter
-        adapter.setItemList(items ?: listOf())
+        if (view.adapter == null)
+            view.adapter = adapter
+        (view.adapter as BoostsAdapter).submitList(items ?: listOf())
     }
 
     @JvmStatic

@@ -9,31 +9,35 @@ import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.ItemSpecializationBinding
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
+import nl.bryanderidder.ornaguide.specialization.ui.detail.BoostsAdapter
 import nl.bryanderidder.ornaguide.specialization.ui.detail.SpecializationDetailActivity
 
 class SpecializationListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     ListAdapter<Specialization, SpecializationListAdapter.SpecializationViewHolder>(DiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpecializationViewHolder {
-        val binding = parent.binding<ItemSpecializationBinding>(R.layout.item_specialization)
-        return SpecializationViewHolder(binding)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpecializationViewHolder =
+        SpecializationViewHolder.from(parent)
 
-    override fun onBindViewHolder(holder: SpecializationViewHolder, position: Int) {
-        holder.binding.apply {
-            specialization = getItem(position)
+    override fun onBindViewHolder(holder: SpecializationViewHolder, position: Int) =
+        holder.bind(getItem(position), sharedPrefsUtil)
+
+    class SpecializationViewHolder(val binding: ItemSpecializationBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(newSpecialization: Specialization, sharedPrefsUtil: SharedPrefsUtil) = with (binding) {
+            specialization = newSpecialization
+            boostsAdapter = BoostsAdapter()
             executePendingBindings()
             cardView.setOnClickListener {
                 if (!transformationLayout.isTransforming) {
-                    sharedPrefsUtil.setSpecializationId(getItem(position).id)
+                    sharedPrefsUtil.setSpecializationId(newSpecialization.id)
                     SpecializationDetailActivity.startActivity(transformationLayout)
                 }
             }
         }
+        companion object {
+            fun from(parent: ViewGroup): SpecializationViewHolder =
+                SpecializationViewHolder(parent.binding(R.layout.item_specialization))
+        }
     }
-
-    class SpecializationViewHolder(val binding: ItemSpecializationBinding) :
-        RecyclerView.ViewHolder(binding.root)
 
     class DiffCallback : DiffUtil.ItemCallback<Specialization>() {
         override fun areItemsTheSame(oldItem: Specialization, newItem: Specialization) =

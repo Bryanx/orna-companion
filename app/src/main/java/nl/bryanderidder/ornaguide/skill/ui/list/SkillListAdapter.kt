@@ -14,26 +14,28 @@ import nl.bryanderidder.ornaguide.skill.ui.detail.SkillDetailActivity
 class SkillListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     ListAdapter<Skill, SkillListAdapter.SkillViewHolder>(DiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SkillViewHolder {
-        val binding = parent.binding<ItemSkillBinding>(R.layout.item_skill)
-        return SkillViewHolder(binding)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SkillViewHolder =
+        SkillViewHolder.from(parent)
 
-    override fun onBindViewHolder(holder: SkillViewHolder, position: Int) {
-        holder.binding.apply {
-            skill = getItem(position)
+    override fun onBindViewHolder(holder: SkillViewHolder, position: Int) =
+        holder.bind(getItem(position), sharedPrefsUtil)
+
+    class SkillViewHolder(val binding: ItemSkillBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(newSkill: Skill, sharedPrefsUtil: SharedPrefsUtil) = with (binding) {
+            skill = newSkill
             executePendingBindings()
             cardView.setOnClickListener {
                 if (!transformationLayout.isTransforming) {
-                    sharedPrefsUtil.setSkillId(getItem(position).id)
+                    sharedPrefsUtil.setSkillId(newSkill.id)
                     SkillDetailActivity.startActivity(transformationLayout)
                 }
             }
         }
+        companion object {
+            fun from(parent: ViewGroup): SkillViewHolder =
+                SkillViewHolder(parent.binding(R.layout.item_skill))
+        }
     }
-
-    class SkillViewHolder(val binding: ItemSkillBinding) :
-        RecyclerView.ViewHolder(binding.root)
 
     class DiffCallback : DiffUtil.ItemCallback<Skill>() {
         override fun areItemsTheSame(oldItem: Skill, newItem: Skill) =

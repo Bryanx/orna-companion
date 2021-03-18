@@ -14,26 +14,28 @@ import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 class MonsterListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     ListAdapter<Monster, MonsterListAdapter.MonsterViewHolder>(DiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonsterViewHolder {
-        val binding = parent.binding<ItemMonsterBinding>(R.layout.item_monster)
-        return MonsterViewHolder(binding)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonsterViewHolder =
+        MonsterViewHolder.from(parent)
 
-    override fun onBindViewHolder(holder: MonsterViewHolder, position: Int) {
-        holder.binding.apply {
-            monster = getItem(position)
+    override fun onBindViewHolder(holder: MonsterViewHolder, position: Int) =
+        holder.bind(getItem(position), sharedPrefsUtil)
+
+    class MonsterViewHolder(val binding: ItemMonsterBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(newMonster: Monster, sharedPrefsUtil: SharedPrefsUtil) = with (binding) {
+            monster = newMonster
             executePendingBindings()
             cardView.setOnClickListener {
                 if (!transformationLayout.isTransforming) {
-                    sharedPrefsUtil.setMonsterId(getItem(position).id)
+                    sharedPrefsUtil.setMonsterId(newMonster.id)
                     MonsterDetailActivity.startActivity(transformationLayout)
                 }
             }
         }
+        companion object {
+            fun from(parent: ViewGroup): MonsterViewHolder =
+                MonsterViewHolder(parent.binding(R.layout.item_monster))
+        }
     }
-
-    class MonsterViewHolder(val binding: ItemMonsterBinding) :
-        RecyclerView.ViewHolder(binding.root)
 
     class DiffCallback : DiffUtil.ItemCallback<Monster>() {
         override fun areItemsTheSame(oldItem: Monster, newItem: Monster) =

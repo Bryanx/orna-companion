@@ -14,26 +14,28 @@ import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 class CharacterClassListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     ListAdapter<CharacterClass, CharacterClassListAdapter.CharacterClassViewHolder>(DiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterClassViewHolder {
-        val binding = parent.binding<ItemCharacterClassBinding>(R.layout.item_character_class)
-        return CharacterClassViewHolder(binding)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterClassViewHolder =
+        CharacterClassViewHolder.from(parent)
 
-    override fun onBindViewHolder(holder: CharacterClassViewHolder, position: Int) {
-        holder.binding.apply {
-            characterClass = getItem(position)
+    override fun onBindViewHolder(holder: CharacterClassViewHolder, position: Int) =
+        holder.bind(getItem(position), sharedPrefsUtil)
+
+    class CharacterClassViewHolder(val binding: ItemCharacterClassBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(newCharacterClass: CharacterClass, sharedPrefsUtil: SharedPrefsUtil) = with (binding) {
+            characterClass = newCharacterClass
             executePendingBindings()
             cardView.setOnClickListener {
                 if (!transformationLayout.isTransforming) {
-                    sharedPrefsUtil.setCharacterClassId(getItem(position).id)
+                    sharedPrefsUtil.setCharacterClassId(newCharacterClass.id)
                     CharacterClassDetailActivity.startActivity(transformationLayout)
                 }
             }
         }
+        companion object {
+            fun from(parent: ViewGroup): CharacterClassViewHolder =
+                CharacterClassViewHolder(parent.binding(R.layout.item_character_class))
+        }
     }
-
-    class CharacterClassViewHolder(val binding: ItemCharacterClassBinding) :
-        RecyclerView.ViewHolder(binding.root)
 
     class DiffCallback : DiffUtil.ItemCallback<CharacterClass>() {
         override fun areItemsTheSame(oldItem: CharacterClass, newItem: CharacterClass) =

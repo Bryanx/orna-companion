@@ -14,26 +14,28 @@ import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 class ItemListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     ListAdapter<Item, ItemListAdapter.ItemViewHolder>(DiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val binding = parent.binding<ItemItemBinding>(R.layout.item_item)
-        return ItemViewHolder(binding)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
+        ItemViewHolder.from(parent)
 
-    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.binding.apply {
-            item = getItem(position)
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) =
+        holder.bind(getItem(position), sharedPrefsUtil)
+
+    class ItemViewHolder(val binding: ItemItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(newItem: Item, sharedPrefsUtil: SharedPrefsUtil) = with (binding) {
+            item = newItem
             executePendingBindings()
             cardView.setOnClickListener {
                 if (!transformationLayout.isTransforming) {
-                    sharedPrefsUtil.setItemId(getItem(position).id)
+                    sharedPrefsUtil.setItemId(newItem.id)
                     ItemDetailActivity.startActivity(transformationLayout)
                 }
             }
         }
+        companion object {
+            fun from(parent: ViewGroup): ItemViewHolder =
+                ItemViewHolder(parent.binding(R.layout.item_item))
+        }
     }
-
-    class ItemViewHolder(val binding: ItemItemBinding) :
-        RecyclerView.ViewHolder(binding.root)
 
     class DiffCallback : DiffUtil.ItemCallback<Item>() {
         override fun areItemsTheSame(oldItem: Item, newItem: Item) =

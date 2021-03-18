@@ -14,26 +14,28 @@ import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 class PetListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     ListAdapter<Pet, PetListAdapter.PetViewHolder>(DiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetViewHolder {
-        val binding = parent.binding<ItemPetBinding>(R.layout.item_pet)
-        return PetViewHolder(binding)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetViewHolder =
+        PetViewHolder.from(parent)
 
-    override fun onBindViewHolder(holder: PetViewHolder, position: Int) {
-        holder.binding.apply {
-            pet = getItem(position)
+    override fun onBindViewHolder(holder: PetViewHolder, position: Int) =
+        holder.bind(getItem(position), sharedPrefsUtil)
+
+    class PetViewHolder(val binding: ItemPetBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(newPet: Pet, sharedPrefsUtil: SharedPrefsUtil) = with (binding) {
+            pet = newPet
             executePendingBindings()
             cardView.setOnClickListener {
                 if (!transformationLayout.isTransforming) {
-                    sharedPrefsUtil.setPetId(getItem(position).id)
+                    sharedPrefsUtil.setPetId(newPet.id)
                     PetDetailActivity.startActivity(transformationLayout)
                 }
             }
         }
+        companion object {
+            fun from(parent: ViewGroup): PetViewHolder =
+                PetViewHolder(parent.binding(R.layout.item_pet))
+        }
     }
-
-    class PetViewHolder(val binding: ItemPetBinding) :
-        RecyclerView.ViewHolder(binding.root)
 
     class DiffCallback : DiffUtil.ItemCallback<Pet>() {
         override fun areItemsTheSame(oldItem: Pet, newItem: Pet) =

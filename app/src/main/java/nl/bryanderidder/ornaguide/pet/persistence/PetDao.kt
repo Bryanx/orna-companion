@@ -23,6 +23,7 @@ interface PetDao {
 
     @Query("SELECT DISTINCT tier FROM Pet ORDER BY tier")
     suspend fun getAllPossibleTiers(): List<Int>
+
     @Query(
         """
       SELECT *
