@@ -51,7 +51,7 @@ class AchievementRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow<Achievement> {
-        val dbResult = dao.getAchievement(id)
+        val dbResult = getAchievementFromDb(id)
         emit(dbResult)
         client.fetchAchievementList(AchievementRequestBody(id))
             .suspendOnSuccess {
@@ -71,6 +71,9 @@ class AchievementRepository(
                 Timber.e(message())
             }
     }
+
+    @WorkerThread
+    suspend fun getAchievementFromDb(id: Int): Achievement = dao.getAchievement(id)
 
     @WorkerThread
     fun search(query: String) = flow<List<Achievement>> {

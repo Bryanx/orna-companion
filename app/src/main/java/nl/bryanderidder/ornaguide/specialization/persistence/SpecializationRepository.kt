@@ -51,7 +51,7 @@ class SpecializationRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow<Specialization> {
-        val dbResult = dao.getSpecialization(id)
+        val dbResult = getSpecializationFromDb(id)
         emit(dbResult)
         client.fetchSpecializationList(SpecializationRequestBody(id))
             .suspendOnSuccess {
@@ -71,6 +71,9 @@ class SpecializationRepository(
                 Timber.e(message())
             }
     }
+
+    @WorkerThread
+    suspend fun getSpecializationFromDb(id: Int): Specialization = dao.getSpecialization(id)
 
     @WorkerThread
     fun search(query: String) = flow<List<Specialization>> {

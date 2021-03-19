@@ -182,12 +182,36 @@
                     tools:listitem="@layout/item_character_class_learn" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="20dp"
+                    android:paddingStart="8dp"
+                    android:id="@+id/title"
+                    android:text="CLASS"
+                    android:textAllCaps="true"
+                    android:textColor="@color/textColor"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
                     android:id="@+id/classTier"
                     style="@style/databaseItemPageTier"
                     android:text="@{`` + vm.characterClass.tier}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="1" />
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/save"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/buttonMargin"
+                    android:name="nl.bryanderidder.ornaguide.save.ui.SaveButtonFragment"
+                    android:tag="class"
+                    app:layout_constraintTop_toBottomOf="@+id/classTier"
+                    app:layout_constraintStart_toStartOf="@+id/classTier"
+                    app:layout_constraintEnd_toEndOf="@+id/classTier"
+                    tools:layout="@layout/fragment_button_save" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

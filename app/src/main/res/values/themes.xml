@@ -96,6 +96,15 @@
         <item name="android:layout_marginEnd">16dp</item>
     </style>
 
+    <style name="saveButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?selectableItemBackgroundBorderless</item>
+        <item name="android:clickable">true</item>
+        <item name="android:padding">@dimen/cardPadding</item>
+        <item name="android:contentDescription">Add to saved list</item>
+    </style>
+
     <style name="backButtonFab">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

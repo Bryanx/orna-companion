@@ -18,7 +18,7 @@
         android:label="SearchFragment" />
     <fragment
         android:id="@+id/myListsFragment"
-        android:name="nl.bryanderidder.ornaguide.shared.ui.menu.MyListsFragment"
+        android:name="nl.bryanderidder.ornaguide.shared.ui.menu.SaveListFragment"
         android:label="MyListsFragment" />
     <fragment
         android:id="@+id/settingsFragment"

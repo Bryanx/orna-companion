@@ -21,6 +21,8 @@ import nl.bryanderidder.ornaguide.npc.persistence.NpcDao
 import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.pet.model.PetFTS
 import nl.bryanderidder.ornaguide.pet.persistence.PetDao
+import nl.bryanderidder.ornaguide.save.model.Save
+import nl.bryanderidder.ornaguide.save.persistence.SaveDao
 import nl.bryanderidder.ornaguide.skill.model.Skill
 import nl.bryanderidder.ornaguide.skill.model.SkillFTS
 import nl.bryanderidder.ornaguide.skill.persistence.SkillDao
@@ -51,8 +53,9 @@ import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationDao
         NpcFTS::class,
         Achievement::class,
         AchievementFTS::class,
+        Save::class,
     ],
-    version = 3
+    version = 2
 )
 @TypeConverters(OrnaTypeConverters::class)
 abstract class OrnaDatabase : RoomDatabase() {
@@ -64,4 +67,5 @@ abstract class OrnaDatabase : RoomDatabase() {
     abstract fun monsterDao(): MonsterDao
     abstract fun npcDao(): NpcDao
     abstract fun achievementDao() : AchievementDao
+    abstract fun saveDao() : SaveDao
 }

@@ -51,7 +51,7 @@ class MonsterRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow<Monster> {
-        val dbResult = dao.getMonster(id)
+        val dbResult = getMonsterFromDb(id)
         emit(dbResult)
         client.fetchMonsterList(MonsterRequestBody(id))
             .suspendOnSuccess {
@@ -71,6 +71,9 @@ class MonsterRepository(
                 Timber.e(message())
             }
     }
+
+    @WorkerThread
+    suspend fun getMonsterFromDb(id: Int): Monster = dao.getMonster(id)
 
     @WorkerThread
     fun search(query: String) = flow<List<Monster>> {

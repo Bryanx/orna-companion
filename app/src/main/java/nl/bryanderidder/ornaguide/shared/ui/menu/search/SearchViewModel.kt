@@ -53,9 +53,7 @@ class SearchViewModel(
                     achievementRepo.search(query).map { it.map(SearchResult::ofAchievement).toList() },
                 ) {
                     it.asList().flatten()
-                }.collect {
-                    searchResults.postValue(it)
-                }
+                }.collect(searchResults::postValue)
             }
         }
     }

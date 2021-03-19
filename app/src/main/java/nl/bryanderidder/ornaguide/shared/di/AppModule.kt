@@ -22,6 +22,8 @@ import nl.bryanderidder.ornaguide.npc.ui.list.NpcListViewModel
 import nl.bryanderidder.ornaguide.pet.persistence.PetRepository
 import nl.bryanderidder.ornaguide.pet.ui.detail.PetDetailViewModel
 import nl.bryanderidder.ornaguide.pet.ui.list.PetListViewModel
+import nl.bryanderidder.ornaguide.save.persistence.SaveRepository
+import nl.bryanderidder.ornaguide.save.ui.SaveListViewModel
 import nl.bryanderidder.ornaguide.shared.database.OrnaDatabase
 import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
 import nl.bryanderidder.ornaguide.shared.network.CachingInterceptor
@@ -95,6 +97,8 @@ val appModule: Module = module {
     viewModel { AchievementDetailViewModel(get(), get()) }
     viewModel { CharacterClassListViewModel(get()) }
     viewModel { CharacterClassDetailViewModel(get(), get()) }
+
+    viewModel { SaveListViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get(), get()) }
     viewModel { SearchViewModel(get(), get(), get(), get(), get(), get(), get(), get()) }
 
     // DB:
@@ -117,6 +121,7 @@ val appModule: Module = module {
     single { get<OrnaDatabase>().monsterDao() }
     single { get<OrnaDatabase>().npcDao() }
     single { get<OrnaDatabase>().achievementDao() }
+    single { get<OrnaDatabase>().saveDao() }
     single { CharacterClassRepository(get(), get()) }
     single { SkillRepository(get(), get())}
     single { SpecializationRepository(get(), get())}
@@ -125,5 +130,6 @@ val appModule: Module = module {
     single { MonsterRepository(get(), get()) }
     single { NpcRepository(get(), get()) }
     single { AchievementRepository(get(), get()) }
+    single { SaveRepository(get()) }
 
 }

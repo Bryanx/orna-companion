@@ -1,6 +1,8 @@
 package nl.bryanderidder.ornaguide.shared.util
 
 import android.content.Context
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.widget.AppCompatImageView
 
 object ImageUtil {
     fun getImage(context: Context, imageName: String?): Int {
@@ -14,4 +16,7 @@ object ImageUtil {
             else -> "magic"
         }
     )
+
+    fun AppCompatImageView.setImage(resId: Int) =
+        setImageDrawable(AppCompatResources.getDrawable(context, resId))
 }

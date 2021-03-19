@@ -52,7 +52,7 @@ class CharacterClassRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow<CharacterClass> {
-        val dbResult = dao.getCharacterClass(id)
+        val dbResult = getCharacterClassFromDb(id)
         emit(dbResult)
         client.fetchCharacterClassList(CharacterClassRequestBody(id))
             .suspendOnSuccess {
@@ -72,6 +72,9 @@ class CharacterClassRepository(
                 Timber.e(message())
             }
     }
+
+    @WorkerThread
+    suspend fun getCharacterClassFromDb(id: Int): CharacterClass = dao.getCharacterClass(id)
 
     @WorkerThread
     fun search(query: String) = flow<List<CharacterClass>> {

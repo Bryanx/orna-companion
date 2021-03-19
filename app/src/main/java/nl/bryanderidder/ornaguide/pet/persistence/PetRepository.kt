@@ -48,7 +48,7 @@ class PetRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow<Pet> {
-        val dbResult = dao.getPet(id)
+        val dbResult = getPetFromDb(id)
         emit(dbResult)
         client.fetchPetList(PetRequestBody(id))
             .suspendOnSuccess {
@@ -68,6 +68,9 @@ class PetRepository(
                 Timber.e(message())
             }
     }
+
+    @WorkerThread
+    suspend fun getPetFromDb(id: Int): Pet = dao.getPet(id)
 
     @WorkerThread
     fun search(query: String) = flow<List<Pet>> {

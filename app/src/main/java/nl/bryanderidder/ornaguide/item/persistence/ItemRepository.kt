@@ -51,7 +51,7 @@ class ItemRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow<Item> {
-        val dbResult = dao.getItem(id)
+        val dbResult = getItemFromDb(id)
         emit(dbResult)
         client.fetchItemList(ItemRequestBody(id))
             .suspendOnSuccess {
@@ -71,6 +71,9 @@ class ItemRepository(
                 Timber.e(message())
             }
     }
+
+    @WorkerThread
+    suspend fun getItemFromDb(id: Int): Item = dao.getItem(id)
 
     @WorkerThread
     fun search(query: String) = flow<List<Item>> {

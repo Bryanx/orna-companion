@@ -51,7 +51,7 @@ class NpcRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow<Npc> {
-        val dbResult = dao.getNpc(id)
+        val dbResult = getNpcFromDb(id)
         emit(dbResult)
         client.fetchNpcList(NpcRequestBody(id))
             .suspendOnSuccess {
@@ -71,6 +71,9 @@ class NpcRepository(
                 Timber.e(message())
             }
     }
+
+    @WorkerThread
+    suspend fun getNpcFromDb(id: Int): Npc = dao.getNpc(id)
 
     @WorkerThread
     fun search(query: String) = flow<List<Npc>> {

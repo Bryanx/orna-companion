@@ -54,7 +54,7 @@ class SkillRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow<Skill> {
-        val dbResult = dao.getSkill(id)
+        val dbResult = getSkillFromDb(id)
         emit(dbResult)
         client.fetchSkillList(SkillRequestBody(id))
             .suspendOnSuccess {
@@ -74,6 +74,9 @@ class SkillRepository(
                 Timber.e(message())
             }
     }
+
+    @WorkerThread
+    suspend fun getSkillFromDb(id: Int): Skill = dao.getSkill(id)
 
     @WorkerThread
     fun search(query: String) = flow<List<Skill>> {

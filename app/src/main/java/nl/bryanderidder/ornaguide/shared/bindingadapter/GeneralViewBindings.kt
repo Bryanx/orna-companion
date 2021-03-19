@@ -112,7 +112,8 @@ object GeneralViewBindings {
     fun bindCloseOnDone(et: TextInputEditText, accept: Boolean) {
         et.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                val imm: InputMethodManager = et.context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+                val imm: InputMethodManager =
+                    et.context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.hideSoftInputFromWindow(et.windowToken, 0)
                 return@OnEditorActionListener true
             }
