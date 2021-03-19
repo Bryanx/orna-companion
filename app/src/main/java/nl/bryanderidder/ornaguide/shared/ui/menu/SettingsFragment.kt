@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentMenuSettingsBinding
+import nl.bryanderidder.ornaguide.shared.util.color
 
 
 /**
@@ -22,6 +23,7 @@ class SettingsFragment :
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
+        requireActivity().window.statusBarColor = requireContext().color(R.color.backgroundColorDark)
         return binding.root
     }
 }

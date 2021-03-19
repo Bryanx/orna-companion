@@ -57,6 +57,9 @@ class SharedPrefsUtil(private val prefs: SharedPreferences) {
     fun getAchievementId(): Int =
         prefs.getInt(ACHIEVEMENT_ID, 1)
 
+    fun getDefaultTier(): Int =
+        prefs.getString(DEFAULT_TIER, "1")?.toInt() ?: 1
+
     fun writeLong(key: String, value: Long) =
         prefs.edit().putLong(key, value).apply()
 
@@ -64,6 +67,7 @@ class SharedPrefsUtil(private val prefs: SharedPreferences) {
         prefs.getLong(key, 0L)
 
     companion object {
+        //navigation
         const val CHARACTER_CLASS_ID: String = "CHARACTER_CLASS_ID"
         const val SPECIALIZATION_ID: String = "SPECIALIZATION_ID"
         const val SKILL_ID: String = "SKILL_ID"
@@ -72,5 +76,8 @@ class SharedPrefsUtil(private val prefs: SharedPreferences) {
         const val ITEM_ID: String = "ITEM_ID"
         const val NPC_ID: String = "NPC_ID"
         const val ACHIEVEMENT_ID: String = "ACHIEVEMENT_ID"
+
+        //settings
+        const val DEFAULT_TIER: String = "DEFAULT_TIER"
     }
 }

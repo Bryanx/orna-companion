@@ -14,8 +14,12 @@ import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.npc.model.Npc
 import nl.bryanderidder.ornaguide.npc.persistence.NpcRepository
 import nl.bryanderidder.ornaguide.npc.ui.list.filter.NpcFilter
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
-class NpcListViewModel(repository: NpcRepository) : BindingViewModel() {
+class NpcListViewModel(
+    repository: NpcRepository,
+    sharedPrefs: SharedPrefsUtil
+) : BindingViewModel() {
 
     @get:Bindable
     var toastMessage: String? by bindingProperty(null)
@@ -33,9 +37,10 @@ class NpcListViewModel(repository: NpcRepository) : BindingViewModel() {
     private var sessionItems = listOf<Npc>()
     val npcList: MutableLiveData<List<Npc>> = MutableLiveData()
 
-    private var sessionNpcFilter: NpcFilter = NpcFilter()
+    private var sessionNpcFilter: NpcFilter =
+        NpcFilter(tiers = listOf(sharedPrefs.getDefaultTier()))
     var npcFilter: MutableLiveData<NpcFilter> = MutableLiveData(
-        NpcFilter())
+        NpcFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
     init {
         viewModelScope.launch {

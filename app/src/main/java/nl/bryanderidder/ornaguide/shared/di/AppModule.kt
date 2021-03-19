@@ -81,21 +81,21 @@ val appModule: Module = module {
 
     single { OrnaClient(get()) }
 
-    viewModel { SkillListViewModel(get()) }
+    viewModel { SkillListViewModel(get(), get()) }
     viewModel { SkillDetailViewModel(get(), get()) }
     viewModel { SpecializationListViewModel(get()) }
     viewModel { SpecializationDetailViewModel(get(), get()) }
-    viewModel { PetListViewModel(get()) }
+    viewModel { PetListViewModel(get(), get()) }
     viewModel { PetDetailViewModel(get(), get()) }
-    viewModel { ItemListViewModel(get()) }
+    viewModel { ItemListViewModel(get(), get()) }
     viewModel { ItemDetailViewModel(get(), get()) }
-    viewModel { MonsterListViewModel(get(), get()) }
+    viewModel { MonsterListViewModel(get(), get(), get()) }
     viewModel { MonsterDetailViewModel(get(), get()) }
-    viewModel { NpcListViewModel(get()) }
+    viewModel { NpcListViewModel(get(), get()) }
     viewModel { NpcDetailViewModel(get(), get()) }
-    viewModel { AchievementListViewModel(get()) }
+    viewModel { AchievementListViewModel(get(), get()) }
     viewModel { AchievementDetailViewModel(get(), get()) }
-    viewModel { CharacterClassListViewModel(get()) }
+    viewModel { CharacterClassListViewModel(get(), get()) }
     viewModel { CharacterClassDetailViewModel(get(), get()) }
 
     viewModel { SaveListViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get(), get()) }

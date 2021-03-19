@@ -9,8 +9,7 @@ buildscript {
         classpath(kotlin("gradle-plugin", "1.4.20"))
         classpath("com.google.gms:google-services:4.3.5")
         classpath("com.google.firebase:firebase-crashlytics-gradle:2.5.1")
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath("com.mikepenz.aboutlibraries.plugin:aboutlibraries-plugin:8.3.1")
     }
 }
 

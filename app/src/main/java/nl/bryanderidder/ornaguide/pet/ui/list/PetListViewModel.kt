@@ -14,8 +14,12 @@ import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.pet.persistence.PetRepository
 import nl.bryanderidder.ornaguide.pet.ui.list.filter.PetFilter
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
-class PetListViewModel(repository: PetRepository) : BindingViewModel() {
+class PetListViewModel(
+    repository: PetRepository,
+    sharedPrefs: SharedPrefsUtil
+) : BindingViewModel() {
 
     @get:Bindable
     var toastMessage: String? by bindingProperty(null)
@@ -33,8 +37,10 @@ class PetListViewModel(repository: PetRepository) : BindingViewModel() {
     private var sessionItems = listOf<Pet>()
     val petList: MutableLiveData<List<Pet>> = MutableLiveData()
 
-    private var sessionPetFilter: PetFilter = PetFilter(tiers = listOf(1))
-    var petFilter: MutableLiveData<PetFilter> = MutableLiveData(PetFilter(tiers = listOf(1)))
+    private var sessionPetFilter: PetFilter =
+        PetFilter(tiers = listOf(sharedPrefs.getDefaultTier()))
+    var petFilter: MutableLiveData<PetFilter> =
+        MutableLiveData(PetFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
     init {
         viewModelScope.launch {

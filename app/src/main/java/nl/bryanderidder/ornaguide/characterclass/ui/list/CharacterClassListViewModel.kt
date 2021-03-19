@@ -14,9 +14,11 @@ import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
 import nl.bryanderidder.ornaguide.characterclass.ui.list.filter.CharacterClassFilter
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class CharacterClassListViewModel(
-    repository: CharacterClassRepository
+    repository: CharacterClassRepository,
+    sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
     @get:Bindable
@@ -37,8 +39,10 @@ class CharacterClassListViewModel(
     private var sessionItems = listOf<CharacterClass>()
     val characterClassList: MutableLiveData<List<CharacterClass>> = MutableLiveData()
 
-    private var sessionCharacterClassFilter: CharacterClassFilter = CharacterClassFilter()
-    var characterClassFilter: MutableLiveData<CharacterClassFilter> = MutableLiveData(CharacterClassFilter())
+    private var sessionCharacterClassFilter: CharacterClassFilter =
+        CharacterClassFilter(tiers = listOf(sharedPrefs.getDefaultTier()))
+    var characterClassFilter: MutableLiveData<CharacterClassFilter> =
+        MutableLiveData(CharacterClassFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
     init {
         viewModelScope.launch {

@@ -12,11 +12,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.skill.model.Skill
 import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
 import nl.bryanderidder.ornaguide.skill.ui.list.filter.SkillFilter
 
-class SkillListViewModel(repository: SkillRepository) : BindingViewModel() {
+class SkillListViewModel(
+    repository: SkillRepository,
+    sharedPrefs: SharedPrefsUtil
+) : BindingViewModel() {
 
     @get:Bindable
     var toastMessage: String? by bindingProperty(null)
@@ -45,8 +49,10 @@ class SkillListViewModel(repository: SkillRepository) : BindingViewModel() {
     private var sessionItems = listOf<Skill>()
     val skillList: MutableLiveData<List<Skill>> = MutableLiveData()
 
-    private var sessionSkillFilter: SkillFilter = SkillFilter(tiers = listOf(1))
-    var skillFilter: MutableLiveData<SkillFilter> = MutableLiveData(SkillFilter(tiers = listOf(1)))
+    private var sessionSkillFilter: SkillFilter =
+        SkillFilter(tiers = listOf(sharedPrefs.getDefaultTier()))
+    var skillFilter: MutableLiveData<SkillFilter> =
+        MutableLiveData(SkillFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
     init {
         viewModelScope.launch {

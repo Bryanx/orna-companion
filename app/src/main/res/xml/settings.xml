@@ -1,0 +1,60 @@
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:key="top">
+
+        <Preference
+            app:icon="@drawable/ic_baseline_sync_24"
+            app:layout="@layout/preference_setting"
+            app:title="Sync with Orna.Guide"
+            app:summary="This can take a few minutes. This is only neccessary for new objects, existing objects are synced automatically." />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Customization">
+
+        <ListPreference
+            app:icon="@drawable/ic_baseline_star_24"
+            app:key="DEFAULT_TIER"
+            app:title="Default tier filter"
+            app:dialogTitle="Set the default tier that is loaded for all objects (requires app restart)"
+            app:useSimpleSummaryProvider="true"
+            app:entries="@array/tiers"
+            app:entryValues="@array/tier_entries"
+            app:defaultValue="1"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Community">
+
+        <Preference
+            app:icon="@drawable/ic_discord"
+            app:layout="@layout/preference_setting"
+            app:title="Discord Orna: The GPS RPG">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://discord.gg/fej9E9j" />
+        </Preference>
+
+        <Preference
+            app:icon="@drawable/ic_reddit"
+            app:layout="@layout/preference_setting"
+            app:title="Subreddit r/OrnaRPG">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://www.reddit.com/r/OrnaRPG/" />
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Other">
+
+        <Preference
+            app:icon="@drawable/ic_baseline_privacy_tip_24"
+            app:key="license"
+            app:layout="@layout/preference_setting"
+            app:title="Licenses" />
+
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

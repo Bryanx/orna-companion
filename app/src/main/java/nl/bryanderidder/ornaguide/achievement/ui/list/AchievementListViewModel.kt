@@ -14,8 +14,12 @@ import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.achievement.model.Achievement
 import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRepository
 import nl.bryanderidder.ornaguide.achievement.ui.list.filter.AchievementFilter
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
-class AchievementListViewModel(repository: AchievementRepository) : BindingViewModel() {
+class AchievementListViewModel(
+    repository: AchievementRepository,
+    sharedPrefs: SharedPrefsUtil
+) : BindingViewModel() {
 
     @get:Bindable
     var toastMessage: String? by bindingProperty(null)
@@ -33,9 +37,10 @@ class AchievementListViewModel(repository: AchievementRepository) : BindingViewM
     private var sessionItems = listOf<Achievement>()
     val achievementList: MutableLiveData<List<Achievement>> = MutableLiveData()
 
-    private var sessionAchievementFilter: AchievementFilter = AchievementFilter(tiers = listOf(1))
+    private var sessionAchievementFilter: AchievementFilter =
+        AchievementFilter(tiers = listOf(sharedPrefs.getDefaultTier()))
     var achievementFilter: MutableLiveData<AchievementFilter> = MutableLiveData(
-        AchievementFilter(tiers = listOf(1)))
+        AchievementFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
     init {
         viewModelScope.launch {

@@ -6,19 +6,40 @@
     <data>
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:background="@color/backgroundColorDark">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/settingsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:paddingStart="24dp"
+                android:text="Settings"
+                android:textColor="@color/textColorHeader"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/save"
             android:layout_height="wrap_content"
-            android:paddingStart="12dp"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textSize="34sp"
-            android:text="Settings"/>
-    </LinearLayout>
+            android:layout_width="wrap_content"
+            android:name="nl.bryanderidder.ornaguide.shared.ui.menu.settings.PreferencesFragment"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

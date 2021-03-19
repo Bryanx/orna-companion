@@ -15,8 +15,12 @@ import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
 import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemFilter
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
-class ItemListViewModel(repository: ItemRepository) : BindingViewModel() {
+class ItemListViewModel(
+    repository: ItemRepository,
+    sharedPrefs: SharedPrefsUtil
+) : BindingViewModel() {
 
     @get:Bindable
     var toastMessage: String? by bindingProperty(null)
@@ -51,8 +55,10 @@ class ItemListViewModel(repository: ItemRepository) : BindingViewModel() {
     private var sessionItems = listOf<Item>()
     val itemList: MutableLiveData<List<Item>> = MutableLiveData()
 
-    private var sessionItemFilter: ItemFilter = ItemFilter(tiers = listOf(1))
-    var itemFilter: MutableLiveData<ItemFilter> = MutableLiveData(ItemFilter(tiers = listOf(1)))
+    private var sessionItemFilter: ItemFilter =
+        ItemFilter(tiers = listOf(sharedPrefs.getDefaultTier()))
+    var itemFilter: MutableLiveData<ItemFilter> =
+        MutableLiveData(ItemFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
     init {
         viewModelScope.launch {

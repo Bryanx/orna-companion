@@ -16,10 +16,12 @@ import nl.bryanderidder.ornaguide.monster.model.Monster
 import nl.bryanderidder.ornaguide.monster.persistence.MonsterRepository
 import nl.bryanderidder.ornaguide.monster.ui.list.filter.MonsterFilter
 import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class MonsterListViewModel(
     repository: MonsterRepository,
-    typeConverter: OrnaTypeConverters
+    typeConverter: OrnaTypeConverters,
+    sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
     @get:Bindable
@@ -49,8 +51,10 @@ class MonsterListViewModel(
     private var sessionItems = listOf<Monster>()
     val monsterList: MutableLiveData<List<Monster>> = MutableLiveData()
 
-    private var sessionMonsterFilter: MonsterFilter = MonsterFilter(tiers = listOf(1))
-    var monsterFilter: MutableLiveData<MonsterFilter> = MutableLiveData(MonsterFilter(tiers = listOf(1)))
+    private var sessionMonsterFilter: MonsterFilter =
+        MonsterFilter(tiers = listOf(sharedPrefs.getDefaultTier()))
+    var monsterFilter: MutableLiveData<MonsterFilter> =
+        MutableLiveData(MonsterFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
     init {
         viewModelScope.launch {

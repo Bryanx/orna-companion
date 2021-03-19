@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("com.mikepenz.aboutlibraries.plugin")
     id("kotlin-android")
     id("kotlin-kapt")
     id("com.google.gms.google-services")
@@ -50,12 +51,15 @@ dependencies {
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0")
+    implementation("androidx.preference:preference-ktx:1.1.1")
     implementation("com.google.android.material:material:1.3.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2")
     implementation("com.github.skydoves:transformationlayout:1.0.7")
     implementation("com.github.skydoves:bundler:1.0.3")
     implementation("nl.bryanderidder:themed-toggle-button-group:1.3.4")
+    implementation("com.mikepenz:aboutlibraries-core:8.8.4")
+    implementation("com.mikepenz:aboutlibraries:8.8.4")
 
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:26.7.0"))
