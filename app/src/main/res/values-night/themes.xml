@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Ornaguide" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Ornaguide" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/ornaGreen</item>
         <item name="colorPrimaryVariant">#6AAC6C</item>
@@ -30,7 +30,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">4dp</item>
-        <item name="cardCornerRadius">5dp</item>
+        <item name="cardCornerRadius">@dimen/cardCornerRadius</item>
         <item name="cardElevation">0dp</item>
         <item name="cardBackgroundColor">@color/cardColor</item>
     </style>
@@ -94,6 +94,15 @@
     <style name="databaseItemPageTier" parent="databaseItemTier">
         <item name="android:layout_marginTop">20dp</item>
         <item name="android:layout_marginEnd">16dp</item>
+    </style>
+
+    <style name="saveButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?selectableItemBackgroundBorderless</item>
+        <item name="android:clickable">true</item>
+        <item name="android:padding">@dimen/cardPadding</item>
+        <item name="android:contentDescription">Add to saved list</item>
     </style>
 
     <style name="backButtonFab">
