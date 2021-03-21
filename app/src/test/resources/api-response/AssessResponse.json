@@ -1,0 +1,85 @@
+{
+  "name": "Meteor Armor",
+  "id": 368,
+  "description": "Exquisite armor forged of meteoric solarite.",
+  "type": "Armor",
+  "tier": 5,
+  "boss": true,
+  "arena": false,
+  "image": "armor/meteor_armor.png",
+  "stats": {
+    "attack": {
+      "base": 10,
+      "values": [
+        19,
+        27,
+        31,
+        35,
+        38,
+        42,
+        46,
+        50,
+        54,
+        57,
+        62,
+        66,
+        70
+      ]
+    },
+    "defense": {
+      "base": 130,
+      "values": [
+        247,
+        312,
+        344,
+        377,
+        409,
+        441,
+        474,
+        506,
+        538,
+        570,
+        606,
+        642,
+        678
+      ]
+    },
+    "hp": {
+      "base": 40,
+      "values": [
+        76,
+        95,
+        105,
+        114,
+        124,
+        133,
+        143,
+        152,
+        162,
+        171,
+        182,
+        192,
+        203
+      ]
+    }
+  },
+  "materials": [
+    {
+      "id": 364,
+      "name": "Solarite"
+    }
+  ],
+  "dropped_by": [
+    {
+      "id": 177,
+      "name": "Starlord"
+    }
+  ],
+  "equipped_by": [
+    {
+      "id": 1,
+      "name": "Warrior"
+    }
+  ],
+  "quality": "1.9"
+}

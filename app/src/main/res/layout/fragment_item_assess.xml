@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="nl.bryanderidder.ornaguide.item.ui.detail.ItemDetailViewModel" />
+
+        <variable
+            name="assessVM"
+            type="nl.bryanderidder.ornaguide.item.ui.detail.assess.ItemAssessViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:toast="@{assessVM.toastMessage}">
+
+        <TextView
+            style="@style/databaseItemPageDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="@dimen/cardPadding"
+            android:text="Enter the stats of your item to assess its quality." />
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:flexDirection="row"
+            app:flexWrap="wrap"
+            app:justifyContent="space_evenly">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/attackInput"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/cardColor"
+                app:gone="@{!vm.item.statsAsMap().containsKey(`Att`)}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/attackInputField"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/textColor"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="Attack"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    app:textChangedListener="@{assessVM::updateAttack}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/defInput"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/cardColor"
+                app:gone="@{!vm.item.statsAsMap().containsKey(`Def`)}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/defInputField"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/textColor"
+                    android:hint="Defense"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    app:textChangedListener="@{assessVM::updateDefense}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/resInput"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/cardColor"
+                app:gone="@{!vm.item.statsAsMap().containsKey(`Res`)}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/resInputField"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/textColor"
+                    android:hint="Resistance"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    app:textChangedListener="@{assessVM::updateResistance}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/hpInput"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/cardColor"
+                app:gone="@{!vm.item.statsAsMap().containsKey(`HP`)}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/hpInputField"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/textColor"
+                    android:hint="HP"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    app:textChangedListener="@{assessVM::updateHp}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/magInput"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/cardColor"
+                app:gone="@{!vm.item.statsAsMap().containsKey(`Mag`)}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/magInputField"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/textColor"
+                    android:hint="Magic"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    app:textChangedListener="@{assessVM::updateMagic}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/manaInput"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/cardColor"
+                app:gone="@{!vm.item.statsAsMap().containsKey(`Mana`)}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/manaInputField"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/textColor"
+                    android:hint="Mana"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    app:textChangedListener="@{assessVM::updateMana}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dexInput"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/cardColor"
+                app:gone="@{!vm.item.statsAsMap().containsKey(`Dex`)}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dexInputField"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/textColor"
+                    android:hint="Dexterity"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    app:textChangedListener="@{assessVM::updateDexterity}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lvlInput"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/cardColor">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lvlInputField"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/textColor"
+                    android:hint="Level"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    app:textChangedListener="@{assessVM::updateLevel}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/assessItemButton"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_margin="24dp"
+                android:clickable="true"
+                app:onClickWithSelf="@{(v) -> assessVM.onSubmit(vm.item.id, vm.item.statsAsMap(), v)}"
+                app:cardBackgroundColor="@color/ornaGreen"
+                app:cardCornerRadius="@dimen/cardCornerRadius"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Assess item"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="@dimen/cardPadding"
+                app:cardBackgroundColor="@color/backgroundColorDark"
+                app:cardCornerRadius="@dimen/cardCornerRadius"
+                app:cardElevation="0dp"
+                app:gone="@{assessVM.itemAssessResult.quality.isEmpty()}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/cardPadding"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/cardPadding"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="@{vm.item.name + ` assessment`}"
+                        tools:text="Meteor Armor assessment"/>
+
+                    <TextView
+                        android:id="@+id/assessmentQuality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{`Quality: ` + assessVM.itemAssessResult.formattedQuality()}"
+                        app:itemQualityColor="@{assessVM.itemAssessResult.quality}"
+                        tools:text="Quality: 170\%"/>
+
+                    <TextView
+                        android:id="@+id/assessmentQualityType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/cardPadding"
+                        app:itemQualityColor="@{assessVM.itemAssessResult.quality}"
+                        app:itemQualityText="@{assessVM.itemAssessResult.quality}"
+                        tools:text="Legendary" />
+
+                    <TextView
+                        android:id="@+id/assessmentLevels"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="false"
+                        android:lineHeight="20dp"
+                        android:text="@{assessVM.itemAssessResult.stats.formattedLevels()}"
+                        tools:text="Level 10:  defense: 225\tresistance: 225\nMasterforged:"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                style="@style/databaseItemPageDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="24dp"
+                android:paddingHorizontal="24dp"
+                app:gone="@{assessVM.itemAssessResult.quality.isEmpty()}"
+                android:text="Note that 170% is a crossover point of Ornate and Legendary qualities. You can have 170% Ornate or Legendary. Because of this 170% has been set to show as Legendary." />
+
+
+            <TextView
+                style="@style/databaseItemPageDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="@dimen/cardPadding"
+                app:gone="@{assessVM.itemAssessResult.quality.isEmpty()}"
+                android:text="Please let the Research Team know in the discord server (channel #guide-updates) if the assessment is off for any item (preferably in-game item screenshots of the unleveled item, not of the guide's assess)." />
+
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+    </LinearLayout>
+</layout>

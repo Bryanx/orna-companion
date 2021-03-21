@@ -22,12 +22,13 @@ class ItemDetailViewModel(
     var toastMessage: String? by bindingProperty(null)
         private set
 
-    fun loadItem() = viewModelScope.launch {
+    fun loadItem(onComplete: (Item) -> Unit) = viewModelScope.launch {
         repository.fetchItem(
             id = sharedPrefsUtil.getItemId(),
             onError = { toastMessage = it })
             .collect {
                 item.postValue(it)
+                onComplete.invoke(it)
             }
     }
 }

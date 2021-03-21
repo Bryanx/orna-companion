@@ -132,9 +132,17 @@ object GeneralViewBindings {
 
     @JvmStatic
     @BindingAdapter("listenOnClick")
-    fun bindButtonGroupChanged(view: View, callback: () -> Unit) {
+    fun bindListenOnClick(view: View, callback: () -> Unit) {
         view.setOnClickListener {
             callback.invoke()
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("onClickWithSelf")
+    fun bindOnClick(view: View, callback: ViewConsumer) {
+        view.setOnClickListener {
+            callback.accept(it)
         }
     }
 
@@ -148,6 +156,9 @@ object GeneralViewBindings {
 
 interface StringConsumer {
     fun accept(value: String)
+}
+interface ViewConsumer {
+    fun accept(value: View)
 }
 interface StringListConsumer {
     fun accept(value: List<String>)

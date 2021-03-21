@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.save.ui
+package nl.bryanderidder.ornaguide.item.ui.detail.assess
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,15 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
-import nl.bryanderidder.ornaguide.databinding.FragmentButtonSaveBinding
+import nl.bryanderidder.ornaguide.databinding.FragmentItemAssessBinding
+import org.koin.android.viewmodel.ext.android.getSharedViewModel
 import org.koin.android.viewmodel.ext.android.getViewModel
 
 
 /**
- * Button implemented on all detail pages where a user can save the item
+ * Tab where users can assess an item
  * @author Bryan de Ridder
  */
-class SaveButtonFragment : BindingFragment<FragmentButtonSaveBinding>(R.layout.fragment_button_save) {
+class ItemAssessFragment : BindingFragment<FragmentItemAssessBinding>(R.layout.fragment_item_assess) {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,8 +24,9 @@ class SaveButtonFragment : BindingFragment<FragmentButtonSaveBinding>(R.layout.f
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
-            lifecycleOwner = this@SaveButtonFragment
-            vm = getViewModel<SaveListViewModel>().setType(tag)
+            lifecycleOwner = this@ItemAssessFragment
+            vm = getSharedViewModel()
+            assessVM = getViewModel()
         }.root
     }
 }

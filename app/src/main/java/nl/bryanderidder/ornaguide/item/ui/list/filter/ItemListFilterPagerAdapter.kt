@@ -4,7 +4,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListFragment
 
 
 class ItemListFilterPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
@@ -12,7 +11,7 @@ class ItemListFilterPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
 
     override fun createFragment(position: Int): Fragment {
         if (position >= itemCount)
-            return CharacterClassListFragment()
+            return ItemListFilterTierFragment()
         return FILTER_TAB_ITEMS.values.toList()[position].invoke()
     }
 

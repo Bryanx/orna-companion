@@ -116,4 +116,34 @@ object ItemViewBinding {
         view.adapter = adapter
         adapter.setItemList(items ?: listOf())
     }
+
+    @JvmStatic
+    @BindingAdapter("itemQualityColor")
+    fun bindItemQualityColor(view: TextView, quality: String) {
+        if (quality.isEmpty()) return
+        val qualityPercent = (quality.toFloat() * 100).toInt()
+        when {
+            qualityPercent < 100 -> view.setTextColor(view.context.color(R.color.itemCategoryBroken))
+            qualityPercent < 110 -> view.setTextColor(view.context.color(R.color.itemCategoryCommon))
+            qualityPercent < 121 -> view.setTextColor(view.context.color(R.color.itemCategorySuperior))
+            qualityPercent < 140 -> view.setTextColor(view.context.color(R.color.itemCategoryFamed))
+            qualityPercent < 171 -> view.setTextColor(view.context.color(R.color.itemCategoryLegendary))
+            else -> view.setTextColor(view.context.color(R.color.itemCategoryOrnate))
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("itemQualityText")
+    fun bindItemQualityText(view: TextView, quality: String) {
+        if (quality.isEmpty()) return
+        val qualityPercent = (quality.toFloat() * 100).toInt()
+        when {
+            qualityPercent < 100 -> view.text = "Broken/Poor"
+            qualityPercent < 110 -> view.text = "Common"
+            qualityPercent < 121 -> view.text = "Superior"
+            qualityPercent < 140 -> view.text = "Famed"
+            qualityPercent < 171 -> view.text = "Legendary"
+            else -> view.text = "Ornate"
+        }
+    }
 }

@@ -82,6 +82,10 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="databaseItemPageStat" parent="databaseItemStat">
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="databaseItemPageDescription" parent="databaseItemDescription">
         <item name="android:gravity">center</item>
         <item name="android:textAlignment">center</item>

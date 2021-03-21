@@ -6,6 +6,8 @@ import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRequestBody
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRequestBody
 import nl.bryanderidder.ornaguide.item.model.Item
+import nl.bryanderidder.ornaguide.item.model.ItemAssess
+import nl.bryanderidder.ornaguide.item.persistence.ItemAssessRequestBody
 import nl.bryanderidder.ornaguide.item.persistence.ItemRequestBody
 import nl.bryanderidder.ornaguide.monster.model.Monster
 import nl.bryanderidder.ornaguide.monster.persistence.MonsterRequestBody
@@ -72,4 +74,8 @@ interface OrnaService {
 //        @Body body: QuestRequestBody
 //    ): ApiResponse<List<Quest>>
 
+    @POST("assess")
+    suspend fun assessItem(
+        @Body body: ItemAssessRequestBody
+    ): ApiResponse<ItemAssess>
 }

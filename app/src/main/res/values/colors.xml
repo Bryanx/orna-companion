@@ -25,6 +25,13 @@
     <color name="elementLightningColor">#BDB55A</color>
     <color name="elementFireColor">#EC8142</color>
 
+    <color name="itemCategoryBroken">#DAAB7C</color>
+    <color name="itemCategoryCommon">#C2BAB2</color>
+    <color name="itemCategorySuperior">#34EC34</color>
+    <color name="itemCategoryFamed">#2BB7F8</color>
+    <color name="itemCategoryLegendary">#EE3DFB</color>
+    <color name="itemCategoryOrnate">#FB3434</color>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

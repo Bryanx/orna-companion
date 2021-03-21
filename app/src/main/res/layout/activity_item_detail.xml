@@ -10,22 +10,6 @@
             type="nl.bryanderidder.ornaguide.item.ui.detail.ItemDetailActivity" />
 
         <variable
-            name="itemEquippedByAdapter"
-            type="nl.bryanderidder.ornaguide.item.ui.detail.ItemEquippedByAdapter" />
-
-        <variable
-            name="itemDroppedByAdapter"
-            type="nl.bryanderidder.ornaguide.item.ui.detail.ItemDroppedByAdapter" />
-
-        <variable
-            name="itemMaterialsAdapter"
-            type="nl.bryanderidder.ornaguide.item.ui.detail.ItemMaterialsAdapter" />
-
-        <variable
-            name="itemQuestsAdapter"
-            type="nl.bryanderidder.ornaguide.item.ui.detail.ItemQuestsAdapter" />
-
-        <variable
             name="vm"
             type="nl.bryanderidder.ornaguide.item.ui.detail.ItemDetailViewModel" />
     </data>
@@ -75,7 +59,7 @@
 
                 <TextView
                     android:id="@+id/stats"
-                    style="@style/databaseItemStat"
+                    style="@style/databaseItemPageStat"
                     android:paddingHorizontal="@dimen/cardPadding"
                     android:paddingBottom="@dimen/cardPadding"
                     android:text="@{vm.item.formattedStats()}"
@@ -119,113 +103,30 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/element" />
 
-                <TextView
-                    android:id="@+id/equippedBy"
-                    android:paddingTop="@dimen/cardDividerPadding"
-                    style="@style/databaseItemPageDescription"
-                    android:text="Usable by:"
-                    app:gone="@{vm.item.equippedBy.isEmpty()}"
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="?actionBarSize"
+                    android:background="@color/cardColor"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionDivider" />
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionDivider"
+                    app:tabGravity="center"
+                    app:tabMode="scrollable"
+                    app:tabSelectedTextColor="?android:attr/colorSecondary"
+                    app:tabTextAppearance="@style/tabMenuText"
+                    app:tabTextColor="@color/inactiveTabTextColor" />
 
-                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
-                    android:id="@+id/equippedByList"
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPager"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:clipToPadding="false"
-                    android:fadeScrollbars="false"
-                    android:overScrollMode="never"
-                    android:paddingTop="6dp"
-                    android:scrollbarStyle="outsideOverlay"
-                    app:gone="@{vm.item.equippedBy.isEmpty()}"
-                    app:itemEquippedByAdapter="@{itemEquippedByAdapter}"
-                    app:itemEquippedByList="@{vm.item.equippedBy}"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/equippedBy"
-                    tools:listitem="@layout/item_item_equipped_by" />
-
-                <TextView
-                    android:id="@+id/droppedBy"
-                    android:paddingTop="@dimen/cardPadding"
-                    style="@style/databaseItemPageDescription"
-                    android:text="Dropped by:"
-                    app:gone="@{vm.item.droppedByIncludingArena().isEmpty()}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/equippedByList" />
-
-                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
-                    android:id="@+id/droppedByList"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clipToPadding="false"
-                    android:fadeScrollbars="false"
-                    android:overScrollMode="never"
-                    android:paddingTop="6dp"
-                    android:scrollbarStyle="outsideOverlay"
-                    app:gone="@{vm.item.droppedByIncludingArena().isEmpty()}"
-                    app:itemDroppedByAdapter="@{itemDroppedByAdapter}"
-                    app:itemDroppedByList="@{vm.item.droppedByIncludingArena()}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/droppedBy"
-                    tools:listitem="@layout/item_item_dropped_by" />
-
-                <TextView
-                    android:id="@+id/materials"
-                    android:paddingTop="@dimen/cardPadding"
-                    style="@style/databaseItemPageDescription"
-                    android:text="@{vm.item.formattedMaterialsLabel()}"
-                    app:gone="@{vm.item.materials.isEmpty()}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/droppedByList" />
-
-                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
-                    android:id="@+id/materialsList"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clipToPadding="false"
-                    android:fadeScrollbars="false"
-                    android:overScrollMode="never"
-                    android:paddingTop="6dp"
-                    android:scrollbarStyle="outsideOverlay"
-                    app:gone="@{vm.item.materials.isEmpty()}"
-                    app:itemMaterialsAdapter="@{itemMaterialsAdapter}"
-                    app:itemMaterialsList="@{vm.item.materials}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/materials"
-                    tools:listitem="@layout/item_item_detail" />
-
-                <TextView
-                    android:id="@+id/quests"
-                    android:paddingTop="@dimen/cardPadding"
-                    style="@style/databaseItemPageDescription"
-                    android:text="Reward for:"
-                    app:gone="@{vm.item.quests.isEmpty()}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/materialsList" />
-
-                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
-                    android:id="@+id/questsList"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clipToPadding="false"
-                    android:fadeScrollbars="false"
-                    android:overScrollMode="never"
-                    android:paddingTop="6dp"
-                    android:scrollbarStyle="outsideOverlay"
-                    app:gone="@{vm.item.quests.isEmpty()}"
-                    app:itemQuestsAdapter="@{itemQuestsAdapter}"
-                    app:itemQuestsList="@{vm.item.quests}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/quests"
-                    tools:listitem="@layout/item_item_detail" />
+                    app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -265,6 +166,6 @@
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             style="@style/backButtonFab"
             android:contentDescription="Back button"
-            android:onClick="@{() -> activity.onBackPressed()}" />
+            android:onClick="@{() -> activity.onBackPressed()}"/>
     </RelativeLayout>
 </layout>

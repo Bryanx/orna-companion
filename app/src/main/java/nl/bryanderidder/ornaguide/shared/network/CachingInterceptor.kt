@@ -29,6 +29,11 @@ class CachingInterceptor(
             return getEmptyResponse(chain)
 
         val request = chain.request()
+
+        // don't cache item assess
+        if (request.url.toString().contains("assess"))
+            return chain.proceed(request)
+
         val bodyAndPath = NetworkUtil.requestBodyToString(request.body) + request.url.encodedPath
         val currentTime = Calendar.getInstance().timeInMillis
 

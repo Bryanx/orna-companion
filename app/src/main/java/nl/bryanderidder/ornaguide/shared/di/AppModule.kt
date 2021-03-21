@@ -10,8 +10,10 @@ import nl.bryanderidder.ornaguide.achievement.ui.list.AchievementListViewModel
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
 import nl.bryanderidder.ornaguide.characterclass.ui.detail.CharacterClassDetailViewModel
 import nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListViewModel
+import nl.bryanderidder.ornaguide.item.persistence.ItemAssessRepository
 import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
 import nl.bryanderidder.ornaguide.item.ui.detail.ItemDetailViewModel
+import nl.bryanderidder.ornaguide.item.ui.detail.assess.ItemAssessViewModel
 import nl.bryanderidder.ornaguide.item.ui.list.ItemListViewModel
 import nl.bryanderidder.ornaguide.monster.persistence.MonsterRepository
 import nl.bryanderidder.ornaguide.monster.ui.detail.MonsterDetailViewModel
@@ -89,6 +91,7 @@ val appModule: Module = module {
     viewModel { PetDetailViewModel(get(), get()) }
     viewModel { ItemListViewModel(get(), get()) }
     viewModel { ItemDetailViewModel(get(), get()) }
+    viewModel { ItemAssessViewModel(get()) }
     viewModel { MonsterListViewModel(get(), get(), get()) }
     viewModel { MonsterDetailViewModel(get(), get()) }
     viewModel { NpcListViewModel(get(), get()) }
@@ -131,5 +134,6 @@ val appModule: Module = module {
     single { NpcRepository(get(), get()) }
     single { AchievementRepository(get(), get()) }
     single { SaveRepository(get()) }
+    single { ItemAssessRepository(get()) }
 
 }
