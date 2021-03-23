@@ -1,9 +1,15 @@
 package nl.bryanderidder.ornaguide.pet.persistence
 
 import androidx.annotation.WorkerThread
-import com.skydoves.sandwich.*
+import com.skydoves.sandwich.message
+import com.skydoves.sandwich.onError
+import com.skydoves.sandwich.onException
+import com.skydoves.sandwich.suspendOnSuccess
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
 import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import timber.log.Timber
@@ -16,19 +22,27 @@ class PetRepository(
     private val client: OrnaClient,
     private val dao: PetDao,
 ) {
-
     @WorkerThread
-    fun fetchPetList(
+    fun getPetListFromDb(
         requestBody: PetRequestBody = PetRequestBody(),
-        onStart: () -> Unit,
-        onComplete: () -> Unit,
+        onStart: () -> Unit = {},
+        onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
     ) = flow<List<Pet>> {
         val petList = dao.getPetList()
-        if (!petList.isNullOrEmpty()) {
+        if (!petList.isNullOrEmpty())
             emit(petList)
-            return@flow
-        }
+        else
+            syncDbWithNetwork(requestBody, onError = onError)
+    }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun syncDbWithNetwork(
+        requestBody: PetRequestBody = PetRequestBody(),
+        onStart: () -> Unit = {},
+        onComplete: () -> Unit = {},
+        onError: (String?) -> Unit,
+    ) = flow<List<Pet>> {
         client.fetchPetList(requestBody)
             .suspendOnSuccess {
                 dao.insertPetList(response.body() ?: listOf())

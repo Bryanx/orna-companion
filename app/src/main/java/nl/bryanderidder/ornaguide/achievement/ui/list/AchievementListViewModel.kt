@@ -44,7 +44,7 @@ class AchievementListViewModel(
 
     init {
         viewModelScope.launch {
-            repository.fetchAchievementList(
+            repository.getAchievementListFromDb(
                 onStart = { isLoading = true },
                 onComplete = { isLoading = false },
                 onError = { toastMessage = it }

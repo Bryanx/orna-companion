@@ -6,7 +6,10 @@ import com.skydoves.sandwich.onError
 import com.skydoves.sandwich.onException
 import com.skydoves.sandwich.suspendOnSuccess
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import timber.log.Timber
@@ -21,17 +24,26 @@ class CharacterClassRepository(
 ) {
 
     @WorkerThread
-    fun fetchCharacterClassList(
+    fun getCharacterClassListFromDb(
         requestBody: CharacterClassRequestBody = CharacterClassRequestBody(),
         onStart: () -> Unit = {},
         onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
     ) = flow<List<CharacterClass>> {
         val characterClassList = dao.getCharacterClassList()
-        if (!characterClassList.isNullOrEmpty()) {
+        if (!characterClassList.isNullOrEmpty())
             emit(characterClassList)
-            return@flow
-        }
+        else
+            syncDbWithNetwork(requestBody, onError = onError)
+    }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun syncDbWithNetwork(
+        requestBody: CharacterClassRequestBody = CharacterClassRequestBody(),
+        onStart: () -> Unit = {},
+        onComplete: () -> Unit = {},
+        onError: (String?) -> Unit,
+    ) = flow<List<CharacterClass>> {
         client.fetchCharacterClassList(requestBody)
             .suspendOnSuccess {
                 dao.insertCharacterClassList(response.body() ?: listOf())

@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.shared.ui
+package nl.bryanderidder.ornaguide.shared.ui.menu.discover
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -13,7 +13,7 @@ import nl.bryanderidder.ornaguide.pet.ui.list.PetListFragment
 import nl.bryanderidder.ornaguide.skill.ui.list.SkillListFragment
 import nl.bryanderidder.ornaguide.specialization.ui.list.SpecializationListFragment
 
-class MainPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
+class DiscoverPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fm, lifecycle) {
 
     override fun createFragment(position: Int): Fragment {

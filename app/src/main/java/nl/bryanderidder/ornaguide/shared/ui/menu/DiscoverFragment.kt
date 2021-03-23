@@ -14,7 +14,7 @@ import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemListFilterDialogFragme
 import nl.bryanderidder.ornaguide.monster.ui.list.filter.MonsterListFilterDialogFragment
 import nl.bryanderidder.ornaguide.npc.ui.list.filter.NpcListFilterDialogFragment
 import nl.bryanderidder.ornaguide.pet.ui.list.filter.PetListFilterDialogFragment
-import nl.bryanderidder.ornaguide.shared.ui.MainPagerAdapter
+import nl.bryanderidder.ornaguide.shared.ui.menu.discover.DiscoverPagerAdapter
 import nl.bryanderidder.ornaguide.shared.util.color
 import nl.bryanderidder.ornaguide.shared.util.showBottomSheet
 import nl.bryanderidder.ornaguide.skill.ui.list.filter.SkillListFilterDialogFragment
@@ -41,14 +41,14 @@ class DiscoverFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding {
-            mainViewpager.adapter = MainPagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
+            mainViewpager.adapter = DiscoverPagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
             mainViewpager.offscreenPageLimit = 3
             filterFab.setOnClickListener {
-                onClickFilterFab(MainPagerAdapter.DISCOVER_MENU_LABELS[(mainViewpager.currentItem)])
+                onClickFilterFab(DiscoverPagerAdapter.DISCOVER_MENU_LABELS[(mainViewpager.currentItem)])
             }
         }
         TabLayoutMediator(binding.tabLayout, binding.mainViewpager) { tab, position ->
-            tab.text = MainPagerAdapter.DISCOVER_MENU_LABELS[(position)]
+            tab.text = DiscoverPagerAdapter.DISCOVER_MENU_LABELS[(position)]
         }.attach()
     }
 

@@ -44,7 +44,7 @@ class PetListViewModel(
 
     init {
         viewModelScope.launch {
-            repository.fetchPetList(
+            repository.getPetListFromDb(
                 onStart = { isLoading = true },
                 onComplete = { isLoading = false },
                 onError = { toastMessage = it }

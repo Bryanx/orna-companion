@@ -56,7 +56,7 @@ class SkillListViewModel(
 
     init {
         viewModelScope.launch {
-            repository.fetchSkillList(
+            repository.getSkillListFromDb(
                 onStart = { isLoading = true },
                 onComplete = { isLoading = false },
                 onError = { toastMessage = it }

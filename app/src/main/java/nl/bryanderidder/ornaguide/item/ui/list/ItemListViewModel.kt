@@ -62,7 +62,7 @@ class ItemListViewModel(
 
     init {
         viewModelScope.launch {
-            repository.fetchItemList(
+            repository.getItemListFromDb(
                 onStart = { isLoading = true },
                 onComplete = { isLoading = false },
                 onError = { toastMessage = it }

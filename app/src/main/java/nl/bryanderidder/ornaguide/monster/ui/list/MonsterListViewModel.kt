@@ -58,7 +58,7 @@ class MonsterListViewModel(
 
     init {
         viewModelScope.launch {
-            repository.fetchMonsterList(
+            repository.getMonsterListFromDb(
                 onStart = { isLoading = true },
                 onComplete = { isLoading = false },
                 onError = { toastMessage = it }

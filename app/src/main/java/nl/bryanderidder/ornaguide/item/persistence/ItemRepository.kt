@@ -6,7 +6,10 @@ import com.skydoves.sandwich.onError
 import com.skydoves.sandwich.onException
 import com.skydoves.sandwich.suspendOnSuccess
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
 import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import timber.log.Timber
@@ -21,17 +24,26 @@ class ItemRepository(
 ) {
 
     @WorkerThread
-    fun fetchItemList(
+    fun getItemListFromDb(
         requestBody: ItemRequestBody = ItemRequestBody(),
-        onStart: () -> Unit,
-        onComplete: () -> Unit,
+        onStart: () -> Unit = {},
+        onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
     ) = flow<List<Item>> {
         val itemList = dao.getItemList()
-        if (!itemList.isNullOrEmpty()) {
+        if (!itemList.isNullOrEmpty())
             emit(itemList)
-            return@flow
-        }
+        else
+            syncDbWithNetwork(requestBody, onError = onError)
+    }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun syncDbWithNetwork(
+        requestBody: ItemRequestBody = ItemRequestBody(),
+        onStart: () -> Unit = {},
+        onComplete: () -> Unit = {},
+        onError: (String?) -> Unit,
+    ) = flow<List<Item>> {
         client.fetchItemList(requestBody)
             .suspendOnSuccess {
                 dao.insertItemList(response.body() ?: listOf())

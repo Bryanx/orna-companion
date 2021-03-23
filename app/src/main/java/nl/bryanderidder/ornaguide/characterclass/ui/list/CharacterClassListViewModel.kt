@@ -46,7 +46,7 @@ class CharacterClassListViewModel(
 
     init {
         viewModelScope.launch {
-            repository.fetchCharacterClassList(
+            repository.getCharacterClassListFromDb(
                 onStart = { isLoading = true },
                 onComplete = { isLoading = false },
                 onError = { toastMessage = it }

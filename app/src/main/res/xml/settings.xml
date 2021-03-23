@@ -4,6 +4,7 @@
     <PreferenceCategory app:key="top">
 
         <Preference
+            app:key="syncWithOrnaGuide"
             app:icon="@drawable/ic_baseline_sync_24"
             app:layout="@layout/preference_setting"
             app:title="Sync with Orna.Guide"

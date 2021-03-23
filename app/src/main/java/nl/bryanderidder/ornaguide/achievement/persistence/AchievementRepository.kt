@@ -6,7 +6,10 @@ import com.skydoves.sandwich.onError
 import com.skydoves.sandwich.onException
 import com.skydoves.sandwich.suspendOnSuccess
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
 import nl.bryanderidder.ornaguide.achievement.model.Achievement
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import timber.log.Timber
@@ -19,19 +22,27 @@ class AchievementRepository(
     private val client: OrnaClient,
     private val dao: AchievementDao,
 ) {
-
     @WorkerThread
-    fun fetchAchievementList(
+    fun getAchievementListFromDb(
         requestBody: AchievementRequestBody = AchievementRequestBody(),
-        onStart: () -> Unit,
-        onComplete: () -> Unit,
+        onStart: () -> Unit = {},
+        onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
     ) = flow<List<Achievement>> {
         val achievementList = dao.getAchievementList()
-        if (!achievementList.isNullOrEmpty()) {
+        if (!achievementList.isNullOrEmpty())
             emit(achievementList)
-            return@flow
-        }
+        else
+            syncDbWithNetwork(requestBody, onError = onError)
+    }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun syncDbWithNetwork(
+        requestBody: AchievementRequestBody = AchievementRequestBody(),
+        onStart: () -> Unit = {},
+        onComplete: () -> Unit = {},
+        onError: (String?) -> Unit,
+    ) = flow<List<Achievement>> {
         client.fetchAchievementList(requestBody)
             .suspendOnSuccess {
                 dao.insertAchievementList(response.body() ?: listOf())

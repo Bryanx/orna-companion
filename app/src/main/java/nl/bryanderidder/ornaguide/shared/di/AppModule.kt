@@ -33,6 +33,7 @@ import nl.bryanderidder.ornaguide.shared.network.NetworkLoggingInterceptor
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import nl.bryanderidder.ornaguide.shared.network.OrnaService
 import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchViewModel
+import nl.bryanderidder.ornaguide.shared.ui.menu.sync.SyncViewModel
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
 import nl.bryanderidder.ornaguide.skill.ui.detail.SkillDetailViewModel
@@ -56,7 +57,6 @@ val appModule: Module = module {
 
     single { androidContext().getSharedPreferences(androidContext().packageName, Context.MODE_PRIVATE) }
     single { SharedPrefsUtil(get()) }
-
 
     single {
         OkHttpClient.Builder()
@@ -103,6 +103,7 @@ val appModule: Module = module {
 
     viewModel { SaveListViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get(), get()) }
     viewModel { SearchViewModel(get(), get(), get(), get(), get(), get(), get(), get()) }
+    viewModel { SyncViewModel(get(), get(), get(), get(), get(), get(), get(), get()) }
 
     // DB:
 

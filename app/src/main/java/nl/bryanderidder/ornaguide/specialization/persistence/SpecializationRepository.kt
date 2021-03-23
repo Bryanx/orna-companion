@@ -6,7 +6,10 @@ import com.skydoves.sandwich.onError
 import com.skydoves.sandwich.onException
 import com.skydoves.sandwich.suspendOnSuccess
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
 import timber.log.Timber
@@ -21,17 +24,26 @@ class SpecializationRepository(
 ) {
 
     @WorkerThread
-    fun fetchSpecializationList(
+    fun getSpecializationListFromDb(
         requestBody: SpecializationRequestBody = SpecializationRequestBody(),
-        onStart: () -> Unit,
-        onComplete: () -> Unit,
+        onStart: () -> Unit = {},
+        onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
     ) = flow<List<Specialization>> {
         val specializationList = dao.getSpecializationList()
-        if (!specializationList.isNullOrEmpty()) {
+        if (!specializationList.isNullOrEmpty())
             emit(specializationList)
-            return@flow
-        }
+        else
+            syncDbWithNetwork(requestBody, onError = onError)
+    }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun syncDbWithNetwork(
+        requestBody: SpecializationRequestBody = SpecializationRequestBody(),
+        onStart: () -> Unit = {},
+        onComplete: () -> Unit = {},
+        onError: (String?) -> Unit,
+    ) = flow<List<Specialization>> {
         client.fetchSpecializationList(requestBody)
             .suspendOnSuccess {
                 dao.insertSpecializationList(response.body() ?: listOf())

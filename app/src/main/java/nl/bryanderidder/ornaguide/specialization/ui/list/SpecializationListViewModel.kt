@@ -38,7 +38,7 @@ class SpecializationListViewModel(repository: SpecializationRepository) : Bindin
 
     init {
         viewModelScope.launch {
-            repository.fetchSpecializationList(
+            repository.getSpecializationListFromDb(
                 onStart = { isLoading = true },
                 onComplete = { isLoading = false },
                 onError = { toastMessage = it }

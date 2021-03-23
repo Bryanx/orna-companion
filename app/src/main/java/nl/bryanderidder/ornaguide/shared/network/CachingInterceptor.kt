@@ -31,7 +31,7 @@ class CachingInterceptor(
         val request = chain.request()
 
         // don't cache item assess
-        if (request.url.toString().contains("assess"))
+        if (request.url.toString().contains("assess") || NetworkUtil.requestBodyToString(request.body) == "{}")
             return chain.proceed(request)
 
         val bodyAndPath = NetworkUtil.requestBodyToString(request.body) + request.url.encodedPath

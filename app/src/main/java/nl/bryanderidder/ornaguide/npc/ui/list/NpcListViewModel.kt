@@ -44,7 +44,7 @@ class NpcListViewModel(
 
     init {
         viewModelScope.launch {
-            repository.fetchNpcList(
+            repository.getNpcListFromDb(
                 onStart = { isLoading = true },
                 onComplete = { isLoading = false },
                 onError = { toastMessage = it }

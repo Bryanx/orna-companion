@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="nl.bryanderidder.ornaguide.shared.ui.menu.sync.SyncViewModel" />
+
+        <variable
+            name="activity"
+            type="nl.bryanderidder.ornaguide.shared.ui.menu.sync.SyncActivity"   />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColorDark"
+        app:toast="@{vm.toastMessage}"
+        tools:context=".shared.ui.menu.sync.SyncActivity">
+
+        <RelativeLayout
+            android:id="@+id/progressbar"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/loadingHeader"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guide33"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                app:gone="@{!vm.loading}"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_baseline_check_24"
+                app:gone="@{vm.loading}"
+                app:tint="?colorPrimary" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/loadingHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{vm.loading ? `Syncing` : `Successfully synced`}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/loadingSubText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressbar"
+            tools:text="Synced" />
+
+        <TextView
+            android:id="@+id/loadingSubText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/buttonMargin"
+            android:paddingTop="10dp"
+            android:text="@{vm.loading ? `This may take a few minutes...` : `To prevent overloading the server syncing is blocked for the next 60 minutes.`}"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/guide33"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loadingHeader"
+            tools:text="To prevent overloading the server syncing is blocked for the next 60 minutes." />
+
+        <TextView
+            android:id="@+id/characterClassLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{vm.characterClassMessage}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/skillLoading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guide66"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Fetching classes" />
+
+        <TextView
+            android:id="@+id/skillLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="@{vm.skillMessage}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/specializationLoading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/characterClassLoading"
+            tools:text="Fetching skills" />
+
+        <TextView
+            android:id="@+id/specializationLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="@{vm.specializationMessage}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/petLoading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/skillLoading"
+            tools:text="Fetching specializations" />
+
+        <TextView
+            android:id="@+id/petLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="@{vm.petMessage}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/itemLoading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/specializationLoading"
+            tools:text="Fetching pets" />
+
+        <TextView
+            android:id="@+id/itemLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="@{vm.itemMessage}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/monsterLoading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/petLoading"
+            tools:text="Fetching items" />
+
+        <TextView
+            android:id="@+id/monsterLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="@{vm.monsterMessage}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/npcLoading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemLoading"
+            tools:text="Fetching monsters" />
+
+        <TextView
+            android:id="@+id/npcLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="@{vm.npcMessage}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/achievementLoading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/monsterLoading"
+            tools:text="Fetching NPCs" />
+
+        <TextView
+            android:id="@+id/achievementLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="@{vm.achievementMessage}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/guide66"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/npcLoading"
+            tools:text="Fetching achievements" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/assessItemButton"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_margin="24dp"
+            android:clickable="true"
+            android:onClick="@{() -> activity.onBackPressed()}"
+            app:cardBackgroundColor="@color/ornaGreen"
+            app:cardCornerRadius="@dimen/cardCornerRadius"
+            app:cardElevation="0dp"
+            app:gone="@{vm.loading}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="BACK"
+                android:textAllCaps="true"
+                android:textColor="@color/black" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.33" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide66"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintGuide_percent="0.66"
+            app:layout_constraintTop_toBottomOf="@+id/achievementLoading" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

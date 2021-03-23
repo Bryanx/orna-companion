@@ -22,19 +22,27 @@ class SkillRepository(
     private val client: OrnaClient,
     private val dao: SkillDao,
 ) {
-
     @WorkerThread
-    fun fetchSkillList(
+    fun getSkillListFromDb(
         requestBody: SkillRequestBody = SkillRequestBody(),
-        onStart: () -> Unit,
-        onComplete: () -> Unit,
+        onStart: () -> Unit = {},
+        onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
     ) = flow<List<Skill>> {
         val skillList = dao.getSkillList()
-        if (!skillList.isNullOrEmpty()) {
+        if (!skillList.isNullOrEmpty())
             emit(skillList)
-            return@flow
-        }
+        else
+            syncDbWithNetwork(requestBody, onError = onError)
+    }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun syncDbWithNetwork(
+        requestBody: SkillRequestBody = SkillRequestBody(),
+        onStart: () -> Unit = {},
+        onComplete: () -> Unit = {},
+        onError: (String?) -> Unit,
+    ) = flow<List<Skill>> {
         client.fetchSkillList(requestBody)
             .suspendOnSuccess {
                 dao.insertSkillList(response.body() ?: listOf())

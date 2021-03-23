@@ -6,19 +6,19 @@
     <data>
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/backgroundColorDark"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="12dp"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textSize="34sp"
-            android:text="Guides"/>
-    </LinearLayout>
+            android:textSize="16sp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/textColor"
+            android:text="Coming soon"/>
+    </RelativeLayout>
 
 </layout>

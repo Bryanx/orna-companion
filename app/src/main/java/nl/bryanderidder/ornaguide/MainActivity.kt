@@ -8,8 +8,7 @@ import androidx.navigation.ui.NavigationUI
 import com.skydoves.bindables.BindingActivity
 import com.skydoves.transformationlayout.onTransformationStartContainer
 import nl.bryanderidder.ornaguide.databinding.ActivityMainBinding
-import timber.log.Timber
-import timber.log.Timber.DebugTree
+import nl.bryanderidder.ornaguide.shared.util.color
 
 
 @SuppressLint("MissingSuperCall")
@@ -20,8 +19,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
     override fun onCreate(savedInstanceState: Bundle?) {
         onTransformationStartContainer()
         super.onCreate(savedInstanceState)
-        if (BuildConfig.DEBUG)
-            Timber.plant(DebugTree())
+        window.statusBarColor = color(R.color.backgroundColorDark)
         setUpNavigation()
     }
 
