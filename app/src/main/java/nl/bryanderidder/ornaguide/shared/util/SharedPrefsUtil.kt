@@ -1,13 +1,18 @@
 package nl.bryanderidder.ornaguide.shared.util
 
 import android.content.SharedPreferences
+import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
+import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
 
 
 /**
  * Utils for shared prefs. We store session info here.
  * @author Bryan de Ridder
  */
-class SharedPrefsUtil(private val prefs: SharedPreferences) {
+class SharedPrefsUtil(
+    private val prefs: SharedPreferences,
+    private val converters: OrnaTypeConverters,
+) {
 
     fun setCharacterClassId(value: Int) =
         prefs.edit().putInt(CHARACTER_CLASS_ID, value).apply()
@@ -70,8 +75,18 @@ class SharedPrefsUtil(private val prefs: SharedPreferences) {
         if (isTrue) prefs.edit().putBoolean(IS_FIRST_START, false).apply()
     }
 
+    fun getSearchHistory(): List<SearchResult> =
+        converters.fromSearchResult(prefs.getString(SEARCH_HISTORY, "[]") ?: "[]")
+
+    fun addToSearchHistory(result: SearchResult) {
+        val newSearchHistory = listOf(result) + getSearchHistory().filter { it != result }.take(19)
+        val json = converters.toSearchResult(newSearchHistory)
+        prefs.edit().putString(SEARCH_HISTORY, json).apply()
+    }
+
     companion object {
         const val IS_FIRST_START: String = "IS_FIRST_START"
+        const val SEARCH_HISTORY: String = "SEARCH_HISTORY"
 
         //navigation
         const val CHARACTER_CLASS_ID: String = "CHARACTER_CLASS_ID"

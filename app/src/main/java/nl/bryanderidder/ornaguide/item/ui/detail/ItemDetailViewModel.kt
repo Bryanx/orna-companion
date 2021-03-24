@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
+import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class ItemDetailViewModel(
@@ -29,6 +30,7 @@ class ItemDetailViewModel(
             .collect {
                 item.postValue(it)
                 onComplete.invoke(it)
+                sharedPrefsUtil.addToSearchHistory(SearchResult.ofItem(it))
             }
     }
 }

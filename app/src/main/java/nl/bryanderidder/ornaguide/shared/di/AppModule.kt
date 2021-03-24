@@ -56,7 +56,7 @@ import java.util.concurrent.TimeUnit
 val appModule: Module = module {
 
     single { androidContext().getSharedPreferences(androidContext().packageName, Context.MODE_PRIVATE) }
-    single { SharedPrefsUtil(get()) }
+    single { SharedPrefsUtil(get(), get()) }
 
     single {
         OkHttpClient.Builder()
@@ -102,7 +102,7 @@ val appModule: Module = module {
     viewModel { CharacterClassDetailViewModel(get(), get()) }
 
     viewModel { SaveListViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get(), get()) }
-    viewModel { SearchViewModel(get(), get(), get(), get(), get(), get(), get(), get()) }
+    viewModel { SearchViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get()) }
     viewModel { SyncViewModel(get(), get(), get(), get(), get(), get(), get(), get()) }
 
     // DB:

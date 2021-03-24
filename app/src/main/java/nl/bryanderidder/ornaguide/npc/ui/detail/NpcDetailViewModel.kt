@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.npc.model.Npc
 import nl.bryanderidder.ornaguide.npc.persistence.NpcRepository
+import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class NpcDetailViewModel(
@@ -28,6 +29,7 @@ class NpcDetailViewModel(
             onError = { toastMessage = it })
             .collect {
                 npc.postValue(it)
+                sharedPrefsUtil.addToSearchHistory(SearchResult.ofNpc(it))
             }
     }
 }

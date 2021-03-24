@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.shared.ui.menu.search
 
+import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.achievement.model.Achievement
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.item.model.Item
@@ -9,6 +10,7 @@ import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.skill.model.Skill
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
 
+@JsonClass(generateAdapter = true)
 data class SearchResult(
     val id: Int,
     val name: String,

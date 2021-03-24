@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.monster.model.Monster
 import nl.bryanderidder.ornaguide.monster.persistence.MonsterRepository
+import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class MonsterDetailViewModel(
@@ -28,6 +29,7 @@ class MonsterDetailViewModel(
             onError = { toastMessage = it })
             .collect {
                 monster.postValue(it)
+                sharedPrefsUtil.addToSearchHistory(SearchResult.ofMonster(it))
             }
     }
 }

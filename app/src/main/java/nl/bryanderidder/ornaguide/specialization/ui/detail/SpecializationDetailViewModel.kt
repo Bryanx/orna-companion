@@ -7,6 +7,7 @@ import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
 import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationRepository
@@ -28,6 +29,7 @@ class SpecializationDetailViewModel(
             onError = { toastMessage = it })
             .collect {
                 specialization.postValue(it)
+                sharedPrefsUtil.addToSearchHistory(SearchResult.ofSpecialization(it))
             }
     }
 }

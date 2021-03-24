@@ -10,6 +10,7 @@ import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.monster.model.Monster
 import nl.bryanderidder.ornaguide.npc.model.Npc
 import nl.bryanderidder.ornaguide.pet.model.Pet
+import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
 import nl.bryanderidder.ornaguide.skill.model.Skill
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
 
@@ -154,5 +155,17 @@ class OrnaTypeConverters(private val moshi: Moshi) {
         val listType = Types.newParameterizedType(List::class.java, Npc.Quest::class.java)
         val adapter: JsonAdapter<List<Npc.Quest>> = moshi.adapter(listType)
         return adapter.fromJson(value) ?: listOf()
+    }
+
+    fun fromSearchResult(value: String): List<SearchResult> {
+        val listType = Types.newParameterizedType(List::class.java, SearchResult::class.java)
+        val adapter: JsonAdapter<List<SearchResult>> = moshi.adapter(listType)
+        return adapter.fromJson(value) ?: listOf()
+    }
+
+    fun toSearchResult(type: List<SearchResult>): String {
+        val listType = Types.newParameterizedType(List::class.java, SearchResult::class.java)
+        val adapter: JsonAdapter<List<SearchResult>> = moshi.adapter(listType)
+        return adapter.toJson(type)
     }
 }

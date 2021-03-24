@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.pet.persistence.PetRepository
+import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class PetDetailViewModel(
@@ -28,6 +29,7 @@ class PetDetailViewModel(
             onError = { toastMessage = it })
             .collect {
                 pet.postValue(it)
+                sharedPrefsUtil.addToSearchHistory(SearchResult.ofPet(it))
             }
     }
 }

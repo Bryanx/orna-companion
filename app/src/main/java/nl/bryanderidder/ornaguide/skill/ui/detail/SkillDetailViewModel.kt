@@ -7,6 +7,7 @@ import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.skill.model.Skill
 import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
@@ -28,6 +29,7 @@ class SkillDetailViewModel(
             onError = { toastMessage = it })
             .collect {
                 skill.postValue(it)
+                sharedPrefsUtil.addToSearchHistory(SearchResult.ofSkill(it))
             }
     }
 }

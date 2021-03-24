@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
+import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class CharacterClassDetailViewModel(
@@ -28,6 +29,7 @@ class CharacterClassDetailViewModel(
             onError = { toastMessage = it })
             .collect {
                 characterClass.postValue(it)
+                sharedPrefsUtil.addToSearchHistory(SearchResult.ofCharacterClass(it))
             }
     }
 }

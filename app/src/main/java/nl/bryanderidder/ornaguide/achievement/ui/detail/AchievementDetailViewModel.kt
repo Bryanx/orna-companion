@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.achievement.model.Achievement
 import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRepository
+import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class AchievementDetailViewModel(
@@ -28,6 +29,7 @@ class AchievementDetailViewModel(
             onError = { toastMessage = it })
             .collect {
                 achievement.postValue(it)
+                sharedPrefsUtil.addToSearchHistory(SearchResult.ofAchievement(it))
             }
     }
 }
