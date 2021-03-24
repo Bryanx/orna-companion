@@ -13,14 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ornaguide">
-        <activity android:name=".shared.ui.menu.sync.SyncActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".onboarding.SplashScreenActivity"
+            android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".characterclass.ui.detail.CharacterClassDetailActivity" />
         <activity android:name=".skill.ui.detail.SkillDetailActivity" />
         <activity android:name=".specialization.ui.detail.SpecializationDetailActivity" />
@@ -29,6 +31,8 @@
         <activity android:name=".npc.ui.detail.NpcDetailActivity" />
         <activity android:name=".achievement.ui.detail.AchievementDetailActivity" />
         <activity android:name=".item.ui.detail.ItemDetailActivity" />
+        <activity android:name=".shared.ui.menu.sync.SyncActivity" />
+        <activity android:name=".onboarding.OnboardingActivity" />
     </application>
 
 </manifest>

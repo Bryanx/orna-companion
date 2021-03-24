@@ -1,27 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/dicoverFragment">
 
     <fragment
         android:id="@+id/dicoverFragment"
         android:name="nl.bryanderidder.ornaguide.shared.ui.menu.DiscoverFragment"
-        android:label="DicoverFragment" />
+        android:label="DicoverFragment"
+        tools:layout="@layout/fragment_menu_discover" />
     <fragment
         android:id="@+id/guidesFragment"
         android:name="nl.bryanderidder.ornaguide.shared.ui.menu.GuidesFragment"
-        android:label="GuidesFragment" />
+        android:label="GuidesFragment"
+        tools:layout="@layout/fragment_menu_guides" >
+        <action
+            android:id="@+id/action_guidesFragment_to_dicoverFragment"
+            app:popUpTo="@id/dicoverFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="nl.bryanderidder.ornaguide.shared.ui.menu.SearchFragment"
-        android:label="SearchFragment" />
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_menu_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_dicoverFragment"
+            app:popUpTo="@id/dicoverFragment" />
+    </fragment>
     <fragment
         android:id="@+id/myListsFragment"
         android:name="nl.bryanderidder.ornaguide.shared.ui.menu.SaveListFragment"
-        android:label="MyListsFragment" />
+        android:label="MyListsFragment"
+        tools:layout="@layout/fragment_menu_save_list" >
+        <action
+            android:id="@+id/action_myListsFragment_to_dicoverFragment"
+            app:popUpTo="@id/dicoverFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="nl.bryanderidder.ornaguide.shared.ui.menu.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_menu_settings"  >
+        <action
+            android:id="@+id/action_settingsFragment_to_dicoverFragment"
+            app:popUpTo="@id/dicoverFragment" />
+    </fragment>
 </navigation>

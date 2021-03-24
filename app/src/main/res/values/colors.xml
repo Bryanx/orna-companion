@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="backgroundColorDark">#1E1B1A</color>
+    <color name="backgroundColorDarkest">#151413</color>
     <color name="cardColor">#37302D</color>
     <color name="pageCardColor">#3C3532</color>
     <color name="menuColor">#3C3532</color>
@@ -39,8 +40,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white50">#80FFFFFF</color>
 
     <color name="backButtonColor">#534A48</color>
     <color name="elementArcaneColor">#030AFF</color>
     <color name="arenaColor">#FFC107</color>
+
+    <color name="onboardingBackgroundColor">#534A48</color>
 </resources>

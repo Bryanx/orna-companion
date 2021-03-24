@@ -37,7 +37,7 @@
                     android:textColor="@color/textColorHeader"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:text="Orna.Guide"/>
+                    android:text="Orna.Companion"/>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
 

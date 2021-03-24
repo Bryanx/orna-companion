@@ -66,7 +66,13 @@ class SharedPrefsUtil(private val prefs: SharedPreferences) {
     fun readLong(key: String): Long =
         prefs.getLong(key, 0L)
 
+    fun isFirstStart(): Boolean = prefs.getBoolean(IS_FIRST_START, true).also { isTrue ->
+        if (isTrue) prefs.edit().putBoolean(IS_FIRST_START, false).apply()
+    }
+
     companion object {
+        const val IS_FIRST_START: String = "IS_FIRST_START"
+
         //navigation
         const val CHARACTER_CLASS_ID: String = "CHARACTER_CLASS_ID"
         const val SPECIALIZATION_ID: String = "SPECIALIZATION_ID"

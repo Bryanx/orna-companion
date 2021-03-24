@@ -60,6 +60,7 @@ dependencies {
     implementation("nl.bryanderidder:themed-toggle-button-group:1.3.4")
     implementation("com.mikepenz:aboutlibraries-core:8.8.4")
     implementation("com.mikepenz:aboutlibraries:8.8.4")
+    implementation("com.github.AppIntro:AppIntro:6.1.0")
 
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:26.7.0"))
