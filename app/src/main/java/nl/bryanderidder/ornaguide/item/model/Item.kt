@@ -101,7 +101,7 @@ data class Item(
 
     @Ignore
     fun formattedStats(): String =
-        statsAsMap().map { (k, v) -> "$k: $v" }.toList().joinToString("   ")
+        statsAsMap().map { (k, v) -> "$k:\u00A0$v" }.toList().joinToString("   ")
 
     @Ignore
     fun statsAsMap(): Map<String, Int> {
