@@ -14,6 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ornaguide">
         <activity
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"
             android:name=".onboarding.SplashScreenActivity"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
@@ -22,17 +24,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".characterclass.ui.detail.CharacterClassDetailActivity" />
-        <activity android:name=".skill.ui.detail.SkillDetailActivity" />
-        <activity android:name=".specialization.ui.detail.SpecializationDetailActivity" />
-        <activity android:name=".pet.ui.detail.PetDetailActivity" />
-        <activity android:name=".monster.ui.detail.MonsterDetailActivity" />
-        <activity android:name=".npc.ui.detail.NpcDetailActivity" />
-        <activity android:name=".achievement.ui.detail.AchievementDetailActivity" />
-        <activity android:name=".item.ui.detail.ItemDetailActivity" />
-        <activity android:name=".shared.ui.menu.sync.SyncActivity" />
-        <activity android:name=".onboarding.OnboardingActivity" />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".characterclass.ui.detail.CharacterClassDetailActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".skill.ui.detail.SkillDetailActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".specialization.ui.detail.SpecializationDetailActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".pet.ui.detail.PetDetailActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".monster.ui.detail.MonsterDetailActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".npc.ui.detail.NpcDetailActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".achievement.ui.detail.AchievementDetailActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".item.ui.detail.ItemDetailActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".shared.ui.menu.sync.SyncActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".onboarding.OnboardingActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden" />
     </application>
 
 </manifest>
