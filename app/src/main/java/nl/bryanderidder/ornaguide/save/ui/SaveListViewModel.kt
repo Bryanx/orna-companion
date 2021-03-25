@@ -42,10 +42,6 @@ class SaveListViewModel(
     private val achievementRepo: AchievementRepository,
 ) : BindingViewModel() {
 
-    @get:Bindable
-    var isLoading: Boolean by bindingProperty(false)
-        private set
-
     var type = ""
     fun setType(tag: String?): SaveListViewModel {
         type = tag  ?: ""
