@@ -15,7 +15,9 @@ import nl.bryanderidder.ornaguide.specialization.model.Specialization
 import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationRepository
 import nl.bryanderidder.ornaguide.specialization.ui.list.filter.SpecializationFilter
 
-class SpecializationListViewModel(repository: SpecializationRepository) : BindingViewModel() {
+class SpecializationListViewModel(
+    private val repository: SpecializationRepository
+) : BindingViewModel() {
 
     @get:Bindable
     var toastMessage: String? by bindingProperty(null)
@@ -30,28 +32,23 @@ class SpecializationListViewModel(repository: SpecializationRepository) : Bindin
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
-    private var sessionItems = listOf<Specialization>()
     val specializationList: MutableLiveData<List<Specialization>> = MutableLiveData()
 
     private var sessionSpecializationFilter: SpecializationFilter = SpecializationFilter()
     var specializationFilter: MutableLiveData<SpecializationFilter> = MutableLiveData(SpecializationFilter())
 
     init {
-        viewModelScope.launch {
-            repository.getSpecializationListFromDb(
-                onStart = { isLoading = true },
-                onComplete = { isLoading = false },
-                onError = { toastMessage = it }
-            ).collect {
-                sessionItems = it
-                loadItems()
-            }
-        }
+        loadItems()
     }
 
     private fun loadItems() = viewModelScope.launch {
-        val filteredSpecializations = specializationFilter.value?.applyFilter(sessionItems)
-        specializationList.postValue(filteredSpecializations)
+        repository.getSpecializationListFromDb(
+            onStart = { isLoading = true },
+            onComplete = { isLoading = false },
+            onError = { toastMessage = it }
+        ).collect {
+            specializationList.postValue(specializationFilter.value?.applyFilter(it))
+        }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {

@@ -18,7 +18,7 @@ import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
 import nl.bryanderidder.ornaguide.skill.ui.list.filter.SkillFilter
 
 class SkillListViewModel(
-    repository: SkillRepository,
+    private val repository: SkillRepository,
     sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
@@ -46,7 +46,6 @@ class SkillListViewModel(
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
-    private var sessionItems = listOf<Skill>()
     val skillList: MutableLiveData<List<Skill>> = MutableLiveData()
 
     private var sessionSkillFilter: SkillFilter =
@@ -55,21 +54,17 @@ class SkillListViewModel(
         MutableLiveData(SkillFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
     init {
-        viewModelScope.launch {
-            repository.getSkillListFromDb(
-                onStart = { isLoading = true },
-                onComplete = { isLoading = false },
-                onError = { toastMessage = it }
-            ).collect {
-                sessionItems = it
-                loadItems()
-            }
-        }
+        loadItems()
     }
 
     private fun loadItems() = viewModelScope.launch {
-        val filteredSkills = skillFilter.value?.applyFilter(sessionItems)
-        skillList.postValue(filteredSkills)
+        repository.getSkillListFromDb(
+            onStart = { isLoading = true },
+            onComplete = { isLoading = false },
+            onError = { toastMessage = it }
+        ).collect {
+            skillList.postValue(skillFilter.value?.applyFilter(it))
+        }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {

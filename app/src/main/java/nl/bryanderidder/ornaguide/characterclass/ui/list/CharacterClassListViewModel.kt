@@ -17,7 +17,7 @@ import nl.bryanderidder.ornaguide.characterclass.ui.list.filter.CharacterClassFi
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class CharacterClassListViewModel(
-    repository: CharacterClassRepository,
+    private val repository: CharacterClassRepository,
     sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
@@ -36,7 +36,6 @@ class CharacterClassListViewModel(
 
     val allPossibleCostTypes: LiveData<List<String>> = MutableLiveData(listOf("Orns", "Money"))
 
-    private var sessionItems = listOf<CharacterClass>()
     val characterClassList: MutableLiveData<List<CharacterClass>> = MutableLiveData()
 
     private var sessionCharacterClassFilter: CharacterClassFilter =
@@ -45,21 +44,17 @@ class CharacterClassListViewModel(
         MutableLiveData(CharacterClassFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
     init {
-        viewModelScope.launch {
-            repository.getCharacterClassListFromDb(
-                onStart = { isLoading = true },
-                onComplete = { isLoading = false },
-                onError = { toastMessage = it }
-            ).collect {
-                sessionItems = it
-                loadItems()
-            }
-        }
+        loadItems()
     }
 
     private fun loadItems() = viewModelScope.launch {
-        val filteredCharacterClasses = characterClassFilter.value?.applyFilter(sessionItems)
-        characterClassList.postValue(filteredCharacterClasses)
+        repository.getCharacterClassListFromDb(
+            onStart = { isLoading = true },
+            onComplete = { isLoading = false },
+            onError = { toastMessage = it }
+        ).collect {
+            characterClassList.postValue(characterClassFilter.value?.applyFilter(it))
+        }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {

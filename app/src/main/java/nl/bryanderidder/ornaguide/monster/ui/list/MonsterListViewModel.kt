@@ -19,7 +19,7 @@ import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class MonsterListViewModel(
-    repository: MonsterRepository,
+    private val repository: MonsterRepository,
     typeConverter: OrnaTypeConverters,
     sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
@@ -48,7 +48,6 @@ class MonsterListViewModel(
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
-    private var sessionItems = listOf<Monster>()
     val monsterList: MutableLiveData<List<Monster>> = MutableLiveData()
 
     private var sessionMonsterFilter: MonsterFilter =
@@ -57,21 +56,17 @@ class MonsterListViewModel(
         MutableLiveData(MonsterFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
     init {
-        viewModelScope.launch {
-            repository.getMonsterListFromDb(
-                onStart = { isLoading = true },
-                onComplete = { isLoading = false },
-                onError = { toastMessage = it }
-            ).collect {
-                sessionItems = it
-                loadItems()
-            }
-        }
+        loadItems()
     }
-    
+
     private fun loadItems() = viewModelScope.launch {
-        val filteredMonsters = monsterFilter.value?.applyFilter(sessionItems)
-        monsterList.postValue(filteredMonsters)
+        repository.getMonsterListFromDb(
+            onStart = { isLoading = true },
+            onComplete = { isLoading = false },
+            onError = { toastMessage = it }
+        ).collect {
+            monsterList.postValue(monsterFilter.value?.applyFilter(it))
+        }
     }
     
     fun updateSelectedTiers(tiers: List<String>) {

@@ -17,7 +17,7 @@ import nl.bryanderidder.ornaguide.npc.ui.list.filter.NpcFilter
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class NpcListViewModel(
-    repository: NpcRepository,
+    private val repository: NpcRepository,
     sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
@@ -34,7 +34,6 @@ class NpcListViewModel(
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
-    private var sessionItems = listOf<Npc>()
     val npcList: MutableLiveData<List<Npc>> = MutableLiveData()
 
     private var sessionNpcFilter: NpcFilter =
@@ -43,21 +42,17 @@ class NpcListViewModel(
         NpcFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
     init {
-        viewModelScope.launch {
-            repository.getNpcListFromDb(
-                onStart = { isLoading = true },
-                onComplete = { isLoading = false },
-                onError = { toastMessage = it }
-            ).collect {
-                sessionItems = it
-                loadItems()
-            }
-        }
+        loadItems()
     }
 
     private fun loadItems() = viewModelScope.launch {
-        val filteredNpcs = npcFilter.value?.applyFilter(sessionItems)
-        npcList.postValue(filteredNpcs)
+        repository.getNpcListFromDb(
+            onStart = { isLoading = true },
+            onComplete = { isLoading = false },
+            onError = { toastMessage = it }
+        ).collect {
+            npcList.postValue(npcFilter.value?.applyFilter(it))
+        }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {

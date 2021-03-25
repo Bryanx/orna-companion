@@ -18,7 +18,7 @@ import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemFilter
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class ItemListViewModel(
-    repository: ItemRepository,
+    private val repository: ItemRepository,
     sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
@@ -52,7 +52,6 @@ class ItemListViewModel(
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
-    private var sessionItems = listOf<Item>()
     val itemList: MutableLiveData<List<Item>> = MutableLiveData()
 
     private var sessionItemFilter: ItemFilter =
@@ -61,21 +60,17 @@ class ItemListViewModel(
         MutableLiveData(ItemFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
     init {
-        viewModelScope.launch {
-            repository.getItemListFromDb(
-                onStart = { isLoading = true },
-                onComplete = { isLoading = false },
-                onError = { toastMessage = it }
-            ).collect {
-                sessionItems = it
-                loadItems()
-            }
-        }
+        loadItems()
     }
 
     private fun loadItems() = viewModelScope.launch {
-        val filteredItems = itemFilter.value?.applyFilter(sessionItems)
-        itemList.postValue(filteredItems)
+        repository.getItemListFromDb(
+            onStart = { isLoading = true },
+            onComplete = { isLoading = false },
+            onError = { toastMessage = it }
+        ).collect {
+            itemList.postValue(itemFilter.value?.applyFilter(it))
+        }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {

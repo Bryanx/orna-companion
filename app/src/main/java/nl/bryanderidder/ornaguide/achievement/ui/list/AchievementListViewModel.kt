@@ -17,7 +17,7 @@ import nl.bryanderidder.ornaguide.achievement.ui.list.filter.AchievementFilter
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class AchievementListViewModel(
-    repository: AchievementRepository,
+    private val repository: AchievementRepository,
     sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
@@ -34,7 +34,6 @@ class AchievementListViewModel(
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
-    private var sessionItems = listOf<Achievement>()
     val achievementList: MutableLiveData<List<Achievement>> = MutableLiveData()
 
     private var sessionAchievementFilter: AchievementFilter =
@@ -43,21 +42,17 @@ class AchievementListViewModel(
         AchievementFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
     init {
-        viewModelScope.launch {
-            repository.getAchievementListFromDb(
-                onStart = { isLoading = true },
-                onComplete = { isLoading = false },
-                onError = { toastMessage = it }
-            ).collect {
-                sessionItems = it
-                loadItems()
-            }
-        }
+        loadItems()
     }
 
     private fun loadItems() = viewModelScope.launch {
-        val filteredAchievements = achievementFilter.value?.applyFilter(sessionItems)
-        achievementList.postValue(filteredAchievements)
+        repository.getAchievementListFromDb(
+            onStart = { isLoading = true },
+            onComplete = { isLoading = false },
+            onError = { toastMessage = it }
+        ).collect {
+            achievementList.postValue(achievementFilter.value?.applyFilter(it))
+        }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {

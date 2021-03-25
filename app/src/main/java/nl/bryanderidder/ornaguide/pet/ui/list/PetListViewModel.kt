@@ -17,7 +17,7 @@ import nl.bryanderidder.ornaguide.pet.ui.list.filter.PetFilter
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class PetListViewModel(
-    repository: PetRepository,
+    private val repository: PetRepository,
     sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
@@ -34,7 +34,6 @@ class PetListViewModel(
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
-    private var sessionItems = listOf<Pet>()
     val petList: MutableLiveData<List<Pet>> = MutableLiveData()
 
     private var sessionPetFilter: PetFilter =
@@ -43,21 +42,17 @@ class PetListViewModel(
         MutableLiveData(PetFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
     init {
-        viewModelScope.launch {
-            repository.getPetListFromDb(
-                onStart = { isLoading = true },
-                onComplete = { isLoading = false },
-                onError = { toastMessage = it }
-            ).collect {
-                sessionItems = it
-                loadItems()
-            }
-        }
+        loadItems()
     }
 
     private fun loadItems() = viewModelScope.launch {
-        val filteredPets = petFilter.value?.applyFilter(sessionItems)
-        petList.postValue(filteredPets)
+        repository.getPetListFromDb(
+            onStart = { isLoading = true },
+            onComplete = { isLoading = false },
+            onError = { toastMessage = it }
+        ).collect {
+            petList.postValue(petFilter.value?.applyFilter(it))
+        }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
