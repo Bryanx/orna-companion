@@ -7,6 +7,7 @@ import com.skydoves.sandwich.suspendOnSuccess
 import kotlinx.coroutines.flow.flow
 import nl.bryanderidder.ornaguide.item.model.ItemAssess
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
+import nl.bryanderidder.ornaguide.shared.util.NetworkUtil
 import timber.log.Timber
 
 /**
@@ -33,8 +34,7 @@ class ItemAssessRepository(private val client: OrnaClient) {
                 Timber.e(message())
             }
             .onException {
-                onError(message())
-                Timber.e(message())
+                NetworkUtil.handleExceptionWithNetworkMessage(onError, exception)
             }
     }
 }

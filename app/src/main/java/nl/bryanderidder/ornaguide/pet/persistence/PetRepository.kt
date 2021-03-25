@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
+import nl.bryanderidder.ornaguide.shared.util.NetworkUtil
 import timber.log.Timber
 
 /**
@@ -53,8 +54,7 @@ class PetRepository(
                 Timber.e(message())
             }
             .onException {
-                onError(message())
-                Timber.e(message())
+                NetworkUtil.handleExceptionWithNetworkMessage(onError, exception)
             }
     }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
 
@@ -78,8 +78,7 @@ class PetRepository(
                 Timber.e(message())
             }
             .onException {
-                onError(message())
-                Timber.e(message())
+                NetworkUtil.handleException(onError, exception)
             }
     }
 

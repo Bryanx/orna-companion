@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
+import nl.bryanderidder.ornaguide.shared.util.NetworkUtil
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
 import timber.log.Timber
 
@@ -54,8 +55,7 @@ class SpecializationRepository(
                 Timber.e(message())
             }
             .onException {
-                onError(message())
-                Timber.e(message())
+                NetworkUtil.handleExceptionWithNetworkMessage(onError, exception)
             }
     }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
 
@@ -79,8 +79,7 @@ class SpecializationRepository(
                 Timber.e(message())
             }
             .onException {
-                onError(message())
-                Timber.e(message())
+                NetworkUtil.handleException(onError, exception)
             }
     }
 

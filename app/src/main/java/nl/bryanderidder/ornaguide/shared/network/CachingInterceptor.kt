@@ -23,11 +23,6 @@ class CachingInterceptor(
      * This is hacky fix to cache POST requests.
      */
     override fun intercept(chain: Interceptor.Chain): Response {
-
-        // if no connection block the request.
-        if (!NetworkUtil.hasConnection(context))
-            return getEmptyResponse(chain)
-
         val request = chain.request()
 
         // don't cache item assess

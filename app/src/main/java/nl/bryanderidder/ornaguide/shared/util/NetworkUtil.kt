@@ -6,6 +6,7 @@ import okhttp3.RequestBody
 import okio.Buffer
 import okio.IOException
 import timber.log.Timber
+import java.net.UnknownHostException
 
 object NetworkUtil {
     fun hasConnection(context: Context): Boolean {
@@ -26,5 +27,19 @@ object NetworkUtil {
             Timber.e("Could not read requestbody")
             "{}"
         }
+    }
+
+    fun handleExceptionWithNetworkMessage(onError: (String?) -> Unit, exception: Throwable) =
+        handleException(onError, exception, onNoNetwork = "No internet connection")
+
+    fun handleException(
+        onError: (String?) -> Unit,
+        exception: Throwable,
+        onNoNetwork: String = "",
+    ) {
+        if (exception !is UnknownHostException) {
+            Timber.e(exception)
+            onError.invoke(exception.localizedMessage)
+        } else onError.invoke(onNoNetwork)
     }
 }
