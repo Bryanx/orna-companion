@@ -40,6 +40,7 @@
                     android:adjustViewBounds="true"
                     android:contentDescription="@{vm.item.name}"
                     android:maxWidth="140dp"
+                    android:minHeight="140dp"
                     android:paddingBottom="@dimen/cardPadding"
                     android:scaleType="fitCenter"
                     app:layout_constraintEnd_toEndOf="parent"

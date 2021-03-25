@@ -3,7 +3,11 @@ package nl.bryanderidder.ornaguide.shared.util
 import android.app.Activity
 import android.content.Context
 import android.content.res.Resources
+import android.graphics.BlendMode
+import android.graphics.BlendModeColorFilter
 import android.graphics.PorterDuff
+import android.graphics.drawable.Drawable
+import android.os.Build
 import android.os.Handler
 import android.util.TypedValue
 import android.view.View
@@ -42,6 +46,13 @@ fun View.setViewPadding(
         bottom?.toInt() ?: paddingBottom
     )
 }
+
+@Suppress("DEPRECATION")
+fun Drawable.setCustomColorFilter(color: Int) =
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+        colorFilter = BlendModeColorFilter(color, BlendMode.SRC_ATOP)
+    else
+        setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
 var View.layoutGravity
     get() = (layoutParams as FrameLayout.LayoutParams).gravity

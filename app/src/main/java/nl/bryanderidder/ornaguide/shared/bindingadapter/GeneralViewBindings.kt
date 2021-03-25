@@ -2,6 +2,7 @@ package nl.bryanderidder.ornaguide.shared.bindingadapter
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.graphics.drawable.Drawable
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MotionEvent
@@ -15,12 +16,16 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
-import com.google.android.material.card.MaterialCardView
+import com.bumptech.glide.request.target.Target
 import com.google.android.material.textfield.TextInputEditText
 import nl.bryanderidder.ornaguide.R
-import nl.bryanderidder.ornaguide.shared.util.attrColor
+import nl.bryanderidder.ornaguide.shared.util.color
+import nl.bryanderidder.ornaguide.shared.util.setCustomColorFilter
 import nl.bryanderidder.themedtogglebuttongroup.ThemedButton
 import nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
 
@@ -50,8 +55,9 @@ object GeneralViewBindings {
         if (url.isNullOrEmpty())
             return
         val circularProgressDrawable = CircularProgressDrawable(view.context)
-            .apply { strokeWidth = 5f }
-            .apply { centerRadius = 5f }
+            .apply { strokeWidth = 7f }
+            .apply { centerRadius = 30f }
+            .apply { setCustomColorFilter(view.context.color(R.color.loaderColor)) }
             .also { it.start() }
         val requestOptions = RequestOptions()
             .placeholder(circularProgressDrawable)
@@ -62,6 +68,27 @@ object GeneralViewBindings {
             .load(url)
             .apply(requestOptions)
             .transition(DrawableTransitionOptions.withCrossFade())
+            .listener(object: RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean,
+                ): Boolean {
+                    circularProgressDrawable.alpha = 0
+                    return false
+                }
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean,
+                ): Boolean {
+                    circularProgressDrawable.alpha = 0
+                    return false
+                }
+            })
             .into(view)
     }
 
