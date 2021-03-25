@@ -31,7 +31,7 @@ class ItemRepository(
         onStart: () -> Unit = {},
         onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
-    ) = flow<List<Item>> {
+    ) = flow {
         val itemList = dao.getItemList()
         if (!itemList.isNullOrEmpty())
             emit(itemList)
@@ -63,7 +63,7 @@ class ItemRepository(
     fun fetchItem(
         id: Int,
         onError: (String?) -> Unit
-    ) = flow<Item> {
+    ) = flow {
         val dbResult = getItemFromDb(id)
         emit(dbResult)
         client.fetchItemList(ItemRequestBody(id))
@@ -88,31 +88,31 @@ class ItemRepository(
     suspend fun getItemFromDb(id: Int): Item = dao.getItem(id)
 
     @WorkerThread
-    fun search(query: String) = flow<List<Item>> {
+    fun search(query: String) = flow {
         val results = dao.search("*$query*")
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleTiers() = flow<List<Int>> {
+    fun fetchAllPossibleTiers() = flow {
         val results = dao.getAllPossibleTiers()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleTypes() = flow<List<String>> {
+    fun fetchAllPossibleTypes() = flow {
         val results = dao.getAllPossibleTypes()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleElements() = flow<List<String>> {
+    fun fetchAllPossibleElements() = flow {
         val results = dao.getAllPossibleElements()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleEquippedBy() = flow<List<Item.IdNamePair>> {
+    fun fetchAllPossibleEquippedBy() = flow {
         val results = dao.getAllPossibleEquippedBy().flatMap { it.equippedBy }.distinct().toList()
         emit(results)
     }.flowOn(Dispatchers.IO)

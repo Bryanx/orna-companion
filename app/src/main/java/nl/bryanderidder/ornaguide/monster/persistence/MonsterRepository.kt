@@ -29,7 +29,7 @@ class MonsterRepository(
         onStart: () -> Unit = {},
         onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
-    ) = flow<List<Monster>> {
+    ) = flow {
         val monsterList = dao.getMonsterList()
         if (!monsterList.isNullOrEmpty())
             emit(monsterList)
@@ -61,7 +61,7 @@ class MonsterRepository(
     fun fetchMonster(
         id: Int,
         onError: (String?) -> Unit
-    ) = flow<Monster> {
+    ) = flow {
         val dbResult = getMonsterFromDb(id)
         emit(dbResult)
         client.fetchMonsterList(MonsterRequestBody(id))
@@ -86,24 +86,24 @@ class MonsterRepository(
     suspend fun getMonsterFromDb(id: Int): Monster = dao.getMonster(id)
 
     @WorkerThread
-    fun search(query: String) = flow<List<Monster>> {
+    fun search(query: String) = flow {
         val results = dao.search("*$query*")
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleTiers() = flow<List<Int>> {
+    fun fetchAllPossibleTiers() = flow {
         val results = dao.getAllPossibleTiers()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleTypes() = flow<List<String>> {
+    fun fetchAllPossibleTypes() = flow {
         emit(listOf("Boss", "Normal"))
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleSpawns() = flow<List<String>> {
+    fun fetchAllPossibleSpawns() = flow {
         val results = dao.getAllPossibleSpawns()
         emit(results)
     }.flowOn(Dispatchers.IO)

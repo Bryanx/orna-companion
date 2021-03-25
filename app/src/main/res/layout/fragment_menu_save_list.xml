@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:paddingStart="24dp"
-                android:text="Saved"
+                android:text="@string/saved"
                 android:textColor="@color/textColorHeader"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
             android:gravity="center"
-            android:text="Your saved items will\nappear here."
+            android:text="@string/your_saved_items_will_nappear_here"
             android:textAlignment="center"
             android:textColor="@color/textColor"
             android:textSize="16sp"

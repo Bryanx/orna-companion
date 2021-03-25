@@ -29,7 +29,7 @@ class NpcRepository(
         onStart: () -> Unit = {},
         onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
-    ) = flow<List<Npc>> {
+    ) = flow {
         val npcList = dao.getNpcList()
         if (!npcList.isNullOrEmpty())
             emit(npcList)
@@ -61,7 +61,7 @@ class NpcRepository(
     fun fetchNpc(
         id: Int,
         onError: (String?) -> Unit
-    ) = flow<Npc> {
+    ) = flow {
         val dbResult = getNpcFromDb(id)
         emit(dbResult)
         client.fetchNpcList(NpcRequestBody(id))
@@ -86,13 +86,13 @@ class NpcRepository(
     suspend fun getNpcFromDb(id: Int): Npc = dao.getNpc(id)
 
     @WorkerThread
-    fun search(query: String) = flow<List<Npc>> {
+    fun search(query: String) = flow {
         val results = dao.search("*$query*")
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleTiers() = flow<List<Int>> {
+    fun fetchAllPossibleTiers() = flow {
         val results = dao.getAllPossibleTiers()
         emit(results)
     }.flowOn(Dispatchers.IO)

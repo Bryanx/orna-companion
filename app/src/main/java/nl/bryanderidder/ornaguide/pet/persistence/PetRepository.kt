@@ -29,7 +29,7 @@ class PetRepository(
         onStart: () -> Unit = {},
         onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
-    ) = flow<List<Pet>> {
+    ) = flow {
         val petList = dao.getPetList()
         if (!petList.isNullOrEmpty())
             emit(petList)
@@ -61,7 +61,7 @@ class PetRepository(
     fun fetchPet(
         id: Int,
         onError: (String?) -> Unit
-    ) = flow<Pet> {
+    ) = flow {
         val dbResult = getPetFromDb(id)
         emit(dbResult)
         client.fetchPetList(PetRequestBody(id))
@@ -86,13 +86,13 @@ class PetRepository(
     suspend fun getPetFromDb(id: Int): Pet = dao.getPet(id)
 
     @WorkerThread
-    fun search(query: String) = flow<List<Pet>> {
+    fun search(query: String) = flow {
         val results = dao.search("*$query*")
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleTiers() = flow<List<Int>> {
+    fun fetchAllPossibleTiers() = flow {
         val results = dao.getAllPossibleTiers()
         emit(results)
     }.flowOn(Dispatchers.IO)

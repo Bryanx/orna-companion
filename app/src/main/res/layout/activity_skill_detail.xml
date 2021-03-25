@@ -153,7 +153,7 @@
                     android:id="@+id/learnedBy"
                     android:paddingTop="@dimen/cardPadding"
                     style="@style/databaseItemPageDescription"
-                    android:text="Learned by:"
+                    android:text="@string/learned_by"
                     app:gone="@{vm.skill.learnedBy.isEmpty()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -180,7 +180,7 @@
                     android:id="@+id/monstersUse"
                     android:paddingTop="@dimen/cardPadding"
                     style="@style/databaseItemPageDescription"
-                    android:text="Monsters use:"
+                    android:text="@string/monsters_use"
                     app:gone="@{vm.skill.monstersUse.isEmpty()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -207,7 +207,7 @@
                     android:id="@+id/petsUse"
                     android:paddingTop="@dimen/cardPadding"
                     style="@style/databaseItemPageDescription"
-                    android:text="Pets use:"
+                    android:text="@string/pets_use"
                     app:gone="@{vm.skill.petsUse.isEmpty()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -236,11 +236,12 @@
                     android:paddingVertical="20dp"
                     android:paddingStart="8dp"
                     android:id="@+id/title"
-                    android:text="SKILL"
+                    android:text="@string/skill"
                     android:textAllCaps="true"
                     android:textColor="@color/textColor"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlSymmetry" />
 
                 <TextView
                     android:id="@+id/classTier"
@@ -267,7 +268,7 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             style="@style/backButtonFab"
-            android:contentDescription="Back button"
+            android:contentDescription="@string/back_button"
             android:onClick="@{() -> activity.onBackPressed()}" />
     </RelativeLayout>
 </layout>

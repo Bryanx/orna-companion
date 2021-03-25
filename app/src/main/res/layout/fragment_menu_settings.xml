@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:paddingStart="24dp"
-                android:text="Settings"
+                android:text="@string/settings"
                 android:textColor="@color/textColorHeader"
                 android:textSize="20sp"
                 android:textStyle="bold" />

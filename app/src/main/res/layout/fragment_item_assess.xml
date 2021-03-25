@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="24dp"
             android:paddingVertical="@dimen/cardPadding"
-            android:text="Enter the stats of your item to assess its quality." />
+            android:text="@string/enter_the_stats_of_your_item_to_assess_its_quality" />
 
         <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                     android:drawableTint="@color/textColor"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
-                    android:hint="Attack"
+                    android:hint="@string/attack"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:drawablePadding="10dp"
                     android:drawableTint="@color/textColor"
-                    android:hint="Defense"
+                    android:hint="@string/defense"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:drawablePadding="10dp"
                     android:drawableTint="@color/textColor"
-                    android:hint="Resistance"
+                    android:hint="@string/resistance"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:drawablePadding="10dp"
                     android:drawableTint="@color/textColor"
-                    android:hint="HP"
+                    android:hint="@string/hp"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
@@ -130,7 +130,7 @@
                     android:layout_height="wrap_content"
                     android:drawablePadding="10dp"
                     android:drawableTint="@color/textColor"
-                    android:hint="Magic"
+                    android:hint="@string/magic"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:drawablePadding="10dp"
                     android:drawableTint="@color/textColor"
-                    android:hint="Mana"
+                    android:hint="@string/mana"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
@@ -170,7 +170,7 @@
                     android:layout_height="wrap_content"
                     android:drawablePadding="10dp"
                     android:drawableTint="@color/textColor"
-                    android:hint="Dexterity"
+                    android:hint="@string/dexterity"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
@@ -189,7 +189,7 @@
                     android:layout_height="wrap_content"
                     android:drawablePadding="10dp"
                     android:drawableTint="@color/textColor"
-                    android:hint="Level"
+                    android:hint="@string/level"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
@@ -211,7 +211,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Assess item"
+                    android:text="@string/assess_item"
                     android:textAllCaps="true"
                     android:textColor="@color/black" />
             </com.google.android.material.card.MaterialCardView>
@@ -278,7 +278,7 @@
                 android:paddingTop="24dp"
                 android:paddingHorizontal="24dp"
                 app:gone="@{assessVM.itemAssessResult.quality.isEmpty()}"
-                android:text="Note that 170% is a crossover point of Ornate and Legendary qualities. You can have 170% Ornate or Legendary. Because of this 170% has been set to show as Legendary." />
+                android:text="@string/note_that_170_is_a_crossover_point_of_ornate_and_legendary_qualities_you_can_have_170_ornate_or_legendary_because_of_this_170_has_been_set_to_show_as_legendary" />
 
 
             <TextView
@@ -288,7 +288,7 @@
                 android:paddingHorizontal="24dp"
                 android:paddingVertical="@dimen/cardPadding"
                 app:gone="@{assessVM.itemAssessResult.quality.isEmpty()}"
-                android:text="Please let the Research Team know in the discord server (channel #guide-updates) if the assessment is off for any item (preferably in-game item screenshots of the unleveled item, not of the guide's assess)." />
+                android:text="@string/please_let_the_research_team_know_in_the_discord_server_channel_guide_updates_if_the_assessment_is_off_for_any_item_preferably_in_game_item_screenshots_of_the_unleveled_item_not_of_the_guide_s_assess" />
 
 
         </com.google.android.flexbox.FlexboxLayout>

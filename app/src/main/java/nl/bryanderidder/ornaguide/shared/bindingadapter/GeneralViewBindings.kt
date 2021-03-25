@@ -145,13 +145,6 @@ object GeneralViewBindings {
             callback.accept(it)
         }
     }
-
-    @JvmStatic
-    @BindingAdapter("primaryColorIf")
-    fun bindPrimaryColorIf(view: MaterialCardView, condition: Boolean) {
-        if (condition)
-            view.setCardBackgroundColor(view.context.attrColor(R.attr.colorPrimary))
-    }
 }
 
 interface StringConsumer {
@@ -162,7 +155,4 @@ interface ViewConsumer {
 }
 interface StringListConsumer {
     fun accept(value: List<String>)
-}
-interface ToggleGroupConsumer {
-    fun accept(value: ThemedToggleButtonGroup)
 }

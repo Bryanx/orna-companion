@@ -1,12 +1,10 @@
 package nl.bryanderidder.ornaguide.save.ui
 
-import androidx.databinding.Bindable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
-import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.achievement.model.Achievement

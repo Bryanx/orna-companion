@@ -29,7 +29,7 @@ class AchievementRepository(
         onStart: () -> Unit = {},
         onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
-    ) = flow<List<Achievement>> {
+    ) = flow {
         val achievementList = dao.getAchievementList()
         if (!achievementList.isNullOrEmpty())
             emit(achievementList)
@@ -61,7 +61,7 @@ class AchievementRepository(
     fun fetchAchievement(
         id: Int,
         onError: (String?) -> Unit
-    ) = flow<Achievement> {
+    ) = flow {
         val dbResult = getAchievementFromDb(id)
         emit(dbResult)
         client.fetchAchievementList(AchievementRequestBody(id))
@@ -86,13 +86,13 @@ class AchievementRepository(
     suspend fun getAchievementFromDb(id: Int): Achievement = dao.getAchievement(id)
 
     @WorkerThread
-    fun search(query: String) = flow<List<Achievement>> {
+    fun search(query: String) = flow {
         val results = dao.search("*$query*")
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleTiers() = flow<List<Int>> {
+    fun fetchAllPossibleTiers() = flow {
         val results = dao.getAllPossibleTiers()
         emit(results)
     }.flowOn(Dispatchers.IO)

@@ -14,7 +14,7 @@ class SaveRepository(
     private val dao: SaveDao,
 ) {
     @WorkerThread
-    fun fetchSaveList() = flow<List<Save>> {
+    fun fetchSaveList() = flow {
         val results = dao.getSaveList()
         emit(results)
     }.flowOn(Dispatchers.IO)

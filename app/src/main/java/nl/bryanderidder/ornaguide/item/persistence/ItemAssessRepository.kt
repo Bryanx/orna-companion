@@ -19,7 +19,7 @@ class ItemAssessRepository(private val client: OrnaClient) {
     fun assessItem(
         body: ItemAssessRequestBody,
         onError: (String?) -> Unit,
-    ) = flow<ItemAssess> {
+    ) = flow {
         client.assessItem(body)
             .suspendOnSuccess {
                 val result = response.body()

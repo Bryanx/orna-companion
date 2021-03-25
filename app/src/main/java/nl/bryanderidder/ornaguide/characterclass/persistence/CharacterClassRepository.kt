@@ -30,7 +30,7 @@ class CharacterClassRepository(
         onStart: () -> Unit = {},
         onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
-    ) = flow<List<CharacterClass>> {
+    ) = flow {
         val characterClassList = dao.getCharacterClassList()
         if (!characterClassList.isNullOrEmpty())
             emit(characterClassList)
@@ -63,7 +63,7 @@ class CharacterClassRepository(
     fun fetchCharacterClass(
         id: Int,
         onError: (String?) -> Unit
-    ) = flow<CharacterClass> {
+    ) = flow {
         val dbResult = getCharacterClassFromDb(id)
         emit(dbResult)
         client.fetchCharacterClassList(CharacterClassRequestBody(id))
@@ -88,13 +88,13 @@ class CharacterClassRepository(
     suspend fun getCharacterClassFromDb(id: Int): CharacterClass = dao.getCharacterClass(id)
 
     @WorkerThread
-    fun search(query: String) = flow<List<CharacterClass>> {
+    fun search(query: String) = flow {
         val results = dao.search("*$query*")
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleTiers() = flow<List<Int>> {
+    fun fetchAllPossibleTiers() = flow {
         val results = dao.getAllPossibleTiers()
         emit(results)
     }.flowOn(Dispatchers.IO)

@@ -67,7 +67,7 @@
                     android:paddingTop="@dimen/cardPadding"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:text="BOSS"
+                    android:text="@string/boss"
                     android:textColor="@color/red"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -101,7 +101,7 @@
                     style="@style/databaseItemDescription"
                     android:layout_marginTop="@dimen/cardPadding"
                     android:layout_marginBottom="@dimen/cardPadding"
-                    android:text="Weakness:"
+                    android:text="@string/weakness"
                     app:gone="@{vm.monster.weakTo.isEmpty()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_chainStyle="packed"
@@ -130,7 +130,7 @@
                     style="@style/databaseItemDescription"
                     android:layout_marginTop="@dimen/cardPadding"
                     android:layout_marginBottom="@dimen/cardPadding"
-                    android:text="Resistant to:"
+                    android:text="@string/resistant_to"
                     app:gone="@{vm.monster.resistantTo.isEmpty()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_chainStyle="packed"
@@ -159,7 +159,7 @@
                     style="@style/databaseItemDescription"
                     android:layout_marginTop="@dimen/cardPadding"
                     android:layout_marginBottom="@dimen/cardPadding"
-                    android:text="Immune to:"
+                    android:text="@string/immune_to"
                     app:gone="@{vm.monster.immuneTo.isEmpty()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_chainStyle="packed"
@@ -198,7 +198,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/cardDividerPadding"
-                    android:text="Buffs:"
+                    android:text="@string/buffs"
                     android:textColor="@color/textColor"
                     app:gone="@{vm.monster.buffs.isEmpty()}"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -227,7 +227,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/cardPadding"
-                    android:text="Skills:"
+                    android:text="@string/skills"
                     android:textColor="@color/textColor"
                     app:gone="@{vm.monster.skills.isEmpty()}"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -256,7 +256,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/cardPadding"
-                    android:text="Drops:"
+                    android:text="@string/drops"
                     android:textColor="@color/textColor"
                     app:gone="@{vm.monster.drops.isEmpty()}"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -285,7 +285,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/cardPadding"
-                    android:text="Quests:"
+                    android:text="@string/quests"
                     android:textColor="@color/textColor"
                     app:gone="@{vm.monster.quests.isEmpty()}"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -315,11 +315,12 @@
                     android:paddingVertical="20dp"
                     android:paddingStart="8dp"
                     android:id="@+id/title"
-                    android:text="MONSTER"
+                    android:text="@string/monster"
                     android:textAllCaps="true"
                     android:textColor="@color/textColor"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlSymmetry" />
 
                 <TextView
                     android:id="@+id/classTier"
@@ -345,7 +346,7 @@
         </ScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:contentDescription="Back button"
+            android:contentDescription="@string/back_button"
             android:onClick="@{() -> activity.onBackPressed()}"
             style="@style/backButtonFab"/>
     </RelativeLayout>

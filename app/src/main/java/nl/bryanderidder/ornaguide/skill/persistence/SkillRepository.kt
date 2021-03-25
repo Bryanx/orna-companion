@@ -29,7 +29,7 @@ class SkillRepository(
         onStart: () -> Unit = {},
         onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
-    ) = flow<List<Skill>> {
+    ) = flow {
         val skillList = dao.getSkillList()
         if (!skillList.isNullOrEmpty())
             emit(skillList)
@@ -61,7 +61,7 @@ class SkillRepository(
     fun fetchSkill(
         id: Int,
         onError: (String?) -> Unit
-    ) = flow<Skill> {
+    ) = flow {
         val dbResult = getSkillFromDb(id)
         emit(dbResult)
         client.fetchSkillList(SkillRequestBody(id))
@@ -86,25 +86,25 @@ class SkillRepository(
     suspend fun getSkillFromDb(id: Int): Skill = dao.getSkill(id)
 
     @WorkerThread
-    fun search(query: String) = flow<List<Skill>> {
+    fun search(query: String) = flow {
         val results = dao.search("*$query*")
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleTiers() = flow<List<Int>> {
+    fun fetchAllPossibleTiers() = flow {
         val results = dao.getAllPossibleTiers()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleTypes() = flow<List<String>> {
+    fun fetchAllPossibleTypes() = flow {
         val results = dao.getAllPossibleTypes()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleElements() = flow<List<String>> {
+    fun fetchAllPossibleElements() = flow {
         val results = dao.getAllPossibleElements()
         emit(results)
     }.flowOn(Dispatchers.IO)

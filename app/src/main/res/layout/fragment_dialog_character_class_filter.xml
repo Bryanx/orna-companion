@@ -72,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Apply filter"
+                android:text="@string/apply_filter"
                 android:textAllCaps="true"
                 android:textColor="@color/textColor" />
         </com.google.android.material.card.MaterialCardView>

@@ -30,7 +30,7 @@ class SpecializationRepository(
         onStart: () -> Unit = {},
         onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
-    ) = flow<List<Specialization>> {
+    ) = flow {
         val specializationList = dao.getSpecializationList()
         if (!specializationList.isNullOrEmpty())
             emit(specializationList)
@@ -62,7 +62,7 @@ class SpecializationRepository(
     fun fetchSpecialization(
         id: Int,
         onError: (String?) -> Unit
-    ) = flow<Specialization> {
+    ) = flow {
         val dbResult = getSpecializationFromDb(id)
         emit(dbResult)
         client.fetchSpecializationList(SpecializationRequestBody(id))
@@ -87,13 +87,13 @@ class SpecializationRepository(
     suspend fun getSpecializationFromDb(id: Int): Specialization = dao.getSpecialization(id)
 
     @WorkerThread
-    fun search(query: String) = flow<List<Specialization>> {
+    fun search(query: String) = flow {
         val results = dao.search("*$query*")
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
-    fun fetchAllPossibleTiers() = flow<List<Int>> {
+    fun fetchAllPossibleTiers() = flow {
         val results = dao.getAllPossibleTiers()
         emit(results)
     }.flowOn(Dispatchers.IO)
