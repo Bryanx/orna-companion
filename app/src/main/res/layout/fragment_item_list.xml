@@ -20,22 +20,18 @@
         android:clipToPadding="false">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:fadeScrollbars="false"
-            android:padding="6dp"
-            android:scrollbarStyle="outsideOverlay"
-            android:scrollbars="vertical"
+            style="@style/databaseListRecyclerView"
             app:listAdapter="@{adapter}"
             app:listAdapterItems="@{vm.itemList}"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent"
-            app:spanCount="2"
-            tools:listitem="@layout/item_item" />
+            tools:listitem="@layout/item_item"
+            tools:layout_width="match_parent"
+            tools:layout_height="match_parent"
+            tools:spanCount="2"
+            tools:padding="6dp"/>
 
         <ProgressBar
             android:id="@+id/progressbar"

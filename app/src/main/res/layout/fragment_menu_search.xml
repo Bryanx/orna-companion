@@ -56,6 +56,7 @@
             android:padding="6dp"
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical"
+            android:scrollbarThumbVertical="@color/cardColor"
             android:background="@color/backgroundColorDark"
             app:searchResultAdapter="@{adapter}"
             app:searchResultList="@{vm.searchResults}"

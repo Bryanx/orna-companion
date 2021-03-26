@@ -62,7 +62,6 @@ object GeneralViewBindings {
         val requestOptions = RequestOptions()
             .placeholder(circularProgressDrawable)
             .error(R.drawable.ic_baseline_clear_24)
-            .skipMemoryCache(true)
             .fitCenter()
         Glide.with(view.context)
             .load(url)
