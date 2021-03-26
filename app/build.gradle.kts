@@ -90,7 +90,6 @@ dependencies {
 
     // Glide (caching images)
     implementation("com.github.bumptech.glide:glide:4.12.0")
-    implementation("com.github.florent37:glidepalette:2.1.2")
     kapt("com.github.bumptech.glide:compiler:4.12.0")
 
     // Logging
