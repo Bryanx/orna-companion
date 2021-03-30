@@ -10,6 +10,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
@@ -37,6 +38,12 @@ object GeneralViewBindings {
     fun bindToast(view: View, text: String?) {
         if (!text.isNullOrEmpty())
             Toast.makeText(view.context, text, Toast.LENGTH_SHORT).show()
+    }
+
+    @JvmStatic
+    @BindingAdapter("drawableSrc")
+    fun bindDrawableSrc(view: ImageView, drawableRes: Int) {
+        view.setImageResource(drawableRes)
     }
 
     @JvmStatic

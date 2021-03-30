@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="activity"
+            type="androidx.fragment.app.FragmentActivity" />
+
         <variable
             name="vm"
             type="nl.bryanderidder.ornaguide.skill.ui.list.SkillListViewModel" />
@@ -18,6 +23,39 @@
         android:layout_height="match_parent"
         android:clipToPadding="false">
 
+        <LinearLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/backgroundColorDark"
+            android:paddingHorizontal="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="4dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                android:clickable="true"
+                android:onClick="@{() -> activity.onBackPressed()}"
+                app:drawableTint="@color/textColorHeader"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:paddingStart="20dp"
+                android:text="@string/skills"
+                android:textColor="@color/textColorHeader"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             style="@style/databaseListRecyclerView"
             app:listAdapter="@{adapter}"
@@ -25,8 +63,19 @@
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
             tools:listitem="@layout/item_skill" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/filterFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/buttonMargin"
+            android:contentDescription="@string/filter"
+            android:src="@drawable/ic_baseline_filter_list_24"
+            app:layout_behavior="nl.bryanderidder.ornaguide.shared.ui.behaviors.FabAwareScrollingBehavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <ProgressBar
             android:id="@+id/progressbar"

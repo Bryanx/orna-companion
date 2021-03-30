@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentMonsterListBinding
+import nl.bryanderidder.ornaguide.monster.ui.list.filter.MonsterListFilterDialogFragment
+import nl.bryanderidder.ornaguide.shared.util.showBottomSheet
 import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
@@ -21,8 +23,12 @@ class MonsterListFragment : BindingFragment<FragmentMonsterListBinding>(R.layout
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
             lifecycleOwner = this@MonsterListFragment
+            activity = requireActivity()
             adapter = MonsterListAdapter(get())
             vm = getSharedViewModel()
+            filterFab.setOnClickListener {
+                showBottomSheet(MonsterListFilterDialogFragment())
+            }
         }.root
     }
 }

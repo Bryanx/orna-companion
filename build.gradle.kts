@@ -5,8 +5,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.1.2")
-        classpath(kotlin("gradle-plugin", "1.4.20"))
+        classpath("com.android.tools.build:gradle:4.1.3")
+        classpath(kotlin("gradle-plugin", "1.4.31"))
         classpath("com.google.gms:google-services:4.3.5")
         classpath("com.google.firebase:firebase-crashlytics-gradle:2.5.1")
         classpath("com.mikepenz.aboutlibraries.plugin:aboutlibraries-plugin:8.3.1")

@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentSpecializationListBinding
+import nl.bryanderidder.ornaguide.shared.util.showBottomSheet
+import nl.bryanderidder.ornaguide.specialization.ui.list.filter.SpecializationListFilterDialogFragment
 import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
@@ -20,8 +22,12 @@ class SpecializationListFragment : BindingFragment<FragmentSpecializationListBin
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
             lifecycleOwner = this@SpecializationListFragment
+            activity = requireActivity()
             adapter = SpecializationListAdapter(get())
             vm = getSharedViewModel()
+            filterFab.setOnClickListener {
+                showBottomSheet(SpecializationListFilterDialogFragment())
+            }
         }.root
     }
 }

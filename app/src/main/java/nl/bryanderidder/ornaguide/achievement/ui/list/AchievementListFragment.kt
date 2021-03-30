@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
+import nl.bryanderidder.ornaguide.achievement.ui.list.filter.AchievementListFilterDialogFragment
 import nl.bryanderidder.ornaguide.databinding.FragmentAchievementListBinding
+import nl.bryanderidder.ornaguide.shared.util.showBottomSheet
 import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
@@ -20,8 +22,12 @@ class AchievementListFragment : BindingFragment<FragmentAchievementListBinding>(
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
             lifecycleOwner = this@AchievementListFragment
+            activity = requireActivity()
             adapter = AchievementListAdapter(get())
             vm = getSharedViewModel()
+            filterFab.setOnClickListener {
+                showBottomSheet(AchievementListFilterDialogFragment())
+            }
         }.root
     }
 }

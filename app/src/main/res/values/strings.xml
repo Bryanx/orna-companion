@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Orna.Companion</string>
+    <string name="app_name">Orna Companion</string>
     <string name="achievement">achievement</string>
     <string name="passive_skills">Passive skills:</string>
     <string name="skills_learned">Skills learned:</string>
@@ -12,6 +12,7 @@
     <string name="immune_to">Immune to:</string>
     <string name="buffs">Buffs:</string>
     <string name="skills">Skills:</string>
+    <string name="skills_category">Skills</string>
     <string name="drops">Drops:</string>
     <string name="quests">Quests:</string>
     <string name="monster">MONSTER</string>
@@ -51,4 +52,11 @@
     <string name="please_let_the_research_team_know_in_the_discord_server_channel_guide_updates_if_the_assessment_is_off_for_any_item_preferably_in_game_item_screenshots_of_the_unleveled_item_not_of_the_guide_s_assess">Please let the Research Team know in the discord server (channel #guide-updates) if the assessment is off for any item (preferably in-game item screenshots of the unleveled item, not of the guide\'s assess).</string>
     <string name="bookmark_image">Bookmark image</string>
     <string name="search_image">Search image</string>
+    <string name="items">Items</string>
+    <string name="monsters">Monsters</string>
+    <string name="npcs">NPCs</string>
+    <string name="classes">Classes</string>
+    <string name="specializations">Specializations</string>
+    <string name="achievements">Achievements</string>
+    <string name="pets">Pets</string>
 </resources>

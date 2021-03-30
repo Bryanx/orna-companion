@@ -54,7 +54,7 @@ dependencies {
     implementation("androidx.preference:preference-ktx:1.1.1")
     implementation("com.google.android.material:material:1.3.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3")
     implementation("com.github.skydoves:transformationlayout:1.0.7")
     implementation("com.github.skydoves:bundler:1.0.3")
     implementation("nl.bryanderidder:themed-toggle-button-group:1.3.4")
@@ -101,15 +101,15 @@ dependencies {
     kapt("com.squareup.moshi:moshi-kotlin-codegen:1.9.2")
 
     // Navigation component
-    implementation("androidx.navigation:navigation-fragment-ktx:2.3.3")
-    implementation("androidx.navigation:navigation-ui-ktx:2.3.3")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.3.4")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.4")
     implementation("androidx.navigation:navigation-compose:1.0.0-alpha08")
 
     testImplementation("junit:junit:4.+")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.9.0")
     testImplementation("androidx.arch.core:core-testing:2.1.0")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3")
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
 }

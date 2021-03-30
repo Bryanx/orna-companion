@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentPetListBinding
+import nl.bryanderidder.ornaguide.pet.ui.list.filter.PetListFilterDialogFragment
+import nl.bryanderidder.ornaguide.shared.util.showBottomSheet
 import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
@@ -20,8 +22,12 @@ class PetListFragment : BindingFragment<FragmentPetListBinding>(R.layout.fragmen
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
             lifecycleOwner = this@PetListFragment
+            activity = requireActivity()
             adapter = PetListAdapter(get())
             vm = getSharedViewModel()
+            filterFab.setOnClickListener {
+                showBottomSheet(PetListFilterDialogFragment())
+            }
         }.root
     }
 }

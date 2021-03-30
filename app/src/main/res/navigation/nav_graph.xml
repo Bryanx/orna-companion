@@ -9,7 +9,33 @@
         android:id="@+id/dicoverFragment"
         android:name="nl.bryanderidder.ornaguide.shared.ui.menu.DiscoverFragment"
         android:label="DicoverFragment"
-        tools:layout="@layout/fragment_menu_discover" />
+        tools:layout="@layout/fragment_menu_discover" >
+        <action
+            android:id="@+id/action_dicoverFragment_to_characterClassListFragment"
+            app:destination="@id/characterClassListFragment"
+            tools:layout="@layout/fragment_character_class_list" />
+        <action
+            android:id="@+id/action_dicoverFragment_to_monsterListFragment"
+            app:destination="@id/monsterListFragment" />
+        <action
+            android:id="@+id/action_dicoverFragment_to_petListFragment"
+            app:destination="@id/petListFragment" />
+        <action
+            android:id="@+id/action_dicoverFragment_to_npcListFragment"
+            app:destination="@id/npcListFragment" />
+        <action
+            android:id="@+id/action_dicoverFragment_to_achievementListFragment"
+            app:destination="@id/achievementListFragment" />
+        <action
+            android:id="@+id/action_dicoverFragment_to_skillListFragment"
+            app:destination="@id/skillListFragment" />
+        <action
+            android:id="@+id/action_dicoverFragment_to_specializationListFragment"
+            app:destination="@id/specializationListFragment" />
+        <action
+            android:id="@+id/action_dicoverFragment_to_itemListFragment"
+            app:destination="@id/itemListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/guidesFragment"
         android:name="nl.bryanderidder.ornaguide.shared.ui.menu.GuidesFragment"
@@ -47,4 +73,44 @@
             android:id="@+id/action_settingsFragment_to_dicoverFragment"
             app:popUpTo="@id/dicoverFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/characterClassListFragment"
+        android:name="nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListFragment"
+        android:label="CharacterClassListFragment"
+        tools:layout="@layout/fragment_character_class_list" />
+    <fragment
+        android:id="@+id/achievementListFragment"
+        android:name="nl.bryanderidder.ornaguide.achievement.ui.list.AchievementListFragment"
+        android:label="AchievementListFragment"
+        tools:layout="@layout/fragment_achievement_list" />
+    <fragment
+        android:id="@+id/skillListFragment"
+        android:name="nl.bryanderidder.ornaguide.skill.ui.list.SkillListFragment"
+        android:label="SkillListFragment"
+        tools:layout="@layout/fragment_skill_list" />
+    <fragment
+        android:id="@+id/monsterListFragment"
+        android:name="nl.bryanderidder.ornaguide.monster.ui.list.MonsterListFragment"
+        android:label="MonsterListFragment"
+        tools:layout="@layout/fragment_monster_list" />
+    <fragment
+        android:id="@+id/petListFragment"
+        android:name="nl.bryanderidder.ornaguide.pet.ui.list.PetListFragment"
+        android:label="PetListFragment"
+        tools:layout="@layout/fragment_pet_list" />
+    <fragment
+        android:id="@+id/npcListFragment"
+        android:name="nl.bryanderidder.ornaguide.npc.ui.list.NpcListFragment"
+        android:label="NpcListFragment"
+        tools:layout="@layout/fragment_npc_list" />
+    <fragment
+        android:id="@+id/specializationListFragment"
+        android:name="nl.bryanderidder.ornaguide.specialization.ui.list.SpecializationListFragment"
+        android:label="SpecializationListFragment"
+        tools:layout="@layout/fragment_specialization_list" />
+    <fragment
+        android:id="@+id/itemListFragment"
+        android:name="nl.bryanderidder.ornaguide.item.ui.list.ItemListFragment"
+        android:label="ItemListFragment"
+        tools:layout="@layout/fragment_item_list" />
 </navigation>
