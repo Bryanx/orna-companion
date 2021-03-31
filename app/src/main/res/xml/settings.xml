@@ -29,6 +29,15 @@
     <PreferenceCategory app:title="Community">
 
         <Preference
+            app:icon="@drawable/compass"
+            app:layout="@layout/preference_setting"
+            app:title="Orna.Guide">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://orna.guide/" />
+        </Preference>
+
+        <Preference
             app:icon="@drawable/ic_discord"
             app:layout="@layout/preference_setting"
             app:title="Discord Orna: The GPS RPG">
