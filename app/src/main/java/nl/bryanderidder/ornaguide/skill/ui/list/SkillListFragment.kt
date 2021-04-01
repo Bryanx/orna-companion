@@ -2,11 +2,10 @@ package nl.bryanderidder.ornaguide.skill.ui.list
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentSkillListBinding
-import nl.bryanderidder.ornaguide.shared.util.showBottomSheet
-import nl.bryanderidder.ornaguide.skill.ui.list.filter.SkillListFilterDialogFragment
 import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
@@ -25,7 +24,7 @@ class SkillListFragment :
             adapter = SkillListAdapter(get())
             vm = getSharedViewModel()
             filterFab.setOnClickListener {
-                showBottomSheet(SkillListFilterDialogFragment())
+                findNavController().navigate(R.id.action_skillListFragment_to_skillListFilterDialogFragment)
             }
         }.root
     }

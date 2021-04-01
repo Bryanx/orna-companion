@@ -4,11 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentNpcListBinding
-import nl.bryanderidder.ornaguide.npc.ui.list.filter.NpcListFilterDialogFragment
-import nl.bryanderidder.ornaguide.shared.util.showBottomSheet
 import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
@@ -27,7 +26,7 @@ class NpcListFragment : BindingFragment<FragmentNpcListBinding>(R.layout.fragmen
             adapter = NpcListAdapter(get())
             vm = getSharedViewModel()
             filterFab.setOnClickListener {
-                showBottomSheet(NpcListFilterDialogFragment())
+                findNavController().navigate(R.id.action_npcListFragment_to_npcListFilterDialogFragment)
             }
         }.root
     }

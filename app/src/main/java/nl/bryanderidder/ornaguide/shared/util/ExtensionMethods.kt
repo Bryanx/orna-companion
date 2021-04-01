@@ -18,10 +18,8 @@ import android.widget.ImageView
 import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
-import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -123,10 +121,6 @@ fun ViewPager2.onPageSelected(onSelected: (Int) -> Unit) {
             onSelected(position)
         }
     })
-}
-
-fun Fragment.showBottomSheet(dialog: BottomSheetDialogFragment) {
-    dialog.show(requireActivity().supportFragmentManager, dialog.tag)
 }
 
 fun TextInputEditText.focusAndShowKeyboard() {

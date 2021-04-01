@@ -60,6 +60,7 @@
             style="@style/databaseListRecyclerView"
             app:listAdapter="@{adapter}"
             app:listAdapterItems="@{vm.characterClassList}"
+            android:background="@color/backgroundColorDark"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
