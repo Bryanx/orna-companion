@@ -105,6 +105,10 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.3.4")
     implementation("androidx.navigation:navigation-compose:1.0.0-alpha08")
 
+    // Play store
+    implementation("com.google.android.play:core:1.10.0")
+    implementation("com.google.android.play:core-ktx:1.8.1")
+
     testImplementation("junit:junit:4.+")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.9.0")
     testImplementation("androidx.arch.core:core-testing:2.1.0")

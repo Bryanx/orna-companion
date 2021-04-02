@@ -59,4 +59,21 @@
     <string name="specializations">Specializations</string>
     <string name="achievements">Achievements</string>
     <string name="pets">Pets</string>
+    <string name="play_store_url">https://play.google.com/store/apps/details?id=nl.bryanderidder.ornaguide</string>
+    <string name="review_description">Let me know if you have any suggestions, issues or remarks. Thanks :)</string>
+    <string name="review">Review this app</string>
+    <string name="licenses">Licenses</string>
+    <string name="other">Other</string>
+    <string name="reddit">Subreddit r/OrnaRPG</string>
+    <string name="reddit_orna_url">https://www.reddit.com/r/OrnaRPG/</string>
+    <string name="orna_discord_url">https://discord.gg/fej9E9j</string>
+    <string name="discord">Discord Orna: The GPS RPG</string>
+    <string name="ornaguide_url">https://orna.guide/</string>
+    <string name="ornaguide">Orna.Guide</string>
+    <string name="default_tier_filter">Default tier filter</string>
+    <string name="default_tier_filter_description">Set the default tier that is loaded for all objects (requires app restart)</string>
+    <string name="sync">Sync with Orna.Guide</string>
+    <string name="sync_description">This can take a few minutes. This is only neccessary for new objects, existing objects are synced automatically.</string>
+    <string name="customization">Customization</string>
+    <string name="community">Community</string>
 </resources>

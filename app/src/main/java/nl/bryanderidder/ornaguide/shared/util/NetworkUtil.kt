@@ -1,7 +1,10 @@
 package nl.bryanderidder.ornaguide.shared.util
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
+import android.net.Uri
 import okhttp3.RequestBody
 import okio.Buffer
 import okio.IOException
@@ -27,6 +30,13 @@ object NetworkUtil {
             Timber.e("Could not read requestbody")
             "{}"
         }
+    }
+
+    fun goToUrl(activity: Activity, url: String) {
+        val uriUrl = Uri.parse(url)
+        val launchBrowser = Intent(Intent.ACTION_VIEW, uriUrl)
+        launchBrowser.addCategory(Intent.CATEGORY_BROWSABLE)
+        activity.startActivity(launchBrowser)
     }
 
     fun handleExceptionWithNetworkMessage(onError: (String?) -> Unit, exception: Throwable) =

@@ -4,76 +4,73 @@
     <PreferenceCategory app:key="top">
 
         <Preference
-            app:key="syncWithOrnaGuide"
             app:icon="@drawable/ic_baseline_sync_24"
+            app:key="syncWithOrnaGuide"
             app:layout="@layout/preference_setting"
-            app:title="Sync with Orna.Guide"
-            app:summary="This can take a few minutes. This is only neccessary for new objects, existing objects are synced automatically." />
+            app:summary="@string/sync_description"
+            app:title="@string/sync" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="Customization">
+    <PreferenceCategory app:title="@string/customization">
 
         <ListPreference
-            app:icon="@drawable/ic_baseline_star_24"
-            app:key="DEFAULT_TIER"
-            app:title="Default tier filter"
-            app:dialogTitle="Set the default tier that is loaded for all objects (requires app restart)"
-            app:useSimpleSummaryProvider="true"
+            app:defaultValue="1"
+            app:dialogTitle="@string/default_tier_filter_description"
             app:entries="@array/tiers"
             app:entryValues="@array/tier_entries"
-            app:defaultValue="1"/>
+            app:icon="@drawable/ic_baseline_star_24"
+            app:key="DEFAULT_TIER"
+            app:title="@string/default_tier_filter"
+            app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="Community">
+    <PreferenceCategory app:title="@string/community">
 
         <Preference
             app:icon="@drawable/compass"
             app:layout="@layout/preference_setting"
-            app:title="Orna.Guide">
+            app:title="@string/ornaguide">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://orna.guide/" />
+                android:data="@string/ornaguide_url" />
         </Preference>
 
         <Preference
             app:icon="@drawable/ic_discord"
             app:layout="@layout/preference_setting"
-            app:title="Discord Orna: The GPS RPG">
+            app:title="@string/discord">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://discord.gg/fej9E9j" />
+                android:data="@string/orna_discord_url" />
         </Preference>
 
         <Preference
             app:icon="@drawable/ic_reddit"
             app:layout="@layout/preference_setting"
-            app:title="Subreddit r/OrnaRPG">
+            app:title="@string/reddit">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://www.reddit.com/r/OrnaRPG/" />
+                android:data="@string/reddit_orna_url" />
         </Preference>
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="Other">
+    <PreferenceCategory app:title="@string/other">
 
         <Preference
             app:icon="@drawable/ic_baseline_play_circle_24"
             app:key="rate"
             app:layout="@layout/preference_setting"
-            app:title="Rate this app">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://play.google.com/store/apps/details?id=nl.bryanderidder.ornaguide" />
-        </Preference>
+            app:summary="@string/review_description"
+            app:title="@string/review" />
 
         <Preference
             app:icon="@drawable/ic_baseline_privacy_tip_24"
             app:key="license"
             app:layout="@layout/preference_setting"
-            app:title="Licenses" />
+            app:title="@string/licenses" />
 
     </PreferenceCategory>
 
