@@ -52,7 +52,7 @@
                     android:focusableInTouchMode="true"
                     android:hint="@string/attack"
                     android:imeOptions="actionNext"
-                    android:inputType="number"
+                    android:inputType="numberSigned"
                     android:maxLines="1"
                     app:textChangedListener="@{assessVM::updateAttack}" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -72,7 +72,7 @@
                     android:drawableTint="@color/textColor"
                     android:hint="@string/defense"
                     android:imeOptions="actionNext"
-                    android:inputType="number"
+                    android:inputType="numberSigned"
                     android:maxLines="1"
                     app:textChangedListener="@{assessVM::updateDefense}" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -92,7 +92,7 @@
                     android:drawableTint="@color/textColor"
                     android:hint="@string/resistance"
                     android:imeOptions="actionNext"
-                    android:inputType="number"
+                    android:inputType="numberSigned"
                     android:maxLines="1"
                     app:textChangedListener="@{assessVM::updateResistance}" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -112,7 +112,7 @@
                     android:drawableTint="@color/textColor"
                     android:hint="@string/hp"
                     android:imeOptions="actionNext"
-                    android:inputType="number"
+                    android:inputType="numberSigned"
                     android:maxLines="1"
                     app:textChangedListener="@{assessVM::updateHp}" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -132,7 +132,7 @@
                     android:drawableTint="@color/textColor"
                     android:hint="@string/magic"
                     android:imeOptions="actionNext"
-                    android:inputType="number"
+                    android:inputType="numberSigned"
                     android:maxLines="1"
                     app:textChangedListener="@{assessVM::updateMagic}" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -152,7 +152,7 @@
                     android:drawableTint="@color/textColor"
                     android:hint="@string/mana"
                     android:imeOptions="actionNext"
-                    android:inputType="number"
+                    android:inputType="numberSigned"
                     android:maxLines="1"
                     app:textChangedListener="@{assessVM::updateMana}" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -172,7 +172,7 @@
                     android:drawableTint="@color/textColor"
                     android:hint="@string/dexterity"
                     android:imeOptions="actionNext"
-                    android:inputType="number"
+                    android:inputType="numberSigned"
                     android:maxLines="1"
                     app:textChangedListener="@{assessVM::updateDexterity}" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -191,7 +191,7 @@
                     android:drawableTint="@color/textColor"
                     android:hint="@string/level"
                     android:imeOptions="actionNext"
-                    android:inputType="number"
+                    android:inputType="numberSigned"
                     android:maxLines="1"
                     app:textChangedListener="@{assessVM::updateLevel}" />
             </com.google.android.material.textfield.TextInputLayout>

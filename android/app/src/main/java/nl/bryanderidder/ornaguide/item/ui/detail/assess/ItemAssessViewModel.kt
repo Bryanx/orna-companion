@@ -27,36 +27,38 @@ class ItemAssessViewModel(
         private set
 
     fun updateAttack(value: String) {
-        if (value.isNotEmpty()) itemAssessBody.attack = value.toInt()
+        if (inputIsValid(value)) itemAssessBody.attack = value.toInt()
     }
 
     fun updateDefense(value: String) {
-        if (value.isNotEmpty()) itemAssessBody.defense = value.toInt()
+        if (inputIsValid(value)) itemAssessBody.defense = value.toInt()
     }
 
     fun updateMagic(value: String) {
-        if (value.isNotEmpty()) itemAssessBody.magic = value.toInt()
+        if (inputIsValid(value)) itemAssessBody.magic = value.toInt()
     }
 
     fun updateHp(value: String) {
-        if (value.isNotEmpty()) itemAssessBody.hp = value.toInt()
+        if (inputIsValid(value)) itemAssessBody.hp = value.toInt()
     }
 
     fun updateMana(value: String) {
-        if (value.isNotEmpty()) itemAssessBody.mana = value.toInt()
+        if (inputIsValid(value)) itemAssessBody.mana = value.toInt()
     }
 
     fun updateResistance(value: String) {
-        if (value.isNotEmpty()) itemAssessBody.resistance = value.toInt()
+        if (inputIsValid(value)) itemAssessBody.resistance = value.toInt()
     }
 
     fun updateDexterity(value: String) {
-        if (value.isNotEmpty()) itemAssessBody.dexterity = value.toInt()
+        if (inputIsValid(value)) itemAssessBody.dexterity = value.toInt()
     }
 
     fun updateLevel(value: String) {
-        if (value.isNotEmpty()) itemAssessBody.level = value.toInt()
+        if (inputIsValid(value)) itemAssessBody.level = value.toInt()
     }
+
+    private fun inputIsValid(value: String) = value.isNotEmpty() && value != "-" && value != "+"
 
     fun onSubmit(id: Int, stats: Map<String, Int>, view: View): Job {
         view.hideKeyboard()
