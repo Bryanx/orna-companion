@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93CF57662617411000AD76F5 /* ornacompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CF57652617411000AD76F5 /* ornacompanionApp.swift */; };
+		93CF57682617411000AD76F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CF57672617411000AD76F5 /* ContentView.swift */; };
+		93CF576A2617411100AD76F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93CF57692617411100AD76F5 /* Assets.xcassets */; };
+		93CF576D2617411100AD76F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93CF576C2617411100AD76F5 /* Preview Assets.xcassets */; };
+		93CF57782617411100AD76F5 /* ornacompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CF57772617411100AD76F5 /* ornacompanionTests.swift */; };
+		93CF57832617411100AD76F5 /* ornacompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CF57822617411100AD76F5 /* ornacompanionUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		93CF57742617411100AD76F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93CF575A2617411000AD76F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93CF57612617411000AD76F5;
+			remoteInfo = ornacompanion;
+		};
+		93CF577F2617411100AD76F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93CF575A2617411000AD76F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93CF57612617411000AD76F5;
+			remoteInfo = ornacompanion;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		93CF57622617411000AD76F5 /* ornacompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ornacompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93CF57652617411000AD76F5 /* ornacompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ornacompanionApp.swift; sourceTree = "<group>"; };
+		93CF57672617411000AD76F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		93CF57692617411100AD76F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		93CF576C2617411100AD76F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		93CF576E2617411100AD76F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93CF57732617411100AD76F5 /* ornacompanionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ornacompanionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93CF57772617411100AD76F5 /* ornacompanionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ornacompanionTests.swift; sourceTree = "<group>"; };
+		93CF57792617411100AD76F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93CF577E2617411100AD76F5 /* ornacompanionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ornacompanionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93CF57822617411100AD76F5 /* ornacompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ornacompanionUITests.swift; sourceTree = "<group>"; };
+		93CF57842617411100AD76F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93CF575F2617411000AD76F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93CF57702617411100AD76F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93CF577B2617411100AD76F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93CF57592617411000AD76F5 = {
+			isa = PBXGroup;
+			children = (
+				93CF57642617411000AD76F5 /* ornacompanion */,
+				93CF57762617411100AD76F5 /* ornacompanionTests */,
+				93CF57812617411100AD76F5 /* ornacompanionUITests */,
+				93CF57632617411000AD76F5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		93CF57632617411000AD76F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93CF57622617411000AD76F5 /* ornacompanion.app */,
+				93CF57732617411100AD76F5 /* ornacompanionTests.xctest */,
+				93CF577E2617411100AD76F5 /* ornacompanionUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93CF57642617411000AD76F5 /* ornacompanion */ = {
+			isa = PBXGroup;
+			children = (
+				93CF57652617411000AD76F5 /* ornacompanionApp.swift */,
+				93CF57672617411000AD76F5 /* ContentView.swift */,
+				93CF57692617411100AD76F5 /* Assets.xcassets */,
+				93CF576E2617411100AD76F5 /* Info.plist */,
+				93CF576B2617411100AD76F5 /* Preview Content */,
+			);
+			path = ornacompanion;
+			sourceTree = "<group>";
+		};
+		93CF576B2617411100AD76F5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				93CF576C2617411100AD76F5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		93CF57762617411100AD76F5 /* ornacompanionTests */ = {
+			isa = PBXGroup;
+			children = (
+				93CF57772617411100AD76F5 /* ornacompanionTests.swift */,
+				93CF57792617411100AD76F5 /* Info.plist */,
+			);
+			path = ornacompanionTests;
+			sourceTree = "<group>";
+		};
+		93CF57812617411100AD76F5 /* ornacompanionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				93CF57822617411100AD76F5 /* ornacompanionUITests.swift */,
+				93CF57842617411100AD76F5 /* Info.plist */,
+			);
+			path = ornacompanionUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93CF57612617411000AD76F5 /* ornacompanion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93CF57872617411100AD76F5 /* Build configuration list for PBXNativeTarget "ornacompanion" */;
+			buildPhases = (
+				93CF575E2617411000AD76F5 /* Sources */,
+				93CF575F2617411000AD76F5 /* Frameworks */,
+				93CF57602617411000AD76F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ornacompanion;
+			productName = ornacompanion;
+			productReference = 93CF57622617411000AD76F5 /* ornacompanion.app */;
+			productType = "com.apple.product-type.application";
+		};
+		93CF57722617411100AD76F5 /* ornacompanionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93CF578A2617411100AD76F5 /* Build configuration list for PBXNativeTarget "ornacompanionTests" */;
+			buildPhases = (
+				93CF576F2617411100AD76F5 /* Sources */,
+				93CF57702617411100AD76F5 /* Frameworks */,
+				93CF57712617411100AD76F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93CF57752617411100AD76F5 /* PBXTargetDependency */,
+			);
+			name = ornacompanionTests;
+			productName = ornacompanionTests;
+			productReference = 93CF57732617411100AD76F5 /* ornacompanionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		93CF577D2617411100AD76F5 /* ornacompanionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93CF578D2617411100AD76F5 /* Build configuration list for PBXNativeTarget "ornacompanionUITests" */;
+			buildPhases = (
+				93CF577A2617411100AD76F5 /* Sources */,
+				93CF577B2617411100AD76F5 /* Frameworks */,
+				93CF577C2617411100AD76F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93CF57802617411100AD76F5 /* PBXTargetDependency */,
+			);
+			name = ornacompanionUITests;
+			productName = ornacompanionUITests;
+			productReference = 93CF577E2617411100AD76F5 /* ornacompanionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93CF575A2617411000AD76F5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					93CF57612617411000AD76F5 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					93CF57722617411100AD76F5 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 93CF57612617411000AD76F5;
+					};
+					93CF577D2617411100AD76F5 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 93CF57612617411000AD76F5;
+					};
+				};
+			};
+			buildConfigurationList = 93CF575D2617411000AD76F5 /* Build configuration list for PBXProject "ornacompanion" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 93CF57592617411000AD76F5;
+			productRefGroup = 93CF57632617411000AD76F5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93CF57612617411000AD76F5 /* ornacompanion */,
+				93CF57722617411100AD76F5 /* ornacompanionTests */,
+				93CF577D2617411100AD76F5 /* ornacompanionUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93CF57602617411000AD76F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93CF576D2617411100AD76F5 /* Preview Assets.xcassets in Resources */,
+				93CF576A2617411100AD76F5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93CF57712617411100AD76F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93CF577C2617411100AD76F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93CF575E2617411000AD76F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93CF57682617411000AD76F5 /* ContentView.swift in Sources */,
+				93CF57662617411000AD76F5 /* ornacompanionApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93CF576F2617411100AD76F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93CF57782617411100AD76F5 /* ornacompanionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93CF577A2617411100AD76F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93CF57832617411100AD76F5 /* ornacompanionUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		93CF57752617411100AD76F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93CF57612617411000AD76F5 /* ornacompanion */;
+			targetProxy = 93CF57742617411100AD76F5 /* PBXContainerItemProxy */;
+		};
+		93CF57802617411100AD76F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93CF57612617411000AD76F5 /* ornacompanion */;
+			targetProxy = 93CF577F2617411100AD76F5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		93CF57852617411100AD76F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		93CF57862617411100AD76F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		93CF57882617411100AD76F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"ornacompanion/Preview Content\"";
+				DEVELOPMENT_TEAM = 495WHZ7U75;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ornacompanion/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nl.bryanderidder.ornacompanion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		93CF57892617411100AD76F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"ornacompanion/Preview Content\"";
+				DEVELOPMENT_TEAM = 495WHZ7U75;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ornacompanion/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nl.bryanderidder.ornacompanion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		93CF578B2617411100AD76F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 495WHZ7U75;
+				INFOPLIST_FILE = ornacompanionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nl.bryanderidder.ornacompanionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ornacompanion.app/ornacompanion";
+			};
+			name = Debug;
+		};
+		93CF578C2617411100AD76F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 495WHZ7U75;
+				INFOPLIST_FILE = ornacompanionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nl.bryanderidder.ornacompanionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ornacompanion.app/ornacompanion";
+			};
+			name = Release;
+		};
+		93CF578E2617411100AD76F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 495WHZ7U75;
+				INFOPLIST_FILE = ornacompanionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nl.bryanderidder.ornacompanionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ornacompanion;
+			};
+			name = Debug;
+		};
+		93CF578F2617411100AD76F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 495WHZ7U75;
+				INFOPLIST_FILE = ornacompanionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nl.bryanderidder.ornacompanionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ornacompanion;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93CF575D2617411000AD76F5 /* Build configuration list for PBXProject "ornacompanion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93CF57852617411100AD76F5 /* Debug */,
+				93CF57862617411100AD76F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93CF57872617411100AD76F5 /* Build configuration list for PBXNativeTarget "ornacompanion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93CF57882617411100AD76F5 /* Debug */,
+				93CF57892617411100AD76F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93CF578A2617411100AD76F5 /* Build configuration list for PBXNativeTarget "ornacompanionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93CF578B2617411100AD76F5 /* Debug */,
+				93CF578C2617411100AD76F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93CF578D2617411100AD76F5 /* Build configuration list for PBXNativeTarget "ornacompanionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93CF578E2617411100AD76F5 /* Debug */,
+				93CF578F2617411100AD76F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93CF575A2617411000AD76F5 /* Project object */;
+}
