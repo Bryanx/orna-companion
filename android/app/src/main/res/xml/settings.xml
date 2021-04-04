@@ -56,6 +56,15 @@
         </Preference>
 
         <Preference
+            app:icon="@drawable/fb"
+            app:layout="@layout/preference_setting"
+            app:title="Facebook OrnaRPG">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://www.facebook.com/ornarpg/" />
+        </Preference>
+
+        <Preference
             app:icon="@drawable/ic_insta"
             app:layout="@layout/preference_setting"
             app:title="Instagram @OrnaRPG">
