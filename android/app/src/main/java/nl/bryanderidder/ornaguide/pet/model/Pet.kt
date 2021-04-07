@@ -1,10 +1,8 @@
 package nl.bryanderidder.ornaguide.pet.model
 
 import androidx.room.*
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
-import nl.bryanderidder.ornaguide.shared.util.NumberUtil
-import nl.bryanderidder.ornaguide.shared.util.ORNA_IMAGE_PREFIX
+import com.squareup.moshi.*
+import nl.bryanderidder.ornaguide.shared.util.*
 
 @Entity
 @JsonClass(generateAdapter = true)
@@ -37,7 +35,11 @@ data class Pet(
     )
 
     @Ignore
-    fun formattedCost(): String = "${NumberUtil.formatNumber(cost)} orns"
+    fun formattedCost(): String =
+        if (tier > 7)
+            "${NumberUtil.formatNumber(cost)} orns"
+        else
+            "${NumberUtil.formatNumber(cost)} gold"
 
     @Ignore
     fun formattedStats(): String {
