@@ -1,13 +1,13 @@
 //
-//  DiscoverItem.swift
+//  ItemDetail.swift
 //  ornacompanion
 //
-//  Created by Bryan de Ridder on 05/04/2021.
+//  Created by Bryan de Ridder on 07/04/2021.
 //
 
 import SwiftUI
 
-struct DiscoverItem: View {
+struct SpecializationListItem: View {
     var name: String
     var image: String
     
@@ -16,9 +16,9 @@ struct DiscoverItem: View {
             Spacer()
             VStack {
                 Spacer()
-                Image(image)
-                    .renderingMode(.original)
-                    .resizable()
+                AsyncImage(url: URL(string: image)!,
+                           placeholder: { Text("Loading ...") },
+                           image: { Image(uiImage: $0).resizable() })
                     .frame(width: 60, height: 60)
                 Text(name)
                     .foregroundColor(ColorUtil.textColorHeader)
@@ -32,13 +32,13 @@ struct DiscoverItem: View {
     }
 }
 
-struct DiscoverItem_Previews: PreviewProvider {
+struct SpecializationListItem_Previews: PreviewProvider {
     static var previews: some View {
-        DiscoverItem(
+        SpecializationListItem(
             name: "Classes",
-            image: "classes"
+            image: "https://orna.guide/static/orna/img/subclasses/apprentice/default_m.png"
         )
         .frame(width: 150, height: 150)
-        .previewLayout(.fixed(width: 300, height: 300))
+        .previewDevice("iPhone 12")
     }
 }

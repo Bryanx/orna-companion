@@ -8,16 +8,9 @@
 import SwiftUI
 
 struct Discover: View {
-    let categories: [String: String] = [
-        "Classes": "classes",
-        "Specializations": "specializations",
-        "Achievements": "achievements",
-        "NPCs": "npcs",
-        "Pets": "pets",
-        "Skills": "skills",
-        "Monsters": "monsters",
-        "Items": "items"
-    ]
+    @EnvironmentObject var specializationVM: SpecializationViewModel
+
+    let categories: [String] = ["Classes","Specializations","Achievements","NPCs","Pets","Skills","Monsters","Items"]
     
     let columns = [
         GridItem(.flexible()),
@@ -26,17 +19,24 @@ struct Discover: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(Array(categories.keys), id: \.self) { key in
-                        DiscoverItem(
-                            name: key,
-                            image:String(categories[key] ?? "")
-                        )
-                    }
-                }
-                .padding(.horizontal)
-            }.navigationTitle("Orna Companion")
+            ContainerView {
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 7) {
+                        ForEach(categories, id: \.self) { key in
+                            NavigationLink(
+                                destination: SpecializationList()
+                                    .environmentObject(specializationVM),
+                                label: {
+                                    DiscoverItem(
+                                        name: key,
+                                        image: key.lowercased()
+                                    )
+                                }
+                            )
+                        }
+                    }.padding(.horizontal)
+                }.navigationTitle("Orna Companion")
+            }
         }
     }
 }
@@ -45,5 +45,6 @@ struct Discover_Previews: PreviewProvider {
     static var previews: some View {
         Discover()
             .previewDevice("iPhone 12")
+            .environmentObject(SpecializationViewModel())
     }
 }
