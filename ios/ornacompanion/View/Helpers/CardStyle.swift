@@ -12,9 +12,9 @@ struct CardStyle: ViewModifier {
         content
             .padding()
             .background(ColorUtil.cardColor)
-            .foregroundColor(Color.white)
-            .font(.largeTitle)
             .cornerRadius(10)
             .shadow(radius: 3)
+            .foregroundColor(ColorUtil.textColorHeader)
+            .font(.caption)
     }
 }

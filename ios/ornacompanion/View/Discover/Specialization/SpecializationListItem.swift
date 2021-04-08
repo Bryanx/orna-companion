@@ -8,25 +8,37 @@
 import SwiftUI
 
 struct SpecializationListItem: View {
-    var name: String
-    var image: String
+    var specialization: Specialization
     
     var body: some View {
-        HStack {
-            Spacer()
-            VStack {
+        ZStack(alignment: .topTrailing) {
+            HStack {
                 Spacer()
-                AsyncImage(url: URL(string: image)!,
-                           placeholder: { Text("Loading ...") },
-                           image: { Image(uiImage: $0).resizable() })
-                    .frame(width: 60, height: 60)
-                Text(name)
-                    .foregroundColor(ColorUtil.textColorHeader)
-                    .font(.body)
-                    .fontWeight(.bold)
+                VStack {
+                    Spacer()
+                    AsyncImage(url: URL(string: specialization.getImage())!,
+                               placeholder: { Image("specializations").resizable() },
+                               image: { Image(uiImage: $0).resizable() })
+                        .frame(width: 70, height: 70)
+                    Text("\(specialization.name)")
+                        .fontWeight(.bold)
+                        .padding(.top, 2)
+                    HStack {
+                        ForEach(specialization.boosts, id: \.name) { boost in
+                            VStack {
+                                Text("\(boost.formattedName())")
+                                Text("\(boost.formattedValue())")
+                            }
+                            .foregroundColor(boost.value >= 0 ? .green : .red)
+                        }
+                    }.padding(.vertical, 1)
+                    Text("\(specialization.cost)")
+                        .fontWeight(.bold)
+                    Spacer()
+                }
                 Spacer()
             }
-            Spacer()
+            Tier(value: specialization.tier)
         }
         .modifier(CardStyle())
     }
@@ -35,10 +47,9 @@ struct SpecializationListItem: View {
 struct SpecializationListItem_Previews: PreviewProvider {
     static var previews: some View {
         SpecializationListItem(
-            name: "Classes",
-            image: "https://orna.guide/static/orna/img/subclasses/apprentice/default_m.png"
+            specialization: Specialization.SAMPLE
         )
         .frame(width: 150, height: 150)
-        .previewDevice("iPhone 12")
+        .previewLayout(.fixed(width: 200, height: 250))
     }
 }

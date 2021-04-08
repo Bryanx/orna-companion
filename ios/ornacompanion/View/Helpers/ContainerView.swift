@@ -33,7 +33,7 @@ struct ContainerView<Content>: View where Content : View {
     }
 }
 
-struct BgView_Previews: PreviewProvider {
+struct ContainerView_Previews: PreviewProvider {
     static var previews: some View {
         ContainerView(bgColor: ColorUtil.ornaGreen) {
             Text("content")

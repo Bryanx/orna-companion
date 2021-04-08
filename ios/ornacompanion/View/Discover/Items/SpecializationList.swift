@@ -16,14 +16,12 @@ struct SpecializationList: View {
         ContainerView {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 7) {
-                    ForEach(specializationVM.specializations, id: \.self) { item in
+                    ForEach(specializationVM.specializations) { item in
                         NavigationLink(
                             destination: SpecializationDetail(),
                             label: {
                                 SpecializationListItem(
-                                    name: item.name,
-                                    image: item.getImage()
-                                )
+                                    specialization: item)
                             }
                         )
                     }
