@@ -12,13 +12,14 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".shared.ui.menu.settings.ContactActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/backgroundColorDark"
-            tools:context=".shared.ui.menu.settings.ContactActivity">
+            android:background="@color/backgroundColorDark">
 
             <LinearLayout
                 android:id="@+id/title"
