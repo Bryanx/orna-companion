@@ -19,6 +19,7 @@ class ItemAssessRepository(private val client: OrnaClient) {
         body: ItemAssessRequestBody,
         onError: (String?) -> Unit,
     ) = flow {
+        Timber.i("Attempt assessing item: $body")
         client.assessItem(body)
             .suspendOnSuccess {
                 val result = response.body()
