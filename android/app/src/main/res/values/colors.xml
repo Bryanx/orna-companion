@@ -48,4 +48,6 @@
     <color name="arenaColor">#FFC107</color>
 
     <color name="onboardingBackgroundColor">#534A48</color>
+
+    <color name="discordColor">#7289DA</color>
 </resources>

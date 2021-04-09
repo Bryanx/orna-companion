@@ -72,6 +72,9 @@
         <action
             android:id="@+id/action_settingsFragment_to_dicoverFragment"
             app:popUpTo="@id/dicoverFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_contactActivity"
+            app:destination="@id/contactActivity" />
     </fragment>
     <fragment
         android:id="@+id/characterClassListFragment"
@@ -185,4 +188,9 @@
         android:name="nl.bryanderidder.ornaguide.achievement.ui.list.filter.AchievementListFilterDialogFragment"
         android:label="achievementListFilterDialogFragment"
         tools:layout="@layout/fragment_dialog_achievement_filter" />
+    <activity
+        android:id="@+id/contactActivity"
+        android:name="nl.bryanderidder.ornaguide.shared.ui.menu.settings.ContactActivity"
+        android:label="CreditsActivity"
+        tools:layout="@layout/activity_contact" />
 </navigation>

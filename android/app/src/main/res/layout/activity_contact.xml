@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="nl.bryanderidder.ornaguide.shared.ui.menu.settings.ContactActivity" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/backgroundColorDark"
+            tools:context=".shared.ui.menu.settings.ContactActivity">
+
+            <LinearLayout
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@color/backgroundColorDark"
+                android:paddingHorizontal="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:onClick="@{() -> activity.onBackPressed()}"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    app:drawableTint="@color/textColorHeader" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:paddingStart="20dp"
+                    android:text="@string/contact"
+                    android:textColor="@color/textColorHeader"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/contentPadding"
+                android:text="@string/contact_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+            <TextView
+                android:id="@+id/troubleHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/contentPadding"
+                android:text="@string/trouble_header"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/intro" />
+
+            <TextView
+                android:id="@+id/troubleContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/contentPadding"
+                android:paddingBottom="@dimen/contentPadding"
+                android:text="@string/trouble_information"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/troubleHeader" />
+
+            <TextView
+                android:id="@+id/creditListHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/contentPadding"
+                android:text="@string/credit_header"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/troubleContent" />
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/contentPadding"
+                android:paddingBottom="@dimen/contentPadding"
+                android:text="@string/credit_list"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/creditListHeader" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/discordLink"
+                android:layout_width="0dp"
+                android:layout_height="?actionBarSize"
+                android:layout_marginHorizontal="@dimen/contentPadding"
+                android:clickable="true"
+                app:cardBackgroundColor="@color/cardColor"
+                app:cardCornerRadius="@dimen/cardCornerRadius"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/join_orna_discord_server"
+                    android:textAllCaps="true"
+                    android:textColor="@color/discordColor" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/ornaGuideLink"
+                android:layout_width="0dp"
+                android:layout_height="?actionBarSize"
+                android:layout_margin="@dimen/contentPadding"
+                android:clickable="true"
+                app:cardBackgroundColor="@color/cardColor"
+                app:cardCornerRadius="@dimen/cardCornerRadius"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/discordLink">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/go_to_ornaguide"
+                    android:textAllCaps="true"
+                    android:textColor="@color/ornaGreen" />
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

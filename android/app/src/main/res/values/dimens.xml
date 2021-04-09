@@ -7,4 +7,5 @@
     <dimen name="cardPaddingHalf">6dp</dimen>
     <dimen name="cardDividerPadding">18dp</dimen>
     <dimen name="cardCornerRadius">5dp</dimen>
+    <dimen name="contentPadding">24dp</dimen>
 </resources>

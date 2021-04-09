@@ -90,6 +90,12 @@
             app:layout="@layout/preference_setting"
             app:title="@string/licenses" />
 
+        <Preference
+            app:icon="@drawable/ic_baseline_chat_24"
+            app:key="contact"
+            app:layout="@layout/preference_setting"
+            app:title="Contact" />
+
     </PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>

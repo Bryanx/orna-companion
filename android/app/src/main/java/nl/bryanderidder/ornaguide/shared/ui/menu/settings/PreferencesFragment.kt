@@ -2,6 +2,7 @@ package nl.bryanderidder.ornaguide.shared.ui.menu.settings
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.play.core.review.ReviewManagerFactory
@@ -24,6 +25,9 @@ class PreferencesFragment : PreferenceFragmentCompat() {
         }
         onClick("license") { LibsBuilder().start(requireContext()) }
         onClick("rate") { requestReview() }
+        onClick("contact") {
+            findNavController().navigate(R.id.action_settingsFragment_to_contactActivity)
+        }
     }
 
     private fun requestReview() {
