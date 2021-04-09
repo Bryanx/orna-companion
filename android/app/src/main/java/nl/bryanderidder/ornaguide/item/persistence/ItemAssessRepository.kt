@@ -22,7 +22,6 @@ class ItemAssessRepository(private val client: OrnaClient) {
         client.assessItem(body)
             .suspendOnSuccess {
                 val result = response.body()
-                Timber.d("result: $result")
                 if (result != null)
                     emit(result)
                 else

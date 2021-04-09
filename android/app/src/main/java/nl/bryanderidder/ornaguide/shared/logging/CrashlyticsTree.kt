@@ -12,7 +12,7 @@ import timber.log.Timber
 class CrashlyticsTree : Timber.Tree() {
 
     override fun log(priority: Int, tag: String?, message: String, throwable: Throwable?) {
-        if (priority == Log.VERBOSE || priority == Log.DEBUG || priority == Log.INFO || priority == Log.WARN)
+        if (priority == Log.VERBOSE || priority == Log.DEBUG || priority == Log.WARN)
             return
 
         val t = throwable ?: Exception(message)

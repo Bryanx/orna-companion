@@ -11,12 +11,12 @@ class NetworkLoggingInterceptor : Interceptor {
         val request: Request = chain.request()
 
         val t1 = System.nanoTime()
-        Timber.i(String.format("Sending request to %s %s", request.url, NetworkUtil.requestBodyToString(request.body)))
+        Timber.d(String.format("Sending request to %s %s", request.url, NetworkUtil.requestBodyToString(request.body)))
 
         val response = chain.proceed(request)
 
         val t2 = System.nanoTime()
-        Timber.i(String.format("Received response for %s in %.1fms%n%s", response.request.url, (t2 - t1) / 1e6, response.headers))
+        Timber.d(String.format("Received response for %s in %.1fms%n%s", response.request.url, (t2 - t1) / 1e6, response.headers))
         return response
     }
 }
