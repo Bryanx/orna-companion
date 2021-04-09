@@ -19,6 +19,7 @@
 		93AB1293261D0154009F75B5 /* CardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB1292261D0154009F75B5 /* CardStyle.swift */; };
 		93AB12BA261D917C009F75B5 /* Specialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB12B9261D917C009F75B5 /* Specialization.swift */; };
 		93AB12C0261D934D009F75B5 /* SpecializationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB12BF261D934D009F75B5 /* SpecializationList.swift */; };
+		93ABEE302621031600D6ED88 /* DarkStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABEE2F2621031600D6ED88 /* DarkStatusBar.swift */; };
 		93EE05DA261B569900E36184 /* ornacompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE05D9261B569900E36184 /* ornacompanionApp.swift */; };
 		93EE05DC261B569900E36184 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE05DB261B569900E36184 /* ContentView.swift */; };
 		93EE05DE261B569B00E36184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93EE05DD261B569B00E36184 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		93AB1292261D0154009F75B5 /* CardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyle.swift; sourceTree = "<group>"; };
 		93AB12B9261D917C009F75B5 /* Specialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specialization.swift; sourceTree = "<group>"; };
 		93AB12BF261D934D009F75B5 /* SpecializationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpecializationList.swift; path = ornacompanion/View/Discover/Items/SpecializationList.swift; sourceTree = SOURCE_ROOT; };
+		93ABEE2F2621031600D6ED88 /* DarkStatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkStatusBar.swift; sourceTree = "<group>"; };
 		93EE05D6261B569900E36184 /* ornacompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ornacompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93EE05D9261B569900E36184 /* ornacompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ornacompanionApp.swift; sourceTree = "<group>"; };
 		93EE05DB261B569900E36184 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				93AB128A261CF61C009F75B5 /* ContainerView.swift */,
 				9353E8B3261E58FF002F6E6D /* AsyncImage.swift */,
 				9353E8CA261F347D002F6E6D /* Tier.swift */,
+				93ABEE2F2621031600D6ED88 /* DarkStatusBar.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				93EE06B4261BA99400E36184 /* Guides.swift in Sources */,
 				93AB12C0261D934D009F75B5 /* SpecializationList.swift in Sources */,
 				9353E8B9261E5B7B002F6E6D /* SpecializationDetail.swift in Sources */,
+				93ABEE302621031600D6ED88 /* DarkStatusBar.swift in Sources */,
 				93EE06AA261BA98C00E36184 /* Saved.swift in Sources */,
 				9353E8A4261E4BF9002F6E6D /* Constant.swift in Sources */,
 			);

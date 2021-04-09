@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct SpecializationList: View {
-    @EnvironmentObject var specializationVM: SpecializationViewModel
+    @StateObject var vm = SpecializationViewModel()
     
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
-        ContainerView {
+        ContainerView(isLoading: vm.isLoading) {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 7) {
-                    ForEach(specializationVM.specializations) { item in
+                    ForEach(vm.specializations) { item in
                         NavigationLink(
-                            destination: SpecializationDetail(),
+                            destination: SpecializationDetail(id: item.id),
                             label: {
                                 SpecializationListItem(
                                     specialization: item)
@@ -30,9 +30,7 @@ struct SpecializationList: View {
         }
         .navigationTitle("Specializations")
         .navigationBarTitleDisplayMode(.large)
-        .onAppear {
-            specializationVM.fetchSpecialization()
-        }
+        .onAppear(perform: vm.fetchSpecializations)
     }
 }
 
@@ -40,6 +38,5 @@ struct SpecializationList_Previews: PreviewProvider {
     static var previews: some View {
         SpecializationList()
             .previewDevice("iPhone 12")
-            .environmentObject(SpecializationViewModel())
     }
 }

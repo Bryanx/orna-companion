@@ -16,8 +16,8 @@ struct SpecializationListItem: View {
                 Spacer()
                 VStack {
                     Spacer()
-                    AsyncImage(url: URL(string: specialization.getImage())!,
-                               placeholder: { Image("specializations").resizable() },
+                    AsyncImage(url: specialization.getImage(),
+                               placeholder: { ProgressView() },
                                image: { Image(uiImage: $0).resizable() })
                         .frame(width: 70, height: 70)
                     Text("\(specialization.name)")

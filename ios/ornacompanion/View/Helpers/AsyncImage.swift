@@ -16,13 +16,13 @@ struct AsyncImage<Placeholder: View>: View {
     private let image: (UIImage) -> Image
     
     init(
-        url: URL,
+        url: String,
         @ViewBuilder placeholder: () -> Placeholder,
         @ViewBuilder image: @escaping (UIImage) -> Image = Image.init(uiImage:)
     ) {
         self.placeholder = placeholder()
         self.image = image
-        _loader = StateObject(wrappedValue: ImageLoader(url: url, cache: Environment(\.imageCache).wrappedValue))
+        _loader = StateObject(wrappedValue: ImageLoader(url: URL(string: url), cache: Environment(\.imageCache).wrappedValue))
     }
     
     var body: some View {
@@ -59,13 +59,13 @@ class ImageLoader: ObservableObject {
     
     private(set) var isLoading = false
     
-    private let url: URL
+    private let url: URL?
     private var cache: ImageCache?
     private var cancellable: AnyCancellable?
     
     private static let imageProcessingQueue = DispatchQueue(label: "image-processing")
     
-    init(url: URL, cache: ImageCache? = nil) {
+    init(url: URL?, cache: ImageCache? = nil) {
         self.url = url
         self.cache = cache
     }
@@ -76,17 +76,18 @@ class ImageLoader: ObservableObject {
     
     func load() {
         guard !isLoading else { return }
+        guard let wrappedUrl = url else { return }
 
-        if let image = cache?[url] {
+        if let image = cache?[wrappedUrl] {
             self.image = image
             return
         }
         
-        cancellable = URLSession.shared.dataTaskPublisher(for: url)
+        cancellable = URLSession.shared.dataTaskPublisher(for: wrappedUrl)
             .map { UIImage(data: $0.data) }
             .replaceError(with: nil)
             .handleEvents(receiveSubscription: { [weak self] _ in self?.onStart() },
-                          receiveOutput: { [weak self] in self?.cache($0) },
+                          receiveOutput: { [weak self] in self?.cache($0, wrappedUrl) },
                           receiveCompletion: { [weak self] _ in self?.onFinish() },
                           receiveCancel: { [weak self] in self?.onFinish() })
             .subscribe(on: Self.imageProcessingQueue)
@@ -106,8 +107,8 @@ class ImageLoader: ObservableObject {
         isLoading = false
     }
     
-    private func cache(_ image: UIImage?) {
-        image.map { cache?[url] = $0 }
+    private func cache(_ image: UIImage?, _ wrappedUrl: URL) {
+        image.map { cache?[wrappedUrl] = $0 }
     }
 }
 

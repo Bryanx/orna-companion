@@ -8,12 +8,12 @@
 import Foundation
 
 struct Specialization: Hashable, Codable, Identifiable {
-    var id: Int
-    var name: String
-    var images: [String]
-    var tier: Int
-    var cost: String
-    var boosts: [Boost]
+    var id: Int = 0
+    var name: String = ""
+    var images: [String] = []
+    var tier: Int = 1
+    var cost: String = ""
+    var boosts: [Boost] = []
     
     func getImage() -> String {
         if images.count == 0 {

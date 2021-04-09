@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Discover: View {
-    @EnvironmentObject var specializationVM: SpecializationViewModel
 
     let categories: [String] = ["Classes","Specializations","Achievements","NPCs","Pets","Skills","Monsters","Items"]
     
@@ -24,8 +23,7 @@ struct Discover: View {
                     LazyVGrid(columns: columns, spacing: 7) {
                         ForEach(categories, id: \.self) { key in
                             NavigationLink(
-                                destination: SpecializationList()
-                                    .environmentObject(specializationVM),
+                                destination: SpecializationList(),
                                 label: {
                                     DiscoverItem(
                                         name: key,
@@ -45,6 +43,5 @@ struct Discover_Previews: PreviewProvider {
     static var previews: some View {
         Discover()
             .previewDevice("iPhone 12")
-            .environmentObject(SpecializationViewModel())
     }
 }
