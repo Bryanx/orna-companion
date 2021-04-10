@@ -63,7 +63,6 @@ class SpecializationRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow {
-        Timber.i("Fetching specialization with id: $id")
         val dbResult = getSpecializationFromDb(id)
         emit(dbResult)
         client.fetchSpecializationList(SpecializationRequestBody(id))

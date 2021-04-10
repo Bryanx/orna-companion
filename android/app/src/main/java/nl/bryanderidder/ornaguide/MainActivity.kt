@@ -8,6 +8,7 @@ import androidx.navigation.ui.NavigationUI
 import com.skydoves.bindables.BindingActivity
 import com.skydoves.transformationlayout.onTransformationStartContainer
 import nl.bryanderidder.ornaguide.databinding.ActivityMainBinding
+import nl.bryanderidder.ornaguide.shared.logging.NavLogger
 import nl.bryanderidder.ornaguide.shared.util.color
 
 
@@ -23,9 +24,10 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         setUpNavigation()
     }
 
-    fun setUpNavigation() {
+    private fun setUpNavigation() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
+        navController.addOnDestinationChangedListener(NavLogger(this))
         NavigationUI.setupWithNavController(binding.bottomNav, navHostFragment.navController)
     }
 }

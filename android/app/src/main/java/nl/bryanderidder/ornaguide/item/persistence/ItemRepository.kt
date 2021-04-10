@@ -64,7 +64,6 @@ class ItemRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow {
-        Timber.i("Fetching item with id: $id")
         val dbResult = getItemFromDb(id)
         emit(dbResult)
         client.fetchItemList(ItemRequestBody(id))

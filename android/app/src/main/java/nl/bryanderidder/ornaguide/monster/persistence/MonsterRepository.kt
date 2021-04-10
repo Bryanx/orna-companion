@@ -62,7 +62,6 @@ class MonsterRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow {
-        Timber.i("Fetching monster with id: $id")
         val dbResult = getMonsterFromDb(id)
         emit(dbResult)
         client.fetchMonsterList(MonsterRequestBody(id))

@@ -64,7 +64,6 @@ class CharacterClassRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow {
-        Timber.i("Fetching character class with id: $id")
         val dbResult = getCharacterClassFromDb(id)
         emit(dbResult)
         client.fetchCharacterClassList(CharacterClassRequestBody(id))

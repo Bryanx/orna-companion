@@ -62,7 +62,6 @@ class NpcRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow {
-        Timber.i("Fetching npc with id: $id")
         val dbResult = getNpcFromDb(id)
         emit(dbResult)
         client.fetchNpcList(NpcRequestBody(id))

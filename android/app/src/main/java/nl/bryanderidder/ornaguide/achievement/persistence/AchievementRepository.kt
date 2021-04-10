@@ -62,7 +62,6 @@ class AchievementRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow {
-        Timber.i("Fetching achievement with id: $id")
         val dbResult = getAchievementFromDb(id)
         emit(dbResult)
         client.fetchAchievementList(AchievementRequestBody(id))

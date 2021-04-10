@@ -62,7 +62,6 @@ class PetRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow {
-        Timber.i("Fetching pet with id: $id")
         val dbResult = getPetFromDb(id)
         emit(dbResult)
         client.fetchPetList(PetRequestBody(id))

@@ -12,16 +12,18 @@ import timber.log.Timber
 class CrashlyticsTree : Timber.Tree() {
 
     override fun log(priority: Int, tag: String?, message: String, throwable: Throwable?) {
-        if (priority == Log.VERBOSE || priority == Log.DEBUG || priority == Log.WARN)
+        if (priority == Log.VERBOSE || priority == Log.DEBUG)
             return
-
-        val t = throwable ?: Exception(message)
 
         val crashlytics = FirebaseCrashlytics.getInstance()
         crashlytics.setCustomKey(CRASHLYTICS_KEY_PRIORITY, priority)
         crashlytics.setCustomKey(CRASHLYTICS_KEY_TAG, tag ?: "Unknown")
         crashlytics.setCustomKey(CRASHLYTICS_KEY_MESSAGE, message)
-        crashlytics.recordException(t)
+
+        crashlytics.log(message)
+
+        if (throwable != null)
+            crashlytics.recordException(throwable)
     }
 
     companion object {

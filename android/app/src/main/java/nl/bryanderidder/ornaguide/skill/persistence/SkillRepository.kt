@@ -62,7 +62,6 @@ class SkillRepository(
         id: Int,
         onError: (String?) -> Unit
     ) = flow {
-        Timber.i("Fetching skill with id: $id")
         val dbResult = getSkillFromDb(id)
         emit(dbResult)
         client.fetchSkillList(SkillRequestBody(id))
