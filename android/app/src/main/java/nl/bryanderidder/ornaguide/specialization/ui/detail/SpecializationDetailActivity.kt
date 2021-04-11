@@ -15,7 +15,7 @@ import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getViewModel
 
 /**
- * Activity for a single character class
+ * Activity for a single specialization
  * @author Bryan de Ridder
  */
 @SuppressLint("MissingSuperCall")

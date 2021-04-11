@@ -14,5 +14,6 @@ struct ColorUtil {
     static let cardColor = Color("CardColor")
     static let ornaGreen = Color("OrnaGreen")
     static let textColor = Color("TextColor")
+    static let dividerColor = Color("DividerColor")
     static let textColorHeader = Color("TextColorHeader")
 }

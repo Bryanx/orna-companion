@@ -22,7 +22,7 @@ struct DiscoverItem: View {
                     .frame(width: 60, height: 60)
                 Text(name)
                     .foregroundColor(ColorUtil.textColorHeader)
-                    .font(.body)
+                    .font(.caption)
                     .fontWeight(.bold)
                 Spacer()
             }

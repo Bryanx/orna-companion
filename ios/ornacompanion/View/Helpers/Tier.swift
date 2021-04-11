@@ -12,6 +12,7 @@ struct Tier: View {
     
     var body: some View {
         HStack(spacing: 2) {
+            Spacer()
             Image(systemName: "star.fill")
                 .resizable()
                 .frame(width: 10, height: 10)

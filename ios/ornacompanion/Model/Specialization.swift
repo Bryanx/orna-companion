@@ -10,9 +10,12 @@ import Foundation
 struct Specialization: Hashable, Codable, Identifiable {
     var id: Int = 0
     var name: String = ""
-    var images: [String] = []
-    var tier: Int = 1
+    var femaleName: String = ""
     var cost: String = ""
+    var description: String = ""
+    var tier: Int = 1
+    var images: [String] = []
+    var skills: Skills = Skills()
     var boosts: [Boost] = []
     
     func getImage() -> String {
@@ -23,14 +26,23 @@ struct Specialization: Hashable, Codable, Identifiable {
         }
     }
     
-    static let SAMPLE = Specialization(
-        id: 56,
-        name: "Inquisitor",
-        images: ["subclasses/apprentice/default_m.png"],
-        tier: 7,
-        cost: "50,000 orns",
-        boosts: [Boost(name: "Attack", value: 5), Boost(name: "Hit points", value: -5)]
-    )
+    struct Skills: Hashable, Codable {
+        var passives: [Passive] = []
+        var learns: [Learn] = []
+        var slots: Int = 0
+    }
+    
+    struct Learn: Hashable, Codable, Identifiable {
+        var id: Int = 0
+        var level: Int = 0
+        var name: String = ""
+        var type: String = ""
+    }
+    
+    struct Passive: Hashable, Codable, Identifiable {
+        var id: Int = 0
+        var name: String = ""
+    }
     
     struct Boost: Hashable, Codable {
         var name: String
@@ -57,4 +69,14 @@ struct Specialization: Hashable, Codable, Identifiable {
             }
         }
     }
+    
+    static let SAMPLE = Specialization(
+        id: 56,
+        name: "Inquisitor",
+        cost: "50,000 orns",
+        description: "A long forgotten Inquisitor of Avalon. Learns Holy and defensive skills.",
+        tier: 7,
+        images: ["subclasses/apprentice/default_m.png"],
+        boosts: [Boost(name: "Attack", value: 5), Boost(name: "Hit points", value: -5)]
+    )
 }

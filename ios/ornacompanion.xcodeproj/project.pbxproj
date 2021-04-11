@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,9 @@
 		93AB12BA261D917C009F75B5 /* Specialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB12B9261D917C009F75B5 /* Specialization.swift */; };
 		93AB12C0261D934D009F75B5 /* SpecializationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB12BF261D934D009F75B5 /* SpecializationList.swift */; };
 		93ABEE302621031600D6ED88 /* DarkStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABEE2F2621031600D6ED88 /* DarkStatusBar.swift */; };
+		93D3B16F2621D092002F9935 /* SpecializationResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 93D3B16E2621D092002F9935 /* SpecializationResponse.json */; };
+		93D3B17726233BC4002F9935 /* HideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3B17626233BC4002F9935 /* HideView.swift */; };
+		93D3B17D26236D01002F9935 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 93D3B17C26236D01002F9935 /* WrappingHStack */; };
 		93EE05DA261B569900E36184 /* ornacompanionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE05D9261B569900E36184 /* ornacompanionApp.swift */; };
 		93EE05DC261B569900E36184 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE05DB261B569900E36184 /* ContentView.swift */; };
 		93EE05DE261B569B00E36184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93EE05DD261B569B00E36184 /* Assets.xcassets */; };
@@ -65,6 +68,8 @@
 		93AB12B9261D917C009F75B5 /* Specialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specialization.swift; sourceTree = "<group>"; };
 		93AB12BF261D934D009F75B5 /* SpecializationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpecializationList.swift; path = ornacompanion/View/Discover/Items/SpecializationList.swift; sourceTree = SOURCE_ROOT; };
 		93ABEE2F2621031600D6ED88 /* DarkStatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkStatusBar.swift; sourceTree = "<group>"; };
+		93D3B16E2621D092002F9935 /* SpecializationResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SpecializationResponse.json; sourceTree = "<group>"; };
+		93D3B17626233BC4002F9935 /* HideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideView.swift; sourceTree = "<group>"; };
 		93EE05D6261B569900E36184 /* ornacompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ornacompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93EE05D9261B569900E36184 /* ornacompanionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ornacompanionApp.swift; sourceTree = "<group>"; };
 		93EE05DB261B569900E36184 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D3B17D26236D01002F9935 /* WrappingHStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +132,7 @@
 				9353E8B3261E58FF002F6E6D /* AsyncImage.swift */,
 				9353E8CA261F347D002F6E6D /* Tier.swift */,
 				93ABEE2F2621031600D6ED88 /* DarkStatusBar.swift */,
+				93D3B17626233BC4002F9935 /* HideView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -147,6 +154,14 @@
 				9353E8B8261E5B7B002F6E6D /* SpecializationDetail.swift */,
 			);
 			path = Specialization;
+			sourceTree = "<group>";
+		};
+		93D3B16D2621D074002F9935 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				93D3B16E2621D092002F9935 /* SpecializationResponse.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		93EE05CD261B569900E36184 = {
@@ -172,6 +187,7 @@
 		93EE05D8261B569900E36184 /* ornacompanion */ = {
 			isa = PBXGroup;
 			children = (
+				93D3B16D2621D074002F9935 /* Resources */,
 				9353E89A261DA45D002F6E6D /* ViewModel */,
 				93AB127C261CB26C009F75B5 /* Utils */,
 				93EE068A261B83DD00E36184 /* View */,
@@ -291,6 +307,9 @@
 			dependencies = (
 			);
 			name = ornacompanion;
+			packageProductDependencies = (
+				93D3B17C26236D01002F9935 /* WrappingHStack */,
+			);
 			productName = ornacompanion;
 			productReference = 93EE05D6261B569900E36184 /* ornacompanion.app */;
 			productType = "com.apple.product-type.application";
@@ -362,6 +381,9 @@
 				Base,
 			);
 			mainGroup = 93EE05CD261B569900E36184;
+			packageReferences = (
+				93D3B17B26236D01002F9935 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+			);
 			productRefGroup = 93EE05D7261B569900E36184 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -379,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93AB1278261CB0B7009F75B5 /* Colors.xcassets in Resources */,
+				93D3B16F2621D092002F9935 /* SpecializationResponse.json in Resources */,
 				93EE05E1261B569B00E36184 /* Preview Assets.xcassets in Resources */,
 				93EE05DE261B569B00E36184 /* Assets.xcassets in Resources */,
 			);
@@ -415,6 +438,7 @@
 				9353E89C261DA46D002F6E6D /* SpecializationViewModel.swift in Sources */,
 				93EE06CF261BB00800E36184 /* DiscoverItem.swift in Sources */,
 				93EE05DA261B569900E36184 /* ornacompanionApp.swift in Sources */,
+				93D3B17726233BC4002F9935 /* HideView.swift in Sources */,
 				93AB1293261D0154009F75B5 /* CardStyle.swift in Sources */,
 				93EE0693261BA4DD00E36184 /* Discover.swift in Sources */,
 				93AB12BA261D917C009F75B5 /* Specialization.swift in Sources */,
@@ -744,6 +768,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		93D3B17B26236D01002F9935 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		93D3B17C26236D01002F9935 /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93D3B17B26236D01002F9935 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 93EE05CE261B569900E36184 /* Project object */;
 }
