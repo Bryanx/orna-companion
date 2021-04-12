@@ -16,6 +16,7 @@ import nl.bryanderidder.ornaguide.pet.persistence.PetRepository
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
 import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationRepository
+import timber.log.Timber
 
 class SearchViewModel(
     private val characterClassRepo: CharacterClassRepository,
@@ -53,7 +54,7 @@ class SearchViewModel(
     }
 
     fun setQuery(query: String) {
-        val replace = query.replace(Regex("[^a-z| ]"), "")
+        val replace = query.replace(("[^a-z|^A-Z| |']").toRegex(), "")
         searchQuery.value = replace
     }
 
@@ -61,6 +62,7 @@ class SearchViewModel(
         searchResults.postValue(sharedPrefsUtil.getSearchHistory())
 
     private suspend fun loadSearchResults(query: String) {
+        Timber.i("loadSearchResults(${query})")
         combine(
             characterClassRepo.search(query).map { it.map(SearchResult::ofCharacterClass).toList() },
             skillRepo.search(query).map { it.map(SearchResult::ofSkill).toList() },
