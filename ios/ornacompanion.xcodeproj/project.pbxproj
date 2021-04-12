@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9312284B26242F6500A14BC7 /* IoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312284A26242F6500A14BC7 /* IoUtil.swift */; };
 		9353E89C261DA46D002F6E6D /* SpecializationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353E89B261DA46D002F6E6D /* SpecializationViewModel.swift */; };
 		9353E8A4261E4BF9002F6E6D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353E8A3261E4BF9002F6E6D /* Constant.swift */; };
 		9353E8AC261E57EE002F6E6D /* SpecializationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353E8AB261E57EE002F6E6D /* SpecializationListItem.swift */; };
 		9353E8B4261E58FF002F6E6D /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353E8B3261E58FF002F6E6D /* AsyncImage.swift */; };
 		9353E8B9261E5B7B002F6E6D /* SpecializationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353E8B8261E5B7B002F6E6D /* SpecializationDetail.swift */; };
 		9353E8CB261F347D002F6E6D /* Tier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353E8CA261F347D002F6E6D /* Tier.swift */; };
+		93A156842624C75E0070B820 /* FileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A156832624C75E0070B820 /* FileUtil.swift */; };
 		93AB1278261CB0B7009F75B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93AB1277261CB0B7009F75B5 /* Colors.xcassets */; };
 		93AB127E261CB276009F75B5 /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB127D261CB276009F75B5 /* ColorUtil.swift */; };
 		93AB128B261CF61C009F75B5 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB128A261CF61C009F75B5 /* ContainerView.swift */; };
@@ -55,12 +57,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9312284A26242F6500A14BC7 /* IoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoUtil.swift; sourceTree = "<group>"; };
 		9353E89B261DA46D002F6E6D /* SpecializationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializationViewModel.swift; sourceTree = "<group>"; };
 		9353E8A3261E4BF9002F6E6D /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9353E8AB261E57EE002F6E6D /* SpecializationListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecializationListItem.swift; sourceTree = "<group>"; };
 		9353E8B3261E58FF002F6E6D /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		9353E8B8261E5B7B002F6E6D /* SpecializationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializationDetail.swift; sourceTree = "<group>"; };
 		9353E8CA261F347D002F6E6D /* Tier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tier.swift; sourceTree = "<group>"; };
+		93A156832624C75E0070B820 /* FileUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtil.swift; sourceTree = "<group>"; };
 		93AB1277261CB0B7009F75B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		93AB127D261CB276009F75B5 /* ColorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
 		93AB128A261CF61C009F75B5 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 			children = (
 				93AB127D261CB276009F75B5 /* ColorUtil.swift */,
 				9353E8A3261E4BF9002F6E6D /* Constant.swift */,
+				9312284A26242F6500A14BC7 /* IoUtil.swift */,
+				93A156832624C75E0070B820 /* FileUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 				9353E8CB261F347D002F6E6D /* Tier.swift in Sources */,
 				9353E8AC261E57EE002F6E6D /* SpecializationListItem.swift in Sources */,
 				93AB127E261CB276009F75B5 /* ColorUtil.swift in Sources */,
+				93A156842624C75E0070B820 /* FileUtil.swift in Sources */,
 				93EE06AF261BA99000E36184 /* Settings.swift in Sources */,
 				93EE05DC261B569900E36184 /* ContentView.swift in Sources */,
 				93EE06A2261BA98400E36184 /* Search.swift in Sources */,
@@ -449,6 +456,7 @@
 				93ABEE302621031600D6ED88 /* DarkStatusBar.swift in Sources */,
 				93EE06AA261BA98C00E36184 /* Saved.swift in Sources */,
 				9353E8A4261E4BF9002F6E6D /* Constant.swift in Sources */,
+				9312284B26242F6500A14BC7 /* IoUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

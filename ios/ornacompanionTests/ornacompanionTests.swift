@@ -19,8 +19,8 @@ class ornacompanionTests: XCTestCase {
     }
 
     func testExample() throws {
-        let vm = SpecializationViewModel()
-        vm.fetchSpecialization()
+        let vm = SpecializationDetailViewModel()
+        vm.fetchSpecialization(id: 54)
         let expectation = XCTestExpectation()
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             expectation.fulfill()
