@@ -10,6 +10,10 @@ import SwiftUI
 struct SpecializationListItem: View {
     var specialization: Specialization
     
+    init(_ specialization: Specialization) {
+        self.specialization = specialization
+    }
+    
     var body: some View {
         ZStack(alignment: .topTrailing) {
             HStack {
@@ -46,9 +50,7 @@ struct SpecializationListItem: View {
 
 struct SpecializationListItem_Previews: PreviewProvider {
     static var previews: some View {
-        SpecializationListItem(
-            specialization: Specialization.SAMPLE
-        )
+        SpecializationListItem(Specialization.SAMPLE)
         .frame(width: 150, height: 150)
         .previewLayout(.fixed(width: 200, height: 250))
     }

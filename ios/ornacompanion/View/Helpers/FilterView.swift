@@ -13,6 +13,8 @@ struct FilterView<Content: View>: View {
     var isLoading: Bool
     var title: String
     
+    let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    
     init(
         _ title: String = "Title",
         bgColor: Color = ColorUtil.backgroundColorDark,
@@ -29,7 +31,11 @@ struct FilterView<Content: View>: View {
     var body: some View {
         ContainerView(bgColor: bgColor, isLoading: isLoading) {
             ZStack {
-                content
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 7) {
+                        content
+                    }.padding(.horizontal)
+                }
                 VStack {
                     Spacer()
                     HStack {
