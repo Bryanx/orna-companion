@@ -15,7 +15,7 @@ public class SpecializationViewModel: ObservableObject {
     func fetchSpecializations() {
         let result: [Specialization] = FileUtil.read("SpecializationResponse.json") ?? []
         if !result.isEmpty {
-            self.specializations = result
+            self.specializations = result.sorted { $0.tier < $1.tier}
             isLoading = false
             return
         }

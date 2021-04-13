@@ -15,6 +15,8 @@
 		9353E8B9261E5B7B002F6E6D /* SpecializationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353E8B8261E5B7B002F6E6D /* SpecializationDetail.swift */; };
 		9353E8CB261F347D002F6E6D /* Tier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353E8CA261F347D002F6E6D /* Tier.swift */; };
 		93A156842624C75E0070B820 /* FileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A156832624C75E0070B820 /* FileUtil.swift */; };
+		93A1569A2624EB9C0070B820 /* Fab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A156992624EB9C0070B820 /* Fab.swift */; };
+		93A1569F2625E4750070B820 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A1569E2625E4750070B820 /* FilterView.swift */; };
 		93AB1278261CB0B7009F75B5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93AB1277261CB0B7009F75B5 /* Colors.xcassets */; };
 		93AB127E261CB276009F75B5 /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB127D261CB276009F75B5 /* ColorUtil.swift */; };
 		93AB128B261CF61C009F75B5 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB128A261CF61C009F75B5 /* ContainerView.swift */; };
@@ -65,6 +67,8 @@
 		9353E8B8261E5B7B002F6E6D /* SpecializationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializationDetail.swift; sourceTree = "<group>"; };
 		9353E8CA261F347D002F6E6D /* Tier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tier.swift; sourceTree = "<group>"; };
 		93A156832624C75E0070B820 /* FileUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtil.swift; sourceTree = "<group>"; };
+		93A156992624EB9C0070B820 /* Fab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fab.swift; sourceTree = "<group>"; };
+		93A1569E2625E4750070B820 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		93AB1277261CB0B7009F75B5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		93AB127D261CB276009F75B5 /* ColorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
 		93AB128A261CF61C009F75B5 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 				9353E8CA261F347D002F6E6D /* Tier.swift */,
 				93ABEE2F2621031600D6ED88 /* DarkStatusBar.swift */,
 				93D3B17626233BC4002F9935 /* HideView.swift */,
+				93A156992624EB9C0070B820 /* Fab.swift */,
+				93A1569E2625E4750070B820 /* FilterView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -442,6 +448,7 @@
 				93EE06AF261BA99000E36184 /* Settings.swift in Sources */,
 				93EE05DC261B569900E36184 /* ContentView.swift in Sources */,
 				93EE06A2261BA98400E36184 /* Search.swift in Sources */,
+				93A1569F2625E4750070B820 /* FilterView.swift in Sources */,
 				9353E89C261DA46D002F6E6D /* SpecializationViewModel.swift in Sources */,
 				93EE06CF261BB00800E36184 /* DiscoverItem.swift in Sources */,
 				93EE05DA261B569900E36184 /* ornacompanionApp.swift in Sources */,
@@ -453,6 +460,7 @@
 				93EE06B4261BA99400E36184 /* Guides.swift in Sources */,
 				93AB12C0261D934D009F75B5 /* SpecializationList.swift in Sources */,
 				9353E8B9261E5B7B002F6E6D /* SpecializationDetail.swift in Sources */,
+				93A1569A2624EB9C0070B820 /* Fab.swift in Sources */,
 				93ABEE302621031600D6ED88 /* DarkStatusBar.swift in Sources */,
 				93EE06AA261BA98C00E36184 /* Saved.swift in Sources */,
 				9353E8A4261E4BF9002F6E6D /* Constant.swift in Sources */,

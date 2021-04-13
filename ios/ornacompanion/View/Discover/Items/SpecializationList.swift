@@ -13,7 +13,11 @@ struct SpecializationList: View {
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
-        ContainerView(isLoading: vm.isLoading) {
+        FilterView(
+            "Specializations",
+            isLoading: vm.isLoading,
+            onClickFilter: {}
+        ) {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 7) {
                     ForEach(vm.specializations) { item in
@@ -28,8 +32,6 @@ struct SpecializationList: View {
                 }.padding(.horizontal)
             }
         }
-        .navigationTitle("Specializations")
-        .navigationBarTitleDisplayMode(.large)
         .onAppear(perform: vm.fetchSpecializations)
     }
 }
