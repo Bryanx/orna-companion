@@ -63,7 +63,8 @@ class NpcRepository(
         onError: (String?) -> Unit
     ) = flow {
         val dbResult = getNpcFromDb(id)
-        emit(dbResult)
+        if (dbResult != null)
+            emit(dbResult)
         client.fetchNpcList(NpcRequestBody(id))
             .suspendOnSuccess {
                 // the network object has changed replace it in the db.
@@ -83,7 +84,7 @@ class NpcRepository(
     }
 
     @WorkerThread
-    suspend fun getNpcFromDb(id: Int): Npc = dao.getNpc(id)
+    suspend fun getNpcFromDb(id: Int): Npc? = dao.getNpc(id)
 
     @WorkerThread
     fun search(query: String) = flow {

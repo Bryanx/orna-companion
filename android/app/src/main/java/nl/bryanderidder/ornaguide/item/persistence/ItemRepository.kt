@@ -65,7 +65,8 @@ class ItemRepository(
         onError: (String?) -> Unit
     ) = flow {
         val dbResult = getItemFromDb(id)
-        emit(dbResult)
+        if (dbResult != null)
+            emit(dbResult)
         client.fetchItemList(ItemRequestBody(id))
             .suspendOnSuccess {
                 // the network object has changed replace it in the db.
@@ -85,7 +86,7 @@ class ItemRepository(
     }
 
     @WorkerThread
-    suspend fun getItemFromDb(id: Int): Item = dao.getItem(id)
+    suspend fun getItemFromDb(id: Int): Item? = dao.getItem(id)
 
     @WorkerThread
     fun search(query: String) = flow {

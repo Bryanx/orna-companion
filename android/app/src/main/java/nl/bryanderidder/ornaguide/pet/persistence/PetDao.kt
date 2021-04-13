@@ -19,7 +19,7 @@ interface PetDao {
     suspend fun insertPet(Pet: Pet)
 
     @Query("SELECT * FROM Pet WHERE id = :id")
-    suspend fun getPet(id: Int): Pet
+    suspend fun getPet(id: Int): Pet?
 
     @Query("SELECT DISTINCT tier FROM Pet ORDER BY tier")
     suspend fun getAllPossibleTiers(): List<Int>

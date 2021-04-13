@@ -63,7 +63,8 @@ class MonsterRepository(
         onError: (String?) -> Unit
     ) = flow {
         val dbResult = getMonsterFromDb(id)
-        emit(dbResult)
+        if (dbResult != null)
+            emit(dbResult)
         client.fetchMonsterList(MonsterRequestBody(id))
             .suspendOnSuccess {
                 // the network object has changed replace it in the db.
@@ -83,7 +84,7 @@ class MonsterRepository(
     }
 
     @WorkerThread
-    suspend fun getMonsterFromDb(id: Int): Monster = dao.getMonster(id)
+    suspend fun getMonsterFromDb(id: Int): Monster? = dao.getMonster(id)
 
     @WorkerThread
     fun search(query: String) = flow {

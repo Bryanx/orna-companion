@@ -19,7 +19,7 @@ interface SkillDao {
     suspend fun insertSkill(Skill: Skill)
 
     @Query("SELECT * FROM Skill WHERE id = :id")
-    suspend fun getSkill(id: Int): Skill
+    suspend fun getSkill(id: Int): Skill?
 
     @Query("SELECT DISTINCT tier FROM Skill ORDER BY tier")
     fun getAllPossibleTiers(): List<Int>

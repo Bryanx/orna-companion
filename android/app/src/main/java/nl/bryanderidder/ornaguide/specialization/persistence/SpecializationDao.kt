@@ -19,7 +19,7 @@ interface SpecializationDao {
     suspend fun insertSpecialization(Specialization: Specialization)
 
     @Query("SELECT * FROM Specialization WHERE id = :id")
-    suspend fun getSpecialization(id: Int): Specialization
+    suspend fun getSpecialization(id: Int): Specialization?
 
     @Query("SELECT DISTINCT tier FROM Specialization ORDER BY tier")
     suspend fun getAllPossibleTiers(): List<Int>

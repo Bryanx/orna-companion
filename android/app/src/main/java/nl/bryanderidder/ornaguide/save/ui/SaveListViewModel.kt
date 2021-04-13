@@ -71,14 +71,14 @@ class SaveListViewModel(
 
     private suspend fun getSaveFromSharedPrefs(): Save? {
         return when (type) {
-            Item.NAME -> Save.ofItem(itemRepo.getItemFromDb(sharedPrefsUtil.getItemId()))
-            Monster.NAME -> Save.ofMonster(monsterRepo.getMonsterFromDb(sharedPrefsUtil.getMonsterId()))
-            Skill.NAME -> Save.ofSkill(skillRepo.getSkillFromDb(sharedPrefsUtil.getSkillId()))
-            CharacterClass.NAME -> Save.ofCharacterClass(characterClassRepo.getCharacterClassFromDb(sharedPrefsUtil.getCharacterClassId()))
-            Pet.NAME -> Save.ofPet(petRepo.getPetFromDb(sharedPrefsUtil.getPetId()))
-            Specialization.NAME -> Save.ofSpecialization(specializationRepo.getSpecializationFromDb(sharedPrefsUtil.getSpecializationId()))
-            Npc.NAME -> Save.ofNpc(npcRepo.getNpcFromDb(sharedPrefsUtil.getNpcId()))
-            Achievement.NAME -> Save.ofAchievement(achievementRepo.getAchievementFromDb(sharedPrefsUtil.getAchievementId()))
+            Item.NAME -> itemRepo.getItemFromDb(sharedPrefsUtil.getItemId())?.let(Save.Companion::ofItem)
+            Monster.NAME -> monsterRepo.getMonsterFromDb(sharedPrefsUtil.getMonsterId())?.let(Save.Companion::ofMonster)
+            Skill.NAME -> skillRepo.getSkillFromDb(sharedPrefsUtil.getSkillId())?.let(Save.Companion::ofSkill)
+            CharacterClass.NAME -> characterClassRepo.getCharacterClassFromDb(sharedPrefsUtil.getCharacterClassId())?.let(Save.Companion::ofCharacterClass)
+            Pet.NAME -> petRepo.getPetFromDb(sharedPrefsUtil.getPetId())?.let(Save.Companion::ofPet)
+            Specialization.NAME -> specializationRepo.getSpecializationFromDb(sharedPrefsUtil.getSpecializationId())?.let(Save.Companion::ofSpecialization)
+            Npc.NAME -> npcRepo.getNpcFromDb(sharedPrefsUtil.getNpcId())?.let(Save.Companion::ofNpc)
+            Achievement.NAME -> achievementRepo.getAchievementFromDb(sharedPrefsUtil.getAchievementId())?.let(Save.Companion::ofAchievement)
             else -> null
         }
     }

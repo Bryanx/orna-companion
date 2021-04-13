@@ -63,7 +63,8 @@ class SkillRepository(
         onError: (String?) -> Unit
     ) = flow {
         val dbResult = getSkillFromDb(id)
-        emit(dbResult)
+        if (dbResult != null)
+            emit(dbResult)
         client.fetchSkillList(SkillRequestBody(id))
             .suspendOnSuccess {
                 // the network object has changed replace it in the db.
@@ -83,7 +84,7 @@ class SkillRepository(
     }
 
     @WorkerThread
-    suspend fun getSkillFromDb(id: Int): Skill = dao.getSkill(id)
+    suspend fun getSkillFromDb(id: Int): Skill? = dao.getSkill(id)
 
     @WorkerThread
     fun search(query: String) = flow {

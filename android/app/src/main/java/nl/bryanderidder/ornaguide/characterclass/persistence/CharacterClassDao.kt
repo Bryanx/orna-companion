@@ -19,7 +19,7 @@ interface CharacterClassDao {
     suspend fun insertCharacterClass(CharacterClass: CharacterClass)
 
     @Query("SELECT * FROM CharacterClass WHERE id = :id")
-    suspend fun getCharacterClass(id: Int): CharacterClass
+    suspend fun getCharacterClass(id: Int): CharacterClass?
 
     @Query("SELECT DISTINCT tier FROM CharacterClass ORDER BY tier")
     suspend fun getAllPossibleTiers(): List<Int>

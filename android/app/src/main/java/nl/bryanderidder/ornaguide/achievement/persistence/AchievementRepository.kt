@@ -63,7 +63,8 @@ class AchievementRepository(
         onError: (String?) -> Unit
     ) = flow {
         val dbResult = getAchievementFromDb(id)
-        emit(dbResult)
+        if (dbResult != null)
+            emit(dbResult)
         client.fetchAchievementList(AchievementRequestBody(id))
             .suspendOnSuccess {
                 // the network object has changed replace it in the db.
@@ -83,7 +84,7 @@ class AchievementRepository(
     }
 
     @WorkerThread
-    suspend fun getAchievementFromDb(id: Int): Achievement = dao.getAchievement(id)
+    suspend fun getAchievementFromDb(id: Int): Achievement? = dao.getAchievement(id)
 
     @WorkerThread
     fun search(query: String) = flow {

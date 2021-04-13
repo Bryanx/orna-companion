@@ -63,7 +63,8 @@ class PetRepository(
         onError: (String?) -> Unit
     ) = flow {
         val dbResult = getPetFromDb(id)
-        emit(dbResult)
+        if (dbResult != null)
+            emit(dbResult)
         client.fetchPetList(PetRequestBody(id))
             .suspendOnSuccess {
                 // the network object has changed replace it in the db.
@@ -83,7 +84,7 @@ class PetRepository(
     }
 
     @WorkerThread
-    suspend fun getPetFromDb(id: Int): Pet = dao.getPet(id)
+    suspend fun getPetFromDb(id: Int): Pet? = dao.getPet(id)
 
     @WorkerThread
     fun search(query: String) = flow {

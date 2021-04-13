@@ -19,7 +19,7 @@ interface AchievementDao {
     suspend fun insertAchievement(Achievement: Achievement)
 
     @Query("SELECT * FROM Achievement WHERE id = :id")
-    suspend fun getAchievement(id: Int): Achievement
+    suspend fun getAchievement(id: Int): Achievement?
 
     @Query("SELECT DISTINCT tier FROM Achievement ORDER BY tier")
     fun getAllPossibleTiers(): List<Int>

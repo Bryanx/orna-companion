@@ -65,7 +65,8 @@ class CharacterClassRepository(
         onError: (String?) -> Unit
     ) = flow {
         val dbResult = getCharacterClassFromDb(id)
-        emit(dbResult)
+        if (dbResult != null)
+            emit(dbResult)
         client.fetchCharacterClassList(CharacterClassRequestBody(id))
             .suspendOnSuccess {
                 // the network object has changed replace it in the db.
@@ -85,7 +86,7 @@ class CharacterClassRepository(
     }
 
     @WorkerThread
-    suspend fun getCharacterClassFromDb(id: Int): CharacterClass = dao.getCharacterClass(id)
+    suspend fun getCharacterClassFromDb(id: Int): CharacterClass? = dao.getCharacterClass(id)
 
     @WorkerThread
     fun search(query: String) = flow {

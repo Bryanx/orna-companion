@@ -64,7 +64,8 @@ class SpecializationRepository(
         onError: (String?) -> Unit
     ) = flow {
         val dbResult = getSpecializationFromDb(id)
-        emit(dbResult)
+        if (dbResult != null)
+            emit(dbResult)
         client.fetchSpecializationList(SpecializationRequestBody(id))
             .suspendOnSuccess {
                 // the network object has changed replace it in the db.
@@ -84,7 +85,7 @@ class SpecializationRepository(
     }
 
     @WorkerThread
-    suspend fun getSpecializationFromDb(id: Int): Specialization = dao.getSpecialization(id)
+    suspend fun getSpecializationFromDb(id: Int): Specialization? = dao.getSpecialization(id)
 
     @WorkerThread
     fun search(query: String) = flow {

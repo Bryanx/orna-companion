@@ -19,7 +19,7 @@ interface ItemDao {
     suspend fun insertItem(Item: Item)
 
     @Query("SELECT * FROM Item WHERE id = :id")
-    suspend fun getItem(id: Int): Item
+    suspend fun getItem(id: Int): Item?
 
     @Query("SELECT DISTINCT tier FROM Item ORDER BY tier")
     suspend fun getAllPossibleTiers(): List<Int>
