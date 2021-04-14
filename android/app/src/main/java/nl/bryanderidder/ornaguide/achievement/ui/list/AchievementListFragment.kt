@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentAchievementListBinding
+import nl.bryanderidder.ornaguide.shared.util.navigateSafely
 import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
@@ -25,7 +25,7 @@ class AchievementListFragment : BindingFragment<FragmentAchievementListBinding>(
             adapter = AchievementListAdapter(get())
             vm = getSharedViewModel()
             filterFab.setOnClickListener {
-                findNavController().navigate(R.id.action_achievementListFragment_to_achievementListFilterDialogFragment)
+                navigateSafely(R.id.action_achievementListFragment_to_achievementListFilterDialogFragment)
             }
         }.root
     }

@@ -1,8 +1,10 @@
 package nl.bryanderidder.ornaguide.pet.model
 
 import androidx.room.*
-import com.squareup.moshi.*
-import nl.bryanderidder.ornaguide.shared.util.*
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+import nl.bryanderidder.ornaguide.shared.util.NumberUtil
+import nl.bryanderidder.ornaguide.shared.util.ORNA_IMAGE_PREFIX
 
 @Entity
 @JsonClass(generateAdapter = true)

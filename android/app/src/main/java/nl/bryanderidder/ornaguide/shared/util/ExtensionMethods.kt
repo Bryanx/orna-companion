@@ -18,6 +18,9 @@ import android.widget.ImageView
 import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.textfield.TextInputEditText
@@ -25,6 +28,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 
 fun View.setViewPadding(
@@ -145,6 +149,22 @@ fun Context.getAttr(id: Int): Int {
 
 fun ImageView.setTint(id: Int, blendMode: PorterDuff.Mode = PorterDuff.Mode.SRC_IN) {
     this.setColorFilter(id, blendMode)
+}
+
+fun Fragment.navigateSafely(resId: Int) {
+    try {
+        findNavController().navigate(resId)
+    } catch (e: IllegalArgumentException) {
+        Timber.i("Can't open 2 links at once.")
+    }
+}
+
+fun View.navigateSafely(resId: Int) {
+    try {
+        findNavController().navigate(resId)
+    } catch (e: IllegalArgumentException) {
+        Timber.i("Can't open 2 links at once.")
+    }
 }
 
 // Darkens an int color by a certain factor

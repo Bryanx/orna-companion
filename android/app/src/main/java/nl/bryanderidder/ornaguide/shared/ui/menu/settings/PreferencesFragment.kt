@@ -2,7 +2,6 @@ package nl.bryanderidder.ornaguide.shared.ui.menu.settings
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.play.core.review.ReviewManagerFactory
@@ -11,6 +10,7 @@ import nl.bryanderidder.ornaguide.MainActivity
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.shared.ui.menu.sync.SyncActivity
 import nl.bryanderidder.ornaguide.shared.util.NetworkUtil
+import nl.bryanderidder.ornaguide.shared.util.navigateSafely
 import timber.log.Timber
 
 class PreferencesFragment : PreferenceFragmentCompat() {
@@ -26,7 +26,7 @@ class PreferencesFragment : PreferenceFragmentCompat() {
         onClick("license") { LibsBuilder().start(requireContext()) }
         onClick("rate") { requestReview() }
         onClick("contact") {
-            findNavController().navigate(R.id.action_settingsFragment_to_contactActivity)
+            navigateSafely(R.id.action_settingsFragment_to_contactActivity)
         }
     }
 

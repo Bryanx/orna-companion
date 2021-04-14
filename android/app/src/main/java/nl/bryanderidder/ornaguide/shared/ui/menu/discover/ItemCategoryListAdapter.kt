@@ -1,13 +1,13 @@
 package nl.bryanderidder.ornaguide.shared.ui.menu.discover
 
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.skydoves.bindables.binding
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.ItemCategoryBinding
+import nl.bryanderidder.ornaguide.shared.util.navigateSafely
 
 class ItemCategoryListAdapter :
     ListAdapter<ItemCategory, ItemCategoryListAdapter.ItemCategoryViewHolder>(DiffCallback()) {
@@ -16,7 +16,7 @@ class ItemCategoryListAdapter :
         val binding = parent.binding<ItemCategoryBinding>(R.layout.item_category)
         return ItemCategoryViewHolder(binding).apply {
             binding.cardView.setOnClickListener {
-                binding.cardView.findNavController().navigate(getItem(position).layout)
+                binding.cardView.navigateSafely(getItem(position).layout)
             }
         }
     }
