@@ -14,6 +14,10 @@
             type="nl.bryanderidder.ornaguide.item.ui.list.ItemListViewModel" />
 
         <variable
+            name="sharedPrefsUtil"
+            type="nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil" />
+
+        <variable
             name="adapter"
             type="nl.bryanderidder.ornaguide.item.ui.list.ItemListAdapter" />
 
@@ -61,10 +65,10 @@
             style="@style/databaseListRecyclerView"
             app:listAdapter="@{adapter}"
             app:listAdapterItems="@{vm.itemList}"
-            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title"
+            app:sameSizeDiscoverItems="@{sharedPrefsUtil}"
             tools:listitem="@layout/item_item"
             tools:spanCount="2"
             tools:padding="6dp"/>

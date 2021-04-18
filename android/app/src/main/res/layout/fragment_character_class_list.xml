@@ -13,6 +13,10 @@
             type="nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListViewModel" />
 
         <variable
+            name="sharedPrefsUtil"
+            type="nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil" />
+
+        <variable
             name="adapter"
             type="nl.bryanderidder.ornaguide.characterclass.ui.list.CharacterClassListAdapter" />
     </data>
@@ -61,10 +65,10 @@
             app:listAdapter="@{adapter}"
             app:listAdapterItems="@{vm.characterClassList}"
             android:background="@color/backgroundColorDark"
-            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title"
+            app:sameSizeDiscoverItems="@{sharedPrefsUtil}"
             tools:listitem="@layout/item_character_class"
             tools:spanCount="2"
             tools:padding="6dp"/>

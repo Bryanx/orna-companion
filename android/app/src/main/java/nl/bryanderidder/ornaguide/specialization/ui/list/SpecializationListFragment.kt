@@ -23,6 +23,7 @@ class SpecializationListFragment : BindingFragment<FragmentSpecializationListBin
             lifecycleOwner = this@SpecializationListFragment
             activity = requireActivity()
             adapter = SpecializationListAdapter(get())
+            sharedPrefsUtil = get()
             vm = getSharedViewModel()
             filterFab.setOnClickListener {
                 navigateSafely(R.id.action_specializationListFragment_to_specializationListFilterDialogFragment)

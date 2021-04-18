@@ -23,6 +23,7 @@ class PetListFragment : BindingFragment<FragmentPetListBinding>(R.layout.fragmen
             lifecycleOwner = this@PetListFragment
             activity = requireActivity()
             adapter = PetListAdapter(get())
+            sharedPrefsUtil = get()
             vm = getSharedViewModel()
             filterFab.setOnClickListener {
                 navigateSafely(R.id.action_petListFragment_to_petListFilterDialogFragment)

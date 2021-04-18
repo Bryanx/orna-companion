@@ -25,6 +25,7 @@ class ItemListFragment : BindingFragment<FragmentItemListBinding>(R.layout.fragm
             activity = requireActivity()
             adapter = ItemListAdapter(get())
             vm = getSharedViewModel()
+            sharedPrefsUtil = get()
             filterFab.setOnClickListener {
                 navigateSafely(R.id.action_itemListFragment_to_itemListFilterDialogFragment)
             }

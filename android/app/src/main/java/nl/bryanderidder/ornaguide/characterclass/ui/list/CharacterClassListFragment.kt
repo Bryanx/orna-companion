@@ -28,6 +28,7 @@ class CharacterClassListFragment : BindingFragment<FragmentCharacterClassListBin
             lifecycleOwner = this@CharacterClassListFragment
             activity = requireActivity()
             adapter = CharacterClassListAdapter(get())
+            sharedPrefsUtil = get()
             vm = getSharedViewModel()
             filterFab.setOnClickListener {
                 navigateSafely(R.id.action_characterClassListFragment_to_characterClassListFilterDialogFragment)

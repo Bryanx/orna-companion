@@ -22,6 +22,7 @@ class SkillListFragment :
             lifecycleOwner = this@SkillListFragment
             activity = requireActivity()
             adapter = SkillListAdapter(get())
+            sharedPrefsUtil = get()
             vm = getSharedViewModel()
             filterFab.setOnClickListener {
                 navigateSafely(R.id.action_skillListFragment_to_skillListFilterDialogFragment)

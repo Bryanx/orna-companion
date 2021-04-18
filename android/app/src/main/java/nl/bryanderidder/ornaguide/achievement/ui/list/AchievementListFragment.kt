@@ -23,6 +23,7 @@ class AchievementListFragment : BindingFragment<FragmentAchievementListBinding>(
             lifecycleOwner = this@AchievementListFragment
             activity = requireActivity()
             adapter = AchievementListAdapter(get())
+            sharedPrefsUtil = get()
             vm = getSharedViewModel()
             filterFab.setOnClickListener {
                 navigateSafely(R.id.action_achievementListFragment_to_achievementListFilterDialogFragment)

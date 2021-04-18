@@ -85,4 +85,6 @@
     <string name="contact">Contact</string>
     <string name="go_to_ornaguide">Go to Orna.Guide</string>
     <string name="join_orna_discord_server">Join orna Discord server</string>
+    <string name="same_size_discover">Same-size discover items</string>
+    <string name="same_size_summary">Makes all database results in the discover overview the same size.</string>
 </resources>

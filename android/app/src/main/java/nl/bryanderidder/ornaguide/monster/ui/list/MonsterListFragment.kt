@@ -24,6 +24,7 @@ class MonsterListFragment : BindingFragment<FragmentMonsterListBinding>(R.layout
             lifecycleOwner = this@MonsterListFragment
             activity = requireActivity()
             adapter = MonsterListAdapter(get())
+            sharedPrefsUtil = get()
             vm = getSharedViewModel()
             filterFab.setOnClickListener {
                 navigateSafely(R.id.action_monsterListFragment_to_monsterListFilterDialogFragment)

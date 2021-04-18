@@ -1,10 +1,13 @@
 package nl.bryanderidder.ornaguide.shared.bindingadapter
 
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchListAdapter
 import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 
 object RecyclerViewBindings {
@@ -31,6 +34,15 @@ object RecyclerViewBindings {
         if (view.adapter == null)
             view.adapter = adapter
         (view.adapter as SearchListAdapter).submitList(items?.take(50))
+    }
+
+    @JvmStatic
+    @BindingAdapter("sameSizeDiscoverItems")
+    fun bindSameSizeDiscoverItems(view: RecyclerView, sharedPrefsUtil: SharedPrefsUtil) {
+        if (sharedPrefsUtil.isSameSizeDiscoverItems())
+            view.layoutManager = GridLayoutManager(view.context, 2)
+        else
+            view.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
     }
 
 }

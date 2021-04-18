@@ -24,6 +24,7 @@ class NpcListFragment : BindingFragment<FragmentNpcListBinding>(R.layout.fragmen
             lifecycleOwner = this@NpcListFragment
             activity = requireActivity()
             adapter = NpcListAdapter(get())
+            sharedPrefsUtil = get()
             vm = getSharedViewModel()
             filterFab.setOnClickListener {
                 navigateSafely(R.id.action_npcListFragment_to_npcListFilterDialogFragment)
