@@ -26,6 +26,7 @@ import nl.bryanderidder.ornaguide.pet.ui.detail.PetDetailViewModel
 import nl.bryanderidder.ornaguide.pet.ui.list.PetListViewModel
 import nl.bryanderidder.ornaguide.save.persistence.SaveRepository
 import nl.bryanderidder.ornaguide.save.ui.SaveListViewModel
+import nl.bryanderidder.ornaguide.shared.database.DatabaseMigrations
 import nl.bryanderidder.ornaguide.shared.database.OrnaDatabase
 import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
 import nl.bryanderidder.ornaguide.shared.network.CachingInterceptor
@@ -114,6 +115,7 @@ val appModule: Module = module {
         Room.databaseBuilder(androidApplication(), OrnaDatabase::class.java, "Orna.db")
             .createFromAsset("databases/Orna.db")
             .addTypeConverter(get<OrnaTypeConverters>())
+            .addMigrations(DatabaseMigrations.MIGRATION_2_3)
             .build()
     }
 

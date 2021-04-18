@@ -4,7 +4,9 @@ import androidx.room.*
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
+import nl.bryanderidder.ornaguide.shared.util.NumberUtil
 import nl.bryanderidder.ornaguide.shared.util.ORNA_IMAGE_PREFIX
+import timber.log.Timber
 
 @Entity
 @JsonClass(generateAdapter = true)
@@ -13,6 +15,7 @@ data class Specialization(
     @Json(name = "name") val name: String = "",
     @Json(name = "female_name") val femaleName: String = "",
     @Json(name = "cost") val cost: String = "",
+    @Json(name = "price") val price: String = "",
     @Json(name = "description") val description: String = "",
     @Json(name = "tier") val tier: Int = 0,
     @Json(name = "images") val images: List<String> = listOf(),
@@ -52,6 +55,17 @@ data class Specialization(
                 "+$value%"
             else
                 "$value%"
+    }
+
+    @Ignore
+    fun formattedCost(): String = try {
+        if (cost.isEmpty())
+            "${NumberUtil.formatNumber(price.toDouble())} orns"
+        else
+            cost
+    } catch (e: NumberFormatException) {
+        Timber.e(e, "Couldn't format number for specialization price {\"id\":$id, \"price\": $price}")
+        cost
     }
 
     companion object {
