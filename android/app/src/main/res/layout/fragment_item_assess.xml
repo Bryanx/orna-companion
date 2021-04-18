@@ -54,6 +54,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="numberSigned"
                     android:maxLines="1"
+                    android:maxLength="6"
                     app:textChangedListener="@{assessVM::updateAttack}" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,6 +75,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="numberSigned"
                     android:maxLines="1"
+                    android:maxLength="6"
                     app:textChangedListener="@{assessVM::updateDefense}" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -94,6 +96,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="numberSigned"
                     android:maxLines="1"
+                    android:maxLength="6"
                     app:textChangedListener="@{assessVM::updateResistance}" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,6 +117,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="numberSigned"
                     android:maxLines="1"
+                    android:maxLength="6"
                     app:textChangedListener="@{assessVM::updateHp}" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -134,6 +138,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="numberSigned"
                     android:maxLines="1"
+                    android:maxLength="6"
                     app:textChangedListener="@{assessVM::updateMagic}" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -154,6 +159,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="numberSigned"
                     android:maxLines="1"
+                    android:maxLength="6"
                     app:textChangedListener="@{assessVM::updateMana}" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -174,6 +180,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="numberSigned"
                     android:maxLines="1"
+                    android:maxLength="6"
                     app:textChangedListener="@{assessVM::updateDexterity}" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -193,6 +200,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="numberSigned"
                     android:maxLines="1"
+                    android:maxLength="2"
                     app:textChangedListener="@{assessVM::updateLevel}" />
             </com.google.android.material.textfield.TextInputLayout>
 
