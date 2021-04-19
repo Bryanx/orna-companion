@@ -54,6 +54,10 @@ class ItemAssessViewModel(
         if (inputIsValid(value)) itemAssessBody.dexterity = value.toInt()
     }
 
+    fun updateWard(value: String) {
+        if (inputIsValid(value)) itemAssessBody.ward = value.toInt()
+    }
+
     fun updateLevel(value: String) {
         if (inputIsValid(value)) itemAssessBody.level = value.toInt()
     }
@@ -82,6 +86,7 @@ class ItemAssessViewModel(
         stats.containsKey("Mag") && itemAssessBody.magic == null -> false
         stats.containsKey("Mana") && itemAssessBody.mana == null -> false
         stats.containsKey("Dex") && itemAssessBody.dexterity == null -> false
+        stats.containsKey("Ward") && itemAssessBody.ward == null -> false
         else -> true
     }
 }

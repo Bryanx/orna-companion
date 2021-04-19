@@ -20,4 +20,5 @@ data class ItemAssessRequestBody(
     @Json(name = "defense") var defense: Int? = null,
     @Json(name = "resistance") var resistance: Int? = null,
     @Json(name = "dexterity") var dexterity: Int? = null,
+    @Json(name = "ward") var ward: Int? = null,
 )
