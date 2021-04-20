@@ -34,7 +34,7 @@ struct SpecializationListItem: View {
                         .foregroundColor(boost.value >= 0 ? .green : .red)
                     }
                 }.padding(.vertical, 1)
-                Text("\(specialization.cost)")
+                Text("\(specialization.formattedCost())")
                     .fontWeight(.bold)
                 Spacer()
             }

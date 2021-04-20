@@ -41,7 +41,7 @@ public class SpecializationViewModel: ObservableObject {
             self.specializations = results
                 .sorted { $0.tier < $1.tier}
                 .filter { self.selectedTiers.contains($0.tier) }
-            FileUtil.write("SpecializationResponse.json", data: self.specializations)
+            FileUtil.write("SpecializationResponse.json", data: results)
             self.isLoading = false
         }, onError: {
             self.isLoading = false

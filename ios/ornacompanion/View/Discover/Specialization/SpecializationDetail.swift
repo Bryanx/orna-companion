@@ -73,7 +73,7 @@ struct SpecializationDetailTop: View {
                 .foregroundColor(boost.value >= 0 ? .green : .red)
             }
         }.padding(.vertical, 1)
-        Text("\(vm.specialization.cost)")
+        Text("\(vm.specialization.formattedCost())")
             .fontWeight(.bold)
     }
 }

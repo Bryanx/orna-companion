@@ -12,6 +12,7 @@ struct Specialization: Hashable, Codable, Identifiable {
     var name: String = ""
     var femaleName: String = ""
     var cost: String = ""
+    var price: String = ""
     var description: String = ""
     var tier: Int = 1
     var images: [String] = []
@@ -23,6 +24,14 @@ struct Specialization: Hashable, Codable, Identifiable {
           return ""
         } else {
           return Constant.ORNA_IMAGE_PREFIX + images[images.count - 1]
+        }
+    }
+    
+    func formattedCost() -> String {
+        if cost.isEmpty {
+            return "\(NumberUtil.formatNumber(price)) orns"
+        } else {
+            return cost
         }
     }
     
