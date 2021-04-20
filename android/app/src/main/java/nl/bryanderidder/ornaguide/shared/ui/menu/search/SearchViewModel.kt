@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRepository
@@ -74,6 +75,7 @@ class SearchViewModel(
             achievementRepo.search(query).map { it.map(SearchResult::ofAchievement).toList() },
         ) {
             it.asList().flatten()
-        }.collect(searchResults::postValue)
+        }.flowOn(Dispatchers.Default)
+            .collect(searchResults::postValue)
     }
 }
