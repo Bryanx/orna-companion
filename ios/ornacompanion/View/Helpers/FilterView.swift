@@ -12,6 +12,7 @@ struct FilterView<Content: View>: View {
     var bgColor: Color
     var isLoading: Bool
     var title: String
+    var onClickFilter: () -> Void
     
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
@@ -19,12 +20,13 @@ struct FilterView<Content: View>: View {
         _ title: String = "Title",
         bgColor: Color = ColorUtil.backgroundColorDark,
         isLoading: Bool = false,
-        onClickFilter: () -> Void = {},
+        onClickFilter: @escaping () -> Void = {},
         content: () -> Content
     ) {
         self.bgColor = bgColor
         self.content = content()
         self.isLoading = isLoading
+        self.onClickFilter = onClickFilter
         self.title = title
     }
     
@@ -40,7 +42,8 @@ struct FilterView<Content: View>: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        Fab(image: Image(systemName: "line.horizontal.3.decrease"))
+                        Fab(onClick: onClickFilter,
+                            image: Image(systemName: "line.horizontal.3.decrease"))
                             .padding()
                     }
                 }

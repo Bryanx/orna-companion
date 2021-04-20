@@ -10,12 +10,27 @@ import SwiftUI
 
 public class SpecializationViewModel: ObservableObject {
     @Published var specializations = [Specialization]()
+    @Published var allPossibleTiers = [Int]()
+    @Published var selectedTiers = [3]
     @Published var isLoading = true
+    
+    func fetchAllPossibleTiers() {
+        guard self.allPossibleTiers.isEmpty else { return }
+        let result: [Specialization] = FileUtil.read("SpecializationResponse.json") ?? []
+        self.allPossibleTiers = result.map { $0.tier }.distinct().sorted()
+    }
+    
+    func applyFilter(_ selectedTiers: [Int]) {
+        self.selectedTiers = selectedTiers
+        fetchSpecializations()
+    }
     
     func fetchSpecializations() {
         let result: [Specialization] = FileUtil.read("SpecializationResponse.json") ?? []
         if !result.isEmpty {
-            self.specializations = result.sorted { $0.tier < $1.tier}
+            self.specializations = result
+                .sorted { $0.tier < $1.tier}
+                .filter { self.selectedTiers.contains($0.tier) }
             isLoading = false
             return
         }
@@ -24,6 +39,8 @@ public class SpecializationViewModel: ObservableObject {
         
         IoUtil.loadFromNetwork(url, onSuccess: { (results:[Specialization]) in
             self.specializations = results
+                .sorted { $0.tier < $1.tier}
+                .filter { self.selectedTiers.contains($0.tier) }
             FileUtil.write("SpecializationResponse.json", data: self.specializations)
             self.isLoading = false
         }, onError: {

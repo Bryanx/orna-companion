@@ -16,14 +16,10 @@ struct SpecializationDetail: View {
         ContainerView(isLoading: vm.isLoading) {
             ScrollView {
                 ZStack(alignment: .top) {
-                    HStack {
-                        Spacer()
-                        VStack {
-                            SpecializationDetailTop(vm: vm)
-                            Rectangle().frame(height:1).foregroundColor(ColorUtil.dividerColor)
-                            SpecializationDetailBottom(vm: vm)
-                            Spacer()
-                        }
+                    VStack {
+                        SpecializationDetailTop(vm: vm)
+                        Rectangle().frame(height:1).foregroundColor(ColorUtil.dividerColor)
+                        SpecializationDetailBottom(vm: vm)
                         Spacer()
                     }
                     Tier(value: vm.specialization.tier)
@@ -91,18 +87,18 @@ struct SpecializationDetailBottom: View {
             .multilineTextAlignment(.center)
         Text("Passive skills")
             .hideIf(vm.specialization.skills.passives.isEmpty)
-        WrappingHStack(alignment: .center, spacing: 0, data: vm.specialization.skills.passives) { passive in
+        WrappingHStack(vm.specialization.skills.passives, spacing: .dynamic(minSpacing: 8)) { passive in
             VStack {
                 Text(passive.name)
-                .padding(.all, 20)
-                .background(ColorUtil.cardColor)
-                .cornerRadius(10)
-                .padding(.all, 5)
+                    .padding(.all, 20)
+                    .background(ColorUtil.cardColor)
+                    .cornerRadius(10)
+                    .padding(.all, 5)
             }
         }
         Text("Skills Learned")
             .hideIf(vm.specialization.skills.learns.isEmpty)
-        WrappingHStack(alignment: .center, spacing: 0, data: vm.specialization.skills.learns) { learn in
+        WrappingHStack(vm.specialization.skills.learns, alignment: .center, spacing: .constant(0)) { learn in
             VStack {
                 Text(learn.name)
                 Text("Lvl \(learn.level)")

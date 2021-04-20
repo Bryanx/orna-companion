@@ -15,34 +15,33 @@ struct SpecializationListItem: View {
     }
     
     var body: some View {
-        ZStack(alignment: .topTrailing) {
-            HStack {
+        ZStack(alignment: .center) {
+            VStack(alignment:.center) {
                 Spacer()
-                VStack {
-                    Spacer()
-                    AsyncImage(url: specialization.getImage(),
-                               placeholder: { ProgressView() },
-                               image: { Image(uiImage: $0).resizable() })
-                        .frame(width: 70, height: 70)
-                    Text("\(specialization.name)")
-                        .fontWeight(.bold)
-                        .padding(.top, 2)
-                    HStack {
-                        ForEach(specialization.boosts, id: \.name) { boost in
-                            VStack {
-                                Text("\(boost.formattedName())")
-                                Text("\(boost.formattedValue())")
-                            }
-                            .foregroundColor(boost.value >= 0 ? .green : .red)
+                AsyncImage(url: specialization.getImage(),
+                           placeholder: { ProgressView() },
+                           image: { Image(uiImage: $0).resizable() })
+                    .frame(width: 70, height: 70)
+                Text("\(specialization.name)")
+                    .fontWeight(.bold)
+                    .padding(.top, 2)
+                HStack {
+                    ForEach(specialization.boosts, id: \.name) { boost in
+                        VStack {
+                            Text("\(boost.formattedName())")
+                            Text("\(boost.formattedValue())")
                         }
-                    }.padding(.vertical, 1)
-                    Text("\(specialization.cost)")
-                        .fontWeight(.bold)
-                    Spacer()
-                }
+                        .foregroundColor(boost.value >= 0 ? .green : .red)
+                    }
+                }.padding(.vertical, 1)
+                Text("\(specialization.cost)")
+                    .fontWeight(.bold)
                 Spacer()
             }
-            Tier(value: specialization.tier)
+            VStack {
+                Tier(value: specialization.tier)
+                Spacer()
+            }
         }
         .modifier(CardStyle())
     }
