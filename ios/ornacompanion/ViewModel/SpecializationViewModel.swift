@@ -16,7 +16,7 @@ public class SpecializationViewModel: ObservableObject {
     
     func fetchAllPossibleTiers() {
         guard self.allPossibleTiers.isEmpty else { return }
-        let result: [Specialization] = FileUtil.read("SpecializationResponse.json") ?? []
+        let result: [Specialization] = FileUtil.read(Constant.DB_SPECIALIZATION_NAME) ?? []
         self.allPossibleTiers = result.map { $0.tier }.distinct().sorted()
     }
     
@@ -26,7 +26,7 @@ public class SpecializationViewModel: ObservableObject {
     }
     
     func fetchSpecializations() {
-        let result: [Specialization] = FileUtil.read("SpecializationResponse.json") ?? []
+        let result: [Specialization] = FileUtil.read(Constant.DB_SPECIALIZATION_NAME) ?? []
         if !result.isEmpty {
             self.specializations = result
                 .sorted { $0.tier < $1.tier}
@@ -41,7 +41,7 @@ public class SpecializationViewModel: ObservableObject {
             self.specializations = results
                 .sorted { $0.tier < $1.tier}
                 .filter { self.selectedTiers.contains($0.tier) }
-            FileUtil.write("SpecializationResponse.json", data: results)
+            FileUtil.write(Constant.DB_SPECIALIZATION_NAME, data: results)
             self.isLoading = false
         }, onError: {
             self.isLoading = false
@@ -54,7 +54,7 @@ public class SpecializationDetailViewModel: ObservableObject {
     @Published var isLoading = true
     
     func fetchSpecialization(id: Int) {
-        let specializations: [Specialization] = FileUtil.read("SpecializationResponse.json") ?? []
+        let specializations: [Specialization] = FileUtil.read(Constant.DB_SPECIALIZATION_NAME) ?? []
         specialization = specializations.first(where: { $0.id == id }) ?? Specialization()
         isLoading = false
         
@@ -63,7 +63,7 @@ public class SpecializationDetailViewModel: ObservableObject {
         IoUtil.loadFromNetwork(url, ["id":id], onSuccess: { (result:[Specialization]) in
             guard let firstResult = result.first else { return }
             if (self.specialization != firstResult) {
-                FileUtil.update("SpecializationResponse.json", data: firstResult)
+                FileUtil.update(Constant.DB_SPECIALIZATION_NAME, data: firstResult)
                 self.specialization = firstResult
             }
             self.isLoading = false

@@ -10,4 +10,7 @@ struct Constant {
     static let SPECIALIZATION_URL = BASE_URL + "specialization"
     static let ORNA_IMAGE_PREFIX = "https://orna.guide/static/orna/img/"
     static let ORNA_ICON_IMAGE_PREFIX = "https://orna.guide/static/orna/img/icons/"
+    
+    // cache files
+    static let DB_SPECIALIZATION_NAME = "SpecializationResponse.json"
 }
