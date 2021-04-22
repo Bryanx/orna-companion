@@ -21,11 +21,13 @@ struct ContentView: View {
     var body: some View {
         ContainerView {
             TabView(selection: $selection) {
-                Discover()
-                    .tabItem {
-                        Label("Discover", systemImage: "safari")
-                    }
-                    .tag(Tab.discover)
+                NavigationView {
+                    Discover()
+                }.navigationViewStyle(StackNavigationViewStyle())
+                .tabItem {
+                    Label("Discover", systemImage: "safari")
+                }
+                .tag(Tab.discover)
                 Saved()
                     .tabItem {
                         Label("Saved", systemImage: "bookmark")
