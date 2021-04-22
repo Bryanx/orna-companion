@@ -87,7 +87,7 @@ struct SpecializationDetailBottom: View {
             .multilineTextAlignment(.center)
         Text("Passive skills")
             .hideIf(vm.specialization.skills.passives.isEmpty)
-        WrappingHStack(vm.specialization.skills.passives, spacing: .dynamic(minSpacing: 8)) { passive in
+        WrappingHStack(vm.specialization.skills.passives, alignment: .center, spacing: .constant(0)) { passive in
             VStack {
                 Text(passive.name)
                     .padding(.all, 20)
