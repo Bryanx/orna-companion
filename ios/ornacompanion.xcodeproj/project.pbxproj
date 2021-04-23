@@ -10,6 +10,14 @@
 		9312284B26242F6500A14BC7 /* IoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312284A26242F6500A14BC7 /* IoUtil.swift */; };
 		932D5BF6262F6273008CB148 /* NumberUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D5BF5262F6273008CB148 /* NumberUtil.swift */; };
 		932D5C032630623C008CB148 /* SpecializationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D5C022630623C008CB148 /* SpecializationList.swift */; };
+		932D5C23263206E6008CB148 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D5C22263206E6008CB148 /* Skill.swift */; };
+		932D5C3F263211FB008CB148 /* SkillList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D5C3E263211FB008CB148 /* SkillList.swift */; };
+		932D5C4726321202008CB148 /* SkillListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D5C4626321202008CB148 /* SkillListItem.swift */; };
+		932D5C4C263213B0008CB148 /* SkillDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D5C4B263213B0008CB148 /* SkillDetail.swift */; };
+		932D5C51263213BE008CB148 /* SkillFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D5C50263213BE008CB148 /* SkillFilterSheet.swift */; };
+		932D5C5626321406008CB148 /* SkillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D5C5526321406008CB148 /* SkillViewModel.swift */; };
+		932D5C66263363EC008CB148 /* DecodableUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D5C65263363EC008CB148 /* DecodableUtil.swift */; };
+		932D5C6F26336786008CB148 /* BetterCodable in Frameworks */ = {isa = PBXBuildFile; productRef = 932D5C6E26336786008CB148 /* BetterCodable */; };
 		9353E89C261DA46D002F6E6D /* SpecializationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353E89B261DA46D002F6E6D /* SpecializationViewModel.swift */; };
 		9353E8A4261E4BF9002F6E6D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353E8A3261E4BF9002F6E6D /* Constant.swift */; };
 		9353E8AC261E57EE002F6E6D /* SpecializationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353E8AB261E57EE002F6E6D /* SpecializationListItem.swift */; };
@@ -66,6 +74,13 @@
 		9312284A26242F6500A14BC7 /* IoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoUtil.swift; sourceTree = "<group>"; };
 		932D5BF5262F6273008CB148 /* NumberUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberUtil.swift; sourceTree = "<group>"; };
 		932D5C022630623C008CB148 /* SpecializationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpecializationList.swift; path = ornacompanion/Specialization/View/SpecializationList.swift; sourceTree = SOURCE_ROOT; };
+		932D5C22263206E6008CB148 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		932D5C3E263211FB008CB148 /* SkillList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillList.swift; sourceTree = "<group>"; };
+		932D5C4626321202008CB148 /* SkillListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillListItem.swift; sourceTree = "<group>"; };
+		932D5C4B263213B0008CB148 /* SkillDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetail.swift; sourceTree = "<group>"; };
+		932D5C50263213BE008CB148 /* SkillFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillFilterSheet.swift; sourceTree = "<group>"; };
+		932D5C5526321406008CB148 /* SkillViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillViewModel.swift; sourceTree = "<group>"; };
+		932D5C65263363EC008CB148 /* DecodableUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableUtil.swift; sourceTree = "<group>"; };
 		9353E89B261DA46D002F6E6D /* SpecializationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializationViewModel.swift; sourceTree = "<group>"; };
 		9353E8A3261E4BF9002F6E6D /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9353E8AB261E57EE002F6E6D /* SpecializationListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecializationListItem.swift; sourceTree = "<group>"; };
@@ -112,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93D3B17D26236D01002F9935 /* WrappingHStack in Frameworks */,
+				932D5C6F26336786008CB148 /* BetterCodable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +170,59 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		932D5C1E263206D0008CB148 /* Skills */ = {
+			isa = PBXGroup;
+			children = (
+				932D5C21263206DC008CB148 /* ViewModel */,
+				932D5C20263206D5008CB148 /* Model */,
+				932D5C1F263206D3008CB148 /* View */,
+			);
+			path = Skills;
+			sourceTree = "<group>";
+		};
+		932D5C1F263206D3008CB148 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				932D5C3E263211FB008CB148 /* SkillList.swift */,
+				932D5C4626321202008CB148 /* SkillListItem.swift */,
+				932D5C4B263213B0008CB148 /* SkillDetail.swift */,
+				932D5C50263213BE008CB148 /* SkillFilterSheet.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		932D5C20263206D5008CB148 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				932D5C22263206E6008CB148 /* Skill.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		932D5C21263206DC008CB148 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				932D5C5526321406008CB148 /* SkillViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		932D5C5A26333DCA008CB148 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				93EE05ED261B569B00E36184 /* Info.plist */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		932D5C5B26333DCE008CB148 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				93EE05F8261B569B00E36184 /* Info.plist */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		9353E89A261DA45D002F6E6D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +257,7 @@
 				93A156832624C75E0070B820 /* FileUtil.swift */,
 				93DB572026285ED200FB2422 /* ArrayUtil.swift */,
 				932D5BF5262F6273008CB148 /* NumberUtil.swift */,
+				932D5C65263363EC008CB148 /* DecodableUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -226,6 +296,7 @@
 		93EE05D8261B569900E36184 /* ornacompanion */ = {
 			isa = PBXGroup;
 			children = (
+				932D5C1E263206D0008CB148 /* Skills */,
 				932D5BFE2630615A008CB148 /* Shared */,
 				932D5BFA26306112008CB148 /* Specialization */,
 				93EE05D9261B569900E36184 /* ornacompanionApp.swift */,
@@ -245,8 +316,8 @@
 		93EE05EA261B569B00E36184 /* ornacompanionTests */ = {
 			isa = PBXGroup;
 			children = (
+				932D5C5A26333DCA008CB148 /* Shared */,
 				93EE05EB261B569B00E36184 /* ornacompanionTests.swift */,
-				93EE05ED261B569B00E36184 /* Info.plist */,
 			);
 			path = ornacompanionTests;
 			sourceTree = "<group>";
@@ -254,8 +325,8 @@
 		93EE05F5261B569B00E36184 /* ornacompanionUITests */ = {
 			isa = PBXGroup;
 			children = (
+				932D5C5B26333DCE008CB148 /* Shared */,
 				93EE05F6261B569B00E36184 /* ornacompanionUITests.swift */,
-				93EE05F8261B569B00E36184 /* Info.plist */,
 			);
 			path = ornacompanionUITests;
 			sourceTree = "<group>";
@@ -341,6 +412,7 @@
 			name = ornacompanion;
 			packageProductDependencies = (
 				93D3B17C26236D01002F9935 /* WrappingHStack */,
+				932D5C6E26336786008CB148 /* BetterCodable */,
 			);
 			productName = ornacompanion;
 			productReference = 93EE05D6261B569900E36184 /* ornacompanion.app */;
@@ -415,6 +487,7 @@
 			mainGroup = 93EE05CD261B569900E36184;
 			packageReferences = (
 				93D3B17B26236D01002F9935 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+				932D5C6D26336786008CB148 /* XCRemoteSwiftPackageReference "BetterCodable" */,
 			);
 			productRefGroup = 93EE05D7261B569900E36184 /* Products */;
 			projectDirPath = "";
@@ -459,19 +532,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				932D5C4C263213B0008CB148 /* SkillDetail.swift in Sources */,
 				93A156A726263B250070B820 /* SpecializationFilterSheet.swift in Sources */,
 				9353E8B4261E58FF002F6E6D /* AsyncImage.swift in Sources */,
 				9353E8CB261F347D002F6E6D /* Tier.swift in Sources */,
 				9353E8AC261E57EE002F6E6D /* SpecializationListItem.swift in Sources */,
 				932D5C032630623C008CB148 /* SpecializationList.swift in Sources */,
+				932D5C66263363EC008CB148 /* DecodableUtil.swift in Sources */,
+				932D5C3F263211FB008CB148 /* SkillList.swift in Sources */,
 				93AB127E261CB276009F75B5 /* ColorUtil.swift in Sources */,
 				93A156842624C75E0070B820 /* FileUtil.swift in Sources */,
 				93EE06AF261BA99000E36184 /* Settings.swift in Sources */,
+				932D5C5626321406008CB148 /* SkillViewModel.swift in Sources */,
+				932D5C4726321202008CB148 /* SkillListItem.swift in Sources */,
 				93EE05DC261B569900E36184 /* ContentView.swift in Sources */,
 				93EE06A2261BA98400E36184 /* Search.swift in Sources */,
 				93A1569F2625E4750070B820 /* FilterView.swift in Sources */,
 				9353E89C261DA46D002F6E6D /* SpecializationViewModel.swift in Sources */,
 				93DB572126285ED200FB2422 /* ArrayUtil.swift in Sources */,
+				932D5C23263206E6008CB148 /* Skill.swift in Sources */,
 				93EE06CF261BB00800E36184 /* DiscoverItem.swift in Sources */,
 				93EE05DA261B569900E36184 /* ornacompanionApp.swift in Sources */,
 				932D5BF6262F6273008CB148 /* NumberUtil.swift in Sources */,
@@ -481,6 +560,7 @@
 				93EE0693261BA4DD00E36184 /* Discover.swift in Sources */,
 				93AB12BA261D917C009F75B5 /* Specialization.swift in Sources */,
 				93AB128B261CF61C009F75B5 /* ContainerView.swift in Sources */,
+				932D5C51263213BE008CB148 /* SkillFilterSheet.swift in Sources */,
 				93EE06B4261BA99400E36184 /* Guides.swift in Sources */,
 				9353E8B9261E5B7B002F6E6D /* SpecializationDetail.swift in Sources */,
 				93A1569A2624EB9C0070B820 /* Fab.swift in Sources */,
@@ -810,6 +890,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		932D5C6D26336786008CB148 /* XCRemoteSwiftPackageReference "BetterCodable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marksands/BetterCodable";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
 		93D3B17B26236D01002F9935 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dkk/WrappingHStack";
@@ -821,6 +909,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		932D5C6E26336786008CB148 /* BetterCodable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 932D5C6D26336786008CB148 /* XCRemoteSwiftPackageReference "BetterCodable" */;
+			productName = BetterCodable;
+		};
 		93D3B17C26236D01002F9935 /* WrappingHStack */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 93D3B17B26236D01002F9935 /* XCRemoteSwiftPackageReference "WrappingHStack" */;

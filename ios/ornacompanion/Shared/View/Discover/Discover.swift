@@ -16,13 +16,21 @@ struct Discover: View {
         GridItem(.flexible())
     ]
     
+    @ViewBuilder func getDestination(_ key: String) -> some View {
+        if key == categories[1] {
+            SpecializationList()
+        } else {
+            SkillList()
+        }
+    }
+    
     var body: some View {
         ContainerView {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 7) {
                     ForEach(categories, id: \.self) { key in
                         NavigationLink(
-                            destination: SpecializationList(),
+                            destination: getDestination(key),
                             label: {
                                 DiscoverItem(
                                     name: key,

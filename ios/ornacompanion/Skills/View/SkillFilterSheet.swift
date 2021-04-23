@@ -1,5 +1,5 @@
 //
-//  SpecializationFilterSheet.swift
+//  SkillFilterSheet.swift
 //  ornacompanion
 //
 //  Created by Bryan de Ridder on 13/04/2021.
@@ -8,9 +8,9 @@
 import SwiftUI
 import WrappingHStack
 
-struct SpecializationFilterSheet: View {
+struct SkillFilterSheet: View {
     @State var selectedTiers = [1]
-    @ObservedObject var vm: SpecializationViewModel
+    @ObservedObject var vm: SkillViewModel
     @Binding var showFilter: Bool
     
     fileprivate func isSelected(_ tier: Int) -> Bool {
@@ -60,8 +60,8 @@ struct SpecializationFilterSheet: View {
     }
 }
 
-struct SpecializationFilterSheet_Previews: PreviewProvider {
+struct SkillFilterSheet_Previews: PreviewProvider {
     static var previews: some View {
-        SpecializationFilterSheet(vm: SpecializationViewModel(), showFilter: .constant(true))
+        SkillFilterSheet(vm: SkillViewModel(), showFilter: .constant(true))
     }
 }

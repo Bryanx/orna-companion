@@ -88,25 +88,35 @@ struct SpecializationDetailBottom: View {
         Text("Passive skills")
             .hideIf(vm.specialization.skills.passives.isEmpty)
         WrappingHStack(vm.specialization.skills.passives, alignment: .center, spacing: .constant(0)) { passive in
-            VStack {
-                Text(passive.name)
+            NavigationLink(
+                destination: SkillDetail(id: passive.id),
+                label: {
+                    VStack {
+                        Text(passive.name)
+                    }
                     .padding(.all, 20)
                     .background(ColorUtil.cardColor)
                     .cornerRadius(10)
                     .padding(.all, 5)
-            }
+                })
         }
         Text("Skills Learned")
             .hideIf(vm.specialization.skills.learns.isEmpty)
         WrappingHStack(vm.specialization.skills.learns, alignment: .center, spacing: .constant(0)) { learn in
-            VStack {
-                Text(learn.name)
-                Text("Lvl \(learn.level)")
-            }
-            .padding(.all, 20)
-            .background(ColorUtil.cardColor)
-            .cornerRadius(10)
-            .padding(.all, 5)
+            NavigationLink(
+                destination: SkillDetail(id: learn.id),
+                label: {
+                    VStack {
+                        Text(learn.name)
+                            .fontWeight(.bold)
+                        Text("Lvl \(learn.level)")
+                    }
+                    .padding(.all, 20)
+                    .background(ColorUtil.cardColor)
+                    .cornerRadius(10)
+                    .padding(.all, 5)
+                }
+            )
         }
     }
 }

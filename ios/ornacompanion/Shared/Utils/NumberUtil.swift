@@ -13,4 +13,9 @@ struct NumberUtil {
         formatter.numberStyle = .decimal
         return formatter.string(from: NSNumber(value: Double(value) ?? 0)) ?? ""
     }
+    static func formatNumber(_ value: Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter.string(from: NSNumber(value: value)) ?? ""
+    }
 }

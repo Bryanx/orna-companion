@@ -38,5 +38,15 @@ class ornacompanionTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 5.0)
     }
+    
+    func testFetchSkills() throws {
+        let vm = SkillViewModel()
+        vm.fetchSkills()
+        let expectation = XCTestExpectation()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 50) {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 50.0)
+    }
 
 }

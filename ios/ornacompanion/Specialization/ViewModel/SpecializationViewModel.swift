@@ -43,7 +43,8 @@ public class SpecializationViewModel: ObservableObject {
                 .filter { self.selectedTiers.contains($0.tier) }
             FileUtil.write(Constant.DB_SPECIALIZATION_NAME, data: results)
             self.isLoading = false
-        }, onError: {
+        }, onError: { error in
+            print("loadFromNetwork specialization list error: \(error)")
             self.isLoading = false
         })
     }
@@ -67,7 +68,8 @@ public class SpecializationDetailViewModel: ObservableObject {
                 self.specialization = firstResult
             }
             self.isLoading = false
-        }, onError: {
+        }, onError: { error in
+            print("loadFromNetwork specialization detail error: \(error)")
             self.isLoading = false
         })
     }

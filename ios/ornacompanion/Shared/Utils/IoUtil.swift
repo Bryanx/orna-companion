@@ -35,7 +35,7 @@ struct IoUtil {
         _ url: URL,
         _ body: [String:Any] = [:],
         onSuccess:  @escaping (T) -> Void,
-        onError: () -> Void
+        onError: @escaping (Error) -> Void
     ) {
         do {
             let data = try JSONSerialization.data(withJSONObject: body, options: [])
@@ -49,13 +49,21 @@ struct IoUtil {
                 guard let dataResp = data else { return }
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                guard let result = try? decoder.decode(T.self, from: dataResp) else { return }
-                DispatchQueue.main.async {
-                    onSuccess(result)
+                do {
+                    let result = try decoder.decode(T.self, from: dataResp)
+                    DispatchQueue.main.async {
+                        onSuccess(result)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        onError(error)
+                    }
                 }
             }.resume()
         } catch {
-            onError()
+            DispatchQueue.main.async {
+                onError(error)
+            }
         }
     }
 }

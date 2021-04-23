@@ -11,8 +11,8 @@ struct Specialization: Hashable, Codable, Identifiable {
     var id: Int = 0
     var name: String = ""
     var femaleName: String = ""
-    var cost: String = ""
-    var price: String = ""
+    @DefaultToBlank var cost: String = ""
+    @DefaultToBlank var price: String = ""
     var description: String = ""
     var tier: Int = 1
     var images: [String] = []
