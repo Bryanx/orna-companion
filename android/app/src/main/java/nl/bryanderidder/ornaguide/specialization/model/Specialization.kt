@@ -59,7 +59,7 @@ data class Specialization(
 
     @Ignore
     fun formattedCost(): String = try {
-        if (cost.isEmpty())
+        if (cost.isEmpty() && price.isNotEmpty())
             "${NumberUtil.formatNumber(price.toDouble())} orns"
         else
             cost
