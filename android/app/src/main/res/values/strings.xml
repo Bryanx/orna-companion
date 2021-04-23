@@ -88,4 +88,8 @@
     <string name="same_size_discover">Same-size discover items</string>
     <string name="same_size_summary">Makes all database results in the discover overview the same size.</string>
     <string name="ward">Ward</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="privacy_policy_url">https://www.notion.so/bryanderidder/Privacy-Policy-f32bc533710b4136a742faab82bacf5c</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="terms_and_conditions_url">https://www.notion.so/bryanderidder/Terms-and-Conditions-0b52fbb1b83145379a09b49ce0be07ee</string>
 </resources>

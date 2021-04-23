@@ -98,6 +98,24 @@
             app:title="@string/licenses" />
 
         <Preference
+            app:icon="@drawable/ic_baseline_info_24"
+            app:layout="@layout/preference_setting"
+            app:title="@string/privacy_policy">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/privacy_policy_url" />
+        </Preference>
+
+        <Preference
+            app:icon="@drawable/ic_baseline_playlist_add_check_24"
+            app:layout="@layout/preference_setting"
+            app:title="@string/terms_and_conditions">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/terms_and_conditions_url" />
+        </Preference>
+
+        <Preference
             app:icon="@drawable/ic_baseline_chat_24"
             app:key="contact"
             app:layout="@layout/preference_setting"
