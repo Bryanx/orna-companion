@@ -15,11 +15,11 @@ struct Tier: View {
             Spacer()
             Image(systemName: "star.fill")
                 .resizable()
-                .frame(width: 10, height: 10)
+                .frame(width: 13, height: 13)
                 .foregroundColor(ColorUtil.textColorHeader)
             Text("\(value)")
                 .foregroundColor(ColorUtil.textColorHeader)
-                .font(.caption)
+                .font(.footnote)
                 .fontWeight(.bold)
         }
     }

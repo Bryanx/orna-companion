@@ -22,9 +22,12 @@ struct SpecializationDetail: View {
                         SpecializationDetailBottom(vm: vm)
                         Spacer()
                     }
-                    Tier(value: vm.specialization.tier)
+                    VStack {
+                        Tier(value: vm.specialization.tier)
+                        SaveButton(save: .constant(Save.of(vm.specialization)))
+                    }
                     HStack {
-                        Text("SPECIALIZATION")
+                        Text(Constant.SPECIALIZATION.uppercased())
                             .font(.caption)
                         Spacer()
                     }

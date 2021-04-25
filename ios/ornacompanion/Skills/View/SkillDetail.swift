@@ -22,9 +22,12 @@ struct SkillDetail: View {
                         SkillDetailBottom(vm: vm)
                         Spacer()
                     }
-                    Tier(value: vm.skill.tier)
+                    VStack {
+                        Tier(value: vm.skill.tier)
+                        SaveButton(save: .constant(Save.of(vm.skill)))
+                    }
                     HStack {
-                        Text("SKILL")
+                        Text(Constant.SKILL.uppercased())
                             .font(.caption)
                         Spacer()
                     }
@@ -83,9 +86,11 @@ struct SkillDetailBottom: View {
         Text(vm.skill.formattedGives())
             .padding(.top, 2)
             .multilineTextAlignment(.center)
+            .hideIf(vm.skill.gives.isEmpty)
         Text(vm.skill.formattedCauses())
             .padding(.top, 2)
             .multilineTextAlignment(.center)
+            .hideIf(vm.skill.causes.isEmpty)
         Text("Learned by:")
             .padding(.top, 2)
             .hideIf(vm.skill.learnedBy.isEmpty)

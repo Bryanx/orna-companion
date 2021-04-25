@@ -52,7 +52,7 @@ struct Skill: Hashable, Codable, Identifiable {
     }
     
     func formattedCauses() -> String {
-        return "Causes:\n\(gives.joined(separator: "\n"))"
+        return "Causes:\n\(causes.joined(separator: "\n"))"
     }
     
     struct IdNamePair: Hashable, Codable, Identifiable {

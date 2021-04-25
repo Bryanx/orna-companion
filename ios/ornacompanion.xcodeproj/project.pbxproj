@@ -18,6 +18,9 @@
 		932D5C5626321406008CB148 /* SkillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D5C5526321406008CB148 /* SkillViewModel.swift */; };
 		932D5C66263363EC008CB148 /* DecodableUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D5C65263363EC008CB148 /* DecodableUtil.swift */; };
 		932D5C6F26336786008CB148 /* BetterCodable in Frameworks */ = {isa = PBXBuildFile; productRef = 932D5C6E26336786008CB148 /* BetterCodable */; };
+		932D5C802635B015008CB148 /* SaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D5C7F2635B015008CB148 /* SaveViewModel.swift */; };
+		932D5C852635B02D008CB148 /* Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D5C842635B02D008CB148 /* Save.swift */; };
+		932D5C8F2635B5FB008CB148 /* SaveListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D5C8E2635B5FB008CB148 /* SaveListItem.swift */; };
 		9353E89C261DA46D002F6E6D /* SpecializationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353E89B261DA46D002F6E6D /* SpecializationViewModel.swift */; };
 		9353E8A4261E4BF9002F6E6D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353E8A3261E4BF9002F6E6D /* Constant.swift */; };
 		9353E8AC261E57EE002F6E6D /* SpecializationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353E8AB261E57EE002F6E6D /* SpecializationListItem.swift */; };
@@ -51,6 +54,7 @@
 		93EE06AF261BA99000E36184 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE06AE261BA99000E36184 /* Settings.swift */; };
 		93EE06B4261BA99400E36184 /* Guides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE06B3261BA99400E36184 /* Guides.swift */; };
 		93EE06CF261BB00800E36184 /* DiscoverItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE06CE261BB00800E36184 /* DiscoverItem.swift */; };
+		93F62DA72635BEA500EAAEA4 /* SaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F62DA62635BEA500EAAEA4 /* SaveButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,9 @@
 		932D5C50263213BE008CB148 /* SkillFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillFilterSheet.swift; sourceTree = "<group>"; };
 		932D5C5526321406008CB148 /* SkillViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillViewModel.swift; sourceTree = "<group>"; };
 		932D5C65263363EC008CB148 /* DecodableUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableUtil.swift; sourceTree = "<group>"; };
+		932D5C7F2635B015008CB148 /* SaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveViewModel.swift; sourceTree = "<group>"; };
+		932D5C842635B02D008CB148 /* Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Save.swift; sourceTree = "<group>"; };
+		932D5C8E2635B5FB008CB148 /* SaveListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveListItem.swift; sourceTree = "<group>"; };
 		9353E89B261DA46D002F6E6D /* SpecializationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializationViewModel.swift; sourceTree = "<group>"; };
 		9353E8A3261E4BF9002F6E6D /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9353E8AB261E57EE002F6E6D /* SpecializationListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecializationListItem.swift; sourceTree = "<group>"; };
@@ -119,6 +126,7 @@
 		93EE06AE261BA99000E36184 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		93EE06B3261BA99400E36184 /* Guides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guides.swift; sourceTree = "<group>"; };
 		93EE06CE261BB00800E36184 /* DiscoverItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverItem.swift; sourceTree = "<group>"; };
+		93F62DA62635BEA500EAAEA4 /* SaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,6 +382,10 @@
 			isa = PBXGroup;
 			children = (
 				93EE06A9261BA98C00E36184 /* Saved.swift */,
+				932D5C7F2635B015008CB148 /* SaveViewModel.swift */,
+				932D5C842635B02D008CB148 /* Save.swift */,
+				932D5C8E2635B5FB008CB148 /* SaveListItem.swift */,
+				93F62DA62635BEA500EAAEA4 /* SaveButton.swift */,
 			);
 			path = Saved;
 			sourceTree = "<group>";
@@ -533,6 +545,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				932D5C4C263213B0008CB148 /* SkillDetail.swift in Sources */,
+				932D5C802635B015008CB148 /* SaveViewModel.swift in Sources */,
+				93F62DA72635BEA500EAAEA4 /* SaveButton.swift in Sources */,
 				93A156A726263B250070B820 /* SpecializationFilterSheet.swift in Sources */,
 				9353E8B4261E58FF002F6E6D /* AsyncImage.swift in Sources */,
 				9353E8CB261F347D002F6E6D /* Tier.swift in Sources */,
@@ -540,6 +554,7 @@
 				932D5C032630623C008CB148 /* SpecializationList.swift in Sources */,
 				932D5C66263363EC008CB148 /* DecodableUtil.swift in Sources */,
 				932D5C3F263211FB008CB148 /* SkillList.swift in Sources */,
+				932D5C852635B02D008CB148 /* Save.swift in Sources */,
 				93AB127E261CB276009F75B5 /* ColorUtil.swift in Sources */,
 				93A156842624C75E0070B820 /* FileUtil.swift in Sources */,
 				93EE06AF261BA99000E36184 /* Settings.swift in Sources */,
@@ -569,6 +584,7 @@
 				9353E8A4261E4BF9002F6E6D /* Constant.swift in Sources */,
 				93DB57412628C86600FB2422 /* SheetHeight.swift in Sources */,
 				9312284B26242F6500A14BC7 /* IoUtil.swift in Sources */,
+				932D5C8F2635B5FB008CB148 /* SaveListItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

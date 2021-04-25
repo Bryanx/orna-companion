@@ -28,11 +28,13 @@ struct ContentView: View {
                     Label("Discover", systemImage: "safari")
                 }
                 .tag(Tab.discover)
-                Saved()
-                    .tabItem {
-                        Label("Saved", systemImage: "bookmark")
-                    }
-                    .tag(Tab.saved)
+                NavigationView {
+                    Saved()
+                }.navigationViewStyle(StackNavigationViewStyle())
+                .tabItem {
+                    Label("Saved", systemImage: "bookmark")
+                }
+                .tag(Tab.saved)
                 Search()
                     .tabItem {
                         Label("Search", systemImage: "magnifyingglass")

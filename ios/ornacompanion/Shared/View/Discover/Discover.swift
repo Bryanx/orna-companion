@@ -41,6 +41,7 @@ struct Discover: View {
                     }
                 }.padding(.horizontal)
             }.navigationTitle("Orna Companion")
+            .padding(.top, 0.3)
         }
     }
 }

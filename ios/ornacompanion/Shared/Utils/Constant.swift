@@ -12,7 +12,12 @@ struct Constant {
     static let ORNA_IMAGE_PREFIX = "https://orna.guide/static/orna/img/"
     static let ORNA_ICON_IMAGE_PREFIX = "https://orna.guide/static/orna/img/icons/"
     
+    //Entities
+    static let SKILL = "Skill"
+    static let SPECIALIZATION = "Specialization"
+    
     // cache files
     static let DB_SPECIALIZATION_NAME = "SpecializationResponse.json"
     static let DB_SKILL_NAME = "SkillResponse.json"
+    static let DB_SAVE_NAME = "Saves.json"
 }

@@ -13,14 +13,16 @@ struct FilterView<Content: View>: View {
     var isLoading: Bool
     var title: String
     var onClickFilter: () -> Void
-    
-    let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    var columns: [GridItem] = []
+    var isShowFilter: Bool
     
     init(
         _ title: String = "Title",
         bgColor: Color = ColorUtil.backgroundColorDark,
         isLoading: Bool = false,
         onClickFilter: @escaping () -> Void = {},
+        columns: Int = 2,
+        isShowFilter: Bool = true,
         content: () -> Content
     ) {
         self.bgColor = bgColor
@@ -28,6 +30,8 @@ struct FilterView<Content: View>: View {
         self.isLoading = isLoading
         self.onClickFilter = onClickFilter
         self.title = title
+        self.columns = (0..<columns).map { _ in GridItem(.flexible()) }
+        self.isShowFilter = isShowFilter
     }
     
     var body: some View {
@@ -37,7 +41,7 @@ struct FilterView<Content: View>: View {
                     LazyVGrid(columns: columns, spacing: 7) {
                         content
                     }.padding(.horizontal)
-                }
+                }.padding(.top, 0.3)
                 VStack {
                     Spacer()
                     HStack {
@@ -46,7 +50,7 @@ struct FilterView<Content: View>: View {
                             image: Image(systemName: "line.horizontal.3.decrease"))
                             .padding()
                     }
-                }
+                }.hideIf(!isShowFilter)
             }
         }
         .navigationTitle(title)

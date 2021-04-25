@@ -39,7 +39,6 @@ struct ContainerView<Content>: View where Content : View {
                 bgColor.edgesIgnoringSafeArea(.all)
                 content
             }
-            
         }
     }
 }
