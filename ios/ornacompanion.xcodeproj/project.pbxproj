@@ -38,6 +38,9 @@
 		93AB1293261D0154009F75B5 /* CardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB1292261D0154009F75B5 /* CardStyle.swift */; };
 		93AB12BA261D917C009F75B5 /* Specialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB12B9261D917C009F75B5 /* Specialization.swift */; };
 		93ABEE302621031600D6ED88 /* DarkStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABEE2F2621031600D6ED88 /* DarkStatusBar.swift */; };
+		93AED84C263D704C00FBE1B3 /* SearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED84B263D704C00FBE1B3 /* SearchList.swift */; };
+		93AED856263D718B00FBE1B3 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED855263D718B00FBE1B3 /* SearchViewModel.swift */; };
+		93AED861263D7B3A00FBE1B3 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED860263D7B3A00FBE1B3 /* SearchBar.swift */; };
 		93D3B17726233BC4002F9935 /* HideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3B17626233BC4002F9935 /* HideView.swift */; };
 		93D3B17D26236D01002F9935 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 93D3B17C26236D01002F9935 /* WrappingHStack */; };
 		93DB572126285ED200FB2422 /* ArrayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB572026285ED200FB2422 /* ArrayUtil.swift */; };
@@ -49,7 +52,6 @@
 		93EE05EC261B569B00E36184 /* ornacompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE05EB261B569B00E36184 /* ornacompanionTests.swift */; };
 		93EE05F7261B569B00E36184 /* ornacompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE05F6261B569B00E36184 /* ornacompanionUITests.swift */; };
 		93EE0693261BA4DD00E36184 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE0692261BA4DD00E36184 /* Discover.swift */; };
-		93EE06A2261BA98400E36184 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE06A1261BA98400E36184 /* Search.swift */; };
 		93EE06AA261BA98C00E36184 /* Saved.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE06A9261BA98C00E36184 /* Saved.swift */; };
 		93EE06AF261BA99000E36184 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE06AE261BA99000E36184 /* Settings.swift */; };
 		93EE06B4261BA99400E36184 /* Guides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE06B3261BA99400E36184 /* Guides.swift */; };
@@ -105,6 +107,9 @@
 		93AB1292261D0154009F75B5 /* CardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyle.swift; sourceTree = "<group>"; };
 		93AB12B9261D917C009F75B5 /* Specialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specialization.swift; sourceTree = "<group>"; };
 		93ABEE2F2621031600D6ED88 /* DarkStatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkStatusBar.swift; sourceTree = "<group>"; };
+		93AED84B263D704C00FBE1B3 /* SearchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchList.swift; sourceTree = "<group>"; };
+		93AED855263D718B00FBE1B3 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		93AED860263D7B3A00FBE1B3 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		93D3B17626233BC4002F9935 /* HideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideView.swift; sourceTree = "<group>"; };
 		93DB572026285ED200FB2422 /* ArrayUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtil.swift; sourceTree = "<group>"; };
 		93DB57402628C86600FB2422 /* SheetHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetHeight.swift; sourceTree = "<group>"; };
@@ -121,7 +126,6 @@
 		93EE05F6261B569B00E36184 /* ornacompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ornacompanionUITests.swift; sourceTree = "<group>"; };
 		93EE05F8261B569B00E36184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93EE0692261BA4DD00E36184 /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
-		93EE06A1261BA98400E36184 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		93EE06A9261BA98C00E36184 /* Saved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saved.swift; sourceTree = "<group>"; };
 		93EE06AE261BA99000E36184 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		93EE06B3261BA99400E36184 /* Guides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guides.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 				93A1569E2625E4750070B820 /* FilterView.swift */,
 				93A156AB26277C1F0070B820 /* TierFilterToggleButton.swift */,
 				93DB57402628C86600FB2422 /* SheetHeight.swift */,
+				93AED860263D7B3A00FBE1B3 /* SearchBar.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -373,7 +378,8 @@
 		93EE069D261BA96A00E36184 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				93EE06A1261BA98400E36184 /* Search.swift */,
+				93AED84B263D704C00FBE1B3 /* SearchList.swift */,
+				93AED855263D718B00FBE1B3 /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -561,10 +567,10 @@
 				932D5C5626321406008CB148 /* SkillViewModel.swift in Sources */,
 				932D5C4726321202008CB148 /* SkillListItem.swift in Sources */,
 				93EE05DC261B569900E36184 /* ContentView.swift in Sources */,
-				93EE06A2261BA98400E36184 /* Search.swift in Sources */,
 				93A1569F2625E4750070B820 /* FilterView.swift in Sources */,
 				9353E89C261DA46D002F6E6D /* SpecializationViewModel.swift in Sources */,
 				93DB572126285ED200FB2422 /* ArrayUtil.swift in Sources */,
+				93AED856263D718B00FBE1B3 /* SearchViewModel.swift in Sources */,
 				932D5C23263206E6008CB148 /* Skill.swift in Sources */,
 				93EE06CF261BB00800E36184 /* DiscoverItem.swift in Sources */,
 				93EE05DA261B569900E36184 /* ornacompanionApp.swift in Sources */,
@@ -583,8 +589,10 @@
 				93EE06AA261BA98C00E36184 /* Saved.swift in Sources */,
 				9353E8A4261E4BF9002F6E6D /* Constant.swift in Sources */,
 				93DB57412628C86600FB2422 /* SheetHeight.swift in Sources */,
+				93AED861263D7B3A00FBE1B3 /* SearchBar.swift in Sources */,
 				9312284B26242F6500A14BC7 /* IoUtil.swift in Sources */,
 				932D5C8F2635B5FB008CB148 /* SaveListItem.swift in Sources */,
+				93AED84C263D704C00FBE1B3 /* SearchList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

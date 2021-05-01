@@ -20,4 +20,5 @@ struct Constant {
     static let DB_SPECIALIZATION_NAME = "SpecializationResponse.json"
     static let DB_SKILL_NAME = "SkillResponse.json"
     static let DB_SAVE_NAME = "Saves.json"
+    static let DB_SEARCH_NAME = "Searches.json"
 }

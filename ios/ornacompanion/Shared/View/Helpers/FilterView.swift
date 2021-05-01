@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FilterView<Content: View>: View {
     var content: Content
+    var searchText: Binding<String>?
     var bgColor: Color
     var isLoading: Bool
     var title: String
@@ -23,10 +24,12 @@ struct FilterView<Content: View>: View {
         onClickFilter: @escaping () -> Void = {},
         columns: Int = 2,
         isShowFilter: Bool = true,
+        searchText: Binding<String>? = nil,
         content: () -> Content
     ) {
         self.bgColor = bgColor
         self.content = content()
+        self.searchText = searchText
         self.isLoading = isLoading
         self.onClickFilter = onClickFilter
         self.title = title
@@ -37,11 +40,16 @@ struct FilterView<Content: View>: View {
     var body: some View {
         ContainerView(bgColor: bgColor, isLoading: isLoading) {
             ZStack {
-                ScrollView {
-                    LazyVGrid(columns: columns, spacing: 7) {
-                        content
-                    }.padding(.horizontal)
-                }.padding(.top, 0.3)
+                VStack {
+                    if (self.searchText != nil) {
+                        SearchBar(text: searchText ?? .constant(""))
+                    }
+                    ScrollView {
+                        LazyVGrid(columns: columns, spacing: 7) {
+                            content
+                        }.padding(.horizontal)
+                    }.padding(.top, 0.3)
+                }
                 VStack {
                     Spacer()
                     HStack {

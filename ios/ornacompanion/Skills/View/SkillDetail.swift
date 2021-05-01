@@ -10,6 +10,7 @@ import WrappingHStack
 
 struct SkillDetail: View {
     @StateObject var vm = SkillDetailViewModel()
+    @StateObject var searchVm = SearchViewModel()
     var id: Int
     
     var body: some View {
@@ -40,6 +41,7 @@ struct SkillDetail: View {
         .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: {
             vm.fetchSkill(id: id)
+            searchVm.addToSearchHistory(Save.of(vm.skill))
         })
     }
 }

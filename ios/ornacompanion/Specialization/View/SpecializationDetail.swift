@@ -10,6 +10,7 @@ import WrappingHStack
 
 struct SpecializationDetail: View {
     @StateObject var vm = SpecializationDetailViewModel()
+    @StateObject var searchVm = SearchViewModel()
     var id: Int
     
     var body: some View {
@@ -39,6 +40,7 @@ struct SpecializationDetail: View {
         .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: {
             vm.fetchSpecialization(id: id)
+            searchVm.addToSearchHistory(Save.of(vm.specialization))
         })
     }
 }
