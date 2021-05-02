@@ -35,7 +35,10 @@ public class SearchViewModel: ObservableObject {
     func fetchSearchResultsFromDb(_ query: String) {
         let skills: [Skill] = FileUtil.read(Constant.DB_SKILL_NAME) ?? []
         let specializations: [Specialization] = FileUtil.read(Constant.DB_SPECIALIZATION_NAME) ?? []
-        self.searchResults = (skills.map { Save.of($0) } + specializations.map { Save.of($0) })
+        let npcs: [Npc] = FileUtil.read(Constant.DB_NPC_NAME) ?? []
+        self.searchResults = (npcs.map(Save.of) +
+                                skills.map(Save.of) +
+                                specializations.map(Save.of))
             .filter { $0.name.contains(query) }
     }
 }

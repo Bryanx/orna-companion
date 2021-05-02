@@ -15,6 +15,7 @@ struct Saved: View {
         switch (save.type) {
         case Constant.SKILL: SkillDetail(id: save.id)
         case Constant.SPECIALIZATION: SpecializationDetail(id: save.id)
+        case Constant.NPC: NpcDetail(id: save.id)
         default: SkillDetail(id: save.id)
         }
     }

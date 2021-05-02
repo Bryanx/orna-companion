@@ -19,6 +19,8 @@ struct Discover: View {
     @ViewBuilder func getDestination(_ key: String) -> some View {
         if key == categories[1] {
             SpecializationList()
+        } else if key == categories[3] {
+            NpcList()
         } else {
             SkillList()
         }

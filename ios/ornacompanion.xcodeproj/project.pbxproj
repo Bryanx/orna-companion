@@ -41,6 +41,12 @@
 		93AED84C263D704C00FBE1B3 /* SearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED84B263D704C00FBE1B3 /* SearchList.swift */; };
 		93AED856263D718B00FBE1B3 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED855263D718B00FBE1B3 /* SearchViewModel.swift */; };
 		93AED861263D7B3A00FBE1B3 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED860263D7B3A00FBE1B3 /* SearchBar.swift */; };
+		93AED86A263F2D5A00FBE1B3 /* Npc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED869263F2D5A00FBE1B3 /* Npc.swift */; };
+		93AED86F263F2D6700FBE1B3 /* NpcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED86E263F2D6700FBE1B3 /* NpcViewModel.swift */; };
+		93AED874263F2D7100FBE1B3 /* NpcList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED873263F2D7100FBE1B3 /* NpcList.swift */; };
+		93AED879263F2D7800FBE1B3 /* NpcListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED878263F2D7800FBE1B3 /* NpcListItem.swift */; };
+		93AED87E263F2D8400FBE1B3 /* NpcDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED87D263F2D8400FBE1B3 /* NpcDetail.swift */; };
+		93AED883263F2D8C00FBE1B3 /* NpcFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED882263F2D8C00FBE1B3 /* NpcFilterSheet.swift */; };
 		93D3B17726233BC4002F9935 /* HideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3B17626233BC4002F9935 /* HideView.swift */; };
 		93D3B17D26236D01002F9935 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 93D3B17C26236D01002F9935 /* WrappingHStack */; };
 		93DB572126285ED200FB2422 /* ArrayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB572026285ED200FB2422 /* ArrayUtil.swift */; };
@@ -110,6 +116,12 @@
 		93AED84B263D704C00FBE1B3 /* SearchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchList.swift; sourceTree = "<group>"; };
 		93AED855263D718B00FBE1B3 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		93AED860263D7B3A00FBE1B3 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		93AED869263F2D5A00FBE1B3 /* Npc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Npc.swift; sourceTree = "<group>"; };
+		93AED86E263F2D6700FBE1B3 /* NpcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcViewModel.swift; sourceTree = "<group>"; };
+		93AED873263F2D7100FBE1B3 /* NpcList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcList.swift; sourceTree = "<group>"; };
+		93AED878263F2D7800FBE1B3 /* NpcListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcListItem.swift; sourceTree = "<group>"; };
+		93AED87D263F2D8400FBE1B3 /* NpcDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcDetail.swift; sourceTree = "<group>"; };
+		93AED882263F2D8C00FBE1B3 /* NpcFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcFilterSheet.swift; sourceTree = "<group>"; };
 		93D3B17626233BC4002F9935 /* HideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideView.swift; sourceTree = "<group>"; };
 		93DB572026285ED200FB2422 /* ArrayUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtil.swift; sourceTree = "<group>"; };
 		93DB57402628C86600FB2422 /* SheetHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetHeight.swift; sourceTree = "<group>"; };
@@ -286,6 +298,43 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		93AED865263F2D2F00FBE1B3 /* Npc */ = {
+			isa = PBXGroup;
+			children = (
+				93AED868263F2D5100FBE1B3 /* Model */,
+				93AED867263F2D4000FBE1B3 /* View */,
+				93AED866263F2D3C00FBE1B3 /* ViewModel */,
+			);
+			path = Npc;
+			sourceTree = "<group>";
+		};
+		93AED866263F2D3C00FBE1B3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				93AED86E263F2D6700FBE1B3 /* NpcViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		93AED867263F2D4000FBE1B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				93AED873263F2D7100FBE1B3 /* NpcList.swift */,
+				93AED878263F2D7800FBE1B3 /* NpcListItem.swift */,
+				93AED87D263F2D8400FBE1B3 /* NpcDetail.swift */,
+				93AED882263F2D8C00FBE1B3 /* NpcFilterSheet.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		93AED868263F2D5100FBE1B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				93AED869263F2D5A00FBE1B3 /* Npc.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		93EE05CD261B569900E36184 = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +358,7 @@
 		93EE05D8261B569900E36184 /* ornacompanion */ = {
 			isa = PBXGroup;
 			children = (
+				93AED865263F2D2F00FBE1B3 /* Npc */,
 				932D5C1E263206D0008CB148 /* Skills */,
 				932D5BFE2630615A008CB148 /* Shared */,
 				932D5BFA26306112008CB148 /* Specialization */,
@@ -551,7 +601,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				932D5C4C263213B0008CB148 /* SkillDetail.swift in Sources */,
+				93AED883263F2D8C00FBE1B3 /* NpcFilterSheet.swift in Sources */,
+				93AED86A263F2D5A00FBE1B3 /* Npc.swift in Sources */,
 				932D5C802635B015008CB148 /* SaveViewModel.swift in Sources */,
+				93AED874263F2D7100FBE1B3 /* NpcList.swift in Sources */,
 				93F62DA72635BEA500EAAEA4 /* SaveButton.swift in Sources */,
 				93A156A726263B250070B820 /* SpecializationFilterSheet.swift in Sources */,
 				9353E8B4261E58FF002F6E6D /* AsyncImage.swift in Sources */,
@@ -562,6 +615,7 @@
 				932D5C3F263211FB008CB148 /* SkillList.swift in Sources */,
 				932D5C852635B02D008CB148 /* Save.swift in Sources */,
 				93AB127E261CB276009F75B5 /* ColorUtil.swift in Sources */,
+				93AED87E263F2D8400FBE1B3 /* NpcDetail.swift in Sources */,
 				93A156842624C75E0070B820 /* FileUtil.swift in Sources */,
 				93EE06AF261BA99000E36184 /* Settings.swift in Sources */,
 				932D5C5626321406008CB148 /* SkillViewModel.swift in Sources */,
@@ -575,11 +629,13 @@
 				93EE06CF261BB00800E36184 /* DiscoverItem.swift in Sources */,
 				93EE05DA261B569900E36184 /* ornacompanionApp.swift in Sources */,
 				932D5BF6262F6273008CB148 /* NumberUtil.swift in Sources */,
+				93AED879263F2D7800FBE1B3 /* NpcListItem.swift in Sources */,
 				93D3B17726233BC4002F9935 /* HideView.swift in Sources */,
 				93AB1293261D0154009F75B5 /* CardStyle.swift in Sources */,
 				93A156AC26277C1F0070B820 /* TierFilterToggleButton.swift in Sources */,
 				93EE0693261BA4DD00E36184 /* Discover.swift in Sources */,
 				93AB12BA261D917C009F75B5 /* Specialization.swift in Sources */,
+				93AED86F263F2D6700FBE1B3 /* NpcViewModel.swift in Sources */,
 				93AB128B261CF61C009F75B5 /* ContainerView.swift in Sources */,
 				932D5C51263213BE008CB148 /* SkillFilterSheet.swift in Sources */,
 				93EE06B4261BA99400E36184 /* Guides.swift in Sources */,

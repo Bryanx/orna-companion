@@ -53,4 +53,13 @@ extension Save {
                     image: it.getImage(),
                     tier: it.tier)
     }
+    
+    static func of(_ it: Npc) -> Save {
+        return Save(id: it.id,
+                    name: it.name,
+                    subText: it.description,
+                    type: Constant.NPC,
+                    image: it.getImage(),
+                    tier: it.tier)
+    }
 }
