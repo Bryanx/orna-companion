@@ -47,6 +47,12 @@
 		93AED879263F2D7800FBE1B3 /* NpcListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED878263F2D7800FBE1B3 /* NpcListItem.swift */; };
 		93AED87E263F2D8400FBE1B3 /* NpcDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED87D263F2D8400FBE1B3 /* NpcDetail.swift */; };
 		93AED883263F2D8C00FBE1B3 /* NpcFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED882263F2D8C00FBE1B3 /* NpcFilterSheet.swift */; };
+		93AED88C26407DD400FBE1B3 /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED88B26407DD400FBE1B3 /* Achievement.swift */; };
+		93AED89126407DE300FBE1B3 /* AchievementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED89026407DE300FBE1B3 /* AchievementViewModel.swift */; };
+		93AED89626407DEA00FBE1B3 /* AchievementList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED89526407DEA00FBE1B3 /* AchievementList.swift */; };
+		93AED89B26407DF000FBE1B3 /* AchievementDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED89A26407DF000FBE1B3 /* AchievementDetail.swift */; };
+		93AED8A026407DF800FBE1B3 /* AchievementListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED89F26407DF800FBE1B3 /* AchievementListItem.swift */; };
+		93AED8A526407E0000FBE1B3 /* AchievementFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AED8A426407E0000FBE1B3 /* AchievementFilterSheet.swift */; };
 		93D3B17726233BC4002F9935 /* HideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3B17626233BC4002F9935 /* HideView.swift */; };
 		93D3B17D26236D01002F9935 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 93D3B17C26236D01002F9935 /* WrappingHStack */; };
 		93DB572126285ED200FB2422 /* ArrayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DB572026285ED200FB2422 /* ArrayUtil.swift */; };
@@ -122,6 +128,12 @@
 		93AED878263F2D7800FBE1B3 /* NpcListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcListItem.swift; sourceTree = "<group>"; };
 		93AED87D263F2D8400FBE1B3 /* NpcDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcDetail.swift; sourceTree = "<group>"; };
 		93AED882263F2D8C00FBE1B3 /* NpcFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcFilterSheet.swift; sourceTree = "<group>"; };
+		93AED88B26407DD400FBE1B3 /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
+		93AED89026407DE300FBE1B3 /* AchievementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewModel.swift; sourceTree = "<group>"; };
+		93AED89526407DEA00FBE1B3 /* AchievementList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementList.swift; sourceTree = "<group>"; };
+		93AED89A26407DF000FBE1B3 /* AchievementDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementDetail.swift; sourceTree = "<group>"; };
+		93AED89F26407DF800FBE1B3 /* AchievementListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementListItem.swift; sourceTree = "<group>"; };
+		93AED8A426407E0000FBE1B3 /* AchievementFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementFilterSheet.swift; sourceTree = "<group>"; };
 		93D3B17626233BC4002F9935 /* HideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideView.swift; sourceTree = "<group>"; };
 		93DB572026285ED200FB2422 /* ArrayUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtil.swift; sourceTree = "<group>"; };
 		93DB57402628C86600FB2422 /* SheetHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetHeight.swift; sourceTree = "<group>"; };
@@ -335,6 +347,43 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		93AED88726407CF300FBE1B3 /* Achievement */ = {
+			isa = PBXGroup;
+			children = (
+				93AED88A26407D0400FBE1B3 /* View */,
+				93AED88926407D0000FBE1B3 /* ViewModel */,
+				93AED88826407CF700FBE1B3 /* Model */,
+			);
+			path = Achievement;
+			sourceTree = "<group>";
+		};
+		93AED88826407CF700FBE1B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				93AED88B26407DD400FBE1B3 /* Achievement.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		93AED88926407D0000FBE1B3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				93AED89026407DE300FBE1B3 /* AchievementViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		93AED88A26407D0400FBE1B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				93AED89526407DEA00FBE1B3 /* AchievementList.swift */,
+				93AED89A26407DF000FBE1B3 /* AchievementDetail.swift */,
+				93AED89F26407DF800FBE1B3 /* AchievementListItem.swift */,
+				93AED8A426407E0000FBE1B3 /* AchievementFilterSheet.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		93EE05CD261B569900E36184 = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +407,7 @@
 		93EE05D8261B569900E36184 /* ornacompanion */ = {
 			isa = PBXGroup;
 			children = (
+				93AED88726407CF300FBE1B3 /* Achievement */,
 				93AED865263F2D2F00FBE1B3 /* Npc */,
 				932D5C1E263206D0008CB148 /* Skills */,
 				932D5BFE2630615A008CB148 /* Shared */,
@@ -610,6 +660,7 @@
 				9353E8B4261E58FF002F6E6D /* AsyncImage.swift in Sources */,
 				9353E8CB261F347D002F6E6D /* Tier.swift in Sources */,
 				9353E8AC261E57EE002F6E6D /* SpecializationListItem.swift in Sources */,
+				93AED8A026407DF800FBE1B3 /* AchievementListItem.swift in Sources */,
 				932D5C032630623C008CB148 /* SpecializationList.swift in Sources */,
 				932D5C66263363EC008CB148 /* DecodableUtil.swift in Sources */,
 				932D5C3F263211FB008CB148 /* SkillList.swift in Sources */,
@@ -620,16 +671,21 @@
 				93EE06AF261BA99000E36184 /* Settings.swift in Sources */,
 				932D5C5626321406008CB148 /* SkillViewModel.swift in Sources */,
 				932D5C4726321202008CB148 /* SkillListItem.swift in Sources */,
+				93AED89B26407DF000FBE1B3 /* AchievementDetail.swift in Sources */,
 				93EE05DC261B569900E36184 /* ContentView.swift in Sources */,
 				93A1569F2625E4750070B820 /* FilterView.swift in Sources */,
 				9353E89C261DA46D002F6E6D /* SpecializationViewModel.swift in Sources */,
 				93DB572126285ED200FB2422 /* ArrayUtil.swift in Sources */,
 				93AED856263D718B00FBE1B3 /* SearchViewModel.swift in Sources */,
+				93AED89626407DEA00FBE1B3 /* AchievementList.swift in Sources */,
 				932D5C23263206E6008CB148 /* Skill.swift in Sources */,
+				93AED89126407DE300FBE1B3 /* AchievementViewModel.swift in Sources */,
 				93EE06CF261BB00800E36184 /* DiscoverItem.swift in Sources */,
 				93EE05DA261B569900E36184 /* ornacompanionApp.swift in Sources */,
 				932D5BF6262F6273008CB148 /* NumberUtil.swift in Sources */,
+				93AED88C26407DD400FBE1B3 /* Achievement.swift in Sources */,
 				93AED879263F2D7800FBE1B3 /* NpcListItem.swift in Sources */,
+				93AED8A526407E0000FBE1B3 /* AchievementFilterSheet.swift in Sources */,
 				93D3B17726233BC4002F9935 /* HideView.swift in Sources */,
 				93AB1293261D0154009F75B5 /* CardStyle.swift in Sources */,
 				93A156AC26277C1F0070B820 /* TierFilterToggleButton.swift in Sources */,

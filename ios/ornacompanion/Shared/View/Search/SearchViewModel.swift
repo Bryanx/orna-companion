@@ -29,17 +29,19 @@ public class SearchViewModel: ObservableObject {
     
     func addToSearchHistory(_ save: Save) {
         let results: [Save] = FileUtil.read(Constant.DB_SEARCH_NAME) ?? []
-        FileUtil.write(Constant.DB_SEARCH_NAME, data: [save] + results.filter { $0 != save })
+        FileUtil.write(Constant.DB_SEARCH_NAME, data: [save] + results.filter { $0 != save }.prefix(20))
     }
     
     func fetchSearchResultsFromDb(_ query: String) {
         let skills: [Skill] = FileUtil.read(Constant.DB_SKILL_NAME) ?? []
         let specializations: [Specialization] = FileUtil.read(Constant.DB_SPECIALIZATION_NAME) ?? []
         let npcs: [Npc] = FileUtil.read(Constant.DB_NPC_NAME) ?? []
+        let achievements: [Achievement] = FileUtil.read(Constant.DB_ACHIEVEMENT_NAME) ?? []
         self.searchResults = (npcs.map(Save.of) +
                                 skills.map(Save.of) +
-                                specializations.map(Save.of))
-            .filter { $0.name.contains(query) }
+                                specializations.map(Save.of) +
+                                achievements.map(Save.of))
+            .filter { $0.name.lowercased().contains(query.lowercased()) }
     }
 }
 

@@ -15,30 +15,29 @@ struct SearchList: View {
         case Constant.SKILL: SkillDetail(id: save.id)
         case Constant.SPECIALIZATION: SpecializationDetail(id: save.id)
         case Constant.NPC: NpcDetail(id: save.id)
+        case Constant.ACHIEVEMENT: AchievementDetail(id: save.id)
         default: SkillDetail(id: save.id)
         }
     }
     
     var body: some View {
-        VStack {
-            FilterView(
-                "Search",
-                isLoading: vm.isLoading,
-                columns: 1,
-                isShowFilter: false,
-                searchText: $vm.query
-            ) {
-                ForEach(vm.searchResults) { save in
-                    NavigationLink(
-                        destination: getDestination(save),
-                        label: {
-                            SaveListItem(save)
-                        }
-                    )
-                }.animation(.default)
-            }
-            .onAppear(perform: vm.fetchSearchHistory)
+        FilterView(
+            "Search",
+            isLoading: vm.isLoading,
+            columns: 1,
+            isShowFilter: false,
+            searchText: $vm.query
+        ) {
+            ForEach(vm.searchResults, id: \.uid) { save in
+                NavigationLink(
+                    destination: getDestination(save),
+                    label: {
+                        SaveListItem(save)
+                    }
+                )
+            }.animation(.default)
         }
+        .onAppear(perform: vm.fetchSearchHistory)
     }
 }
 

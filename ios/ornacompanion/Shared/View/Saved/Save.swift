@@ -14,6 +14,9 @@ struct Save: Hashable, Codable, Identifiable {
     var type: String = ""
     var image: String = ""
     var tier: Int = 1
+    var uid: String {
+        return "\(type)\(id)"
+    }
     
 //    func ofCharacterClass(it: CharacterClass) -> Save {
 //        return Save(it.id, it.name, it.formattedLearns(), CharacterClass.NAME, it.previewImageUrl, it.tier)
@@ -59,6 +62,15 @@ extension Save {
                     name: it.name,
                     subText: it.description,
                     type: Constant.NPC,
+                    image: it.getImage(),
+                    tier: it.tier)
+    }
+    
+    static func of(_ it: Achievement) -> Save {
+        return Save(id: it.id,
+                    name: it.name,
+                    subText: it.requirement,
+                    type: Constant.ACHIEVEMENT,
                     image: it.getImage(),
                     tier: it.tier)
     }
