@@ -92,4 +92,8 @@
     <string name="privacy_policy_url">https://www.notion.so/bryanderidder/Privacy-Policy-f32bc533710b4136a742faab82bacf5c</string>
     <string name="terms_and_conditions">Terms and Conditions</string>
     <string name="terms_and_conditions_url">https://www.notion.so/bryanderidder/Terms-and-Conditions-0b52fbb1b83145379a09b49ce0be07ee</string>
+    <string name="guides_will_appear_here">Guides will appear here</string>
+    <string name="discover">Discover</string>
+    <string name="search">Search</string>
+    <string name="guides">Guides</string>
 </resources>

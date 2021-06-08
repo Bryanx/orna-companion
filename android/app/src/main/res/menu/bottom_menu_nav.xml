@@ -4,26 +4,26 @@
     <item
         android:id="@+id/dicoverFragment"
         android:icon="@drawable/ic_explore_black_18dp"
-        android:title="Discover" />
+        android:title="@string/discover" />
 
     <item
         android:id="@+id/myListsFragment"
         android:icon="@drawable/ic_baseline_bookmark_border_24"
-        android:title="Saved" />
+        android:title="@string/saved" />
 
     <item
         android:id="@+id/searchFragment"
         android:icon="@drawable/ic_baseline_search_24"
-        android:title="Search" />
+        android:title="@string/search" />
 
     <item
         android:id="@+id/guidesFragment"
         android:icon="@drawable/ic_baseline_menu_book_24"
-        android:title="Guides" />
+        android:title="@string/guides" />
 
     <item
         android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_settings_24dp"
-        android:title="Settings" />
+        android:title="@string/settings" />
 
 </menu>
