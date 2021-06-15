@@ -33,6 +33,8 @@ import nl.bryanderidder.ornaguide.shared.network.CachingInterceptor
 import nl.bryanderidder.ornaguide.shared.network.NetworkLoggingInterceptor
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import nl.bryanderidder.ornaguide.shared.network.OrnaService
+import nl.bryanderidder.ornaguide.shared.ui.menu.guides.GuideRepository
+import nl.bryanderidder.ornaguide.shared.ui.menu.guides.GuideViewModel
 import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchViewModel
 import nl.bryanderidder.ornaguide.shared.ui.menu.sync.SyncViewModel
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
@@ -101,6 +103,7 @@ val appModule: Module = module {
     viewModel { AchievementDetailViewModel(get(), get()) }
     viewModel { CharacterClassListViewModel(get(), get()) }
     viewModel { CharacterClassDetailViewModel(get(), get()) }
+    viewModel { GuideViewModel(get()) }
 
     viewModel { SaveListViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get(), get()) }
     viewModel { SearchViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get()) }
@@ -138,5 +141,6 @@ val appModule: Module = module {
     single { AchievementRepository(get(), get()) }
     single { SaveRepository(get()) }
     single { ItemAssessRepository(get()) }
+    single { GuideRepository(get()) }
 
 }

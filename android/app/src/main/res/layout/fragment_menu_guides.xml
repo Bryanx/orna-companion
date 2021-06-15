@@ -4,21 +4,105 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="vm"
+            type="nl.bryanderidder.ornaguide.shared.ui.menu.guides.GuideViewModel" />
+
+        <variable
+            name="adapter"
+            type="nl.bryanderidder.ornaguide.shared.ui.menu.guides.GuideListAdapter" />
     </data>
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/backgroundColorDark"
-        android:orientation="horizontal">
+        android:clipToPadding="false"
+        app:toast="@{vm.toastMessage}">
+
+        <LinearLayout
+            android:id="@+id/guidedTitle"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/backgroundColorDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:paddingStart="24dp"
+                android:text="@string/guides"
+                android:textColor="@color/textColorHeader"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/backgroundColorDark"
+            android:clipToPadding="false"
+            android:fadeScrollbars="false"
+            android:padding="6dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"
+            android:scrollbarThumbVertical="@color/cardColor"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guidedTitle"
+            app:listAdapter="@{adapter}"
+            app:listAdapterItems="@{vm.guideTopics}"
+            app:spanCount="1"
+            tools:visibility="gone"
+            tools:listitem="@layout/item_guide" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/ic_baseline_menu_book_24"
+            app:tint="@color/textColor"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guidedTitle"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:gone="@{!vm.guideTopics.isEmpty()}"
+            android:contentDescription="@string/bookmark_image" />
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_centerInParent="true"
+            android:layout_gravity="start|center_vertical"
+            android:gravity="center"
+            android:text="@string/guides_will_appear_here"
+            android:textAlignment="center"
             android:textColor="@color/textColor"
-            android:text="@string/coming_soon"/>
-    </RelativeLayout>
+            android:textSize="16sp"
+            app:gone="@{!vm.guideTopics.isEmpty()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:gone="@{!vm.loading}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
