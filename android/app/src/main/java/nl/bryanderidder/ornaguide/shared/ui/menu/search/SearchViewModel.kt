@@ -73,8 +73,8 @@ class SearchViewModel(
             monsterRepo.search(query).map { it.map(SearchResult::ofMonster).toList() },
             npcRepo.search(query).map { it.map(SearchResult::ofNpc).toList() },
             achievementRepo.search(query).map { it.map(SearchResult::ofAchievement).toList() },
-        ) {
-            it.asList().flatten()
+        ) { results ->
+            results.asList().flatten().sortedWith(compareBy({ !it.name.startsWith(query) }, { !it.name.endsWith(query) }, { it.name.length }))
         }.flowOn(Dispatchers.Default)
             .collect(searchResults::postValue)
     }
