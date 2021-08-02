@@ -26,6 +26,7 @@ import com.bumptech.glide.request.target.Target
 import com.google.android.material.textfield.TextInputEditText
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.shared.util.color
+import nl.bryanderidder.ornaguide.shared.util.focusAndShowKeyboard
 import nl.bryanderidder.ornaguide.shared.util.setCustomColorFilter
 import nl.bryanderidder.themedtogglebuttongroup.ThemedButton
 import nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
@@ -132,6 +133,7 @@ object GeneralViewBindings {
         et.setOnTouchListener(View.OnTouchListener { v, event ->
             if (event.action == MotionEvent.ACTION_UP) {
                 if (event.rawX >= et.right - et.compoundDrawables[DRAWABLE_RIGHT].bounds.width() * 2) {
+                    et.focusAndShowKeyboard()
                     et.text?.clear()
                     return@OnTouchListener true
                 }
@@ -145,6 +147,7 @@ object GeneralViewBindings {
     fun bindCloseOnDone(et: TextInputEditText, accept: Boolean) {
         et.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                et.clearFocus()
                 val imm: InputMethodManager =
                     et.context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.hideSoftInputFromWindow(et.windowToken, 0)

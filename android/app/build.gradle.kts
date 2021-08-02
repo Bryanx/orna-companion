@@ -15,8 +15,8 @@ android {
         applicationId("nl.bryanderidder.ornaguide")
         minSdkVersion(26)
         targetSdkVersion(30)
-        versionCode(12)
-        versionName("2.1")
+        versionCode(13)
+        versionName("2.2")
 
         testInstrumentationRunner("androidx.test.runner.AndroidJUnitRunner")
     }

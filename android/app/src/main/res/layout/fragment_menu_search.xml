@@ -38,7 +38,7 @@
                 android:drawableStart="@drawable/ic_baseline_search_24"
                 android:drawableEnd="@drawable/ic_baseline_clear_24"
                 android:maxLines="1"
-                android:inputType="none"
+                android:inputType="text"
                 android:hint="@string/find_items_monsters_classes_and_more"
                 android:imeOptions="actionSearch"
                 android:drawableTint="@color/textColor"
