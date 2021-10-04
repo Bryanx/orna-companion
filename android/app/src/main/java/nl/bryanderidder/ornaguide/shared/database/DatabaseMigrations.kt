@@ -14,6 +14,8 @@ object DatabaseMigrations {
     val MIGRATION_3_4: Migration = object : Migration(3, 4) {
         override fun migrate(database: SupportSQLiteDatabase) {
             database.execSQL("ALTER TABLE Item ADD COLUMN crit INTEGER DEFAULT 0 NOT NULL")
+            database.execSQL("ALTER TABLE Item ADD COLUMN gives TEXT DEFAULT '' NOT NULL")
+            database.execSQL("ALTER TABLE Item ADD COLUMN immunities TEXT DEFAULT '' NOT NULL")
         }
     }
 }

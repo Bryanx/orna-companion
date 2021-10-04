@@ -21,7 +21,9 @@ data class Item(
     @Json(name = "materials") val materials: List<IdNamePair> = listOf(),
     @Json(name = "dropped_by") val droppedBy: List<IdNamePair> = listOf(),
     @Json(name = "equipped_by") val equippedBy: List<IdNamePair> = listOf(),
-    @Json(name = "quests") val quests: List<IdNamePair> = listOf()
+    @Json(name = "quests") val quests: List<IdNamePair> = listOf(),
+    @Json(name = "prevents") val immunities: List<String> = listOf(),
+    @Json(name = "gives") val gives: List<String> = listOf()
 ) {
 
     @Ignore
@@ -108,6 +110,12 @@ data class Item(
     @Ignore
     fun formattedStats(): String =
         statsAsMap().map { (k, v) -> "$k:\u00A0$v" }.toList().joinToString("   ")
+
+    @Ignore
+    fun formattedImmunities(): String = immunities.joinToString("\n")
+
+    @Ignore
+    fun formattedGives(): String = gives.joinToString("\n")
 
     @Ignore
     fun statsAsMap(): Map<String, Int> {

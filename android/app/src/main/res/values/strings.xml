@@ -97,4 +97,6 @@
     <string name="search">Search</string>
     <string name="guides">Guides</string>
     <string name="crit">Crit</string>
+    <string name="immunities">Immunities</string>
+    <string name="gives">Gives</string>
 </resources>

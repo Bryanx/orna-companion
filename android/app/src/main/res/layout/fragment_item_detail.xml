@@ -31,6 +31,52 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/immunities"
+            android:paddingTop="@dimen/cardDividerPadding"
+            style="@style/databaseItemPageDescription"
+            android:text="@string/immunities"
+            app:gone="@{vm.item.immunities.isEmpty()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/immunitiesList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@{vm.item.formattedImmunities()}"
+            app:gone="@{vm.item.immunities.isEmpty()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/immunities"
+            tools:listitem="@layout/item_item_equipped_by"
+            tools:text="T. Dex ↓\nT. Crit ↑↑"/>
+
+        <TextView
+            android:id="@+id/gives"
+            android:paddingTop="@dimen/cardDividerPadding"
+            style="@style/databaseItemPageDescription"
+            android:text="@string/gives"
+            app:gone="@{vm.item.gives.isEmpty()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/immunitiesList"/>
+
+        <TextView
+            android:id="@+id/givesList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@{vm.item.formattedGives()}"
+            app:gone="@{vm.item.gives.isEmpty()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gives"
+            tools:listitem="@layout/item_item_equipped_by"
+            tools:text="T. Dex ↓\nT. Crit ↑↑"/>
+
+        <TextView
             android:id="@+id/equippedBy"
             android:paddingTop="@dimen/cardDividerPadding"
             style="@style/databaseItemPageDescription"
@@ -38,7 +84,7 @@
             app:gone="@{vm.item.equippedBy.isEmpty()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/givesList"/>
 
         <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
             android:id="@+id/equippedByList"
