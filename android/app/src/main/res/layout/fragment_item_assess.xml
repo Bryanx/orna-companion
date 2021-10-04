@@ -206,6 +206,27 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/critInput"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/cardColor"
+                app:gone="@{!vm.item.statsAsMap().containsKey(`Crit`)}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/critInputField"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/textColor"
+                    android:hint="@string/crit"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberSigned"
+                    android:maxLines="1"
+                    android:maxLength="6"
+                    app:textChangedListener="@{assessVM::updateCrit}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/lvlInput"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
