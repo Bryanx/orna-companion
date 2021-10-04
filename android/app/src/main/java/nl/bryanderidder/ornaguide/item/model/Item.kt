@@ -36,7 +36,8 @@ data class Item(
         @Json(name = "magic") @Embedded val magic: MagicStatValue = MagicStatValue(),
         @Json(name = "mana") @Embedded val mana: ManaStatValue = ManaStatValue(),
         @Json(name = "resistance") @Embedded val resistance: ResistanceStatValue = ResistanceStatValue(),
-        @Json(name = "ward") @Embedded val ward: WardStatValue = WardStatValue()
+        @Json(name = "ward") @Embedded val ward: WardStatValue = WardStatValue(),
+        @Json(name = "crit") @Embedded val crit: CritStatValue = CritStatValue()
     ) {
         @JsonClass(generateAdapter = true)
         data class AttackStatValue(
@@ -77,6 +78,11 @@ data class Item(
         data class WardStatValue(
             @Json(name = "base") @ColumnInfo(name = "ward") val base: Int = 0
         )
+
+        @JsonClass(generateAdapter = true)
+        data class CritStatValue(
+            @Json(name = "base") @ColumnInfo(name = "crit") val base: Int = 0
+        )
     }
 
     @JsonClass(generateAdapter = true)
@@ -114,6 +120,7 @@ data class Item(
         if (stats.mana.base != 0) map["Mana"] = stats.mana.base
         if (stats.resistance.base != 0) map["Res"] = stats.resistance.base
         if (stats.ward.base != 0) map["Ward"] = stats.ward.base
+        if (stats.crit.base != 0) map["Crit"] = stats.crit.base
         return map
     }
 

@@ -10,4 +10,10 @@ object DatabaseMigrations {
             database.execSQL("ALTER TABLE Specialization ADD COLUMN price TEXT DEFAULT '' NOT NULL")
         }
     }
+    // DB Migration version 3 to 4
+    val MIGRATION_3_4: Migration = object : Migration(3, 4) {
+        override fun migrate(database: SupportSQLiteDatabase) {
+            database.execSQL("ALTER TABLE Item ADD COLUMN crit INTEGER DEFAULT 0 NOT NULL")
+        }
+    }
 }

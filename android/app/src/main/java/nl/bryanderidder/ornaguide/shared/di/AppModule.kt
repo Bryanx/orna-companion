@@ -116,6 +116,7 @@ val appModule: Module = module {
             .createFromAsset("databases/Orna.db")
             .addTypeConverter(get<OrnaTypeConverters>())
             .addMigrations(DatabaseMigrations.MIGRATION_2_3)
+            .addMigrations(DatabaseMigrations.MIGRATION_3_4)
             .build()
     }
 
