@@ -29,7 +29,10 @@ class OrnaTypeConverters(private val moshi: Moshi) {
     fun fromStringList(value: List<String>): String = jsonAdapter.toJson(value)
 
     @TypeConverter
-    fun toStringList(value: String): List<String> = jsonAdapter.fromJson(value) ?: listOf()
+    fun toStringList(value: String): List<String> = when {
+        value.isEmpty() -> listOf()
+        else -> jsonAdapter.fromJson(value) ?: listOf()
+    }
 
     @TypeConverter
     fun fromCharacterClassLearn(type: List<CharacterClass.Learn>): String {
