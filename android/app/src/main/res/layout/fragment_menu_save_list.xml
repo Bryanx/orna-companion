@@ -50,7 +50,7 @@
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical"
             android:scrollbarThumbVertical="@color/cardColor"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layoutManager="nl.bryanderidder.ornaguide.shared.ui.recyclerview.SafeLinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/savedTitle"

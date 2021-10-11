@@ -42,6 +42,7 @@
         <item name="android:scrollbarThumbVertical">@color/cardColor</item>
         <item name="android:padding">6dp</item>
         <item name="spanCount">2</item>
+        <item name="layoutManager">nl.bryanderidder.ornaguide.shared.ui.recyclerview.SafeLinearLayoutManager</item>
     </style>
 
     <style name="databaseItemCard">
