@@ -7,6 +7,11 @@ import okhttp3.Response
 import org.json.JSONObject
 import timber.log.Timber
 
+/**
+ * Intercept each network request and log the events.
+ *
+ * @author Bryan de Ridder
+ */
 class NetworkLoggingInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request: Request = chain.request()

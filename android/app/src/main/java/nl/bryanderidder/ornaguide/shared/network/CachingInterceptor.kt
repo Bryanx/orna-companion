@@ -9,7 +9,11 @@ import okhttp3.Response
 import okhttp3.ResponseBody.Companion.toResponseBody
 import java.util.*
 
-
+/**
+ * Used to manually cache certain network requests.
+ *
+ * @author Bryan de Ridder
+ */
 class CachingInterceptor(
     private val sharedPrefsUtil: SharedPrefsUtil,
     private val context: Context
@@ -17,7 +21,7 @@ class CachingInterceptor(
 
     /**
      * For each unique body + path we register the request time and body+path
-     * If the current time is 15 minutes passed the last request time and body+path match
+     * If the the last request is more than 1 hour ago and body+path match
      * we allow the request otherwise we don't.
      *
      * This is hacky fix to cache POST requests.
