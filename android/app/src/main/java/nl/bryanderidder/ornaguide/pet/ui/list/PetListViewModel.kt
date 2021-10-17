@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.pet.model.Pet
@@ -46,8 +47,9 @@ class PetListViewModel(
     }
 
     private fun loadItems() = viewModelScope.launch {
+        isLoading = true
+        delay(200L)
         repository.getPetListFromDb(
-            onStart = { isLoading = true },
             onComplete = { isLoading = false },
             onError = { toastMessage = it }
         ).collect {

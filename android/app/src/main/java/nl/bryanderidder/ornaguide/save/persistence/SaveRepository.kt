@@ -4,6 +4,7 @@ import androidx.annotation.WorkerThread
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.onCompletion
 import nl.bryanderidder.ornaguide.save.model.Save
 
 /**
@@ -14,10 +15,12 @@ class SaveRepository(
     private val dao: SaveDao,
 ) {
     @WorkerThread
-    fun fetchSaveList() = flow {
+    fun fetchSaveList(
+        onComplete: () -> Unit = {}
+    ) = flow {
         val results = dao.getSaveList()
         emit(results)
-    }.flowOn(Dispatchers.IO)
+    }.flowOn(Dispatchers.IO).onCompletion { onComplete() }
 
     @WorkerThread
     suspend fun insertSave(save: Save) =

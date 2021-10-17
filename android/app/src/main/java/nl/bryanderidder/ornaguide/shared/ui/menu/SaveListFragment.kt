@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentMenuSaveListBinding
 import nl.bryanderidder.ornaguide.save.ui.SaveListAdapter
@@ -17,7 +16,7 @@ import org.koin.android.viewmodel.ext.android.getViewModel
  * Main saved list fragment
  * @author Bryan de Ridder
  */
-class SaveListFragment : BindingFragment<FragmentMenuSaveListBinding>(R.layout.fragment_menu_save_list) {
+class SaveListFragment : BaseMenuFragment<FragmentMenuSaveListBinding>(R.layout.fragment_menu_save_list) {
 
     override fun onCreateView(
         inflater: LayoutInflater,

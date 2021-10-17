@@ -17,7 +17,7 @@ import nl.bryanderidder.ornaguide.shared.util.color
  * @author Bryan de Ridder
  */
 class DiscoverFragment :
-    BindingFragment<FragmentMenuDiscoverBinding>(R.layout.fragment_menu_discover) {
+    BaseMenuFragment<FragmentMenuDiscoverBinding>(R.layout.fragment_menu_discover) {
 
     override fun onCreateView(
         inflater: LayoutInflater,

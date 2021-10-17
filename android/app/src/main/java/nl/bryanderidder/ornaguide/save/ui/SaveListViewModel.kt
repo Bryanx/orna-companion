@@ -1,11 +1,12 @@
 package nl.bryanderidder.ornaguide.save.ui
 
-import androidx.lifecycle.LiveData
+import androidx.databinding.Bindable
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
-import kotlinx.coroutines.Dispatchers
+import com.skydoves.bindables.bindingProperty
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.achievement.model.Achievement
 import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRepository
@@ -40,6 +41,10 @@ class SaveListViewModel(
     private val achievementRepo: AchievementRepository,
 ) : BindingViewModel() {
 
+    @get:Bindable
+    var isLoading: Boolean by bindingProperty(false)
+        private set
+
     var type = ""
     fun setType(tag: String?): SaveListViewModel {
         type = tag  ?: ""
@@ -49,9 +54,20 @@ class SaveListViewModel(
 
     var isSaved: MutableLiveData<Boolean> = MutableLiveData(false)
 
-    val saveList: LiveData<List<Save>> by lazy {
-        saveRepo.fetchSaveList()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+    val saveList: MutableLiveData<List<Save>> = MutableLiveData()
+
+    init {
+        loadItems()
+    }
+
+    private fun loadItems() = viewModelScope.launch {
+        isLoading = true
+        delay(200L)
+        saveRepo.fetchSaveList(
+            onComplete = { isLoading = false }
+        ).collect {
+            saveList.postValue(it)
+        }
     }
 
     fun addSave() = viewModelScope.launch {

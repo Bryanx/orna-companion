@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
@@ -64,8 +65,9 @@ class ItemListViewModel(
     }
 
     private fun loadItems() = viewModelScope.launch {
+        isLoading = true
+        delay(200L)
         repository.getItemListFromDb(
-            onStart = { isLoading = true },
             onComplete = { isLoading = false },
             onError = { toastMessage = it }
         ).collect {

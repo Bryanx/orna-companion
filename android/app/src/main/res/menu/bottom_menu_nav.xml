@@ -17,13 +17,8 @@
         android:title="@string/search" />
 
     <item
-        android:id="@+id/guidesFragment"
-        android:icon="@drawable/ic_baseline_menu_book_24"
-        android:title="@string/guides" />
-
-    <item
         android:id="@+id/settingsFragment"
-        android:icon="@drawable/ic_settings_24dp"
-        android:title="@string/settings" />
+        android:icon="@drawable/ic_baseline_more_horiz_24"
+        android:title="@string/more" />
 
 </menu>

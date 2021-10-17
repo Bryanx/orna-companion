@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentMenuSettingsBinding
 import nl.bryanderidder.ornaguide.shared.util.color
@@ -15,7 +14,7 @@ import nl.bryanderidder.ornaguide.shared.util.color
  * @author Bryan de Ridder
  */
 class SettingsFragment :
-    BindingFragment<FragmentMenuSettingsBinding>(R.layout.fragment_menu_settings) {
+    BaseMenuFragment<FragmentMenuSettingsBinding>(R.layout.fragment_menu_settings) {
 
     override fun onCreateView(
         inflater: LayoutInflater,

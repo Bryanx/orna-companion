@@ -12,7 +12,7 @@
         android:background="@color/backgroundColorDark">
 
         <LinearLayout
-            android:id="@+id/settingsTitle"
+            android:id="@+id/moreTitle"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:paddingStart="24dp"
-                android:text="@string/settings"
+                android:text="@string/more"
                 android:textColor="@color/textColorHeader"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:paddingBottom="@dimen/navBarHeight"
             android:name="nl.bryanderidder.ornaguide.shared.ui.menu.settings.PreferencesFragment"
-            app:layout_constraintTop_toBottomOf="@+id/settingsTitle"
+            app:layout_constraintTop_toBottomOf="@+id/moreTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:layout="@xml/settings"/>
