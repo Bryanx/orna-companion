@@ -117,6 +117,7 @@ val appModule: Module = module {
             .addTypeConverter(get<OrnaTypeConverters>())
             .addMigrations(DatabaseMigrations.MIGRATION_2_3)
             .addMigrations(DatabaseMigrations.MIGRATION_3_4)
+            .addMigrations(DatabaseMigrations.MIGRATION_4_5)
             .build()
     }
 

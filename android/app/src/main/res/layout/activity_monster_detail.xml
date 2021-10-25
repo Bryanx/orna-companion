@@ -89,12 +89,35 @@
                 <TextView
                     android:id="@+id/spawn"
                     style="@style/databaseItemDescription"
-                    android:text="@{vm.monster.formattedSpawns()}"
+                    android:text="@{vm.monster.boldFormattedSpawns()}"
+                    android:textAlignment="center"
                     app:gone="@{vm.monster.spawns.isEmpty()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/name"
                     tools:text="Spawn: Day Only" />
+
+                <TextView
+                    android:id="@+id/statusImmunities"
+                    style="@style/databaseItemDescription"
+                    android:text="@{vm.monster.formattedStatusImmunities()}"
+                    android:textAlignment="center"
+                    app:gone="@{vm.monster.immuneToStatus.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spawn"
+                    tools:text="Status Immunity: Frozen, Poisoned" />
+
+                <TextView
+                    android:id="@+id/statusVulnerabilities"
+                    style="@style/databaseItemDescription"
+                    android:text="@{vm.monster.formattedStatusVulnerabilities()}"
+                    android:textAlignment="center"
+                    app:gone="@{vm.monster.vulnerableToStatus.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/statusImmunities"
+                    tools:text="Status Vulnerability: Burning" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/weaknesses"
@@ -106,7 +129,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/spawn" />
+                    app:layout_constraintTop_toBottomOf="@+id/statusVulnerabilities" />
 
                 <nl.bryanderidder.ornaguide.shared.ui.element.ElementsRecyclerView
                     android:id="@+id/elementWeaknesses"

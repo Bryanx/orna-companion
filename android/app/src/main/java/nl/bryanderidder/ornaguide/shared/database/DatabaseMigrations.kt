@@ -18,4 +18,11 @@ object DatabaseMigrations {
             database.execSQL("ALTER TABLE Item ADD COLUMN immunities TEXT DEFAULT '' NOT NULL")
         }
     }
+    // DB Migration version 4 to 5
+    val MIGRATION_4_5: Migration = object : Migration(4, 5) {
+        override fun migrate(database: SupportSQLiteDatabase) {
+            database.execSQL("ALTER TABLE Monster ADD COLUMN immuneToStatus TEXT DEFAULT '' NOT NULL")
+            database.execSQL("ALTER TABLE Monster ADD COLUMN vulnerableToStatus TEXT DEFAULT '' NOT NULL")
+        }
+    }
 }

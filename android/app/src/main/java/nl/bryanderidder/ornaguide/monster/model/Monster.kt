@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.monster.model
 
+import android.text.SpannableStringBuilder
 import androidx.room.Entity
 import androidx.room.Fts4
 import androidx.room.Ignore
@@ -7,6 +8,7 @@ import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.shared.util.ORNA_IMAGE_PREFIX
+import nl.bryanderidder.ornaguide.shared.util.makeBold
 
 @Entity
 @JsonClass(generateAdapter = true)
@@ -20,6 +22,8 @@ data class Monster(
     @Json(name = "spawns") val spawns: List<String> = listOf(),
     @Json(name = "resistant_to") val resistantTo: List<String> = listOf(),
     @Json(name = "immune_to") val immuneTo: List<String> = listOf(),
+    @Json(name = "immune_to_status") val immuneToStatus: List<String> = listOf(),
+    @Json(name = "vulnerable_to_status") val vulnerableToStatus: List<String> = listOf(),
     @Json(name = "weak_to") val weakTo: List<String> = listOf(),
     @Json(name = "drops") val drops: List<IdNamePair> = listOf(),
     @Json(name = "skills") val skills: List<IdNamePair> = listOf(),
@@ -35,17 +39,32 @@ data class Monster(
         @Json(name = "name") val name: String = ""
     )
 
+    @Ignore fun boldFormattedSpawns(): SpannableStringBuilder =
+        formattedSpawns().makeBold("Spawn:")
+
     @Ignore fun formattedSpawns(): String =
-        if
-            (spawns.isEmpty()) ""
+        if (spawns.isEmpty())
+            ""
         else
-            "Spawn: ${spawns.joinToString(",")}"
+            "Spawn: ${spawns.joinToString(", ")}"
 
     @Ignore fun searchFormat(): String =
         if (boss)
             "BOSS"
         else
             formattedSpawns()
+
+    @Ignore fun formattedStatusImmunities(): SpannableStringBuilder =
+        if (immuneToStatus.isEmpty())
+            SpannableStringBuilder()
+        else
+            "Status Immunity: ${immuneToStatus.joinToString(", ")}".makeBold("Status Immunity:")
+
+    @Ignore fun formattedStatusVulnerabilities(): SpannableStringBuilder =
+        if (vulnerableToStatus.isEmpty())
+            SpannableStringBuilder()
+        else
+            "Status Vulnerability: ${vulnerableToStatus.joinToString(", ")}".makeBold("Status Vulnerability:")
 
     companion object {
         const val NAME = "monster"

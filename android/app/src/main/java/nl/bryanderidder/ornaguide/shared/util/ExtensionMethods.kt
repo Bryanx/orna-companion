@@ -6,9 +6,12 @@ import android.content.res.Resources
 import android.graphics.BlendMode
 import android.graphics.BlendModeColorFilter
 import android.graphics.PorterDuff
+import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Handler
+import android.text.SpannableStringBuilder
+import android.text.style.StyleSpan
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
@@ -171,3 +174,31 @@ fun View.navigateSafely(resId: Int) {
 fun Int.setAlpha(factor: Float): Int = ColorUtils.setAlphaComponent(this, (factor * 255).toInt())
 
 internal val Int.dp: Int get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+
+
+/**
+ * Makes a substring of a string bold.
+ * @param text          Full text
+ * @param textToBold    Text you want to make bold
+ * @return              String with bold substring
+ */
+fun String.makeBold(textToBold: String): SpannableStringBuilder {
+    val builder = SpannableStringBuilder()
+    if (textToBold.isNotEmpty() && textToBold.trim { it <= ' ' } != "") {
+        //for counting start/end indexes
+        val testText = toLowerCase()
+        val testTextToBold = textToBold.toLowerCase()
+        val startingIndex = testText.indexOf(testTextToBold)
+        val endingIndex = startingIndex + testTextToBold.length
+        //for counting start/end indexes
+        if (startingIndex < 0 || endingIndex < 0) {
+            return builder.append(this)
+        } else if (startingIndex >= 0 && endingIndex >= 0) {
+            builder.append(this)
+            builder.setSpan(StyleSpan(Typeface.BOLD), startingIndex, endingIndex, 0)
+        }
+    } else {
+        return builder.append(this)
+    }
+    return builder
+}
