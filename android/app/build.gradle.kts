@@ -65,7 +65,9 @@ dependencies {
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:26.7.0"))
     implementation("com.google.firebase:firebase-crashlytics-ktx")
-    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-analytics-ktx") {
+        exclude(module = "play-services-ads-identifier")
+    }
 
     // Room
     implementation("androidx.room:room-runtime:2.3.0")
