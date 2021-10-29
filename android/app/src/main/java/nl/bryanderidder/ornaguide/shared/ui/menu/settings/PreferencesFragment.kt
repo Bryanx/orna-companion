@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.SwitchPreference
 import com.google.android.play.core.review.ReviewManagerFactory
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.mikepenz.aboutlibraries.LibsBuilder
 import nl.bryanderidder.ornaguide.MainActivity
 import nl.bryanderidder.ornaguide.R
@@ -23,8 +25,15 @@ class PreferencesFragment : PreferenceFragmentCompat() {
             startActivity(Intent(context, SyncActivity::class.java))
             (requireActivity() as MainActivity).finish()
         }
-        onClick("license") { LibsBuilder().start(requireContext()) }
-        onClick("rate") { requestReview() }
+        onClick("license") {
+            LibsBuilder().start(requireContext())
+        }
+        onClick("rate") {
+            requestReview()
+        }
+        onClickSwitch("crashReports") {
+            FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(it)
+        }
         onClick("contact") {
             navigateSafely(R.id.action_settingsFragment_to_contactActivity)
         }
@@ -34,10 +43,11 @@ class PreferencesFragment : PreferenceFragmentCompat() {
         try {
             val manager = ReviewManagerFactory.create(requireContext())
             val request = manager.requestReviewFlow()
+            val activity = requireActivity()
             request.addOnCompleteListener { task ->
                 when {
-                    task.isSuccessful -> manager.launchReviewFlow(requireActivity(), task.result)
-                    else -> NetworkUtil.goToUrl(requireActivity(), getString(R.string.play_store_url))
+                    task.isSuccessful -> manager.launchReviewFlow(activity, task.result)
+                    else -> NetworkUtil.goToUrl(activity, getString(R.string.play_store_url))
                 }
             }
         } catch (e: Exception) {
@@ -49,6 +59,12 @@ class PreferencesFragment : PreferenceFragmentCompat() {
     private fun onClick(key: String, action: () -> Unit) {
         findPreference<Preference>(key)?.setOnPreferenceClickListener {
             action.invoke().run { true }
+        }
+    }
+
+    private fun onClickSwitch(key: String, action: (Boolean) -> Unit) {
+        findPreference<SwitchPreference>(key)?.setOnPreferenceClickListener {
+            action.invoke((it as SwitchPreference).isChecked).run { true }
         }
     }
 }

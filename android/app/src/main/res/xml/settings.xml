@@ -33,6 +33,17 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory app:title="@string/troubleshooting">
+
+        <SwitchPreference
+            app:defaultValue="0"
+            app:icon="@drawable/ic_baseline_bug_report_24"
+            app:key="crashReports"
+            app:title="@string/crash_reports"
+            app:summary="@string/crash_reports_summary" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory app:title="@string/community">
 
         <Preference

@@ -68,9 +68,9 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics-ktx")
 
     // Room
-    implementation("androidx.room:room-runtime:2.3.0-beta02")
-    implementation("androidx.room:room-ktx:2.3.0-beta02")
-    kapt("androidx.room:room-compiler:2.3.0-beta02")
+    implementation("androidx.room:room-runtime:2.3.0")
+    implementation("androidx.room:room-ktx:2.3.0")
+    kapt("androidx.room:room-compiler:2.3.0")
 
     // Koin
     implementation("org.koin:koin-android:2.2.2")
@@ -106,7 +106,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:1.0.0-alpha08")
 
     // Play store
-    implementation("com.google.android.play:core:1.10.0")
+    implementation("com.google.android.play:core:1.10.2")
     implementation("com.google.android.play:core-ktx:1.8.1")
 
     testImplementation("junit:junit:4.+")
