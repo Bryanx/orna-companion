@@ -31,7 +31,7 @@ class PreferencesFragment : PreferenceFragmentCompat() {
         onClick("rate") {
             requestReview()
         }
-        onClickSwitch("crashReports") {
+        onClickSwitch("CRASH_REPORTS") {
             FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(it)
         }
         onClick("contact") {

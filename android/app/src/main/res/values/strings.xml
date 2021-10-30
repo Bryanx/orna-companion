@@ -101,6 +101,10 @@
     <string name="gives">Gives</string>
     <string name="more">More</string>
     <string name="crash_reports">Crash reports</string>
-    <string name="crash_reports_summary">Send a crash report when this app crashes. Please turn this on, it helps improve the app!</string>
+    <string name="crash_reports_summary">Send a crash report when this app crashes. This greatly helps improve the app!</string>
     <string name="troubleshooting">Troubleshooting</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="crash_reports_dialog_title">Enable crash reports</string>
+    <string name="crash_reports_dialog_description">Do you want to send a crash report when this app crashes? This greatly helps improve the app!</string>
 </resources>

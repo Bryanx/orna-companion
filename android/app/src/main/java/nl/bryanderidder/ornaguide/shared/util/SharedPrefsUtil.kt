@@ -68,6 +68,18 @@ class SharedPrefsUtil(
     fun isSameSizeDiscoverItems(): Boolean =
         prefs.getBoolean(SAME_SIZE_DISCOVER_ITEMS, false)
 
+    fun isCrashReportsEnabled(): Boolean =
+        prefs.getBoolean(CRASH_REPORTS, false)
+
+    fun setCrashReportsEnabled(value: Boolean) =
+        prefs.edit().putBoolean(CRASH_REPORTS, value).apply()
+
+    fun isCrashReportsReminderShown(): Boolean =
+        prefs.getBoolean(CRASH_REPORTS_REMINDER_SHOWN, false)
+
+    fun setCrashReportsReminderShown() =
+        prefs.edit().putBoolean(CRASH_REPORTS_REMINDER_SHOWN, true).apply()
+
     fun writeLong(key: String, value: Long) =
         prefs.edit().putLong(key, value).apply()
 
@@ -104,5 +116,7 @@ class SharedPrefsUtil(
         //settings
         const val DEFAULT_TIER: String = "DEFAULT_TIER"
         const val SAME_SIZE_DISCOVER_ITEMS: String = "SAME_SIZE_DISCOVER_ITEMS"
+        const val CRASH_REPORTS: String = "CRASH_REPORTS"
+        const val CRASH_REPORTS_REMINDER_SHOWN: String = "CRASH_REPORTS_REMINDER_SHOWN"
     }
 }
