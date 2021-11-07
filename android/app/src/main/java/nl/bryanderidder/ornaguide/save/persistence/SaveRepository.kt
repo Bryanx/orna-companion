@@ -33,4 +33,16 @@ class SaveRepository(
     @WorkerThread
     suspend fun deleteSave(save: Save) =
         dao.deleteSave(save)
+
+    @WorkerThread
+    fun fetchAllPossibleTiers() = flow {
+        val results = dao.getAllPossibleTiers()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleTypes() = flow {
+        val results = dao.getAllPossibleTypes()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
 }

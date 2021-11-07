@@ -26,7 +26,7 @@ data class Achievement(
     }
 
     companion object {
-        const val NAME = "achievement"
+        const val NAME = "Achievement"
     }
 }
 

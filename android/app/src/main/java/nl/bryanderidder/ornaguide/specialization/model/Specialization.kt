@@ -69,7 +69,7 @@ data class Specialization(
     }
 
     companion object {
-        const val NAME = "specialization"
+        const val NAME = "Specialization"
     }
 }
 

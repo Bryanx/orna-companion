@@ -47,7 +47,7 @@ data class CharacterClass(
     fun formattedLearns(): String = "Learns ${learns.toLowerCase()}"
 
     companion object {
-        const val NAME = "class"
+        const val NAME = "Class"
     }
 }
 

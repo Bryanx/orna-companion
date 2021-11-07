@@ -25,4 +25,10 @@ object DatabaseMigrations {
             database.execSQL("ALTER TABLE Monster ADD COLUMN vulnerableToStatus TEXT DEFAULT '' NOT NULL")
         }
     }
+    // DB Migration version 5 to 6
+    val MIGRATION_5_6: Migration = object : Migration(5, 6) {
+        override fun migrate(database: SupportSQLiteDatabase) {
+            database.execSQL("UPDATE Save SET type = UPPER(SUBSTR(type, 1, 1)) || SUBSTR(type, 2)")
+        }
+    }
 }

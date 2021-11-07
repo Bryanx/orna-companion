@@ -26,6 +26,7 @@ import nl.bryanderidder.ornaguide.pet.ui.detail.PetDetailViewModel
 import nl.bryanderidder.ornaguide.pet.ui.list.PetListViewModel
 import nl.bryanderidder.ornaguide.save.persistence.SaveRepository
 import nl.bryanderidder.ornaguide.save.ui.SaveListViewModel
+import nl.bryanderidder.ornaguide.save.ui.button.SaveButtonViewModel
 import nl.bryanderidder.ornaguide.shared.database.DatabaseMigrations
 import nl.bryanderidder.ornaguide.shared.database.OrnaDatabase
 import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
@@ -102,7 +103,8 @@ val appModule: Module = module {
     viewModel { CharacterClassListViewModel(get(), get()) }
     viewModel { CharacterClassDetailViewModel(get(), get()) }
 
-    viewModel { SaveListViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get(), get()) }
+    viewModel { SaveListViewModel(get()) }
+    viewModel { SaveButtonViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get(), get()) }
     viewModel { SearchViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get()) }
     viewModel { SyncViewModel(get(), get(), get(), get(), get(), get(), get(), get()) }
 
@@ -118,6 +120,7 @@ val appModule: Module = module {
             .addMigrations(DatabaseMigrations.MIGRATION_2_3)
             .addMigrations(DatabaseMigrations.MIGRATION_3_4)
             .addMigrations(DatabaseMigrations.MIGRATION_4_5)
+            .addMigrations(DatabaseMigrations.MIGRATION_5_6)
             .build()
     }
 

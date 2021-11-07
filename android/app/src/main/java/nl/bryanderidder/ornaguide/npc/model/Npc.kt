@@ -29,7 +29,7 @@ data class Npc(
     )
 
     companion object {
-        const val NAME = "npc"
+        const val NAME = "Npc"
     }
 }
 

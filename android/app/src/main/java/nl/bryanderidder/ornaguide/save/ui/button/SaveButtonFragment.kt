@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.save.ui
+package nl.bryanderidder.ornaguide.save.ui.button
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,7 +24,7 @@ class SaveButtonFragment : BindingFragment<FragmentButtonSaveBinding>(R.layout.f
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
             lifecycleOwner = this@SaveButtonFragment
-            vm = getViewModel<SaveListViewModel>().setType(tag)
+            vm = getViewModel<SaveButtonViewModel>().setType(tag)
         }.root
     }
 }

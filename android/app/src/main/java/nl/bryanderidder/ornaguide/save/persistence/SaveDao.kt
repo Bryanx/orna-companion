@@ -17,4 +17,10 @@ interface SaveDao {
 
     @Query("SELECT EXISTS(SELECT * FROM Save WHERE id = :id AND type = :type)")
     suspend fun isSaveExists(id: Int, type: String): Boolean
+
+    @Query("SELECT DISTINCT tier FROM Save ORDER BY tier")
+    fun getAllPossibleTiers(): List<Int>
+
+    @Query("SELECT DISTINCT type FROM Save ORDER BY tier")
+    fun getAllPossibleTypes(): List<String>
 }

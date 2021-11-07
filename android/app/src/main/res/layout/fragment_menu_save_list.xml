@@ -92,15 +92,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-        <ProgressBar
-            android:id="@+id/progressbar"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/filterFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:gone="@{!vm.loading}"
+            android:layout_margin="@dimen/buttonMargin"
+            android:contentDescription="@string/filter"
+            android:src="@drawable/ic_baseline_filter_list_24"
+            app:layout_behavior="nl.bryanderidder.ornaguide.shared.ui.behaviors.FabAwareScrollingBehavior"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

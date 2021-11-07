@@ -56,7 +56,7 @@ data class Pet(
     }
 
     companion object {
-        const val NAME = "pet"
+        const val NAME = "Pet"
     }
 }
 

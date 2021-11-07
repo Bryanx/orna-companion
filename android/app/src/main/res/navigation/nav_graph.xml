@@ -78,14 +78,17 @@
             app:popUpTo="@id/dicoverFragment" />
     </fragment>
     <fragment
-        android:id="@+id/myListsFragment"
+        android:id="@+id/saveListFragment"
         android:name="nl.bryanderidder.ornaguide.shared.ui.menu.SaveListFragment"
-        android:label="MyListsFragment"
+        android:label="saveListFragment"
         tools:layout="@layout/fragment_menu_save_list" >
         <action
-            android:id="@+id/action_myListsFragment_to_dicoverFragment"
+            android:id="@+id/action_saveListFragment_to_dicoverFragment"
             app:popUpTo="@id/dicoverFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_saveListFragment_to_saveListFilterDialogFragment"
+            app:destination="@id/saveListFilterDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -216,4 +219,8 @@
         android:name="nl.bryanderidder.ornaguide.shared.ui.menu.settings.ContactActivity"
         android:label="CreditsActivity"
         tools:layout="@layout/activity_contact" />
+    <dialog
+        android:id="@+id/saveListFilterDialogFragment"
+        android:name="nl.bryanderidder.ornaguide.save.ui.filter.SaveListFilterDialogFragment"
+        android:label="SaveListFilterDialogFragment" />
 </navigation>

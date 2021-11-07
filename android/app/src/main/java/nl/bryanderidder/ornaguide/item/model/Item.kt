@@ -139,7 +139,7 @@ data class Item(
     fun isEquipmentType(): Boolean = equipmentTypes.contains(type)
 
     companion object {
-        const val NAME = "item"
+        const val NAME = "Item"
     }
 }
 

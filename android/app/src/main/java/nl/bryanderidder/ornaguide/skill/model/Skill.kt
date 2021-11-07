@@ -62,7 +62,7 @@ data class Skill(
     fun formattedTypeAndMana(): String = type + if (manaCost == 0) "" else " - $manaCost\u00A0mana"
 
     companion object {
-        const val NAME = "skill"
+        const val NAME = "Skill"
     }
 }
 

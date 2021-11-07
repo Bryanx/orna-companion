@@ -1,101 +1,61 @@
 package nl.bryanderidder.ornaguide.save.ui
 
-import androidx.databinding.Bindable
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
-import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import nl.bryanderidder.ornaguide.achievement.model.Achievement
-import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRepository
-import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
-import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
-import nl.bryanderidder.ornaguide.item.model.Item
-import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
-import nl.bryanderidder.ornaguide.monster.model.Monster
-import nl.bryanderidder.ornaguide.monster.persistence.MonsterRepository
-import nl.bryanderidder.ornaguide.npc.model.Npc
-import nl.bryanderidder.ornaguide.npc.persistence.NpcRepository
-import nl.bryanderidder.ornaguide.pet.model.Pet
-import nl.bryanderidder.ornaguide.pet.persistence.PetRepository
 import nl.bryanderidder.ornaguide.save.model.Save
 import nl.bryanderidder.ornaguide.save.persistence.SaveRepository
-import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
-import nl.bryanderidder.ornaguide.skill.model.Skill
-import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
-import nl.bryanderidder.ornaguide.specialization.model.Specialization
-import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationRepository
+import nl.bryanderidder.ornaguide.save.ui.filter.SaveFilter
 
 class SaveListViewModel(
-    private val sharedPrefsUtil: SharedPrefsUtil,
-    private val saveRepo: SaveRepository,
-    private val characterClassRepo: CharacterClassRepository,
-    private val skillRepo: SkillRepository,
-    private val specializationRepo: SpecializationRepository,
-    private val petRepo: PetRepository,
-    private val itemRepo: ItemRepository,
-    private val monsterRepo: MonsterRepository,
-    private val npcRepo: NpcRepository,
-    private val achievementRepo: AchievementRepository,
+    private val saveRepo: SaveRepository
 ) : BindingViewModel() {
-
-    @get:Bindable
-    var isLoading: Boolean by bindingProperty(false)
-        private set
-
-    var type = ""
-    fun setType(tag: String?): SaveListViewModel {
-        type = tag  ?: ""
-        isAlreadySaved()
-        return this
-    }
-
-    var isSaved: MutableLiveData<Boolean> = MutableLiveData(false)
 
     val saveList: MutableLiveData<List<Save>> = MutableLiveData()
 
-    init {
+    private var sessionSaveFilter: SaveFilter = SaveFilter()
+    var saveFilter: MutableLiveData<SaveFilter> = MutableLiveData(SaveFilter())
+
+    val allPossibleTiers: MutableLiveData<List<Int>> = MutableLiveData()
+
+    val allPossibleTypes: MutableLiveData<List<String>> = MutableLiveData()
+
+    fun loadItemsAndFilters() {
         loadItems()
+        loadFilters()
     }
 
     private fun loadItems() = viewModelScope.launch {
-        isLoading = true
         delay(200L)
-        saveRepo.fetchSaveList(
-            onComplete = { isLoading = false }
-        ).collect {
-            saveList.postValue(it)
+        saveRepo.fetchSaveList().collect {
+            saveList.postValue(saveFilter.value?.applyFilter(it))
         }
     }
 
-    fun addSave() = viewModelScope.launch {
-        getSaveFromSharedPrefs()?.let {
-            if (isSaved.value == false) {
-                saveRepo.insertSave(it)
-            } else {
-                saveRepo.deleteSave(it)
-            }
-            isSaved.value?.let { saved -> isSaved.postValue(!saved) }
-        }
+    private fun loadFilters() = viewModelScope.launch {
+        saveRepo.fetchAllPossibleTiers().collect(allPossibleTiers::postValue)
+        saveRepo.fetchAllPossibleTypes().collect(allPossibleTypes::postValue)
     }
 
-    private fun isAlreadySaved() = viewModelScope.launch {
-        getSaveFromSharedPrefs()?.let { isSaved.postValue(saveRepo.isSaveExists(it)) }
+    fun updateSelectedTiers(tiers: List<String>) {
+        sessionSaveFilter.tiers = tiers.map(String::toInt).toList()
     }
 
-    private suspend fun getSaveFromSharedPrefs(): Save? {
-        return when (type) {
-            Item.NAME -> itemRepo.getItemFromDb(sharedPrefsUtil.getItemId())?.let(Save.Companion::ofItem)
-            Monster.NAME -> monsterRepo.getMonsterFromDb(sharedPrefsUtil.getMonsterId())?.let(Save.Companion::ofMonster)
-            Skill.NAME -> skillRepo.getSkillFromDb(sharedPrefsUtil.getSkillId())?.let(Save.Companion::ofSkill)
-            CharacterClass.NAME -> characterClassRepo.getCharacterClassFromDb(sharedPrefsUtil.getCharacterClassId())?.let(Save.Companion::ofCharacterClass)
-            Pet.NAME -> petRepo.getPetFromDb(sharedPrefsUtil.getPetId())?.let(Save.Companion::ofPet)
-            Specialization.NAME -> specializationRepo.getSpecializationFromDb(sharedPrefsUtil.getSpecializationId())?.let(Save.Companion::ofSpecialization)
-            Npc.NAME -> npcRepo.getNpcFromDb(sharedPrefsUtil.getNpcId())?.let(Save.Companion::ofNpc)
-            Achievement.NAME -> achievementRepo.getAchievementFromDb(sharedPrefsUtil.getAchievementId())?.let(Save.Companion::ofAchievement)
-            else -> null
-        }
+    fun updateSelectedTypes(types: List<String>) {
+        sessionSaveFilter.types = types
+    }
+
+    fun onSubmitFilter(dialog: DialogFragment) {
+        saveFilter.value = sessionSaveFilter.copy()
+        loadItems()
+        dialog.dismiss()
+    }
+
+    fun onDismissed() {
+        sessionSaveFilter = saveFilter.value?.copy() ?: SaveFilter()
     }
 }

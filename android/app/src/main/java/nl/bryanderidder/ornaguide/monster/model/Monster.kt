@@ -67,7 +67,7 @@ data class Monster(
             "Status Vulnerability: ${vulnerableToStatus.joinToString(", ")}".makeBold("Status Vulnerability:")
 
     companion object {
-        const val NAME = "monster"
+        const val NAME = "Monster"
     }
 }
 
