@@ -37,6 +37,10 @@ class NpcListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
         }
     }
 
+    override fun submitList(list: MutableList<Npc>?) {
+        super.submitList(list?.filter { it.isFiltered })
+    }
+
     class DiffCallback : DiffUtil.ItemCallback<Npc>() {
         override fun areItemsTheSame(oldItem: Npc, newItem: Npc) =
             oldItem.id == newItem.id

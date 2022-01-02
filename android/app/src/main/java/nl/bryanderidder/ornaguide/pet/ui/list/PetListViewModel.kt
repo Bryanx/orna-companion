@@ -30,6 +30,10 @@ class PetListViewModel(
     var isLoading: Boolean by bindingProperty(false)
         private set
 
+    @get:Bindable
+    var resultCount: Int by bindingProperty(0)
+        private set
+
     val allPossibleTiers: LiveData<List<Int>> by lazy {
         repository.fetchAllPossibleTiers()
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
@@ -53,12 +57,15 @@ class PetListViewModel(
             onComplete = { isLoading = false },
             onError = { toastMessage = it }
         ).collect {
-            petList.postValue(petFilter.value?.applyFilter(it))
+            val newList = petFilter.value?.applyFilter(it)
+            petList.postValue(newList)
+            resultCount = sessionPetFilter.countFilterResults(newList)
         }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
         sessionPetFilter.tiers = tiers.map(String::toInt).toList()
+        resultCount = sessionPetFilter.countFilterResults(petList.value)
     }
 
     fun onSubmit(dialog: DialogFragment) {

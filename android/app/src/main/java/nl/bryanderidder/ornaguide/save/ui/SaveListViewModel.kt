@@ -1,9 +1,11 @@
 package nl.bryanderidder.ornaguide.save.ui
 
+import androidx.databinding.Bindable
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
+import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -24,6 +26,10 @@ class SaveListViewModel(
 
     val allPossibleTypes: MutableLiveData<List<String>> = MutableLiveData()
 
+    @get:Bindable
+    var resultCount: Int by bindingProperty(0)
+        private set
+
     fun loadItemsAndFilters() {
         loadItems()
         loadFilters()
@@ -32,7 +38,9 @@ class SaveListViewModel(
     private fun loadItems() = viewModelScope.launch {
         delay(200L)
         saveRepo.fetchSaveList().collect {
-            saveList.postValue(saveFilter.value?.applyFilter(it))
+            val newList = saveFilter.value?.applyFilter(it)
+            saveList.postValue(newList)
+            resultCount = sessionSaveFilter.countFilterResults(newList)
         }
     }
 
@@ -43,10 +51,13 @@ class SaveListViewModel(
 
     fun updateSelectedTiers(tiers: List<String>) {
         sessionSaveFilter.tiers = tiers.map(String::toInt).toList()
+        resultCount = sessionSaveFilter.countFilterResults(saveList.value)
+
     }
 
     fun updateSelectedTypes(types: List<String>) {
         sessionSaveFilter.types = types
+        resultCount = sessionSaveFilter.countFilterResults(saveList.value)
     }
 
     fun onSubmitFilter(dialog: DialogFragment) {

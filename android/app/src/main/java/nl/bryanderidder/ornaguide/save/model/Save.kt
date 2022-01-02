@@ -1,6 +1,7 @@
 package nl.bryanderidder.ornaguide.save.model
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import nl.bryanderidder.ornaguide.achievement.model.Achievement
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.item.model.Item
@@ -19,6 +20,8 @@ data class Save(
     val image: String,
     val tier: Int
 ) {
+    @Ignore var isFiltered: Boolean = true
+
     companion object {
         fun ofCharacterClass(it: CharacterClass): Save =
             Save(it.id, it.name, it.formattedLearns(), CharacterClass.NAME, it.previewImageUrl, it.tier)

@@ -37,6 +37,10 @@ class MonsterListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
         }
     }
 
+    override fun submitList(list: MutableList<Monster>?) {
+        super.submitList(list?.filter { it.isFiltered })
+    }
+
     class DiffCallback : DiffUtil.ItemCallback<Monster>() {
         override fun areItemsTheSame(oldItem: Monster, newItem: Monster) =
             oldItem.id == newItem.id

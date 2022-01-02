@@ -49,6 +49,8 @@ data class Skill(
         else -> "${ORNA_ICON_IMAGE_PREFIX}staff.png"
     }
 
+    @Ignore var isFiltered: Boolean = true
+
     @Ignore
     fun formattedGives(): String = "Gives:\n" + gives.joinToString("\n")
 

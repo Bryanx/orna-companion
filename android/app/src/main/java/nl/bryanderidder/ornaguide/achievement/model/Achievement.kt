@@ -20,6 +20,7 @@ data class Achievement(
 ) {
     @Ignore
     val previewImageUrl: String = "${ORNA_ICON_IMAGE_PREFIX}trophy.png"
+    @Ignore var isFiltered: Boolean = true
 
     @Ignore fun formattedReward(): String {
         return "Reward: ${NumberUtil.formatNumber(reward)} orns"

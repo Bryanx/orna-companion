@@ -30,6 +30,10 @@ class NpcListViewModel(
     var isLoading: Boolean by bindingProperty(false)
         private set
 
+    @get:Bindable
+    var resultCount: Int by bindingProperty(0)
+        private set
+
     val allPossibleTiers: LiveData<List<Int>> by lazy {
         repository.fetchAllPossibleTiers()
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
@@ -53,12 +57,15 @@ class NpcListViewModel(
             onComplete = { isLoading = false },
             onError = { toastMessage = it }
         ).collect {
-            npcList.postValue(npcFilter.value?.applyFilter(it))
+            val newList = npcFilter.value?.applyFilter(it)
+            npcList.postValue(newList)
+            resultCount = sessionNpcFilter.countFilterResults(newList)
         }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
         sessionNpcFilter.tiers = tiers.map(String::toInt).toList()
+        resultCount = sessionNpcFilter.countFilterResults(npcList.value)
     }
 
     fun onSubmit(dialog: DialogFragment) {

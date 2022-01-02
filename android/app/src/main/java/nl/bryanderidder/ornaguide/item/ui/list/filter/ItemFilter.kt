@@ -1,6 +1,7 @@
 package nl.bryanderidder.ornaguide.item.ui.list.filter
 
 import nl.bryanderidder.ornaguide.item.model.Item
+import nl.bryanderidder.ornaguide.shared.util.forEachApply
 
 
 /**
@@ -14,6 +15,15 @@ data class ItemFilter(
     var equippedByList: List<String> = listOf()
 ) {
     fun applyFilter(list: List<Item>): List<Item> {
+        return if (isEmpty())
+            list.forEachApply { it.isFiltered = true }
+        else {
+            val newList = filterList(list)
+            list.forEachApply { it.isFiltered = newList.contains(it) }
+        }
+    }
+
+    fun filterList(list: List<Item>): List<Item> {
         var newList = list
         if (tiers.isNotEmpty())
             newList = newList.filter { item -> tiers.contains(item.tier) }
@@ -25,4 +35,9 @@ data class ItemFilter(
             newList = newList.filter { item -> equippedByList.any(item.equippedBy.toString()::contains) }
         return newList
     }
+
+    fun countFilterResults(list: List<Item>?): Int =
+        filterList(list ?: listOf()).count()
+
+    fun isEmpty(): Boolean = tiers.isEmpty()
 }

@@ -25,7 +25,8 @@
     <string name="skill">SKILL</string>
     <string name="specialization">SPECIALIZATION</string>
     <string name="back">BACK</string>
-    <string name="apply_filter">Apply filter</string>
+    <string name="apply_filter">Show %1$s results</string>
+    <string name="show_all_results">Show All Results</string>
     <string name="enter_the_stats_of_your_item_to_assess_its_quality">Enter the stats of your item to assess its quality.</string>
     <string name="attack">Attack</string>
     <string name="defense">Defense</string>

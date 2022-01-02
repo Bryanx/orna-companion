@@ -37,6 +37,10 @@ class PetListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
         }
     }
 
+    override fun submitList(list: MutableList<Pet>?) {
+        super.submitList(list?.filter { it.isFiltered })
+    }
+
     class DiffCallback : DiffUtil.ItemCallback<Pet>() {
         override fun areItemsTheSame(oldItem: Pet, newItem: Pet) =
             oldItem.id == newItem.id

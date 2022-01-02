@@ -39,6 +39,10 @@ class SpecializationListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
         }
     }
 
+    override fun submitList(list: MutableList<Specialization>?) {
+        super.submitList(list?.filter { it.isFiltered })
+    }
+
     class DiffCallback : DiffUtil.ItemCallback<Specialization>() {
         override fun areItemsTheSame(oldItem: Specialization, newItem: Specialization) =
             oldItem.id == newItem.id

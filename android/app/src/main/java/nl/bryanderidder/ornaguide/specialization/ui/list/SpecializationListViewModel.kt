@@ -28,6 +28,10 @@ class SpecializationListViewModel(
     var isLoading: Boolean by bindingProperty(false)
         private set
 
+    @get:Bindable
+    var resultCount: Int by bindingProperty(0)
+        private set
+
     val allPossibleTiers: LiveData<List<Int>> by lazy {
         repository.fetchAllPossibleTiers()
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
@@ -49,12 +53,15 @@ class SpecializationListViewModel(
             onComplete = { isLoading = false },
             onError = { toastMessage = it }
         ).collect {
-            specializationList.postValue(specializationFilter.value?.applyFilter(it))
+            val newList = specializationFilter.value?.applyFilter(it)
+            specializationList.postValue(newList)
+            resultCount = sessionSpecializationFilter.countFilterResults(newList)
         }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
         sessionSpecializationFilter.tiers = tiers.map(String::toInt).toList()
+        resultCount = sessionSpecializationFilter.countFilterResults(specializationList.value)
     }
 
     fun onSubmit(dialog: DialogFragment) {

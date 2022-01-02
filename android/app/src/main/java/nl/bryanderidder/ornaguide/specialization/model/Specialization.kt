@@ -24,6 +24,7 @@ data class Specialization(
 ) {
     @Ignore val imageUrls: List<String> = images.map { ORNA_IMAGE_PREFIX + it }.toList()
     @Ignore val previewImageUrl: String = imageUrls.last()
+    @Ignore var isFiltered: Boolean = true
 
     @JsonClass(generateAdapter = true)
     data class Skills(

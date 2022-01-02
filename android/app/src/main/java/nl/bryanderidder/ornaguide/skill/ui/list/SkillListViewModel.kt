@@ -31,6 +31,10 @@ class SkillListViewModel(
     var isLoading: Boolean by bindingProperty(false)
         private set
 
+    @get:Bindable
+    var resultCount: Int by bindingProperty(0)
+        private set
+
     val allPossibleTiers: LiveData<List<Int>> by lazy {
         repository.fetchAllPossibleTiers()
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
@@ -65,20 +69,25 @@ class SkillListViewModel(
             onComplete = { isLoading = false },
             onError = { toastMessage = it }
         ).collect {
-            skillList.postValue(skillFilter.value?.applyFilter(it))
+            val newList = skillFilter.value?.applyFilter(it)
+            skillList.postValue(newList)
+            resultCount = sessionSkillFilter.countFilterResults(newList)
         }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
         sessionSkillFilter.tiers = tiers.map(String::toInt).toList()
+        resultCount = sessionSkillFilter.countFilterResults(skillList.value)
     }
 
     fun updateSelectedTypes(types: List<String>) {
         sessionSkillFilter.types = types
+        resultCount = sessionSkillFilter.countFilterResults(skillList.value)
     }
 
     fun updateSelectedElements(elements: List<String>) {
         sessionSkillFilter.elements = elements
+        resultCount = sessionSkillFilter.countFilterResults(skillList.value)
     }
 
     fun onSubmit(dialog: DialogFragment) {

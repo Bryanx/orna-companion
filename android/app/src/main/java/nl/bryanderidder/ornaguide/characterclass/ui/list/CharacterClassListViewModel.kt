@@ -30,6 +30,10 @@ class CharacterClassListViewModel(
     var isLoading: Boolean by bindingProperty(false)
         private set
 
+    @get:Bindable
+    var resultCount: Int by bindingProperty(0)
+        private set
+
     val allPossibleTiers: LiveData<List<Int>> by lazy {
         repository.fetchAllPossibleTiers()
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
@@ -55,16 +59,20 @@ class CharacterClassListViewModel(
             onComplete = { isLoading = false },
             onError = { toastMessage = it }
         ).collect {
-            characterClassList.postValue(characterClassFilter.value?.applyFilter(it))
+            val newList = characterClassFilter.value?.applyFilter(it)
+            characterClassList.postValue(newList)
+            resultCount = sessionCharacterClassFilter.countFilterResults(newList)
         }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
         sessionCharacterClassFilter.tiers = tiers.map(String::toInt).toList()
+        resultCount = sessionCharacterClassFilter.countFilterResults(characterClassList.value)
     }
 
     fun updateSelectedCostTypes(costTypes: List<String>) {
         sessionCharacterClassFilter.costTypes = costTypes
+        resultCount = sessionCharacterClassFilter.countFilterResults(characterClassList.value)
     }
 
     fun onSubmit(dialog: DialogFragment) {

@@ -202,3 +202,8 @@ fun String.makeBold(textToBold: String): SpannableStringBuilder {
     }
     return builder
 }
+
+fun <T> List<T>.forEachApply(action: (T) -> Unit): List<T> {
+    forEach(action)
+    return this
+}

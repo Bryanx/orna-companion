@@ -37,6 +37,10 @@ class CharacterClassListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
         }
     }
 
+    override fun submitList(list: MutableList<CharacterClass>?) {
+        super.submitList(list?.filter { it.isFiltered })
+    }
+
     class DiffCallback : DiffUtil.ItemCallback<CharacterClass>() {
         override fun areItemsTheSame(oldItem: CharacterClass, newItem: CharacterClass) =
             oldItem.id == newItem.id

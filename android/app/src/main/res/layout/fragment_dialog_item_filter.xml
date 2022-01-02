@@ -72,9 +72,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/apply_filter"
+                android:text="@{@string/apply_filter(vm.resultCount)}"
                 android:textAllCaps="true"
-                android:textColor="@color/textColor" />
+                android:textColor="@color/textColor"
+                app:showIf="@{vm.resultCount != vm.itemList.size()}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/show_all_results"
+                android:textAllCaps="true"
+                android:textColor="@color/textColor"
+                app:showIf="@{vm.resultCount == vm.itemList.size()}"/>
         </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

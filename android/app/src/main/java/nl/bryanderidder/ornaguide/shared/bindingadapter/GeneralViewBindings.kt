@@ -58,6 +58,16 @@ object GeneralViewBindings {
     }
 
     @JvmStatic
+    @BindingAdapter("showIf")
+    fun bindShowIf(view: View, showIf: Boolean) {
+        view.visibility = if (showIf) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
+    }
+
+    @JvmStatic
     @BindingAdapter("glideSrc")
     fun bindGlideSrc(view: AppCompatImageView, url: String?) {
         if (url.isNullOrEmpty())

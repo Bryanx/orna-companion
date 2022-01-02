@@ -32,6 +32,10 @@ class MonsterListViewModel(
     @get:Bindable
     var isLoading: Boolean by bindingProperty(false)
         private set
+
+    @get:Bindable
+    var resultCount: Int by bindingProperty(0)
+        private set
     
     val allPossibleTiers: LiveData<List<Int>> by lazy {
         repository.fetchAllPossibleTiers()
@@ -67,20 +71,25 @@ class MonsterListViewModel(
             onComplete = { isLoading = false },
             onError = { toastMessage = it }
         ).collect {
-            monsterList.postValue(monsterFilter.value?.applyFilter(it))
+            val newList = monsterFilter.value?.applyFilter(it)
+            monsterList.postValue(newList)
+            resultCount = sessionMonsterFilter.countFilterResults(newList)
         }
     }
     
     fun updateSelectedTiers(tiers: List<String>) {
         sessionMonsterFilter.tiers = tiers.map(String::toInt).toList()
+        resultCount = sessionMonsterFilter.countFilterResults(monsterList.value)
     }
     
     fun updateSelectedTypes(types: List<String>) {
         sessionMonsterFilter.types = types
+        resultCount = sessionMonsterFilter.countFilterResults(monsterList.value)
     }
     
     fun updateSelectedSpawns(spawns: List<String>) {
         sessionMonsterFilter.spawns = spawns
+        resultCount = sessionMonsterFilter.countFilterResults(monsterList.value)
     }
 
     fun onSubmit(dialog: DialogFragment) {

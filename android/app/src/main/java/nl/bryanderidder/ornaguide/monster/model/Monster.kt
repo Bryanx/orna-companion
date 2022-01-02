@@ -32,6 +32,7 @@ data class Monster(
 ) {
 
     @Ignore val previewImageUrl: String = ORNA_IMAGE_PREFIX + image
+    @Ignore var isFiltered: Boolean = true
 
     @JsonClass(generateAdapter = true)
     data class IdNamePair(

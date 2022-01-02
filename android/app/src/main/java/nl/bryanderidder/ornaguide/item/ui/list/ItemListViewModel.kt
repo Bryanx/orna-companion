@@ -31,6 +31,10 @@ class ItemListViewModel(
     var isLoading: Boolean by bindingProperty(false)
         private set
 
+    @get:Bindable
+    var resultCount: Int by bindingProperty(0)
+        private set
+
     val allPossibleTiers: LiveData<List<Int>> by lazy {
         repository.fetchAllPossibleTiers()
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
@@ -71,24 +75,30 @@ class ItemListViewModel(
             onComplete = { isLoading = false },
             onError = { toastMessage = it }
         ).collect {
-            itemList.postValue(itemFilter.value?.applyFilter(it))
+            val newList = itemFilter.value?.applyFilter(it)
+            itemList.postValue(newList)
+            resultCount = sessionItemFilter.countFilterResults(newList)
         }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
         sessionItemFilter.tiers = tiers.map(String::toInt).toList()
+        resultCount = sessionItemFilter.countFilterResults(itemList.value)
     }
 
     fun updateSelectedType(types: List<String>) {
         sessionItemFilter.types = types
+        resultCount = sessionItemFilter.countFilterResults(itemList.value)
     }
 
     fun updateSelectedElement(elements: List<String>) {
         sessionItemFilter.elements = elements
+        resultCount = sessionItemFilter.countFilterResults(itemList.value)
     }
 
     fun updateSelectedEquippedByList(equippedByList: List<String>) {
         sessionItemFilter.equippedByList = equippedByList
+        resultCount = sessionItemFilter.countFilterResults(itemList.value)
     }
 
     fun onSubmit(dialog: DialogFragment) {

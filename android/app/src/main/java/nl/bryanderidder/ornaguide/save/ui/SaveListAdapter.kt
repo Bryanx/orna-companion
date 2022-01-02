@@ -92,6 +92,10 @@ class SaveListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
     class SaveViewHolder(val binding: ItemSaveBinding) :
         RecyclerView.ViewHolder(binding.root)
 
+    override fun submitList(list: MutableList<Save>?) {
+        super.submitList(list?.filter { it.isFiltered })
+    }
+
     class DiffCallback : DiffUtil.ItemCallback<Save>() {
         override fun areItemsTheSame(oldItem: Save, newItem: Save) =
             oldItem.name == newItem.name

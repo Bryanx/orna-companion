@@ -19,6 +19,7 @@ data class Pet(
     @Json(name = "skills") val skills: List<Skill> = listOf()
 ) {
     @Ignore val previewImageUrl: String = ORNA_IMAGE_PREFIX + image
+    @Ignore var isFiltered: Boolean = true
 
     @JsonClass(generateAdapter = true)
     data class Stats(

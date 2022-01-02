@@ -1,6 +1,7 @@
 package nl.bryanderidder.ornaguide.characterclass.ui.list.filter
 
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
+import nl.bryanderidder.ornaguide.shared.util.forEachApply
 
 
 /**
@@ -12,6 +13,15 @@ data class CharacterClassFilter(
     var costTypes: List<String> = listOf(),
 ) {
     fun applyFilter(list: List<CharacterClass>): List<CharacterClass> {
+        return if (isEmpty()) {
+            list.forEachApply { it.isFiltered = true }
+        } else {
+            val newList = filterList(list)
+            list.forEachApply { it.isFiltered = newList.contains(it) }
+        }
+    }
+
+    fun filterList(list: List<CharacterClass>): List<CharacterClass> {
         var newList = list
         if (tiers.isNotEmpty())
             newList = newList.filter { tiers.contains(it.tier) }
@@ -21,4 +31,9 @@ data class CharacterClassFilter(
             newList = newList.filter { it.cost.contains("orns") }
         return newList
     }
+
+    fun countFilterResults(list: List<CharacterClass>?): Int =
+        filterList(list ?: listOf()).count()
+
+    fun isEmpty(): Boolean = tiers.isEmpty() && costTypes.isEmpty()
 }

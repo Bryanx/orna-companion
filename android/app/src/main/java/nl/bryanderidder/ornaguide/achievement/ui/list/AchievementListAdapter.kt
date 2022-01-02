@@ -37,6 +37,10 @@ class AchievementListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
         }
     }
 
+    override fun submitList(list: MutableList<Achievement>?) {
+        super.submitList(list?.filter { it.isFiltered })
+    }
+
     class DiffCallback : DiffUtil.ItemCallback<Achievement>() {
         override fun areItemsTheSame(oldItem: Achievement, newItem: Achievement) =
             oldItem.id == newItem.id

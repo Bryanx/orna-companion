@@ -30,6 +30,10 @@ class AchievementListViewModel(
     var isLoading: Boolean by bindingProperty(false)
         private set
 
+    @get:Bindable
+    var resultCount: Int by bindingProperty(0)
+        private set
+
     val allPossibleTiers: LiveData<List<Int>> by lazy {
         repository.fetchAllPossibleTiers()
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
@@ -53,12 +57,15 @@ class AchievementListViewModel(
             onComplete = { isLoading = false },
             onError = { toastMessage = it }
         ).collect {
-            achievementList.postValue(achievementFilter.value?.applyFilter(it))
+            val newList = achievementFilter.value?.applyFilter(it)
+            achievementList.postValue(newList)
+            resultCount = sessionAchievementFilter.countFilterResults(newList)
         }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
         sessionAchievementFilter.tiers = tiers.map(String::toInt).toList()
+        resultCount = sessionAchievementFilter.countFilterResults(achievementList.value)
     }
 
     fun onSubmit(dialog: DialogFragment) {

@@ -37,6 +37,10 @@ class SkillListAdapter(private val sharedPrefsUtil: SharedPrefsUtil) :
         }
     }
 
+    override fun submitList(list: MutableList<Skill>?) {
+        super.submitList(list?.filter { it.isFiltered })
+    }
+
     class DiffCallback : DiffUtil.ItemCallback<Skill>() {
         override fun areItemsTheSame(oldItem: Skill, newItem: Skill) =
             oldItem.id == newItem.id
