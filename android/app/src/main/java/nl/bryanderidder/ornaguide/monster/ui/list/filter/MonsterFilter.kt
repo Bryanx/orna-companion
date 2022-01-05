@@ -39,5 +39,9 @@ data class MonsterFilter(
     fun countFilterResults(list: List<Monster>?): Int =
         filterList(list ?: listOf()).count()
 
-    fun isEmpty(): Boolean = tiers.isEmpty() && types.isEmpty() && spawns.isEmpty()
+    fun filterCount(): String =
+        (tiers.size + types.size + spawns.size).toString()
+
+    fun isEmpty(): Boolean =
+        tiers.isEmpty() && types.isEmpty() && spawns.isEmpty()
 }

@@ -30,5 +30,7 @@ data class PetFilter(
     fun countFilterResults(list: List<Pet>?): Int =
         filterList(list ?: listOf()).count()
 
+    fun filterCount(): String = tiers.size.toString()
+
     fun isEmpty(): Boolean = tiers.isEmpty()
 }

@@ -30,5 +30,7 @@ data class NpcFilter(
     fun countFilterResults(list: List<Npc>?): Int =
         filterList(list ?: listOf()).count()
 
+    fun filterCount(): String = tiers.size.toString()
+
     fun isEmpty(): Boolean = tiers.isEmpty()
 }

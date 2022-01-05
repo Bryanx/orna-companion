@@ -92,16 +92,44 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/filterFab"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/buttonMargin"
-            android:contentDescription="@string/filter"
-            android:src="@drawable/ic_baseline_filter_list_24"
-            app:layout_behavior="nl.bryanderidder.ornaguide.shared.ui.behaviors.FabAwareScrollingBehavior"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/filterFab"
+                android:layout_alignEnd="@id/filterFab"
+                android:background="@drawable/circle"
+                android:clickable="false"
+                android:elevation="16dp"
+                android:focusable="false"
+                android:padding="3dp"
+                android:text="@{vm.saveFilter.filterCount()}"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:showIf="@{!vm.saveFilter.isEmpty()}"
+                tools:text="4"
+                tools:ignore="SmallSp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/filterFab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/buttonMargin"
+                android:clickable="true"
+                android:contentDescription="@string/filter"
+                android:focusable="true"
+                android:src="@drawable/ic_baseline_filter_list_24"
+                app:backgroundTint="@color/dividerColor"
+                app:layout_behavior="nl.bryanderidder.ornaguide.shared.ui.behaviors.FabAwareScrollingBehavior"
+                app:tint="@color/white" />
+        </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

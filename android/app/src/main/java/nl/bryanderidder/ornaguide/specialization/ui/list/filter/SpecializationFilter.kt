@@ -30,5 +30,7 @@ data class SpecializationFilter(
     fun countFilterResults(list: List<Specialization>?): Int =
         filterList(list ?: listOf()).count()
 
+    fun filterCount(): String = tiers.size.toString()
+
     fun isEmpty(): Boolean = tiers.isEmpty()
 }
