@@ -16,19 +16,29 @@
         android:padding="@dimen/cardPadding"
         android:orientation="vertical">
 
-        <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
-            android:layout_width="wrap_content"
+        <ScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:flexWrap="wrap"
-            app:justifyContent="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:toggleButtons="@{vm.allPossibleTypes}"
-            app:toggleInitiallySelectedButtons="@{vm.skillFilter.types}"
-            app:onChanged="@{v -> vm.updateSelectedTypes(v)}"
-            app:toggle_requiredAmount="0"
-            app:toggle_selectableAmount="10" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                app:flexWrap="wrap"
+                app:justifyContent="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:toggleButtons="@{vm.allPossibleTypes}"
+                app:toggleInitiallySelectedButtons="@{vm.skillFilter.types}"
+                app:onChanged="@{v -> vm.updateSelectedTypes(v)}"
+                app:toggle_requiredAmount="0"
+                app:toggle_selectableAmount="10"/>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

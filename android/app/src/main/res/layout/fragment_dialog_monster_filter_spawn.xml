@@ -16,7 +16,7 @@
         android:padding="@dimen/cardPadding">
 
         <ScrollView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -26,6 +26,7 @@
             <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 app:flexWrap="wrap"
                 app:justifyContent="center"
                 app:layout_constraintEnd_toEndOf="parent"
