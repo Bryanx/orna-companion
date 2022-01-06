@@ -20,6 +20,7 @@ class PetListFilterPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
     companion object {
         val FILTER_TAB_PETS = mapOf<String, () -> Fragment>(
             "Tier" to ::PetListFilterTierFragment,
+            "Stats" to ::PetListFilterStatFragment,
         )
 
         val FILTER_TAB_LABELS: List<String> = FILTER_TAB_PETS.keys.toList()

@@ -46,18 +46,28 @@ data class Pet(
 
     @Ignore
     fun formattedStats(): String {
-        val formattedStats = mutableListOf<String>()
-        if (stats.attack != 0) formattedStats += "Attack chance ${stats.attack}%"
-        if (stats.buff != 0) formattedStats += "Buff chance ${stats.buff}%"
-        if (stats.deBuff != 0) formattedStats += "Debuff chance ${stats.deBuff}%"
-        if (stats.protect != 0) formattedStats += "Protect chance ${stats.protect}%"
-        if (stats.spell != 0) formattedStats += "Spell chance ${stats.spell}%"
-        if (stats.heal != 0) formattedStats += "Heal chance ${stats.heal}%"
-        return formattedStats.joinToString("\n")
+        return getActiveStats()
+            .map { (stat, value) -> "$stat chance $value%" }
+            .joinToString("\n")
     }
+
+    @Ignore
+    fun getActiveStats(): Map<String, Int> =
+        getAllStats().filter { (_, value) -> value != 0 }
+
+    @Ignore
+    fun getAllStats(): Map<String, Int> = mapOf(
+        "Attack" to stats.attack,
+        "Buff" to stats.buff,
+        "Debuff" to stats.deBuff,
+        "Protect" to stats.protect,
+        "Spell" to stats.spell,
+        "Heal" to stats.heal,
+    )
 
     companion object {
         const val NAME = "Pet"
+        val STATS = listOf("Attack", "Buff", "Debuff", "Protect", "Spell", "Heal")
     }
 }
 

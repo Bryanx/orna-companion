@@ -10,6 +10,7 @@ import nl.bryanderidder.ornaguide.shared.util.forEachApply
  */
 data class PetFilter(
     var tiers: List<Int> = listOf(),
+    var stats: List<String> = listOf(),
 ) {
     fun applyFilter(list: List<Pet>): List<Pet> {
         return if (isEmpty())
@@ -24,13 +25,15 @@ data class PetFilter(
         var newList = list
         if (tiers.isNotEmpty())
             newList = newList.filter { tiers.contains(it.tier) }
+        if (stats.isNotEmpty())
+            newList = newList.filter { stats.any(it.getActiveStats()::containsKey) }
         return newList
     }
 
     fun countFilterResults(list: List<Pet>?): Int =
         filterList(list ?: listOf()).count()
 
-    fun filterCount(): String = tiers.size.toString()
+    fun filterCount(): String = (tiers.size + stats.size).toString()
 
-    fun isEmpty(): Boolean = tiers.isEmpty()
+    fun isEmpty(): Boolean = tiers.isEmpty() && stats.isEmpty()
 }

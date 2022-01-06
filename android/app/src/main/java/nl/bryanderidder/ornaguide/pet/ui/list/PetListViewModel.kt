@@ -39,6 +39,8 @@ class PetListViewModel(
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
+    val allPossibleStats: List<String> = Pet.STATS
+
     val petList: MutableLiveData<List<Pet>> = MutableLiveData()
 
     private var sessionPetFilter: PetFilter =
@@ -65,6 +67,11 @@ class PetListViewModel(
 
     fun updateSelectedTiers(tiers: List<String>) {
         sessionPetFilter.tiers = tiers.map(String::toInt).toList()
+        resultCount = sessionPetFilter.countFilterResults(petList.value)
+    }
+
+    fun updateSelectedStats(stats: List<String>) {
+        sessionPetFilter.stats = stats
         resultCount = sessionPetFilter.countFilterResults(petList.value)
     }
 
