@@ -8,7 +8,6 @@ import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentMenuSettingsBinding
 import nl.bryanderidder.ornaguide.shared.util.color
 
-
 /**
  * Main settings fragment
  * @author Bryan de Ridder

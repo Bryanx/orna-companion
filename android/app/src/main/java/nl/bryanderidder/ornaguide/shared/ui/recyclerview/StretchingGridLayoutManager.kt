@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.shared.ui
+package nl.bryanderidder.ornaguide.shared.ui.recyclerview
 
 import android.content.Context
 import android.util.AttributeSet
@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import nl.bryanderidder.ornaguide.shared.util.dp
 import kotlin.math.ceil
 import kotlin.math.round
-
 
 /**
  * GridLayoutManager that stretches items to use full width and height

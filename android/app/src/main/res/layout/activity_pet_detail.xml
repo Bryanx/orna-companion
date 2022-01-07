@@ -123,7 +123,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/descriptionDivider" />
 
-                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
                     android:id="@+id/passiveSkills"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

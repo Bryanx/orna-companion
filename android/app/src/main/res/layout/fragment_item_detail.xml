@@ -86,7 +86,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/givesList"/>
 
-        <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+        <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
             android:id="@+id/equippedByList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/equippedByList" />
 
-        <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+        <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
             android:id="@+id/droppedByList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -140,7 +140,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/droppedByList" />
 
-        <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+        <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
             android:id="@+id/materialsList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -167,7 +167,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/materialsList" />
 
-        <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+        <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
             android:id="@+id/questsList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

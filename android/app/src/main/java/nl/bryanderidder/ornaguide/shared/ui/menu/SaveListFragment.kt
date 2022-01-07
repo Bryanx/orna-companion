@@ -13,7 +13,6 @@ import nl.bryanderidder.ornaguide.shared.util.navigateSafely
 import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
-
 /**
  * Main saved list fragment
  * @author Bryan de Ridder

@@ -9,7 +9,7 @@ import timber.log.Timber
 
 
 /**
- * Description
+ * Collect all navigation changes for crash reports.
  * @author Bryan de Ridder
  */
 class NavLogger(private val context: Context) :

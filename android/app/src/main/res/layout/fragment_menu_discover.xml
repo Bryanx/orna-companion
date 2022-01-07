@@ -38,7 +38,7 @@
             android:id="@+id/recyclerView"
             style="@style/databaseListRecyclerView"
             android:layout_height="wrap_content"
-            app:layoutManager="nl.bryanderidder.ornaguide.shared.ui.StretchingGridLayoutManager"
+            app:layoutManager="nl.bryanderidder.ornaguide.shared.ui.recyclerview.StretchingGridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title"

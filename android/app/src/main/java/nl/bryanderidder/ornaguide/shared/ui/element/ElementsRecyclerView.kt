@@ -3,7 +3,7 @@ package nl.bryanderidder.ornaguide.shared.ui.element
 import android.content.Context
 import android.util.AttributeSet
 import nl.bryanderidder.ornaguide.monster.ui.detail.ElementsAdapter
-import nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+import nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
 
 
 /**

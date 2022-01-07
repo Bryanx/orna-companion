@@ -1,4 +1,4 @@
-package nl.bryanderidder.ornaguide.shared.ui
+package nl.bryanderidder.ornaguide.shared.ui.recyclerview
 
 import android.content.Context
 import android.util.AttributeSet

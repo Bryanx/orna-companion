@@ -16,7 +16,7 @@ import nl.bryanderidder.ornaguide.skill.model.Skill
 import timber.log.Timber
 
 /**
- * Description
+ * Main skill repository
  * @author Bryan de Ridder
  */
 class SkillRepository(

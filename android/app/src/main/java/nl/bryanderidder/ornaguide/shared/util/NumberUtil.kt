@@ -4,7 +4,7 @@ import java.text.DecimalFormat
 
 
 /**
- * Description
+ * Number utility functions
  * @author Bryan de Ridder
  */
 object NumberUtil {

@@ -6,7 +6,6 @@ import androidx.databinding.ViewDataBinding
 import com.google.android.material.transition.MaterialFadeThrough
 import com.skydoves.bindables.BindingFragment
 
-
 /**
  * Base fragment for menu items
  * @author Bryan de Ridder

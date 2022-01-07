@@ -159,7 +159,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/causes" />
 
-                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
                     android:id="@+id/learnedByList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/learnedByList" />
 
-                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
                     android:id="@+id/monstersUseList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -213,7 +213,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/monstersUseList" />
 
-                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
                     android:id="@+id/petsUseList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import com.google.android.material.card.MaterialCardView
 
-
 /**
  * Cardview that doesn't allow clicking children
  * @author Bryan de Ridder

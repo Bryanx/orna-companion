@@ -9,7 +9,6 @@ import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 /**
  * All alert dialogs
- *
  * @author Bryan de Ridder
  */
 

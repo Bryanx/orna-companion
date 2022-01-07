@@ -81,7 +81,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/name"
                     tools:text="A skilled individual who favours magic over strength. Can wield staves and robes." />
 
-                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
                     android:id="@+id/boosts"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/slots" />
 
-                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
                     android:id="@+id/passiveSkills"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/passiveSkills" />
 
-                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
                     android:id="@+id/skillsLearned"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

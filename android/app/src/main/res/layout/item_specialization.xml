@@ -52,7 +52,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/image"
                     tools:text="Inquisitor" />
 
-                <nl.bryanderidder.ornaguide.shared.ui.FlexRecyclerView
+                <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
                     android:id="@+id/boosts"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

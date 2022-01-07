@@ -178,7 +178,6 @@ internal val Int.dp: Int get() = (this * Resources.getSystem().displayMetrics.de
 
 /**
  * Makes a substring of a string bold.
- * @param text          Full text
  * @param textToBold    Text you want to make bold
  * @return              String with bold substring
  */
