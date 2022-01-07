@@ -37,6 +37,11 @@ class SpecializationListViewModel(
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
+    val allPossibleBoosts: LiveData<List<String>> by lazy {
+        repository.fetchAllPossibleBoosts()
+            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+    }
+
     val specializationList: MutableLiveData<List<Specialization>> = MutableLiveData()
 
     private var sessionSpecializationFilter: SpecializationFilter = SpecializationFilter()
@@ -61,6 +66,11 @@ class SpecializationListViewModel(
 
     fun updateSelectedTiers(tiers: List<String>) {
         sessionSpecializationFilter.tiers = tiers.map(String::toInt).toList()
+        resultCount = sessionSpecializationFilter.countFilterResults(specializationList.value)
+    }
+
+    fun updateSelectedBoosts(boosts: List<String>) {
+        sessionSpecializationFilter.boosts = boosts
         resultCount = sessionSpecializationFilter.countFilterResults(specializationList.value)
     }
 

@@ -135,7 +135,7 @@ val appModule: Module = module {
     single { get<OrnaDatabase>().saveDao() }
     single { CharacterClassRepository(get(), get()) }
     single { SkillRepository(get(), get())}
-    single { SpecializationRepository(get(), get())}
+    single { SpecializationRepository(get(), get(), get())}
     single { PetRepository(get(), get())}
     single { ItemRepository(get(), get()) }
     single { MonsterRepository(get(), get()) }
