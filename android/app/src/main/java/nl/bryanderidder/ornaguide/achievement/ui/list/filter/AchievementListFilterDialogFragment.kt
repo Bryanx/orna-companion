@@ -10,6 +10,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.skydoves.bindables.BindingBottomSheetDialogFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentDialogAchievementFilterBinding
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.shared.util.onPageSelected
+import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
 
@@ -37,6 +40,9 @@ class AchievementListFilterDialogFragment : BindingBottomSheetDialogFragment<Fra
         super.onViewCreated(view, savedInstanceState)
         binding {
             filterViewpager.adapter = AchievementListFilterPagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
+            val sharedPrefs = get<SharedPrefsUtil>()
+            filterViewpager.setCurrentItem(sharedPrefs.getAchievementFilterTab(), false)
+            filterViewpager.onPageSelected(sharedPrefs::setAchievementFilterTab)
         }
         TabLayoutMediator(binding.filterTabLayout, binding.filterViewpager) { tab, position ->
             tab.text = AchievementListFilterPagerAdapter.FILTER_TAB_LABELS[(position)]

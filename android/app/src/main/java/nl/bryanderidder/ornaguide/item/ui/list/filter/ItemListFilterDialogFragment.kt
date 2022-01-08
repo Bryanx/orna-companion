@@ -10,6 +10,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.skydoves.bindables.BindingBottomSheetDialogFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentDialogItemFilterBinding
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.shared.util.onPageSelected
+import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
 
@@ -37,6 +40,9 @@ class ItemListFilterDialogFragment : BindingBottomSheetDialogFragment<FragmentDi
         super.onViewCreated(view, savedInstanceState)
         binding {
             filterViewpager.adapter = ItemListFilterPagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
+            val sharedPrefs = get<SharedPrefsUtil>()
+            filterViewpager.setCurrentItem(sharedPrefs.getItemFilterTab(), false)
+            filterViewpager.onPageSelected(sharedPrefs::setItemFilterTab)
         }
         TabLayoutMediator(binding.filterTabLayout, binding.filterViewpager) { tab, position ->
             tab.text = ItemListFilterPagerAdapter.FILTER_TAB_LABELS[(position)]

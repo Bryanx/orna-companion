@@ -62,6 +62,60 @@ class SharedPrefsUtil(
     fun getAchievementId(): Int =
         prefs.getInt(ACHIEVEMENT_ID, 1)
 
+    fun setCharacterClassFilterTab(value: Int) =
+        prefs.edit().putInt(CHARACTER_CLASS_FILTER_TAB, value).apply()
+
+    fun getCharacterClassFilterTab(): Int =
+        prefs.getInt(CHARACTER_CLASS_FILTER_TAB, 0)
+
+    fun setSpecializationFilterTab(value: Int) =
+        prefs.edit().putInt(SPECIALIZATION_FILTER_TAB, value).apply()
+
+    fun getSpecializationFilterTab(): Int =
+        prefs.getInt(SPECIALIZATION_FILTER_TAB, 0)
+
+    fun setSkillFilterTab(value: Int) =
+        prefs.edit().putInt(SKILL_FILTER_TAB, value).apply()
+
+    fun getSkillFilterTab(): Int =
+        prefs.getInt(SKILL_FILTER_TAB, 0)
+
+    fun setPetFilterTab(value: Int) =
+        prefs.edit().putInt(PET_FILTER_TAB, value).apply()
+
+    fun getPetFilterTab(): Int =
+        prefs.getInt(PET_FILTER_TAB, 0)
+
+    fun setMonsterFilterTab(value: Int) =
+        prefs.edit().putInt(MONSTER_FILTER_TAB, value).apply()
+
+    fun getMonsterFilterTab(): Int =
+        prefs.getInt(MONSTER_FILTER_TAB, 0)
+
+    fun setItemFilterTab(value: Int) =
+        prefs.edit().putInt(ITEM_FILTER_TAB, value).apply()
+
+    fun getItemFilterTab(): Int =
+        prefs.getInt(ITEM_FILTER_TAB, 0)
+
+    fun setNpcFilterTab(value: Int) =
+        prefs.edit().putInt(NPC_FILTER_TAB, value).apply()
+
+    fun getNpcFilterTab(): Int =
+        prefs.getInt(NPC_FILTER_TAB, 0)
+
+    fun setAchievementFilterTab(value: Int) =
+        prefs.edit().putInt(ACHIEVEMENT_FILTER_TAB, value).apply()
+
+    fun getAchievementFilterTab(): Int =
+        prefs.getInt(ACHIEVEMENT_FILTER_TAB, 0)
+
+    fun setSaveFilterTab(value: Int) =
+        prefs.edit().putInt(SAVE_FILTER_TAB, value).apply()
+
+    fun getSaveFilterTab(): Int =
+        prefs.getInt(SAVE_FILTER_TAB, 0)
+
     fun getDefaultTier(): Int =
         prefs.getString(DEFAULT_TIER, "1")?.toInt() ?: 1
 
@@ -112,6 +166,17 @@ class SharedPrefsUtil(
         const val ITEM_ID: String = "ITEM_ID"
         const val NPC_ID: String = "NPC_ID"
         const val ACHIEVEMENT_ID: String = "ACHIEVEMENT_ID"
+
+        //navigation filters
+        const val CHARACTER_CLASS_FILTER_TAB: String = "CHARACTER_CLASS_FILTER_TAB"
+        const val SPECIALIZATION_FILTER_TAB: String = "SPECIALIZATION_FILTER_TAB"
+        const val SKILL_FILTER_TAB: String = "SKILL_FILTER_TAB"
+        const val PET_FILTER_TAB: String = "PET_FILTER_TAB"
+        const val MONSTER_FILTER_TAB: String = "MONSTER_FILTER_TAB"
+        const val ITEM_FILTER_TAB: String = "ITEM_FILTER_TAB"
+        const val NPC_FILTER_TAB: String = "NPC_FILTER_TAB"
+        const val ACHIEVEMENT_FILTER_TAB: String = "ACHIEVEMENT_FILTER_TAB"
+        const val SAVE_FILTER_TAB: String = "SAVE_FILTER_TAB"
 
         //settings
         const val DEFAULT_TIER: String = "DEFAULT_TIER"

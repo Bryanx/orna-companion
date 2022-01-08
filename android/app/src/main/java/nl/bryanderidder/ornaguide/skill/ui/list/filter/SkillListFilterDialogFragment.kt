@@ -10,6 +10,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.skydoves.bindables.BindingBottomSheetDialogFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentDialogSkillFilterBinding
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.shared.util.onPageSelected
+import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
 
@@ -37,6 +40,9 @@ class SkillListFilterDialogFragment : BindingBottomSheetDialogFragment<FragmentD
         super.onViewCreated(view, savedInstanceState)
         binding {
             filterViewpager.adapter = SkillListFilterPagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
+            val sharedPrefs = get<SharedPrefsUtil>()
+            filterViewpager.setCurrentItem(sharedPrefs.getSkillFilterTab(), false)
+            filterViewpager.onPageSelected(sharedPrefs::setSkillFilterTab)
         }
         TabLayoutMediator(binding.filterTabLayout, binding.filterViewpager) { tab, position ->
             tab.text = SkillListFilterPagerAdapter.FILTER_TAB_LABELS[(position)]
