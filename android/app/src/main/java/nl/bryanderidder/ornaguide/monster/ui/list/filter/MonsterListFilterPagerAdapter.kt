@@ -22,6 +22,11 @@ class MonsterListFilterPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
             "Tier" to ::MonsterListFilterTierFragment,
             "Type" to ::MonsterListFilterTypeFragment,
             "Spawns" to ::MonsterListFilterSpawnFragment,
+            "Weakness" to ::MonsterListFilterWeakToFragment,
+            "Resistance" to ::MonsterListFilterResistantToFragment,
+            "Immunities" to ::MonsterListFilterImmuneToFragment,
+            "Status immunities" to ::MonsterListFilterImmuneToStatusFragment,
+            "Status vulnerabilities" to ::MonsterListFilterVulnerableToStatusFragment,
         )
 
         val FILTER_TAB_LABELS: List<String> = FILTER_TAB_MONSTERS.keys.toList()

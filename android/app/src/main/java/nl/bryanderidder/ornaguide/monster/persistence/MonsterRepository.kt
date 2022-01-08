@@ -108,4 +108,34 @@ class MonsterRepository(
         val results = dao.getAllPossibleSpawns()
         emit(results)
     }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleWeakTos() = flow {
+        val results = dao.getAllPossibleWeakTos()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleResistantTos() = flow {
+        val results = dao.getAllPossibleResistantTos()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleImmuneTos() = flow {
+        val results = dao.getAllPossibleImmuneTos()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleImmuneToStatuses() = flow {
+        val results = dao.getAllPossibleImmuneToStatuses()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleVulnerableToStatuses() = flow {
+        val results = dao.getAllPossibleVulnerableToStatuses()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
 }
