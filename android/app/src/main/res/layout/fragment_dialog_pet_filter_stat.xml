@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:toggleButtons="@{vm.allPossibleStats}"
-            app:toggleInitiallySelectedButtons="@{vm.petFilter.stats}"
+            app:toggleInitiallySelectedButtons="@{vm.sessionPetFilter.stats}"
             app:onChanged="@{v -> vm.updateSelectedStats(v)}"
             app:toggle_requiredAmount="0"
             app:toggle_selectableAmount="10" />

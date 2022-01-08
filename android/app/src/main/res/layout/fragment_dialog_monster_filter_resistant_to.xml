@@ -34,7 +34,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:toggleButtons="@{vm.allPossibleResistantTos}"
-                app:toggleInitiallySelectedButtons="@{vm.monsterFilter.resistantTos}"
+                app:toggleInitiallySelectedButtons="@{vm.sessionMonsterFilter.resistantTos}"
                 app:onChanged="@{v -> vm.updateSelectedResistantTos(v)}"
                 app:toggle_requiredAmount="0"
                 app:toggle_selectableAmount="10" />

@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:toggleButtons="@{vm.allPossibleBoosts}"
-            app:toggleInitiallySelectedButtons="@{vm.specializationFilter.boosts}"
+            app:toggleInitiallySelectedButtons="@{vm.sessionSpecializationFilter.boosts}"
             app:onChanged="@{v -> vm.updateSelectedBoosts(v)}"
             app:toggle_requiredAmount="0"
             app:toggle_selectableAmount="10" />

@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:toggleButtons="@{vm.allPossibleCostTypes}"
-            app:toggleInitiallySelectedButtons="@{vm.characterClassFilter.costTypes}"
+            app:toggleInitiallySelectedButtons="@{vm.sessionCharacterClassFilter.costTypes}"
             app:onChanged="@{v -> vm.updateSelectedCostTypes(v)}"
             app:toggle_requiredAmount="0"
             app:toggle_selectableAmount="10" />

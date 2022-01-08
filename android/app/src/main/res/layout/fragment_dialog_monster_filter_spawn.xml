@@ -35,7 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:onChanged="@{v -> vm.updateSelectedSpawns(v)}"
                 app:toggleButtons="@{vm.allPossibleSpawns}"
-                app:toggleInitiallySelectedButtons="@{vm.monsterFilter.spawns}"
+                app:toggleInitiallySelectedButtons="@{vm.sessionMonsterFilter.spawns}"
                 app:toggle_requiredAmount="0"
                 app:toggle_selectableAmount="10" />
         </ScrollView>

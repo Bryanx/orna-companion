@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:toggleButtons="@{vm.allPossibleElements}"
-            app:toggleInitiallySelectedButtons="@{vm.skillFilter.elements}"
+            app:toggleInitiallySelectedButtons="@{vm.sessionSkillFilter.elements}"
             app:onChanged="@{v -> vm.updateSelectedElements(v)}"
             app:toggle_requiredAmount="0"
             app:toggle_selectableAmount="10" />

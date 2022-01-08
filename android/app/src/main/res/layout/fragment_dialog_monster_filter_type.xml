@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:toggleButtons="@{vm.allPossibleTypes}"
-            app:toggleInitiallySelectedButtons="@{vm.monsterFilter.types}"
+            app:toggleInitiallySelectedButtons="@{vm.sessionMonsterFilter.types}"
             app:onChanged="@{v -> vm.updateSelectedTypes(v)}"
             app:toggle_requiredAmount="0"
             app:toggle_selectableAmount="10" />

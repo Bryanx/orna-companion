@@ -34,7 +34,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:toggleButtons="@{vm.allPossibleVulnerableToStatuses}"
-                app:toggleInitiallySelectedButtons="@{vm.monsterFilter.vulnerableToStatuses}"
+                app:toggleInitiallySelectedButtons="@{vm.sessionMonsterFilter.vulnerableToStatuses}"
                 app:onChanged="@{v -> vm.updateSelectedVulnerableToStatuses(v)}"
                 app:toggle_requiredAmount="0"
                 app:toggle_selectableAmount="10" />

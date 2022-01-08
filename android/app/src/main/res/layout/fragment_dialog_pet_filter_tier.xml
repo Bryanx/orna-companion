@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:toggleTierButtons="@{vm.allPossibleTiers}"
-            app:toggleTierInitiallySelectedButtons="@{vm.petFilter.tiers}"
+            app:toggleTierInitiallySelectedButtons="@{vm.sessionPetFilter.tiers}"
             app:onChanged="@{v -> vm.updateSelectedTiers(v)}"
             app:toggle_requiredAmount="0"
             app:toggle_selectableAmount="10" />

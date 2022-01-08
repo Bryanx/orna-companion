@@ -34,7 +34,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:toggleButtons="@{vm.allPossibleWeakTos}"
-                app:toggleInitiallySelectedButtons="@{vm.monsterFilter.weakTos}"
+                app:toggleInitiallySelectedButtons="@{vm.sessionMonsterFilter.weakTos}"
                 app:onChanged="@{v -> vm.updateSelectedWeakTos(v)}"
                 app:toggle_requiredAmount="0"
                 app:toggle_selectableAmount="10" />
