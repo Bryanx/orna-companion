@@ -41,10 +41,8 @@ class NpcListViewModel(
 
     val npcList: MutableLiveData<List<Npc>> = MutableLiveData()
 
-    private var sessionNpcFilter: NpcFilter =
-        NpcFilter(tiers = listOf(sharedPrefs.getDefaultTier()))
-    var npcFilter: MutableLiveData<NpcFilter> = MutableLiveData(
-        NpcFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
+    private var sessionNpcFilter: NpcFilter = NpcFilter()
+    var npcFilter: MutableLiveData<NpcFilter> = MutableLiveData(NpcFilter())
 
     init {
         loadItems()
