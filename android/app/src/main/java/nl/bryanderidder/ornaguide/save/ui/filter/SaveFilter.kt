@@ -32,7 +32,12 @@ data class SaveFilter(
     fun countFilterResults(list: List<Save>?): Int =
         filterList(list ?: listOf()).count()
 
-    fun filterCount(): String = (tiers.size + types.size).toString()
+    fun filterCount(): String = getFilters().map { it.size }.sum().toString()
 
-    fun isEmpty(): Boolean = tiers.isEmpty() && types.isEmpty()
+    fun isEmpty(): Boolean = getFilters().all { it.isEmpty() }
+
+    fun getFilters() = listOf(
+        tiers,
+        types,
+    )
 }

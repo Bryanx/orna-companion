@@ -19,7 +19,7 @@ class SaveListViewModel(
 
     val saveList: MutableLiveData<List<Save>> = MutableLiveData()
 
-    private var sessionSaveFilter: SaveFilter = SaveFilter()
+    var sessionSaveFilter: MutableLiveData<SaveFilter> = MutableLiveData(SaveFilter())
     var saveFilter: MutableLiveData<SaveFilter> = MutableLiveData(SaveFilter())
 
     val allPossibleTiers: MutableLiveData<List<Int>> = MutableLiveData()
@@ -40,7 +40,7 @@ class SaveListViewModel(
         saveRepo.fetchSaveList().collect {
             val newList = saveFilter.value?.applyFilter(it)
             saveList.postValue(newList)
-            resultCount = sessionSaveFilter.countFilterResults(newList)
+            resultCount = sessionSaveFilter.value?.countFilterResults(newList) ?: 0
         }
     }
 
@@ -50,23 +50,23 @@ class SaveListViewModel(
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
-        sessionSaveFilter.tiers = tiers.map(String::toInt).toList()
-        resultCount = sessionSaveFilter.countFilterResults(saveList.value)
+        sessionSaveFilter.value = sessionSaveFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
+        resultCount = sessionSaveFilter.value?.countFilterResults(saveList.value) ?: 0
 
     }
 
     fun updateSelectedTypes(types: List<String>) {
-        sessionSaveFilter.types = types
-        resultCount = sessionSaveFilter.countFilterResults(saveList.value)
+        sessionSaveFilter.value = sessionSaveFilter.value?.copy(types = types)
+        resultCount = sessionSaveFilter.value?.countFilterResults(saveList.value) ?: 0
     }
 
     fun onSubmitFilter(dialog: DialogFragment) {
-        saveFilter.value = sessionSaveFilter.copy()
+        saveFilter.value = sessionSaveFilter.value?.copy()
         loadItems()
         dialog.dismiss()
     }
 
     fun onDismissed() {
-        sessionSaveFilter = saveFilter.value?.copy() ?: SaveFilter()
+        sessionSaveFilter.value = saveFilter.value?.copy() ?: SaveFilter()
     }
 }
