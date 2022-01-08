@@ -44,7 +44,7 @@ class SpecializationListViewModel(
 
     val specializationList: MutableLiveData<List<Specialization>> = MutableLiveData()
 
-    private var sessionSpecializationFilter: SpecializationFilter = SpecializationFilter()
+    var sessionSpecializationFilter: MutableLiveData<SpecializationFilter> = MutableLiveData(SpecializationFilter())
     var specializationFilter: MutableLiveData<SpecializationFilter> = MutableLiveData(SpecializationFilter())
 
     init {
@@ -60,27 +60,27 @@ class SpecializationListViewModel(
         ).collect {
             val newList = specializationFilter.value?.applyFilter(it)
             specializationList.postValue(newList)
-            resultCount = sessionSpecializationFilter.countFilterResults(newList)
+            resultCount = sessionSpecializationFilter.value?.countFilterResults(newList) ?: 0
         }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
-        sessionSpecializationFilter.tiers = tiers.map(String::toInt).toList()
-        resultCount = sessionSpecializationFilter.countFilterResults(specializationList.value)
+        sessionSpecializationFilter.value = sessionSpecializationFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
+        resultCount = sessionSpecializationFilter.value?.countFilterResults(specializationList.value) ?: 0
     }
 
     fun updateSelectedBoosts(boosts: List<String>) {
-        sessionSpecializationFilter.boosts = boosts
-        resultCount = sessionSpecializationFilter.countFilterResults(specializationList.value)
+        sessionSpecializationFilter.value = sessionSpecializationFilter.value?.copy(boosts = boosts)
+        resultCount = sessionSpecializationFilter.value?.countFilterResults(specializationList.value) ?: 0
     }
 
     fun onSubmit(dialog: DialogFragment) {
-        specializationFilter.value = sessionSpecializationFilter.copy()
+        specializationFilter.value = sessionSpecializationFilter.value?.copy()
         loadItems()
         dialog.dismiss()
     }
 
     fun onDismissed() {
-        sessionSpecializationFilter = specializationFilter.value?.copy() ?: SpecializationFilter()
+        sessionSpecializationFilter.value = specializationFilter.value?.copy() ?: SpecializationFilter()
     }
 }

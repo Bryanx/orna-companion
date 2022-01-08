@@ -43,8 +43,8 @@ class CharacterClassListViewModel(
 
     val characterClassList: MutableLiveData<List<CharacterClass>> = MutableLiveData()
 
-    private var sessionCharacterClassFilter: CharacterClassFilter =
-        CharacterClassFilter(tiers = listOf(sharedPrefs.getDefaultTier()))
+    var sessionCharacterClassFilter: MutableLiveData<CharacterClassFilter> =
+        MutableLiveData(CharacterClassFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
     var characterClassFilter: MutableLiveData<CharacterClassFilter> =
         MutableLiveData(CharacterClassFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
@@ -61,27 +61,27 @@ class CharacterClassListViewModel(
         ).collect {
             val newList = characterClassFilter.value?.applyFilter(it)
             characterClassList.postValue(newList)
-            resultCount = sessionCharacterClassFilter.countFilterResults(newList)
+            resultCount = sessionCharacterClassFilter.value?.countFilterResults(newList) ?: 0
         }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
-        sessionCharacterClassFilter.tiers = tiers.map(String::toInt).toList()
-        resultCount = sessionCharacterClassFilter.countFilterResults(characterClassList.value)
+        sessionCharacterClassFilter.value = sessionCharacterClassFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
+        resultCount = sessionCharacterClassFilter.value?.countFilterResults(characterClassList.value) ?: 0
     }
 
     fun updateSelectedCostTypes(costTypes: List<String>) {
-        sessionCharacterClassFilter.costTypes = costTypes
-        resultCount = sessionCharacterClassFilter.countFilterResults(characterClassList.value)
+        sessionCharacterClassFilter.value = sessionCharacterClassFilter.value?.copy(costTypes = costTypes)
+        resultCount = sessionCharacterClassFilter.value?.countFilterResults(characterClassList.value) ?: 0
     }
 
     fun onSubmit(dialog: DialogFragment) {
-        characterClassFilter.value = sessionCharacterClassFilter.copy()
+        characterClassFilter.value = sessionCharacterClassFilter.value?.copy()
         loadItems()
         dialog.dismiss()
     }
 
     fun onDismissed() {
-        sessionCharacterClassFilter = characterClassFilter.value?.copy() ?: CharacterClassFilter()
+        sessionCharacterClassFilter.value = characterClassFilter.value?.copy() ?: CharacterClassFilter()
     }
 }

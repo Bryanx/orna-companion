@@ -43,8 +43,8 @@ class PetListViewModel(
 
     val petList: MutableLiveData<List<Pet>> = MutableLiveData()
 
-    private var sessionPetFilter: PetFilter =
-        PetFilter(tiers = listOf(sharedPrefs.getDefaultTier()))
+    var sessionPetFilter: MutableLiveData<PetFilter> =
+        MutableLiveData(PetFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
     var petFilter: MutableLiveData<PetFilter> =
         MutableLiveData(PetFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
@@ -61,27 +61,27 @@ class PetListViewModel(
         ).collect {
             val newList = petFilter.value?.applyFilter(it)
             petList.postValue(newList)
-            resultCount = sessionPetFilter.countFilterResults(newList)
+            resultCount = sessionPetFilter.value?.countFilterResults(newList) ?: 0
         }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
-        sessionPetFilter.tiers = tiers.map(String::toInt).toList()
-        resultCount = sessionPetFilter.countFilterResults(petList.value)
+        sessionPetFilter.value = sessionPetFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
+        resultCount = sessionPetFilter.value?.countFilterResults(petList.value) ?: 0
     }
 
     fun updateSelectedStats(stats: List<String>) {
-        sessionPetFilter.stats = stats
-        resultCount = sessionPetFilter.countFilterResults(petList.value)
+        sessionPetFilter.value = sessionPetFilter.value?.copy(stats = stats)
+        resultCount = sessionPetFilter.value?.countFilterResults(petList.value) ?: 0
     }
 
     fun onSubmit(dialog: DialogFragment) {
-        petFilter.value = sessionPetFilter.copy()
+        petFilter.value = sessionPetFilter.value?.copy()
         loadItems()
         dialog.dismiss()
     }
 
     fun onDismissed() {
-        sessionPetFilter = petFilter.value?.copy() ?: PetFilter()
+        sessionPetFilter.value = petFilter.value?.copy() ?: PetFilter()
     }
 }

@@ -41,7 +41,7 @@ class NpcListViewModel(
 
     val npcList: MutableLiveData<List<Npc>> = MutableLiveData()
 
-    private var sessionNpcFilter: NpcFilter = NpcFilter()
+    var sessionNpcFilter: MutableLiveData<NpcFilter> = MutableLiveData(NpcFilter())
     var npcFilter: MutableLiveData<NpcFilter> = MutableLiveData(NpcFilter())
 
     init {
@@ -57,22 +57,22 @@ class NpcListViewModel(
         ).collect {
             val newList = npcFilter.value?.applyFilter(it)
             npcList.postValue(newList)
-            resultCount = sessionNpcFilter.countFilterResults(newList)
+            resultCount = sessionNpcFilter.value?.countFilterResults(newList) ?: 0
         }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
-        sessionNpcFilter.tiers = tiers.map(String::toInt).toList()
-        resultCount = sessionNpcFilter.countFilterResults(npcList.value)
+        sessionNpcFilter.value = sessionNpcFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
+        resultCount = sessionNpcFilter.value?.countFilterResults(npcList.value) ?: 0
     }
 
     fun onSubmit(dialog: DialogFragment) {
-        npcFilter.value = sessionNpcFilter.copy()
+        npcFilter.value = sessionNpcFilter.value?.copy()
         loadItems()
         dialog.dismiss()
     }
 
     fun onDismissed() {
-        sessionNpcFilter = npcFilter.value?.copy() ?: NpcFilter()
+        sessionNpcFilter.value = npcFilter.value?.copy() ?: NpcFilter()
     }
 }

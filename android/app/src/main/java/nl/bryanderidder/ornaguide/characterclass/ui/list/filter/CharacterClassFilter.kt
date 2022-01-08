@@ -35,7 +35,12 @@ data class CharacterClassFilter(
     fun countFilterResults(list: List<CharacterClass>?): Int =
         filterList(list ?: listOf()).count()
 
-    fun filterCount(): String = (tiers.size + costTypes.size).toString()
+    fun filterCount(): String = getFilters().map { it.size }.sum().toString()
 
-    fun isEmpty(): Boolean = tiers.isEmpty() && costTypes.isEmpty()
+    fun isEmpty(): Boolean = getFilters().all { it.isEmpty() }
+
+    fun getFilters() = listOf(
+        tiers,
+        costTypes,
+    )
 }

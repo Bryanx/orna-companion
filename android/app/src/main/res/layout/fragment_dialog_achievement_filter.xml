@@ -28,7 +28,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/filter_tab_layout"
+            android:id="@+id/filterTabLayout"
             android:layout_width="0dp"
             android:layout_height="?actionBarSize"
             android:background="@color/cardColor"
@@ -50,7 +50,7 @@
             app:layout_constraintBottom_toTopOf="@+id/applyFilterButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/filter_tab_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/filterTabLayout" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/applyFilterButton"

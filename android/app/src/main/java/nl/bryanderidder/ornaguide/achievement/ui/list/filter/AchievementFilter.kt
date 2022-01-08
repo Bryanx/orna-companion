@@ -30,7 +30,11 @@ data class AchievementFilter(
     fun countFilterResults(list: List<Achievement>?): Int =
         filterList(list ?: listOf()).count()
 
-    fun filterCount(): String = tiers.size.toString()
+    fun filterCount(): String = getFilters().map { it.size }.sum().toString()
 
-    fun isEmpty(): Boolean = tiers.isEmpty()
+    fun isEmpty(): Boolean = getFilters().all { it.isEmpty() }
+
+    fun getFilters() = listOf(
+        tiers,
+    )
 }

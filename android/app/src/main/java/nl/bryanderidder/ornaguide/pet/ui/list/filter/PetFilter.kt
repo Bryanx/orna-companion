@@ -33,7 +33,12 @@ data class PetFilter(
     fun countFilterResults(list: List<Pet>?): Int =
         filterList(list ?: listOf()).count()
 
-    fun filterCount(): String = (tiers.size + stats.size).toString()
+    fun filterCount(): String = getFilters().map { it.size }.sum().toString()
 
-    fun isEmpty(): Boolean = tiers.isEmpty() && stats.isEmpty()
+    fun isEmpty(): Boolean = getFilters().all { it.isEmpty() }
+
+    fun getFilters() = listOf(
+        tiers,
+        stats,
+    )
 }

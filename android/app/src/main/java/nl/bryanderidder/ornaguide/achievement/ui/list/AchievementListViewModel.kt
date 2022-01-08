@@ -41,8 +41,8 @@ class AchievementListViewModel(
 
     val achievementList: MutableLiveData<List<Achievement>> = MutableLiveData()
 
-    private var sessionAchievementFilter: AchievementFilter =
-        AchievementFilter(tiers = listOf(sharedPrefs.getDefaultTier()))
+    var sessionAchievementFilter: MutableLiveData<AchievementFilter> = MutableLiveData(
+        AchievementFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
     var achievementFilter: MutableLiveData<AchievementFilter> = MutableLiveData(
         AchievementFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
@@ -59,22 +59,22 @@ class AchievementListViewModel(
         ).collect {
             val newList = achievementFilter.value?.applyFilter(it)
             achievementList.postValue(newList)
-            resultCount = sessionAchievementFilter.countFilterResults(newList)
+            resultCount = sessionAchievementFilter.value?.countFilterResults(newList) ?: 0
         }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
-        sessionAchievementFilter.tiers = tiers.map(String::toInt).toList()
-        resultCount = sessionAchievementFilter.countFilterResults(achievementList.value)
+        sessionAchievementFilter.value = sessionAchievementFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
+        resultCount = sessionAchievementFilter.value?.countFilterResults(achievementList.value) ?: 0
     }
 
     fun onSubmit(dialog: DialogFragment) {
-        achievementFilter.value = sessionAchievementFilter.copy()
+        achievementFilter.value = sessionAchievementFilter.value?.copy()
         loadItems()
         dialog.dismiss()
     }
 
     fun onDismissed() {
-        sessionAchievementFilter = achievementFilter.value?.copy() ?: AchievementFilter()
+        sessionAchievementFilter.value = achievementFilter.value?.copy() ?: AchievementFilter()
     }
 }

@@ -11,7 +11,9 @@ import com.skydoves.bindables.BindingBottomSheetDialogFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentDialogSpecializationFilterBinding
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.shared.util.color
 import nl.bryanderidder.ornaguide.shared.util.onPageSelected
+import nl.bryanderidder.ornaguide.shared.util.positiveNumber
 import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
@@ -43,9 +45,15 @@ class SpecializationListFilterDialogFragment : BindingBottomSheetDialogFragment<
             val sharedPrefs = get<SharedPrefsUtil>()
             filterViewpager.setCurrentItem(sharedPrefs.getSpecializationFilterTab(), false)
             filterViewpager.onPageSelected(sharedPrefs::setSpecializationFilterTab)
+            vm?.sessionSpecializationFilter?.observe(this@SpecializationListFilterDialogFragment) {
+                it.getFilters().forEachIndexed { i, list ->
+                    filterTabLayout.getTabAt(i)?.orCreateBadge?.positiveNumber = list.size
+                }
+            }
         }
         TabLayoutMediator(binding.filterTabLayout, binding.filterViewpager) { tab, position ->
             tab.text = SpecializationListFilterPagerAdapter.FILTER_TAB_LABELS[(position)]
+            tab.orCreateBadge.backgroundColor = requireContext().color(R.color.ornaGreen)
         }.attach()
     }
 

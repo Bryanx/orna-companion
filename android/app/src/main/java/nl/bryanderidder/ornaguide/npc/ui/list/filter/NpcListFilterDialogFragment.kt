@@ -11,7 +11,9 @@ import com.skydoves.bindables.BindingBottomSheetDialogFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentDialogNpcFilterBinding
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.shared.util.color
 import nl.bryanderidder.ornaguide.shared.util.onPageSelected
+import nl.bryanderidder.ornaguide.shared.util.positiveNumber
 import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
@@ -43,9 +45,15 @@ class NpcListFilterDialogFragment : BindingBottomSheetDialogFragment<FragmentDia
             val sharedPrefs = get<SharedPrefsUtil>()
             filterViewpager.setCurrentItem(sharedPrefs.getNpcFilterTab(), false)
             filterViewpager.onPageSelected(sharedPrefs::setNpcFilterTab)
+            vm?.sessionNpcFilter?.observe(this@NpcListFilterDialogFragment) {
+                it.getFilters().forEachIndexed { i, list ->
+                    filterTabLayout.getTabAt(i)?.orCreateBadge?.positiveNumber = list.size
+                }
+            }
         }
         TabLayoutMediator(binding.filterTabLayout, binding.filterViewpager) { tab, position ->
             tab.text = NpcListFilterPagerAdapter.FILTER_TAB_LABELS[(position)]
+            tab.orCreateBadge.backgroundColor = requireContext().color(R.color.ornaGreen)
         }.attach()
     }
 

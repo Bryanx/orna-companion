@@ -36,9 +36,13 @@ data class SkillFilter(
     fun countFilterResults(list: List<Skill>?): Int =
         filterList(list ?: listOf()).count()
 
-    fun filterCount(): String =
-        (tiers.size + types.size + elements.size).toString()
+    fun filterCount(): String = getFilters().map { it.size }.sum().toString()
 
-    fun isEmpty(): Boolean =
-        tiers.isEmpty() && types.isEmpty() && elements.isEmpty()
+    fun isEmpty(): Boolean = getFilters().all { it.isEmpty() }
+
+    fun getFilters() = listOf(
+        tiers,
+        types,
+        elements,
+    )
 }

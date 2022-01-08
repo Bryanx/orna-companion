@@ -54,21 +54,18 @@ data class MonsterFilter(
     fun countFilterResults(list: List<Monster>?): Int =
         filterList(list ?: listOf()).count()
 
-    fun filterCount(): String = (tiers.size +
-            types.size +
-            spawns.size +
-            weakTos.size +
-            resistantTos.size +
-            immuneTos.size +
-            immuneToStatuses.size +
-            vulnerableToStatuses.size).toString()
+    fun filterCount(): String = getFilters().map { it.size }.sum().toString()
 
-    fun isEmpty(): Boolean = tiers.isEmpty() &&
-            types.isEmpty() &&
-            spawns.isEmpty() &&
-            weakTos.isEmpty() &&
-            resistantTos.isEmpty() &&
-            immuneTos.isEmpty() &&
-            immuneToStatuses.isEmpty() &&
-            vulnerableToStatuses.isEmpty()
+    fun isEmpty(): Boolean = getFilters().all { it.isEmpty() }
+
+    fun getFilters() = listOf(
+        tiers,
+        types,
+        spawns,
+        weakTos,
+        resistantTos,
+        immuneTos,
+        immuneToStatuses,
+        vulnerableToStatuses
+    )
 }

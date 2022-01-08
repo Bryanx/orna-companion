@@ -11,10 +11,11 @@ import com.skydoves.bindables.BindingBottomSheetDialogFragment
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.FragmentDialogMonsterFilterBinding
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.shared.util.color
 import nl.bryanderidder.ornaguide.shared.util.onPageSelected
+import nl.bryanderidder.ornaguide.shared.util.positiveNumber
 import org.koin.android.ext.android.get
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
-
 
 /**
  * Filter monsters in a bottom sheet
@@ -43,9 +44,15 @@ class MonsterListFilterDialogFragment : BindingBottomSheetDialogFragment<Fragmen
             val sharedPrefs = get<SharedPrefsUtil>()
             filterViewpager.setCurrentItem(sharedPrefs.getMonsterFilterTab(), false)
             filterViewpager.onPageSelected(sharedPrefs::setMonsterFilterTab)
+            vm?.sessionMonsterFilter?.observe(this@MonsterListFilterDialogFragment) {
+                it.getFilters().forEachIndexed { i, list ->
+                        filterTabLayout.getTabAt(i)?.orCreateBadge?.positiveNumber = list.size
+                    }
+            }
         }
         TabLayoutMediator(binding.filterTabLayout, binding.filterViewpager) { tab, position ->
             tab.text = MonsterListFilterPagerAdapter.FILTER_TAB_LABELS[(position)]
+            tab.orCreateBadge.backgroundColor = requireContext().color(R.color.ornaGreen)
         }.attach()
     }
 

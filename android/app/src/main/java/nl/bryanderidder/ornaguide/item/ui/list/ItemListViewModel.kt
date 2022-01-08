@@ -59,8 +59,8 @@ class ItemListViewModel(
 
     val itemList: MutableLiveData<List<Item>> = MutableLiveData()
 
-    private var sessionItemFilter: ItemFilter =
-        ItemFilter(tiers = listOf(sharedPrefs.getDefaultTier()))
+    var sessionItemFilter: MutableLiveData<ItemFilter> =
+        MutableLiveData(ItemFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
     var itemFilter: MutableLiveData<ItemFilter> =
         MutableLiveData(ItemFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
@@ -77,37 +77,37 @@ class ItemListViewModel(
         ).collect {
             val newList = itemFilter.value?.applyFilter(it)
             itemList.postValue(newList)
-            resultCount = sessionItemFilter.countFilterResults(newList)
+            resultCount = sessionItemFilter.value?.countFilterResults(newList) ?: 0
         }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
-        sessionItemFilter.tiers = tiers.map(String::toInt).toList()
-        resultCount = sessionItemFilter.countFilterResults(itemList.value)
+        sessionItemFilter.value = sessionItemFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
+        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
     }
 
     fun updateSelectedType(types: List<String>) {
-        sessionItemFilter.types = types
-        resultCount = sessionItemFilter.countFilterResults(itemList.value)
+        sessionItemFilter.value = sessionItemFilter.value?.copy(types = types)
+        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
     }
 
     fun updateSelectedElement(elements: List<String>) {
-        sessionItemFilter.elements = elements
-        resultCount = sessionItemFilter.countFilterResults(itemList.value)
+        sessionItemFilter.value = sessionItemFilter.value?.copy(elements = elements)
+        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
     }
 
     fun updateSelectedEquippedByList(equippedByList: List<String>) {
-        sessionItemFilter.equippedByList = equippedByList
-        resultCount = sessionItemFilter.countFilterResults(itemList.value)
+        sessionItemFilter.value = sessionItemFilter.value?.copy(equippedByList = equippedByList)
+        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
     }
 
     fun onSubmit(dialog: DialogFragment) {
-        itemFilter.value = sessionItemFilter.copy()
+        itemFilter.value = sessionItemFilter.value?.copy()
         loadItems()
         dialog.dismiss()
     }
 
     fun onDismissed() {
-        sessionItemFilter = itemFilter.value?.copy() ?: ItemFilter()
+        sessionItemFilter.value = itemFilter.value?.copy() ?: ItemFilter()
     }
 }

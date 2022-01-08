@@ -53,8 +53,8 @@ class SkillListViewModel(
 
     val skillList: MutableLiveData<List<Skill>> = MutableLiveData()
 
-    private var sessionSkillFilter: SkillFilter =
-        SkillFilter(tiers = listOf(sharedPrefs.getDefaultTier()))
+    var sessionSkillFilter: MutableLiveData<SkillFilter> =
+        MutableLiveData(SkillFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
     var skillFilter: MutableLiveData<SkillFilter> =
         MutableLiveData(SkillFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
@@ -71,32 +71,32 @@ class SkillListViewModel(
         ).collect {
             val newList = skillFilter.value?.applyFilter(it)
             skillList.postValue(newList)
-            resultCount = sessionSkillFilter.countFilterResults(newList)
+            resultCount = sessionSkillFilter.value?.countFilterResults(newList) ?: 0
         }
     }
 
     fun updateSelectedTiers(tiers: List<String>) {
-        sessionSkillFilter.tiers = tiers.map(String::toInt).toList()
-        resultCount = sessionSkillFilter.countFilterResults(skillList.value)
+        sessionSkillFilter.value = sessionSkillFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
+        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
     }
 
     fun updateSelectedTypes(types: List<String>) {
-        sessionSkillFilter.types = types
-        resultCount = sessionSkillFilter.countFilterResults(skillList.value)
+        sessionSkillFilter.value = sessionSkillFilter.value?.copy(types = types)
+        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
     }
 
     fun updateSelectedElements(elements: List<String>) {
-        sessionSkillFilter.elements = elements
-        resultCount = sessionSkillFilter.countFilterResults(skillList.value)
+        sessionSkillFilter.value = sessionSkillFilter.value?.copy(elements = elements)
+        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
     }
 
     fun onSubmit(dialog: DialogFragment) {
-        skillFilter.value = sessionSkillFilter.copy()
+        skillFilter.value = sessionSkillFilter.value?.copy()
         loadItems()
         dialog.dismiss()
     }
 
     fun onDismissed() {
-        sessionSkillFilter = skillFilter.value?.copy() ?: SkillFilter()
+        sessionSkillFilter.value = skillFilter.value?.copy() ?: SkillFilter()
     }
 }

@@ -85,8 +85,8 @@ class MonsterListViewModel(
 
     val monsterList: MutableLiveData<List<Monster>> = MutableLiveData()
 
-    private var sessionMonsterFilter: MonsterFilter =
-        MonsterFilter(tiers = listOf(sharedPrefs.getDefaultTier()))
+    var sessionMonsterFilter: MutableLiveData<MonsterFilter> =
+        MutableLiveData(MonsterFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
     var monsterFilter: MutableLiveData<MonsterFilter> =
         MutableLiveData(MonsterFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
 
@@ -103,57 +103,57 @@ class MonsterListViewModel(
         ).collect {
             val newList = monsterFilter.value?.applyFilter(it)
             monsterList.postValue(newList)
-            resultCount = sessionMonsterFilter.countFilterResults(newList)
+            resultCount = sessionMonsterFilter.value?.countFilterResults(newList) ?: 0
         }
     }
     
     fun updateSelectedTiers(tiers: List<String>) {
-        sessionMonsterFilter.tiers = tiers.map(String::toInt).toList()
-        resultCount = sessionMonsterFilter.countFilterResults(monsterList.value)
+        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
+        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
     }
     
     fun updateSelectedTypes(types: List<String>) {
-        sessionMonsterFilter.types = types
-        resultCount = sessionMonsterFilter.countFilterResults(monsterList.value)
+        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(types = types)
+        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
     }
     
     fun updateSelectedSpawns(spawns: List<String>) {
-        sessionMonsterFilter.spawns = spawns
-        resultCount = sessionMonsterFilter.countFilterResults(monsterList.value)
+        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(spawns = spawns)
+        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
     }
 
     fun updateSelectedWeakTos(weakTos: List<String>) {
-        sessionMonsterFilter.weakTos = weakTos
-        resultCount = sessionMonsterFilter.countFilterResults(monsterList.value)
+        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(weakTos = weakTos)
+        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
     }
 
     fun updateSelectedResistantTos(resistantTos: List<String>) {
-        sessionMonsterFilter.resistantTos = resistantTos
-        resultCount = sessionMonsterFilter.countFilterResults(monsterList.value)
+        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(resistantTos = resistantTos)
+        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
     }
 
     fun updateSelectedImmuneTos(immuneTos: List<String>) {
-        sessionMonsterFilter.immuneTos = immuneTos
-        resultCount = sessionMonsterFilter.countFilterResults(monsterList.value)
+        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(immuneTos = immuneTos)
+        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
     }
 
     fun updateSelectedImmuneToStatuses(immuneToStatuses: List<String>) {
-        sessionMonsterFilter.immuneToStatuses = immuneToStatuses
-        resultCount = sessionMonsterFilter.countFilterResults(monsterList.value)
+        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(immuneToStatuses = immuneToStatuses)
+        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
     }
 
     fun updateSelectedVulnerableToStatuses(vulnerableToStatuses: List<String>) {
-        sessionMonsterFilter.vulnerableToStatuses = vulnerableToStatuses
-        resultCount = sessionMonsterFilter.countFilterResults(monsterList.value)
+        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(vulnerableToStatuses = vulnerableToStatuses)
+        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
     }
 
     fun onSubmit(dialog: DialogFragment) {
-        monsterFilter.value = sessionMonsterFilter.copy()
+        monsterFilter.value = sessionMonsterFilter.value?.copy()
         loadItems()
         dialog.dismiss()
     }
 
     fun onDismissed() {
-        sessionMonsterFilter = monsterFilter.value?.copy() ?: MonsterFilter()
+        sessionMonsterFilter.value = monsterFilter.value?.copy() ?: MonsterFilter()
     }
 }

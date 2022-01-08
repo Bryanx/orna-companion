@@ -39,9 +39,14 @@ data class ItemFilter(
     fun countFilterResults(list: List<Item>?): Int =
         filterList(list ?: listOf()).count()
 
-    fun filterCount(): String =
-        (tiers.size + types.size + elements.size + equippedByList.size).toString()
+    fun filterCount(): String = getFilters().map { it.size }.sum().toString()
 
-    fun isEmpty(): Boolean =
-        tiers.isEmpty() && types.isEmpty() && elements.isEmpty() && equippedByList.isEmpty()
+    fun isEmpty(): Boolean = getFilters().all { it.isEmpty() }
+
+    fun getFilters() = listOf(
+        tiers,
+        types,
+        elements,
+        equippedByList,
+    )
 }
