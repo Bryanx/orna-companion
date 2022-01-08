@@ -57,6 +57,8 @@ class ItemListViewModel(
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
+    val allPossibleStats: List<String> = Item.STATS
+
     val itemList: MutableLiveData<List<Item>> = MutableLiveData()
 
     var sessionItemFilter: MutableLiveData<ItemFilter> =
@@ -98,6 +100,11 @@ class ItemListViewModel(
 
     fun updateSelectedEquippedByList(equippedByList: List<String>) {
         sessionItemFilter.value = sessionItemFilter.value?.copy(equippedByList = equippedByList)
+        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
+    }
+
+    fun updateSelectedStats(stats: List<String>) {
+        sessionItemFilter.value = sessionItemFilter.value?.copy(stats = stats)
         resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
     }
 

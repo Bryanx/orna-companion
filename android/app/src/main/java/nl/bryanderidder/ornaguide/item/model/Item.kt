@@ -141,6 +141,7 @@ data class Item(
 
     companion object {
         const val NAME = "Item"
+        val STATS = listOf("Att", "Def", "Dex", "HP", "Mag", "Mana", "Res", "Ward", "Crit")
     }
 }
 

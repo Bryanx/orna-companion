@@ -12,7 +12,8 @@ data class ItemFilter(
     var tiers: List<Int> = listOf(),
     var types: List<String> = listOf(),
     var elements: List<String> = listOf(),
-    var equippedByList: List<String> = listOf()
+    var equippedByList: List<String> = listOf(),
+    var stats: List<String> = listOf(),
 ) {
     fun applyFilter(list: List<Item>): List<Item> {
         return if (isEmpty())
@@ -33,6 +34,8 @@ data class ItemFilter(
             newList = newList.filter { item -> elements.contains(item.element) }
         if (equippedByList.isNotEmpty())
             newList = newList.filter { item -> equippedByList.any(item.equippedBy.toString()::contains) }
+        if (stats.isNotEmpty())
+            newList = newList.filter { item -> stats.any(item.statsAsMap()::containsKey) }
         return newList
     }
 
@@ -48,5 +51,6 @@ data class ItemFilter(
         types,
         elements,
         equippedByList,
+        stats,
     )
 }
