@@ -147,6 +147,11 @@ class MonsterListViewModel(
         resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
     }
 
+    fun onClearFilters() {
+        sessionMonsterFilter.value = MonsterFilter()
+        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
+    }
+
     fun onSubmit(dialog: DialogFragment) {
         monsterFilter.value = sessionMonsterFilter.value?.copy()
         loadItems()

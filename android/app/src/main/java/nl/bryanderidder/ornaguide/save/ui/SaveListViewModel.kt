@@ -60,6 +60,11 @@ class SaveListViewModel(
         resultCount = sessionSaveFilter.value?.countFilterResults(saveList.value) ?: 0
     }
 
+    fun onClearFilters() {
+        sessionSaveFilter.value = SaveFilter()
+        resultCount = sessionSaveFilter.value?.countFilterResults(saveList.value) ?: 0
+    }
+
     fun onSubmitFilter(dialog: DialogFragment) {
         saveFilter.value = sessionSaveFilter.value?.copy()
         loadItems()

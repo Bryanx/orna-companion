@@ -75,6 +75,11 @@ class CharacterClassListViewModel(
         resultCount = sessionCharacterClassFilter.value?.countFilterResults(characterClassList.value) ?: 0
     }
 
+    fun onClearFilters() {
+        sessionCharacterClassFilter.value = CharacterClassFilter()
+        resultCount = sessionCharacterClassFilter.value?.countFilterResults(characterClassList.value) ?: 0
+    }
+
     fun onSubmit(dialog: DialogFragment) {
         characterClassFilter.value = sessionCharacterClassFilter.value?.copy()
         loadItems()

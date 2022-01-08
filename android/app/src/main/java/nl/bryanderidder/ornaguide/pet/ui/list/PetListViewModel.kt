@@ -75,6 +75,11 @@ class PetListViewModel(
         resultCount = sessionPetFilter.value?.countFilterResults(petList.value) ?: 0
     }
 
+    fun onClearFilters() {
+        sessionPetFilter.value = PetFilter()
+        resultCount = sessionPetFilter.value?.countFilterResults(petList.value) ?: 0
+    }
+
     fun onSubmit(dialog: DialogFragment) {
         petFilter.value = sessionPetFilter.value?.copy()
         loadItems()

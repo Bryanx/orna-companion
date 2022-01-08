@@ -68,6 +68,11 @@ class AchievementListViewModel(
         resultCount = sessionAchievementFilter.value?.countFilterResults(achievementList.value) ?: 0
     }
 
+    fun onClearFilters() {
+        sessionAchievementFilter.value = AchievementFilter()
+        resultCount = sessionAchievementFilter.value?.countFilterResults(achievementList.value) ?: 0
+    }
+
     fun onSubmit(dialog: DialogFragment) {
         achievementFilter.value = sessionAchievementFilter.value?.copy()
         loadItems()

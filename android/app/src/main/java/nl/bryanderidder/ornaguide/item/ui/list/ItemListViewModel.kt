@@ -108,6 +108,11 @@ class ItemListViewModel(
         resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
     }
 
+    fun onClearFilters() {
+        sessionItemFilter.value = ItemFilter()
+        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
+    }
+
     fun onSubmit(dialog: DialogFragment) {
         itemFilter.value = sessionItemFilter.value?.copy()
         loadItems()

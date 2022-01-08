@@ -74,6 +74,11 @@ class SpecializationListViewModel(
         resultCount = sessionSpecializationFilter.value?.countFilterResults(specializationList.value) ?: 0
     }
 
+    fun onClearFilters() {
+        sessionSpecializationFilter.value = SpecializationFilter()
+        resultCount = sessionSpecializationFilter.value?.countFilterResults(specializationList.value) ?: 0
+    }
+
     fun onSubmit(dialog: DialogFragment) {
         specializationFilter.value = sessionSpecializationFilter.value?.copy()
         loadItems()

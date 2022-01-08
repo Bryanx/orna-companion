@@ -47,44 +47,87 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            app:layout_constraintBottom_toTopOf="@+id/applyFilterButton"
+            app:layout_constraintBottom_toTopOf="@+id/buttonRow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/filterTabLayout" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/applyFilterButton"
-            android:layout_width="0dp"
-            android:layout_height="?actionBarSize"
-            android:layout_marginHorizontal="@dimen/buttonMargin"
-            android:layout_marginBottom="@dimen/buttonMargin"
-            android:clickable="true"
-            app:cardBackgroundColor="@color/inactiveButtonColor"
-            app:cardCornerRadius="@dimen/cardCornerRadius"
-            app:cardElevation="0dp"
+        <LinearLayout
+            android:id="@+id/buttonRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:listenOnClick="@{() -> vm.onSubmit(dialog)}">
+            app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@{@string/apply_filter(vm.resultCount)}"
-                android:textAllCaps="true"
-                android:textColor="@color/textColor"
-                app:showIf="@{vm.resultCount != vm.characterClassList.size()}"/>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/clearFilterButton"
+                android:layout_width="0dp"
+                android:layout_weight=".30"
+                android:layout_height="?actionBarSize"
+                android:layout_marginStart="@dimen/buttonMargin"
+                android:layout_marginBottom="@dimen/buttonMargin"
+                android:clickable="true"
+                app:cardBackgroundColor="@color/inactiveButtonColor"
+                app:cardCornerRadius="@dimen/cardCornerRadius"
+                app:cardElevation="0dp"
+                app:listenOnClick="@{vm.onClearFilters}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:showIf="@{!vm.sessionCharacterClassFilter.isEmpty()}">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/show_all_results"
-                android:textAllCaps="true"
-                android:textColor="@color/textColor"
-                app:showIf="@{vm.resultCount == vm.characterClassList.size()}"/>
-        </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/reset"
+                    android:textAllCaps="true"
+                    android:textColor="@color/textColor"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/applyFilterButton"
+                android:layout_width="0dp"
+                android:layout_weight=".70"
+                android:layout_height="?actionBarSize"
+                android:layout_marginHorizontal="@dimen/buttonMargin"
+                android:layout_marginBottom="@dimen/buttonMargin"
+                android:clickable="true"
+                app:bgColor1="@{@color/ornaGreen}"
+                app:bgColor1Condition="@{!vm.sessionCharacterClassFilter.isEmpty()}"
+                app:bgColor2="@{@color/inactiveButtonColor}"
+                app:bgColor2Condition="@{vm.sessionCharacterClassFilter.isEmpty()}"
+                app:cardBackgroundColor="@color/inactiveButtonColor"
+                app:cardCornerRadius="@dimen/cardCornerRadius"
+                app:cardElevation="0dp"
+                app:listenOnClick="@{() -> vm.onSubmit(dialog)}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@{@string/apply_filter(vm.resultCount)}"
+                    android:textAllCaps="true"
+                    android:textColor="@color/textColorDark"
+                    app:showIf="@{vm.resultCount != vm.characterClassList.size()}"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/show_all_results"
+                    android:textAllCaps="true"
+                    android:textColor="@color/textColor"
+                    app:textColor1="@{@color/textColorDark}"
+                    app:textColor1Condition="@{!vm.sessionCharacterClassFilter.isEmpty()}"
+                    app:textColor2="@{@color/textColor}"
+                    app:textColor2Condition="@{vm.sessionCharacterClassFilter.isEmpty()}"
+                    app:showIf="@{vm.resultCount == vm.characterClassList.size()}"/>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

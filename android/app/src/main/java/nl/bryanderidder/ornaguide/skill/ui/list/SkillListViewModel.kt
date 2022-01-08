@@ -90,6 +90,11 @@ class SkillListViewModel(
         resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
     }
 
+    fun onClearFilters() {
+        sessionSkillFilter.value = SkillFilter()
+        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
+    }
+
     fun onSubmit(dialog: DialogFragment) {
         skillFilter.value = sessionSkillFilter.value?.copy()
         loadItems()

@@ -66,6 +66,11 @@ class NpcListViewModel(
         resultCount = sessionNpcFilter.value?.countFilterResults(npcList.value) ?: 0
     }
 
+    fun onClearFilters() {
+        sessionNpcFilter.value = NpcFilter()
+        resultCount = sessionNpcFilter.value?.countFilterResults(npcList.value) ?: 0
+    }
+
     fun onSubmit(dialog: DialogFragment) {
         npcFilter.value = sessionNpcFilter.value?.copy()
         loadItems()
