@@ -13,6 +13,9 @@ data class SkillFilter(
     var types: List<String> = listOf(),
     var elements: List<String> = listOf(),
     var sources: List<String> = listOf(),
+    var cures: List<String> = listOf(),
+    var gives: List<String> = listOf(),
+    var causes: List<String> = listOf(),
 ) {
     fun applyFilter(list: List<Skill>): List<Skill> {
         return if (isEmpty())
@@ -35,6 +38,12 @@ data class SkillFilter(
             newList = newList.filter { it.bought }
         if (sources.isNotEmpty() && !sources.contains("Bought from Arcanist"))
             newList = newList.filter { !it.bought }
+        if (cures.isNotEmpty())
+            newList = newList.filter { skill -> cures.any(skill.cures::contains) }
+        if (gives.isNotEmpty())
+            newList = newList.filter { skill -> gives.any(skill.gives::contains) }
+        if (causes.isNotEmpty())
+            newList = newList.filter { skill -> causes.any(skill.causes::contains) }
         return newList
     }
 
@@ -50,5 +59,8 @@ data class SkillFilter(
         types,
         elements,
         sources,
+        cures,
+        gives,
+        causes,
     )
 }

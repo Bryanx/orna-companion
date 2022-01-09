@@ -53,6 +53,21 @@ class SkillListViewModel(
 
     val allPossibleSources: List<String> = listOf("Drop", "Bought from Arcanist")
 
+    val allPossibleCures: LiveData<List<String>> by lazy {
+        repository.fetchAllPossibleCures()
+            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+    }
+
+    val allPossibleGives: LiveData<List<String>> by lazy {
+        repository.fetchAllPossibleGives()
+            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+    }
+
+    val allPossibleCauses: LiveData<List<String>> by lazy {
+        repository.fetchAllPossibleCauses()
+            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+    }
+
     val skillList: MutableLiveData<List<Skill>> = MutableLiveData()
 
     var sessionSkillFilter: MutableLiveData<SkillFilter> =
@@ -94,6 +109,21 @@ class SkillListViewModel(
 
     fun updateSelectedSources(sources: List<String>) {
         sessionSkillFilter.value = sessionSkillFilter.value?.copy(sources = sources)
+        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
+    }
+
+    fun updateSelectedCures(cures: List<String>) {
+        sessionSkillFilter.value = sessionSkillFilter.value?.copy(cures = cures)
+        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
+    }
+
+    fun updateSelectedGives(gives: List<String>) {
+        sessionSkillFilter.value = sessionSkillFilter.value?.copy(gives = gives)
+        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
+    }
+
+    fun updateSelectedCauses(causes: List<String>) {
+        sessionSkillFilter.value = sessionSkillFilter.value?.copy(causes = causes)
         resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
     }
 

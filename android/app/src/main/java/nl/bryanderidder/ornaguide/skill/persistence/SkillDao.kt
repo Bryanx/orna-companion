@@ -30,6 +30,15 @@ interface SkillDao {
     @Query("SELECT DISTINCT element FROM Skill")
     fun getAllPossibleElements(): List<String>
 
+    @Query("SELECT DISTINCT cures FROM Skill")
+    fun getAllPossibleCures(): List<String>
+
+    @Query("SELECT DISTINCT gives FROM Skill")
+    fun getAllPossibleGives(): List<String>
+
+    @Query("SELECT DISTINCT causes FROM Skill")
+    fun getAllPossibleCauses(): List<String>
+
     @Query(
         """
       SELECT *

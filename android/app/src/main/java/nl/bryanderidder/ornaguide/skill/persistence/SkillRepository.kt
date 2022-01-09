@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
+import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import nl.bryanderidder.ornaguide.shared.util.NetworkUtil
 import nl.bryanderidder.ornaguide.skill.model.Skill
@@ -22,6 +23,7 @@ import timber.log.Timber
 class SkillRepository(
     private val client: OrnaClient,
     private val dao: SkillDao,
+    private val converters: OrnaTypeConverters,
 ) {
     @WorkerThread
     fun getSkillListFromDb(
@@ -107,6 +109,30 @@ class SkillRepository(
     @WorkerThread
     fun fetchAllPossibleElements() = flow {
         val results = dao.getAllPossibleElements()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleCures() = flow {
+        val results = dao.getAllPossibleCures()
+            .flatMap { converters.toStringList(it) }
+            .distinct()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleGives() = flow {
+        val results = dao.getAllPossibleGives()
+            .flatMap { converters.toStringList(it) }
+            .distinct()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleCauses() = flow {
+        val results = dao.getAllPossibleCauses()
+            .flatMap { converters.toStringList(it) }
+            .distinct()
         emit(results)
     }.flowOn(Dispatchers.IO)
 }
