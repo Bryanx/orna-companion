@@ -51,6 +51,8 @@ class SkillListViewModel(
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
+    val allPossibleSources: List<String> = listOf("Drop", "Bought from Arcanist")
+
     val skillList: MutableLiveData<List<Skill>> = MutableLiveData()
 
     var sessionSkillFilter: MutableLiveData<SkillFilter> =
@@ -87,6 +89,11 @@ class SkillListViewModel(
 
     fun updateSelectedElements(elements: List<String>) {
         sessionSkillFilter.value = sessionSkillFilter.value?.copy(elements = elements)
+        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
+    }
+
+    fun updateSelectedSources(sources: List<String>) {
+        sessionSkillFilter.value = sessionSkillFilter.value?.copy(sources = sources)
         resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
     }
 

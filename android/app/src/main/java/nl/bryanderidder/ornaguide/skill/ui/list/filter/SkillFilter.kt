@@ -12,6 +12,7 @@ data class SkillFilter(
     var tiers: List<Int> = listOf(),
     var types: List<String> = listOf(),
     var elements: List<String> = listOf(),
+    var sources: List<String> = listOf(),
 ) {
     fun applyFilter(list: List<Skill>): List<Skill> {
         return if (isEmpty())
@@ -30,6 +31,10 @@ data class SkillFilter(
             newList = newList.filter { skill -> types.contains(skill.type) }
         if (elements.isNotEmpty())
             newList = newList.filter { skill -> elements.contains(skill.element) }
+        if (sources.isNotEmpty() && !sources.contains("Drop"))
+            newList = newList.filter { it.bought }
+        if (sources.isNotEmpty() && !sources.contains("Bought from Arcanist"))
+            newList = newList.filter { !it.bought }
         return newList
     }
 
@@ -44,5 +49,6 @@ data class SkillFilter(
         tiers,
         types,
         elements,
+        sources,
     )
 }

@@ -22,6 +22,7 @@ class SkillListFilterPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
             "Tier" to ::SkillListFilterTierFragment,
             "Type" to ::SkillListFilterTypeFragment,
             "Element" to ::SkillListFilterElementFragment,
+            "Source" to ::SkillListFilterSourceFragment,
         )
 
         val FILTER_TAB_LABELS: List<String> = FILTER_TAB_SKILLS.keys.toList()
