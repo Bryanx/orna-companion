@@ -68,6 +68,10 @@ class ItemListViewModel(
         repository.fetchAllPossibleImmunities()
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
+    val allPossibleCures: LiveData<List<String>> by lazy {
+        repository.fetchAllPossibleCures()
+            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+    }
 
     val itemList: MutableLiveData<List<Item>> = MutableLiveData()
 
@@ -125,6 +129,11 @@ class ItemListViewModel(
 
     fun updateSelectedImmunities(immunities: List<String>) {
         sessionItemFilter.value = sessionItemFilter.value?.copy(immunities = immunities)
+        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
+    }
+
+    fun updateSelectedCures(cures: List<String>) {
+        sessionItemFilter.value = sessionItemFilter.value?.copy(cures = cures)
         resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
     }
 

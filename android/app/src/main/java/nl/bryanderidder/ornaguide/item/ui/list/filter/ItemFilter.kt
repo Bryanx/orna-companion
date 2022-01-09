@@ -16,6 +16,7 @@ data class ItemFilter(
     var stats: List<String> = listOf(),
     var gives: List<String> = listOf(),
     var immunities: List<String> = listOf(),
+    var cures: List<String> = listOf(),
 ) {
     fun applyFilter(list: List<Item>): List<Item> {
         return if (isEmpty())
@@ -42,6 +43,8 @@ data class ItemFilter(
             newList = newList.filter { item -> gives.any(item.gives::contains) }
         if (immunities.isNotEmpty())
             newList = newList.filter { item -> immunities.any(item.immunities::contains) }
+        if (cures.isNotEmpty())
+            newList = newList.filter { item -> cures.any(item.cures::contains) }
         return newList
     }
 
@@ -60,5 +63,6 @@ data class ItemFilter(
         stats,
         gives,
         immunities,
+        cures,
     )
 }

@@ -135,4 +135,12 @@ class ItemRepository(
             .distinct()
         emit(results)
     }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleCures() = flow {
+        val results = dao.getAllPossibleCures()
+            .flatMap { converters.toStringList(it) }
+            .distinct()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
 }

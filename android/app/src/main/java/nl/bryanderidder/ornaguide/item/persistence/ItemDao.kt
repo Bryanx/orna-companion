@@ -39,6 +39,9 @@ interface ItemDao {
     @Query("SELECT DISTINCT immunities FROM Item")
     suspend fun getAllPossibleImmunities(): List<String>
 
+    @Query("SELECT DISTINCT cures FROM Item")
+    suspend fun getAllPossibleCures(): List<String>
+
     @Query(
         """
       SELECT *
