@@ -21,6 +21,6 @@ interface SaveDao {
     @Query("SELECT DISTINCT tier FROM Save ORDER BY tier")
     fun getAllPossibleTiers(): List<Int>
 
-    @Query("SELECT DISTINCT type FROM Save ORDER BY tier")
+    @Query("SELECT DISTINCT type FROM Save ORDER BY type")
     fun getAllPossibleTypes(): List<String>
 }

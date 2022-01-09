@@ -117,6 +117,7 @@ class SkillRepository(
         val results = dao.getAllPossibleCures()
             .flatMap { converters.toStringList(it) }
             .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
@@ -125,6 +126,7 @@ class SkillRepository(
         val results = dao.getAllPossibleGives()
             .flatMap { converters.toStringList(it) }
             .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
@@ -133,6 +135,7 @@ class SkillRepository(
         val results = dao.getAllPossibleCauses()
             .flatMap { converters.toStringList(it) }
             .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 }

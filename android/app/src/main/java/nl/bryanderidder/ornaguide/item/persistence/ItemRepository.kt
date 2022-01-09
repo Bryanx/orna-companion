@@ -116,39 +116,46 @@ class ItemRepository(
 
     @WorkerThread
     fun fetchAllPossibleEquippedBy() = flow {
-        val results = dao.getAllPossibleEquippedBy().flatMap { it.equippedBy }.distinct().toList()
+        val results = dao.getAllPossibleEquippedBy()
+            .flatMap(Item::equippedBy)
+            .distinct()
+            .toList()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
     fun fetchAllPossibleGives() = flow {
         val results = dao.getAllPossibleGives()
-            .flatMap { converters.toStringList(it) }
+            .flatMap(converters::toStringList)
             .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
     fun fetchAllPossibleCauses() = flow {
         val results = dao.getAllPossibleCauses()
-            .flatMap { converters.toStringList(it) }
+            .flatMap(converters::toStringList)
             .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
     fun fetchAllPossibleImmunities() = flow {
         val results = dao.getAllPossibleImmunities()
-            .flatMap { converters.toStringList(it) }
+            .flatMap(converters::toStringList)
             .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
     fun fetchAllPossibleCures() = flow {
         val results = dao.getAllPossibleCures()
-            .flatMap { converters.toStringList(it) }
+            .flatMap(converters::toStringList)
             .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 }

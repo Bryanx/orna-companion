@@ -21,7 +21,6 @@ import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 class MonsterListViewModel(
     private val repository: MonsterRepository,
-    typeConverter: OrnaTypeConverters,
     sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
@@ -49,37 +48,31 @@ class MonsterListViewModel(
     
     val allPossibleSpawns: LiveData<List<String>> by lazy {
         repository.fetchAllPossibleSpawns()
-            .map { it.flatMap(typeConverter::toStringList).distinct() }
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
     val allPossibleWeakTos: LiveData<List<String>> by lazy {
         repository.fetchAllPossibleWeakTos()
-            .map { it.flatMap(typeConverter::toStringList).distinct() }
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
     val allPossibleResistantTos: LiveData<List<String>> by lazy {
         repository.fetchAllPossibleResistantTos()
-            .map { it.flatMap(typeConverter::toStringList).distinct() }
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
     val allPossibleImmuneTos: LiveData<List<String>> by lazy {
         repository.fetchAllPossibleImmuneTos()
-            .map { it.flatMap(typeConverter::toStringList).distinct() }
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
     val allPossibleImmuneToStatuses: LiveData<List<String>> by lazy {
         repository.fetchAllPossibleImmuneToStatuses()
-            .map { it.flatMap(typeConverter::toStringList).distinct() }
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
     val allPossibleVulnerableToStatuses: LiveData<List<String>> by lazy {
         repository.fetchAllPossibleVulnerableToStatuses()
-            .map { it.flatMap(typeConverter::toStringList).distinct() }
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 

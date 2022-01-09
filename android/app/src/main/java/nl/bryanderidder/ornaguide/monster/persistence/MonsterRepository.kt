@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import nl.bryanderidder.ornaguide.monster.model.Monster
+import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import nl.bryanderidder.ornaguide.shared.util.NetworkUtil
 import timber.log.Timber
@@ -22,6 +23,7 @@ import timber.log.Timber
 class MonsterRepository(
     private val client: OrnaClient,
     private val dao: MonsterDao,
+    private val typeConverter: OrnaTypeConverters,
 ) {
     @WorkerThread
     fun getMonsterListFromDb(
@@ -106,36 +108,54 @@ class MonsterRepository(
     @WorkerThread
     fun fetchAllPossibleSpawns() = flow {
         val results = dao.getAllPossibleSpawns()
+            .flatMap(typeConverter::toStringList)
+            .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
     fun fetchAllPossibleWeakTos() = flow {
         val results = dao.getAllPossibleWeakTos()
+            .flatMap(typeConverter::toStringList)
+            .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
     fun fetchAllPossibleResistantTos() = flow {
         val results = dao.getAllPossibleResistantTos()
+            .flatMap(typeConverter::toStringList)
+            .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
     fun fetchAllPossibleImmuneTos() = flow {
         val results = dao.getAllPossibleImmuneTos()
+            .flatMap(typeConverter::toStringList)
+            .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
     fun fetchAllPossibleImmuneToStatuses() = flow {
         val results = dao.getAllPossibleImmuneToStatuses()
+            .flatMap(typeConverter::toStringList)
+            .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
     fun fetchAllPossibleVulnerableToStatuses() = flow {
         val results = dao.getAllPossibleVulnerableToStatuses()
+            .flatMap(typeConverter::toStringList)
+            .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 }

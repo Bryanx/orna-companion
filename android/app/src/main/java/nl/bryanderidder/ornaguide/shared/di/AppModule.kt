@@ -94,7 +94,7 @@ val appModule: Module = module {
     viewModel { ItemListViewModel(get(), get()) }
     viewModel { ItemDetailViewModel(get(), get()) }
     viewModel { ItemAssessViewModel(get()) }
-    viewModel { MonsterListViewModel(get(), get(), get()) }
+    viewModel { MonsterListViewModel(get(), get()) }
     viewModel { MonsterDetailViewModel(get(), get()) }
     viewModel { NpcListViewModel(get(), get()) }
     viewModel { NpcDetailViewModel(get(), get()) }
@@ -139,7 +139,7 @@ val appModule: Module = module {
     single { SpecializationRepository(get(), get(), get())}
     single { PetRepository(get(), get())}
     single { ItemRepository(get(), get(), get()) }
-    single { MonsterRepository(get(), get()) }
+    single { MonsterRepository(get(), get(), get()) }
     single { NpcRepository(get(), get()) }
     single { AchievementRepository(get(), get()) }
     single { SaveRepository(get()) }

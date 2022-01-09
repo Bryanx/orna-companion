@@ -24,10 +24,10 @@ interface SkillDao {
     @Query("SELECT DISTINCT tier FROM Skill ORDER BY tier")
     fun getAllPossibleTiers(): List<Int>
 
-    @Query("SELECT DISTINCT type FROM Skill")
+    @Query("SELECT DISTINCT type FROM Skill ORDER BY type")
     fun getAllPossibleTypes(): List<String>
 
-    @Query("SELECT DISTINCT element FROM Skill")
+    @Query("SELECT DISTINCT element FROM Skill ORDER BY element")
     fun getAllPossibleElements(): List<String>
 
     @Query("SELECT DISTINCT cures FROM Skill")

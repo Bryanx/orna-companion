@@ -105,9 +105,10 @@ class SpecializationRepository(
     @WorkerThread
     fun fetchAllPossibleBoosts() = flow {
         val results = dao.getAllPossibleBoosts()
-            .flatMap { converters.toBoost(it) }
+            .flatMap(converters::toBoost)
             .map { it.formattedName() }
             .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 }
