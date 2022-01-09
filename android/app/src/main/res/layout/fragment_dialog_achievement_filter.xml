@@ -38,7 +38,8 @@
             app:layout_constraintTop_toBottomOf="@+id/bottomSheetTopDivider"
             app:tabGravity="center"
             app:tabMode="scrollable"
-            app:tabSelectedTextColor="?android:attr/colorSecondary"
+            app:tabSelectedTextColor="@color/textColorHeader"
+            app:tabIndicatorColor="@color/textColorHeader"
             app:tabTextAppearance="@style/tabMenuText"
             app:tabTextColor="@color/inactiveTabTextColor" />
 
