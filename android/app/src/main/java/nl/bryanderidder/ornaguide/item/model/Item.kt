@@ -1,9 +1,11 @@
 package nl.bryanderidder.ornaguide.item.model
 
+import android.text.SpannableStringBuilder
 import androidx.room.*
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.shared.util.ORNA_IMAGE_PREFIX
+import nl.bryanderidder.ornaguide.shared.util.makeBold
 
 @Entity
 @JsonClass(generateAdapter = true)
@@ -23,7 +25,8 @@ data class Item(
     @Json(name = "equipped_by") val equippedBy: List<IdNamePair> = listOf(),
     @Json(name = "quests") val quests: List<IdNamePair> = listOf(),
     @Json(name = "prevents") val immunities: List<String> = listOf(),
-    @Json(name = "gives") val gives: List<String> = listOf()
+    @Json(name = "gives") val gives: List<String> = listOf(),
+    @Json(name = "cures") val cures: List<String> = listOf(),
 ) {
 
     @Ignore
@@ -117,6 +120,13 @@ data class Item(
 
     @Ignore
     fun formattedGives(): String = gives.joinToString("\n")
+
+    @Ignore
+    fun formattedCures(): SpannableStringBuilder =
+        if (cures.isEmpty())
+            SpannableStringBuilder()
+        else
+            "Cures: ${cures.joinToString(", ")}".makeBold("Cures:")
 
     @Ignore
     fun statsAsMap(): Map<String, Int> {

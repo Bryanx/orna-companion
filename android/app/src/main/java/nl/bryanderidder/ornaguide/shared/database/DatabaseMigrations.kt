@@ -31,4 +31,11 @@ object DatabaseMigrations {
             database.execSQL("UPDATE Save SET type = UPPER(SUBSTR(type, 1, 1)) || SUBSTR(type, 2)")
         }
     }
+    // DB Migration version 6 to 7
+    val MIGRATION_6_7: Migration = object : Migration(6, 7) {
+        override fun migrate(database: SupportSQLiteDatabase) {
+            database.execSQL("ALTER TABLE Skill ADD COLUMN cures TEXT DEFAULT '' NOT NULL")
+            database.execSQL("ALTER TABLE Item ADD COLUMN cures TEXT DEFAULT '' NOT NULL")
+        }
+    }
 }

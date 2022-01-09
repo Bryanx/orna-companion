@@ -71,13 +71,25 @@
                     tools:text="Att: 178 Def: 123" />
 
                 <TextView
+                    android:id="@+id/cures"
+                    style="@style/databaseItemDescription"
+                    android:text="@{vm.item.formattedCures()}"
+                    android:textAlignment="center"
+                    android:paddingBottom="@dimen/cardPadding"
+                    app:gone="@{vm.item.cures.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/stats"
+                    tools:text="Cures: Frozen, Poisoned" />
+
+                <TextView
                     android:id="@+id/description"
                     style="@style/databaseItemPageDescription"
                     android:paddingHorizontal="@dimen/cardPadding"
                     android:text="@{vm.item.description}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/stats"
+                    app:layout_constraintTop_toBottomOf="@+id/cures"
                     tools:text="Heavy armor crafted by Apollyon, the destructive exiled Balor mystic. Apollyon sought to destroy lands to stop the falling, but was exiled for his unorthodox approaches." />
 
                 <TextView

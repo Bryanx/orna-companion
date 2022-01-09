@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.skill.model
 
+import android.text.SpannableStringBuilder
 import androidx.room.Entity
 import androidx.room.Fts4
 import androidx.room.Ignore
@@ -8,6 +9,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.shared.util.NumberUtil
 import nl.bryanderidder.ornaguide.shared.util.ORNA_ICON_IMAGE_PREFIX
+import nl.bryanderidder.ornaguide.shared.util.makeBold
 
 @Entity
 @JsonClass(generateAdapter = true)
@@ -26,7 +28,8 @@ data class Skill(
     @Json(name = "pets_use") val petsUse: List<IdNamePair> = listOf(),
     @Json(name = "name") val name: String = "",
     @Json(name = "tier") val tier: Int = 0,
-    @Json(name = "type") val type: String = ""
+    @Json(name = "type") val type: String = "",
+    @Json(name = "cures") val cures: List<String> = listOf(),
 ) {
     @JsonClass(generateAdapter = true)
     data class LearnedBy(
@@ -62,6 +65,13 @@ data class Skill(
 
     @Ignore
     fun formattedTypeAndMana(): String = type + if (manaCost == 0) "" else " - $manaCost\u00A0mana"
+
+    @Ignore
+    fun formattedCures(): SpannableStringBuilder =
+        if (cures.isEmpty())
+            SpannableStringBuilder()
+        else
+            "Cures: ${cures.joinToString(", ")}".makeBold("Cures:")
 
     companion object {
         const val NAME = "Skill"

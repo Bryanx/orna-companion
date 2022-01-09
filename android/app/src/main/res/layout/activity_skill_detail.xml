@@ -82,12 +82,24 @@
                     tools:text="Magic skill - 25 mana" />
 
                 <TextView
+                    android:id="@+id/cures"
+                    style="@style/databaseItemDescription"
+                    android:text="@{vm.skill.formattedCures()}"
+                    android:textAlignment="center"
+                    android:paddingBottom="@dimen/cardPadding"
+                    app:gone="@{vm.skill.cures.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/type"
+                    tools:text="Cures: Frozen, Poisoned" />
+
+                <TextView
                     android:id="@+id/description"
                     style="@style/databaseItemPageDescription"
                     android:text="@{vm.skill.description}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/type"
+                    app:layout_constraintTop_toBottomOf="@+id/cures"
                     tools:text="A skilled individual who favours magic over strength. Can wield staves and robes." />
 
                 <TextView
