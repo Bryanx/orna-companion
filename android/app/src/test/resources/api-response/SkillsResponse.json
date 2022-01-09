@@ -36,8 +36,16 @@
         "name": "The Fool (2019)"
       },
       {
+        "id": 430,
+        "name": "The Fool (2021)"
+      },
+      {
+        "id": 454,
+        "name": "Grand Knight Lugus"
+      },
+      {
         "id": 179,
-        "name": "Balor Elite"
+        "name": "Maelor"
       }
     ]
   },
@@ -156,6 +164,14 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 448,
+        "name": "False King Meliodas"
+      },
+      {
+        "id": 446,
+        "name": "Arisen King Meliodas"
+      },
       {
         "id": 422,
         "name": "The Mightiest Mimic"
@@ -291,10 +307,10 @@
     "bought": false,
     "learned_by": [
       {
-        "id": 79,
-        "name": "Realmshifter",
-        "level": 225,
-        "specialization": false
+        "id": 72,
+        "name": "Assassin",
+        "level": 200,
+        "specialization": true
       }
     ]
   },
@@ -346,6 +362,10 @@
       {
         "id": 138,
         "name": "Arcane Flame"
+      },
+      {
+        "id": 249,
+        "name": "Arcane Slime"
       },
       {
         "id": 273,
@@ -503,6 +523,12 @@
         "level": 175,
         "specialization": false
       }
+    ],
+    "pets_use": [
+      {
+        "id": 118,
+        "name": "Gwyllgi"
+      }
     ]
   },
   {
@@ -510,7 +536,7 @@
     "id": 318,
     "tier": 8,
     "type": "Multi-round Attack",
-    "description": "Attack 4 times with unrelenting arcane energy.Requires 3 turns in battle.",
+    "description": "Attack 4 times with unrelenting arcane energy. Requires 3 turns in battle.",
     "is_magic": false,
     "bought": false,
     "element": "Arcane",
@@ -585,6 +611,10 @@
       {
         "id": 44,
         "name": "Arcane Slime"
+      },
+      {
+        "id": 118,
+        "name": "Gwyllgi"
       }
     ]
   },
@@ -611,7 +641,7 @@
     "name": "Arrowstorm",
     "id": 134,
     "tier": 3,
-    "type": "Attack",
+    "type": "AoE Attack",
     "description": "Bombard your opponent with many arrows.",
     "is_magic": false,
     "bought": false,
@@ -632,6 +662,20 @@
       {
         "id": 91,
         "name": "Big Cactus"
+      },
+      {
+        "id": 111,
+        "name": "Fey Cactus"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 285,
+        "name": "Pollux"
+      },
+      {
+        "id": 429,
+        "name": "Fey Cactus"
       }
     ]
   },
@@ -639,7 +683,7 @@
     "name": "Arrowstorm II",
     "id": 445,
     "tier": 7,
-    "type": "Attack",
+    "type": "AoE Attack",
     "description": "Bombard your opponent with many arrows.",
     "is_magic": false,
     "bought": false,
@@ -664,6 +708,10 @@
       {
         "id": 93,
         "name": "Pollux"
+      },
+      {
+        "id": 111,
+        "name": "Fey Cactus"
       }
     ],
     "monsters_use": [
@@ -674,6 +722,10 @@
       {
         "id": 406,
         "name": "Third Horseman"
+      },
+      {
+        "id": 429,
+        "name": "Fey Cactus"
       }
     ]
   },
@@ -786,6 +838,24 @@
     "bought": false
   },
   {
+    "name": "Bastion II",
+    "id": 627,
+    "tier": 6,
+    "type": "Ward",
+    "description": "Grants temporary defenses and grants Ward for 4 turns.",
+    "is_magic": false,
+    "bought": false
+  },
+  {
+    "name": "Bastion III",
+    "id": 614,
+    "tier": 10,
+    "type": "Ward",
+    "description": "Grants temporary defenses and grants Ward for 5 turns.",
+    "is_magic": true,
+    "bought": false
+  },
+  {
     "name": "Battle Dance",
     "id": 34,
     "tier": 4,
@@ -825,6 +895,10 @@
         "name": "Dracon"
       },
       {
+        "id": 33,
+        "name": "Great Mimic"
+      },
+      {
         "id": 113,
         "name": "Great Ushi-Oni"
       },
@@ -839,6 +913,10 @@
       {
         "id": 182,
         "name": "Balor Assassin"
+      },
+      {
+        "id": 458,
+        "name": "Elite Balor Assassin"
       }
     ]
   },
@@ -887,32 +965,36 @@
     "bought": false,
     "buffed_by": [
       {
-        "id": 16,
-        "name": "Snake"
-      },
-      {
-        "id": 17,
-        "name": "Spider"
-      },
-      {
-        "id": 189,
-        "name": "Rat"
+        "id": 10,
+        "name": "Gull"
       },
       {
         "id": 2,
         "name": "Crow"
       },
       {
+        "id": 17,
+        "name": "Spider"
+      },
+      {
+        "id": 16,
+        "name": "Snake"
+      },
+      {
+        "id": 189,
+        "name": "Rat"
+      },
+      {
         "id": 23,
         "name": "Bat"
       },
       {
-        "id": 10,
-        "name": "Gull"
-      },
-      {
         "id": 154,
         "name": "Gnat"
+      },
+      {
+        "id": 122,
+        "name": "Bear"
       },
       {
         "id": 24,
@@ -927,32 +1009,40 @@
         "name": "Wolfman"
       },
       {
-        "id": 122,
-        "name": "Bear"
-      },
-      {
         "id": 137,
         "name": "Arachne"
-      },
-      {
-        "id": 227,
-        "name": "Vile Rat"
       },
       {
         "id": 156,
         "name": "Zu"
       },
       {
-        "id": 50,
-        "name": "Hellhound"
+        "id": 227,
+        "name": "Vile Rat"
       },
       {
         "id": 126,
         "name": "Grey Wolfman"
       },
       {
+        "id": 50,
+        "name": "Hellhound"
+      },
+      {
         "id": 267,
         "name": "Dark Widow"
+      },
+      {
+        "id": 76,
+        "name": "Wolfman Warrior"
+      },
+      {
+        "id": 95,
+        "name": "Great Bear"
+      },
+      {
+        "id": 162,
+        "name": "Firefly"
       },
       {
         "id": 190,
@@ -963,28 +1053,12 @@
         "name": "Cobra"
       },
       {
-        "id": 95,
-        "name": "Great Bear"
-      },
-      {
-        "id": 76,
-        "name": "Wolfman Warrior"
-      },
-      {
-        "id": 162,
-        "name": "Firefly"
-      },
-      {
-        "id": 105,
-        "name": "Ushi-Oni"
-      },
-      {
         "id": 268,
         "name": "Naja"
       },
       {
-        "id": 113,
-        "name": "Great Ushi-Oni"
+        "id": 105,
+        "name": "Ushi-Oni"
       },
       {
         "id": 114,
@@ -995,8 +1069,16 @@
         "name": "Cerberus"
       },
       {
+        "id": 113,
+        "name": "Great Ushi-Oni"
+      },
+      {
         "id": 243,
         "name": "Dark Wolfman"
+      },
+      {
+        "id": 155,
+        "name": "Arisen Cerberus"
       },
       {
         "id": 132,
@@ -1007,36 +1089,32 @@
         "name": "Warg"
       },
       {
-        "id": 155,
-        "name": "Arisen Cerberus"
-      },
-      {
         "id": 228,
         "name": "Ratman"
-      },
-      {
-        "id": 237,
-        "name": "Garm"
       },
       {
         "id": 239,
         "name": "Infernal Bear"
       },
       {
-        "id": 307,
-        "name": "Mighty Griffin"
+        "id": 237,
+        "name": "Garm"
       },
       {
         "id": 194,
         "name": "Nin-Kilim"
       },
       {
-        "id": 330,
-        "name": "Anubis"
+        "id": 307,
+        "name": "Mighty Griffin"
       },
       {
         "id": 317,
         "name": "Chimera"
+      },
+      {
+        "id": 330,
+        "name": "Anubis"
       }
     ],
     "learned_by": [
@@ -1129,12 +1207,12 @@
     ],
     "monsters_use": [
       {
-        "id": 425,
-        "name": "Sister Badb"
+        "id": 424,
+        "name": "Sister Neman"
       },
       {
-        "id": 426,
-        "name": "Sister Macha"
+        "id": 425,
+        "name": "Sister Badb"
       }
     ]
   },
@@ -1191,9 +1269,17 @@
       {
         "id": 71,
         "name": "Nidhogg"
+      },
+      {
+        "id": 112,
+        "name": "Raging Cerus"
       }
     ],
     "monsters_use": [
+      {
+        "id": 492,
+        "name": "Elite Draconian"
+      },
       {
         "id": 421,
         "name": "Mimic King of Kings"
@@ -1205,6 +1291,18 @@
       {
         "id": 423,
         "name": "Arisen Morrigan"
+      },
+      {
+        "id": 469,
+        "name": "Baldr"
+      },
+      {
+        "id": 437,
+        "name": "Fallen Beowulf"
+      },
+      {
+        "id": 433,
+        "name": "Nidhogg"
       },
       {
         "id": 358,
@@ -1236,6 +1334,20 @@
       {
         "id": 101,
         "name": "Fey Chimera"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 450,
+        "name": "Glatisant"
+      },
+      {
+        "id": 437,
+        "name": "Fallen Beowulf"
+      },
+      {
+        "id": 433,
+        "name": "Nidhogg"
       }
     ]
   },
@@ -1394,6 +1506,10 @@
       {
         "id": 10,
         "name": "Gull"
+      },
+      {
+        "id": 272,
+        "name": "Sea Serpent"
       },
       {
         "id": 19,
@@ -1604,12 +1720,24 @@
         "name": "The Fool (2019)"
       },
       {
+        "id": 449,
+        "name": "Fallen Warlock Trevelyan"
+      },
+      {
         "id": 362,
         "name": "The Fool (2020)"
       },
       {
+        "id": 430,
+        "name": "The Fool (2021)"
+      },
+      {
         "id": 273,
         "name": "Naggeneen"
+      },
+      {
+        "id": 445,
+        "name": "Yggdrasil"
       },
       {
         "id": 269,
@@ -1624,8 +1752,20 @@
         "name": "Arisen Naggeneen"
       },
       {
+        "id": 447,
+        "name": "Arisen Warlock Trevelyan"
+      },
+      {
+        "id": 438,
+        "name": "The Dioscuri"
+      },
+      {
         "id": 315,
         "name": "Arisen Cthulhu"
+      },
+      {
+        "id": 442,
+        "name": "Arisen Yggdrasil"
       }
     ]
   },
@@ -1727,6 +1867,10 @@
       {
         "id": 295,
         "name": "Frilled Naga Warrior"
+      },
+      {
+        "id": 482,
+        "name": "Elite Kobold"
       }
     ]
   },
@@ -1749,6 +1893,16 @@
         "name": "Inquisitor",
         "level": 155,
         "specialization": true
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 117,
+        "name": "Llamrai"
+      },
+      {
+        "id": 116,
+        "name": "Great Pegasus"
       }
     ]
   },
@@ -1933,6 +2087,10 @@
         "name": "Mighty Griffin"
       },
       {
+        "id": 329,
+        "name": "Fallen Freyja"
+      },
+      {
         "id": 319,
         "name": "Mighty Slime"
       }
@@ -1984,6 +2142,10 @@
     ],
     "monsters_use": [
       {
+        "id": 64,
+        "name": "Dark Mage"
+      },
+      {
         "id": 72,
         "name": "Lizarr Lord"
       },
@@ -2000,10 +2162,6 @@
         "name": "Sea Drake"
       },
       {
-        "id": 290,
-        "name": "Ancient Gazer"
-      },
-      {
         "id": 283,
         "name": "Castor"
       },
@@ -2018,6 +2176,10 @@
       {
         "id": 341,
         "name": "Ancient Draugr Mage"
+      },
+      {
+        "id": 290,
+        "name": "Ancient Gazer"
       },
       {
         "id": 219,
@@ -2058,6 +2220,10 @@
       {
         "id": 220,
         "name": "Fallen Ithra, the White Knight"
+      },
+      {
+        "id": 349,
+        "name": "Arisen Ithra, the White Knight"
       }
     ]
   },
@@ -2109,6 +2275,10 @@
         "name": "Balor Warlock"
       },
       {
+        "id": 457,
+        "name": "Elite Balor Warlock"
+      },
+      {
         "id": 220,
         "name": "Fallen Ithra, the White Knight"
       },
@@ -2119,6 +2289,14 @@
       {
         "id": 368,
         "name": "Arisen Finfolk"
+      },
+      {
+        "id": 349,
+        "name": "Arisen Ithra, the White Knight"
+      },
+      {
+        "id": 484,
+        "name": "Elite Kobold Mage"
       }
     ]
   },
@@ -2145,6 +2323,10 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 464,
+        "name": "Alfar"
+      },
       {
         "id": 63,
         "name": "Dark Elf"
@@ -2200,6 +2382,18 @@
       {
         "id": 183,
         "name": "Balor Marauder"
+      },
+      {
+        "id": 456,
+        "name": "Elite Balor Marauder"
+      },
+      {
+        "id": 473,
+        "name": "Elite Orc"
+      },
+      {
+        "id": 491,
+        "name": "Elite Orc Lord"
       }
     ]
   },
@@ -2300,6 +2494,46 @@
     ]
   },
   {
+    "name": "Break",
+    "id": 603,
+    "tier": 6,
+    "type": "Multi-round Magic",
+    "description": "Temporarily lowers attack, magic, defense, resistance and dexterity. Takes 2 turns in battle.",
+    "is_magic": true,
+    "bought": false,
+    "causes": [
+      "T. All \u2193"
+    ],
+    "pets_use": [
+      {
+        "id": 114,
+        "name": "Cerus"
+      },
+      {
+        "id": 112,
+        "name": "Raging Cerus"
+      },
+      {
+        "id": 113,
+        "name": "Untamed Cerus"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 277,
+        "name": "Cerus"
+      },
+      {
+        "id": 432,
+        "name": "Ferocious Cerus"
+      },
+      {
+        "id": 431,
+        "name": "Furious Cerus"
+      }
+    ]
+  },
+  {
     "name": "Break Power",
     "id": 120,
     "tier": 5,
@@ -2314,6 +2548,12 @@
         "name": "Hunter",
         "level": 125,
         "specialization": true
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 440,
+        "name": "Arisen Cade"
       }
     ]
   },
@@ -2359,8 +2599,40 @@
         "name": "Balor King"
       },
       {
+        "id": 432,
+        "name": "Ferocious Cerus"
+      },
+      {
+        "id": 431,
+        "name": "Furious Cerus"
+      },
+      {
         "id": 185,
         "name": "Skoll"
+      },
+      {
+        "id": 460,
+        "name": "Arisen Balor King"
+      },
+      {
+        "id": 484,
+        "name": "Elite Kobold Mage"
+      }
+    ]
+  },
+  {
+    "name": "Brilliant Lights",
+    "id": 621,
+    "tier": 6,
+    "type": "Magic",
+    "description": "Unstable elementless magic that can blind an opponent while dealing damage thrice.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 1,
+    "monsters_use": [
+      {
+        "id": 449,
+        "name": "Fallen Warlock Trevelyan"
       }
     ]
   },
@@ -2374,6 +2646,9 @@
     "bought": false,
     "element": "Fire",
     "mana_cost": 20,
+    "causes": [
+      "Burning"
+    ],
     "learned_by": [
       {
         "id": 19,
@@ -2394,8 +2669,16 @@
         "name": "Surtr's Flame"
       },
       {
+        "id": 127,
+        "name": "Balor Flame"
+      },
+      {
         "id": 50,
         "name": "Greater Yokai"
+      },
+      {
+        "id": 119,
+        "name": "Carman"
       },
       {
         "id": 95,
@@ -2533,6 +2816,10 @@
         "name": "The Fool (2019)"
       },
       {
+        "id": 430,
+        "name": "The Fool (2021)"
+      },
+      {
         "id": 178,
         "name": "Titan"
       }
@@ -2552,6 +2839,75 @@
         "name": "Centurion",
         "level": 1,
         "specialization": false
+      }
+    ]
+  },
+  {
+    "name": "Chain Lightning",
+    "id": 634,
+    "tier": 5,
+    "type": "AoE Magic",
+    "description": "Deals lightning damage to all opponents in battle.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Lightning",
+    "mana_cost": 70,
+    "causes": [
+      "Paralyzed"
+    ],
+    "learned_by": [
+      {
+        "id": 28,
+        "name": "Scholar",
+        "level": 110,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Chain Lightning II",
+    "id": 630,
+    "tier": 7,
+    "type": "AoE Magic",
+    "description": "Deals lightning damage to all opponents in battle.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Lightning",
+    "mana_cost": 100,
+    "causes": [
+      "Paralyzed"
+    ],
+    "learned_by": [
+      {
+        "id": 45,
+        "name": "Magus",
+        "level": 150,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Chain Lightning III",
+    "id": 625,
+    "tier": 9,
+    "type": "AoE Magic",
+    "description": "Deals lightning damage to all opponents in battle.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Lightning",
+    "mana_cost": 200,
+    "learned_by": [
+      {
+        "id": 50,
+        "name": "Maji",
+        "level": 200,
+        "specialization": true
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 497,
+        "name": "Great Phoenician Mage"
       }
     ]
   },
@@ -2591,6 +2947,10 @@
       {
         "id": 229,
         "name": "Bandit Lord"
+      },
+      {
+        "id": 1,
+        "name": "Barbarian"
       },
       {
         "id": 21,
@@ -2633,6 +2993,10 @@
         "name": "Lizarr Lord"
       },
       {
+        "id": 73,
+        "name": "Lizarr Noble"
+      },
+      {
         "id": 78,
         "name": "Lord of Wolves"
       },
@@ -2665,6 +3029,10 @@
         "name": "Balor Worm"
       },
       {
+        "id": 488,
+        "name": "Elite Balor Worm"
+      },
+      {
         "id": 96,
         "name": "Great Troll"
       },
@@ -2691,6 +3059,10 @@
       {
         "id": 265,
         "name": "Odok Golem"
+      },
+      {
+        "id": 350,
+        "name": "Arisen Thor, the Storm God"
       }
     ]
   },
@@ -2726,8 +3098,20 @@
         "name": "Nothren Berserker"
       },
       {
+        "id": 479,
+        "name": "Elite Nothren Berserker"
+      },
+      {
+        "id": 473,
+        "name": "Elite Orc"
+      },
+      {
         "id": 294,
         "name": "Nothren Valkyrie"
+      },
+      {
+        "id": 483,
+        "name": "Elite Nothren Valkyrie"
       }
     ]
   },
@@ -2777,7 +3161,10 @@
       "Poisoned",
       "Blight",
       "Blind",
+      "Asleep",
       "Stunned",
+      "Petrified",
+      "Cursed",
       "Rot"
     ],
     "gives": [
@@ -2790,6 +3177,16 @@
         "name": "Inquisitor",
         "level": 160,
         "specialization": true
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 117,
+        "name": "Llamrai"
+      },
+      {
+        "id": 116,
+        "name": "Great Pegasus"
       }
     ]
   },
@@ -2826,6 +3223,10 @@
       {
         "id": 420,
         "name": "Age-Old Mimic"
+      },
+      {
+        "id": 430,
+        "name": "The Fool (2021)"
       },
       {
         "id": 408,
@@ -2867,6 +3268,10 @@
         "name": "Starlord"
       },
       {
+        "id": 277,
+        "name": "Cerus"
+      },
+      {
         "id": 222,
         "name": "Fallen Ra, the Seer"
       },
@@ -2879,8 +3284,24 @@
         "name": "Balor King"
       },
       {
+        "id": 432,
+        "name": "Ferocious Cerus"
+      },
+      {
+        "id": 431,
+        "name": "Furious Cerus"
+      },
+      {
         "id": 186,
         "name": "Hati"
+      },
+      {
+        "id": 460,
+        "name": "Arisen Balor King"
+      },
+      {
+        "id": 484,
+        "name": "Elite Kobold Mage"
       }
     ]
   },
@@ -2903,12 +3324,20 @@
     ],
     "monsters_use": [
       {
+        "id": 444,
+        "name": "Hel"
+      },
+      {
         "id": 411,
         "name": "Surtr"
       },
       {
         "id": 276,
         "name": "The Fool (2019)"
+      },
+      {
+        "id": 430,
+        "name": "The Fool (2021)"
       },
       {
         "id": 425,
@@ -2927,12 +3356,71 @@
         "name": "Nothren Raider"
       },
       {
+        "id": 470,
+        "name": "Elite Fomorian"
+      },
+      {
+        "id": 480,
+        "name": "Elite Nothren Raider"
+      },
+      {
+        "id": 441,
+        "name": "Arisen Balin"
+      },
+      {
+        "id": 443,
+        "name": "Arisen Hel"
+      },
+      {
         "id": 423,
         "name": "Arisen Morrigan"
       },
       {
         "id": 412,
         "name": "Arisen Surtr"
+      },
+      {
+        "id": 469,
+        "name": "Baldr"
+      },
+      {
+        "id": 439,
+        "name": "Finesse"
+      },
+      {
+        "id": 326,
+        "name": "Lyonesse Assassin"
+      }
+    ]
+  },
+  {
+    "name": "Coup de Grace II",
+    "id": 607,
+    "tier": 10,
+    "type": "Multi-round Attack",
+    "description": "Perform the perfect strike at the perfect time. This attack never misses but requires 3 turns in battle.",
+    "is_magic": false,
+    "bought": false,
+    "monsters_use": [
+      {
+        "id": 444,
+        "name": "Hel"
+      },
+      {
+        "id": 441,
+        "name": "Arisen Balin"
+      },
+      {
+        "id": 443,
+        "name": "Arisen Hel"
+      },
+      {
+        "id": 412,
+        "name": "Arisen Surtr"
+      },
+      {
+        "id": 439,
+        "name": "Finesse"
       }
     ]
   },
@@ -2971,7 +3459,7 @@
       },
       {
         "id": 179,
-        "name": "Balor Elite"
+        "name": "Maelor"
       },
       {
         "id": 205,
@@ -3132,6 +3620,16 @@
         "level": 225,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 325,
+        "name": "Fallen Arcanic"
+      },
+      {
+        "id": 437,
+        "name": "Fallen Beowulf"
+      }
     ]
   },
   {
@@ -3144,6 +3642,9 @@
     "bought": true,
     "cost": 2000,
     "mana_cost": 25,
+    "cures": [
+      "Bleeding"
+    ],
     "pets_use": [
       {
         "id": 53,
@@ -3161,6 +3662,9 @@
     "bought": true,
     "cost": 2000,
     "mana_cost": 25,
+    "cures": [
+      "Blind"
+    ],
     "pets_use": [
       {
         "id": 53,
@@ -3198,6 +3702,9 @@
     "bought": true,
     "cost": 2000,
     "mana_cost": 25,
+    "cures": [
+      "Frozen"
+    ],
     "pets_use": [
       {
         "id": 53,
@@ -3215,6 +3722,9 @@
     "bought": true,
     "cost": 2000,
     "mana_cost": 25,
+    "cures": [
+      "Paralyzed"
+    ],
     "pets_use": [
       {
         "id": 53,
@@ -3232,6 +3742,9 @@
     "bought": true,
     "cost": 2000,
     "mana_cost": 25,
+    "cures": [
+      "Poisoned"
+    ],
     "pets_use": [
       {
         "id": 53,
@@ -3258,12 +3771,12 @@
     ],
     "monsters_use": [
       {
-        "id": 6,
-        "name": "Ghost"
-      },
-      {
         "id": 12,
         "name": "Mimic"
+      },
+      {
+        "id": 6,
+        "name": "Ghost"
       },
       {
         "id": 92,
@@ -3282,12 +3795,20 @@
         "name": "Lost Pharaoh"
       },
       {
+        "id": 489,
+        "name": "Spooky Ghost"
+      },
+      {
         "id": 297,
         "name": "Midnight Imp"
       },
       {
         "id": 110,
         "name": "Sluagh"
+      },
+      {
+        "id": 453,
+        "name": "Terrifying Ghost"
       },
       {
         "id": 415,
@@ -3394,6 +3915,10 @@
       {
         "id": 40,
         "name": "Odok"
+      },
+      {
+        "id": 128,
+        "name": "Cruel Banshee"
       },
       {
         "id": 45,
@@ -3527,6 +4052,10 @@
       {
         "id": 187,
         "name": "Balor King"
+      },
+      {
+        "id": 460,
+        "name": "Arisen Balor King"
       }
     ]
   },
@@ -3564,6 +4093,14 @@
         "name": "Fallen Merlin"
       },
       {
+        "id": 471,
+        "name": "First Stable Keeper"
+      },
+      {
+        "id": 492,
+        "name": "Elite Draconian"
+      },
+      {
         "id": 309,
         "name": "Great Reaper"
       },
@@ -3572,8 +4109,16 @@
         "name": "Pumpkinhead"
       },
       {
+        "id": 345,
+        "name": "Queen of Dokkalfar"
+      },
+      {
         "id": 264,
         "name": "Racul"
+      },
+      {
+        "id": 474,
+        "name": "Second Stable Keeper"
       },
       {
         "id": 310,
@@ -3584,12 +4129,32 @@
         "name": "Arisen Merlin"
       },
       {
+        "id": 470,
+        "name": "Elite Fomorian"
+      },
+      {
+        "id": 432,
+        "name": "Ferocious Cerus"
+      },
+      {
+        "id": 431,
+        "name": "Furious Cerus"
+      },
+      {
         "id": 367,
         "name": "Kelpie"
       },
       {
+        "id": 475,
+        "name": "Third Stable Keeper"
+      },
+      {
         "id": 415,
         "name": "Arisen Sluagh"
+      },
+      {
+        "id": 476,
+        "name": "Final Stable Keeper"
       }
     ]
   },
@@ -3623,6 +4188,92 @@
       {
         "id": 42,
         "name": "Great Yeti"
+      }
+    ]
+  },
+  {
+    "name": "Decay",
+    "id": 596,
+    "tier": 2,
+    "type": "Debuff",
+    "description": "Causes an opponent to rot.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Earthen",
+    "mana_cost": 20,
+    "causes": [
+      "Rot"
+    ],
+    "learned_by": [
+      {
+        "id": 17,
+        "name": "Legionnaire",
+        "level": 20,
+        "specialization": false
+      },
+      {
+        "id": 37,
+        "name": "Gaia",
+        "level": 175,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 119,
+        "name": "Carman"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 451,
+        "name": "Sapling"
+      }
+    ]
+  },
+  {
+    "name": "Defend (Magical)",
+    "id": 605,
+    "tier": 6,
+    "type": "Buff",
+    "description": "The user shifts their stance, greatly increasing their resistance.",
+    "is_magic": false,
+    "bought": false,
+    "monsters_use": [
+      {
+        "id": 277,
+        "name": "Cerus"
+      },
+      {
+        "id": 432,
+        "name": "Ferocious Cerus"
+      },
+      {
+        "id": 431,
+        "name": "Furious Cerus"
+      }
+    ]
+  },
+  {
+    "name": "Defend (Physical)",
+    "id": 604,
+    "tier": 6,
+    "type": "Buff",
+    "description": "The user shifts their stance, greatly increasing their defense.",
+    "is_magic": false,
+    "bought": false,
+    "monsters_use": [
+      {
+        "id": 277,
+        "name": "Cerus"
+      },
+      {
+        "id": 432,
+        "name": "Ferocious Cerus"
+      },
+      {
+        "id": 431,
+        "name": "Furious Cerus"
       }
     ]
   },
@@ -3726,12 +4377,12 @@
   {
     "name": "Despair",
     "id": 256,
-    "tier": 9,
+    "tier": 10,
     "type": "Magic",
-    "description": "Mammon skill",
+    "description": "Deals great arcane damage.",
     "is_magic": true,
     "bought": false,
-    "mana_cost": 1,
+    "element": "Arcane",
     "pets_use": [
       {
         "id": 105,
@@ -3754,6 +4405,10 @@
       {
         "id": 280,
         "name": "Mammon"
+      },
+      {
+        "id": 352,
+        "name": "Arisen Mammon"
       }
     ]
   },
@@ -3862,6 +4517,14 @@
     ],
     "pets_use": [
       {
+        "id": 130,
+        "name": "Alfar"
+      },
+      {
+        "id": 120,
+        "name": "Hengreon"
+      },
+      {
         "id": 48,
         "name": "Pale Dragon"
       },
@@ -3880,8 +4543,16 @@
     ],
     "monsters_use": [
       {
+        "id": 217,
+        "name": "Dokkalfar Lord"
+      },
+      {
         "id": 390,
         "name": "Dark Pegasus"
+      },
+      {
+        "id": 374,
+        "name": "Pegasus"
       }
     ]
   },
@@ -3895,8 +4566,16 @@
     "bought": false,
     "monsters_use": [
       {
+        "id": 424,
+        "name": "Sister Neman"
+      },
+      {
         "id": 362,
         "name": "The Fool (2020)"
+      },
+      {
+        "id": 430,
+        "name": "The Fool (2021)"
       },
       {
         "id": 425,
@@ -3909,6 +4588,10 @@
       {
         "id": 423,
         "name": "Arisen Morrigan"
+      },
+      {
+        "id": 439,
+        "name": "Finesse"
       },
       {
         "id": 358,
@@ -4010,6 +4693,10 @@
     ],
     "monsters_use": [
       {
+        "id": 345,
+        "name": "Queen of Dokkalfar"
+      },
+      {
         "id": 323,
         "name": "Fallen Vanguard"
       }
@@ -4030,6 +4717,33 @@
         "name": "Titanguard",
         "level": 225,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 501,
+        "name": "Great Phoenician"
+      },
+      {
+        "id": 435,
+        "name": "Fallen Gilgamesh"
+      }
+    ]
+  },
+  {
+    "name": "Doublecast",
+    "id": 606,
+    "tier": 9,
+    "type": "Passive",
+    "description": "Spells cast when wielding two staves may be cast twice.",
+    "is_magic": true,
+    "bought": false,
+    "learned_by": [
+      {
+        "id": 84,
+        "name": "Sequencer",
+        "level": 1,
+        "specialization": true
       }
     ]
   },
@@ -4085,6 +4799,10 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 385,
+        "name": "Lobster"
+      },
       {
         "id": 266,
         "name": "Dracon"
@@ -4146,8 +4864,16 @@
         "name": "Balor Marauder"
       },
       {
+        "id": 456,
+        "name": "Elite Balor Marauder"
+      },
+      {
         "id": 295,
         "name": "Frilled Naga Warrior"
+      },
+      {
+        "id": 349,
+        "name": "Arisen Ithra, the White Knight"
       }
     ]
   },
@@ -4192,6 +4918,10 @@
     ],
     "monsters_use": [
       {
+        "id": 455,
+        "name": "Dagda"
+      },
+      {
         "id": 399,
         "name": "Fey Dragon"
       },
@@ -4214,6 +4944,18 @@
       {
         "id": 376,
         "name": "Turul"
+      },
+      {
+        "id": 438,
+        "name": "The Dioscuri"
+      },
+      {
+        "id": 441,
+        "name": "Arisen Balin"
+      },
+      {
+        "id": 439,
+        "name": "Finesse"
       }
     ]
   },
@@ -4252,6 +4994,12 @@
         "level": 55,
         "specialization": false
       }
+    ],
+    "pets_use": [
+      {
+        "id": 130,
+        "name": "Alfar"
+      }
     ]
   },
   {
@@ -4276,6 +5024,10 @@
       {
         "id": 76,
         "name": "Arcane Flame"
+      },
+      {
+        "id": 127,
+        "name": "Balor Flame"
       },
       {
         "id": 1,
@@ -4332,6 +5084,10 @@
         "name": "Cockatrice"
       },
       {
+        "id": 493,
+        "name": "Elite Draconian Mage"
+      },
+      {
         "id": 149,
         "name": "Fafnir"
       },
@@ -4342,6 +5098,10 @@
       {
         "id": 211,
         "name": "Great Cockatrice"
+      },
+      {
+        "id": 450,
+        "name": "Glatisant"
       },
       {
         "id": 271,
@@ -4621,6 +5381,14 @@
         "name": "Draconian Mage"
       },
       {
+        "id": 154,
+        "name": "Gnat"
+      },
+      {
+        "id": 64,
+        "name": "Dark Mage"
+      },
+      {
         "id": 389,
         "name": "Draugr Mage"
       },
@@ -4649,10 +5417,6 @@
         "name": "Greater Vampire"
       },
       {
-        "id": 290,
-        "name": "Ancient Gazer"
-      },
-      {
         "id": 108,
         "name": "Great Gazer"
       },
@@ -4665,6 +5429,10 @@
         "name": "Vampire Lord"
       },
       {
+        "id": 290,
+        "name": "Ancient Gazer"
+      },
+      {
         "id": 119,
         "name": "Ankou"
       },
@@ -4675,6 +5443,10 @@
       {
         "id": 228,
         "name": "Ratman"
+      },
+      {
+        "id": 315,
+        "name": "Arisen Cthulhu"
       }
     ]
   },
@@ -4697,6 +5469,10 @@
     ],
     "pets_use": [
       {
+        "id": 129,
+        "name": "Alfar Mage"
+      },
+      {
         "id": 67,
         "name": "Camazotz"
       },
@@ -4709,6 +5485,14 @@
       {
         "id": 81,
         "name": "Camazotz"
+      },
+      {
+        "id": 490,
+        "name": "Alfar Lord"
+      },
+      {
+        "id": 463,
+        "name": "Alfar Mage"
       },
       {
         "id": 380,
@@ -4741,6 +5525,10 @@
       {
         "id": 264,
         "name": "Racul"
+      },
+      {
+        "id": 457,
+        "name": "Elite Balor Warlock"
       },
       {
         "id": 371,
@@ -4777,6 +5565,18 @@
     ],
     "monsters_use": [
       {
+        "id": 462,
+        "name": "Arisen Alfar"
+      },
+      {
+        "id": 467,
+        "name": "Arisen Alfar Lord"
+      },
+      {
+        "id": 468,
+        "name": "Arisen Alfar Mage"
+      },
+      {
         "id": 310,
         "name": "Arisen Ankou"
       },
@@ -4789,12 +5589,20 @@
         "name": "Anubis"
       },
       {
+        "id": 315,
+        "name": "Arisen Cthulhu"
+      },
+      {
         "id": 368,
         "name": "Arisen Finfolk"
       },
       {
         "id": 414,
         "name": "Arisen Great Gazer"
+      },
+      {
+        "id": 334,
+        "name": "Fallen Nekromancer"
       },
       {
         "id": 372,
@@ -4841,6 +5649,12 @@
         "name": "Arcanic",
         "level": 175,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 324,
+        "name": "Fallen Gaia"
       }
     ]
   },
@@ -4941,6 +5755,14 @@
     ],
     "monsters_use": [
       {
+        "id": 270,
+        "name": "Cave Sprout"
+      },
+      {
+        "id": 266,
+        "name": "Dracon"
+      },
+      {
         "id": 188,
         "name": "Twilight Knight"
       },
@@ -5004,7 +5826,7 @@
       },
       {
         "id": 343,
-        "name": "Arisen Demeter, The Earth Magus"
+        "name": "Arisen Demeter, the Earth Magus"
       }
     ]
   },
@@ -5041,6 +5863,10 @@
         "name": "Fallen Merlin"
       },
       {
+        "id": 451,
+        "name": "Sapling"
+      },
+      {
         "id": 342,
         "name": "Pumpkinhead"
       },
@@ -5053,8 +5879,8 @@
         "name": "Arisen Merlin"
       },
       {
-        "id": 319,
-        "name": "Mighty Slime"
+        "id": 432,
+        "name": "Ferocious Cerus"
       },
       {
         "id": 372,
@@ -5132,8 +5958,18 @@
     ],
     "pets_use": [
       {
+        "id": 113,
+        "name": "Untamed Cerus"
+      },
+      {
         "id": 108,
         "name": "Ashen Phoenix"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 461,
+        "name": "Arisen Dagda"
       }
     ]
   },
@@ -5182,6 +6018,10 @@
     ],
     "pets_use": [
       {
+        "id": 112,
+        "name": "Raging Cerus"
+      },
+      {
         "id": 108,
         "name": "Ashen Phoenix"
       }
@@ -5200,10 +6040,10 @@
   {
     "name": "Envy",
     "id": 255,
-    "tier": 9,
-    "type": "Magic",
-    "description": "Drains 10% of damage dealt. Can curse.",
-    "is_magic": true,
+    "tier": 10,
+    "type": "Attack",
+    "description": "Deals arcane damage and may cause curse.",
+    "is_magic": false,
     "bought": false,
     "element": "Arcane",
     "mana_cost": 1,
@@ -5212,8 +6052,20 @@
     ],
     "monsters_use": [
       {
+        "id": 424,
+        "name": "Sister Neman"
+      },
+      {
+        "id": 425,
+        "name": "Sister Badb"
+      },
+      {
         "id": 421,
         "name": "Mimic King of Kings"
+      },
+      {
+        "id": 426,
+        "name": "Sister Macha"
       },
       {
         "id": 348,
@@ -5222,6 +6074,10 @@
       {
         "id": 280,
         "name": "Mammon"
+      },
+      {
+        "id": 352,
+        "name": "Arisen Mammon"
       },
       {
         "id": 423,
@@ -5300,6 +6156,10 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 434,
+        "name": "Fallen Realmshifter"
+      },
       {
         "id": 395,
         "name": "Fjalar"
@@ -5382,6 +6242,10 @@
       {
         "id": 183,
         "name": "Balor Marauder"
+      },
+      {
+        "id": 456,
+        "name": "Elite Balor Marauder"
       }
     ]
   },
@@ -5469,6 +6333,140 @@
     ]
   },
   {
+    "name": "Faith",
+    "id": 89,
+    "tier": 4,
+    "type": "Magic",
+    "description": "Deals great holy damage.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Holy",
+    "mana_cost": 90,
+    "learned_by": [
+      {
+        "id": 23,
+        "name": "Sorcerer",
+        "level": 65,
+        "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 46,
+        "name": "Twilight Wisp"
+      },
+      {
+        "id": 48,
+        "name": "Pale Dragon"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 161,
+        "name": "Fairy"
+      },
+      {
+        "id": 207,
+        "name": "Fomor"
+      },
+      {
+        "id": 276,
+        "name": "The Fool (2019)"
+      },
+      {
+        "id": 400,
+        "name": "First Horseman"
+      },
+      {
+        "id": 402,
+        "name": "Second Horseman"
+      },
+      {
+        "id": 406,
+        "name": "Third Horseman"
+      }
+    ]
+  },
+  {
+    "name": "Faith II",
+    "id": 123,
+    "tier": 5,
+    "type": "Magic",
+    "description": "Deals great holy damage.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Holy",
+    "mana_cost": 140,
+    "learned_by": [
+      {
+        "id": 25,
+        "name": "Cleric",
+        "level": 125,
+        "specialization": true
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 48,
+        "name": "Pale Dragon"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 449,
+        "name": "Fallen Warlock Trevelyan"
+      },
+      {
+        "id": 448,
+        "name": "False King Meliodas"
+      },
+      {
+        "id": 400,
+        "name": "First Horseman"
+      },
+      {
+        "id": 150,
+        "name": "Ljosalfar Lord"
+      },
+      {
+        "id": 145,
+        "name": "Ljosalfar Mage"
+      },
+      {
+        "id": 402,
+        "name": "Second Horseman"
+      },
+      {
+        "id": 279,
+        "name": "Apollyon"
+      },
+      {
+        "id": 446,
+        "name": "Arisen King Meliodas"
+      },
+      {
+        "id": 447,
+        "name": "Arisen Warlock Trevelyan"
+      },
+      {
+        "id": 185,
+        "name": "Skoll"
+      },
+      {
+        "id": 406,
+        "name": "Third Horseman"
+      },
+      {
+        "id": 335,
+        "name": "Arisen Mimic King"
+      },
+      {
+        "id": 401,
+        "name": "Final Horseman"
+      }
+    ]
+  },
+  {
     "name": "Fey Cataclysm",
     "id": 487,
     "tier": 10,
@@ -5520,6 +6518,10 @@
       {
         "id": 386,
         "name": "Balor Gateway"
+      },
+      {
+        "id": 494,
+        "name": "Balor Gateway"
       }
     ]
   },
@@ -5544,6 +6546,10 @@
       {
         "id": 420,
         "name": "Age-Old Mimic"
+      },
+      {
+        "id": 424,
+        "name": "Sister Neman"
       }
     ]
   },
@@ -5651,6 +6657,10 @@
         "name": "The Fool (2020)"
       },
       {
+        "id": 430,
+        "name": "The Fool (2021)"
+      },
+      {
         "id": 422,
         "name": "The Mightiest Mimic"
       },
@@ -5661,6 +6671,10 @@
       {
         "id": 428,
         "name": "Arisen Kerberos"
+      },
+      {
+        "id": 436,
+        "name": "Fallen Heretic"
       },
       {
         "id": 401,
@@ -5697,6 +6711,10 @@
       {
         "id": 386,
         "name": "Balor Gateway"
+      },
+      {
+        "id": 494,
+        "name": "Balor Gateway"
       }
     ]
   },
@@ -5721,6 +6739,14 @@
       {
         "id": 420,
         "name": "Age-Old Mimic"
+      },
+      {
+        "id": 449,
+        "name": "Fallen Warlock Trevelyan"
+      },
+      {
+        "id": 424,
+        "name": "Sister Neman"
       }
     ]
   },
@@ -5795,6 +6821,10 @@
       {
         "id": 421,
         "name": "Mimic King of Kings"
+      },
+      {
+        "id": 447,
+        "name": "Arisen Warlock Trevelyan"
       }
     ]
   },
@@ -5828,6 +6858,10 @@
         "name": "The Fool (2020)"
       },
       {
+        "id": 430,
+        "name": "The Fool (2021)"
+      },
+      {
         "id": 422,
         "name": "The Mightiest Mimic"
       },
@@ -5838,6 +6872,10 @@
       {
         "id": 428,
         "name": "Arisen Kerberos"
+      },
+      {
+        "id": 436,
+        "name": "Fallen Heretic"
       },
       {
         "id": 401,
@@ -5922,6 +6960,16 @@
         "id": 102,
         "name": "Fey Gazer"
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 386,
+        "name": "Balor Gateway"
+      },
+      {
+        "id": 494,
+        "name": "Balor Gateway"
+      }
     ]
   },
   {
@@ -5947,8 +6995,8 @@
         "name": "Age-Old Mimic"
       },
       {
-        "id": 426,
-        "name": "Sister Macha"
+        "id": 424,
+        "name": "Sister Neman"
       }
     ]
   },
@@ -5984,6 +7032,10 @@
       {
         "id": 360,
         "name": "Coral Varmint"
+      },
+      {
+        "id": 426,
+        "name": "Sister Macha"
       }
     ]
   },
@@ -6006,6 +7058,10 @@
       }
     ],
     "pets_use": [
+      {
+        "id": 119,
+        "name": "Carman"
+      },
       {
         "id": 81,
         "name": "Ancient Jinn"
@@ -6042,6 +7098,10 @@
         "name": "The Fool (2020)"
       },
       {
+        "id": 430,
+        "name": "The Fool (2021)"
+      },
+      {
         "id": 422,
         "name": "The Mightiest Mimic"
       },
@@ -6052,6 +7112,10 @@
       {
         "id": 428,
         "name": "Arisen Kerberos"
+      },
+      {
+        "id": 436,
+        "name": "Fallen Heretic"
       },
       {
         "id": 401,
@@ -6084,6 +7148,10 @@
       {
         "id": 386,
         "name": "Balor Gateway"
+      },
+      {
+        "id": 494,
+        "name": "Balor Gateway"
       }
     ]
   },
@@ -6108,6 +7176,10 @@
       {
         "id": 420,
         "name": "Age-Old Mimic"
+      },
+      {
+        "id": 424,
+        "name": "Sister Neman"
       }
     ]
   },
@@ -6143,6 +7215,10 @@
       {
         "id": 360,
         "name": "Coral Varmint"
+      },
+      {
+        "id": 426,
+        "name": "Sister Macha"
       }
     ]
   },
@@ -6171,6 +7247,10 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 445,
+        "name": "Yggdrasil"
+      },
       {
         "id": 421,
         "name": "Mimic King of Kings"
@@ -6201,8 +7281,20 @@
         "name": "The Fool (2020)"
       },
       {
+        "id": 430,
+        "name": "The Fool (2021)"
+      },
+      {
+        "id": 414,
+        "name": "Arisen Great Gazer"
+      },
+      {
         "id": 428,
         "name": "Arisen Kerberos"
+      },
+      {
+        "id": 436,
+        "name": "Fallen Heretic"
       },
       {
         "id": 401,
@@ -6234,6 +7326,10 @@
       {
         "id": 322,
         "name": "Arisen Fafnir"
+      },
+      {
+        "id": 331,
+        "name": "Fallen Ifrit"
       }
     ]
   },
@@ -6267,7 +7363,7 @@
     "id": 50,
     "tier": 2,
     "type": "Attack",
-    "description": "Light an arrow aflame and attack the enemy. 25% chance to cause an opponent to burn.",
+    "description": "Light an arrow aflame and attack the enemy. 25 percent chance to cause an opponent to burn.",
     "is_magic": false,
     "bought": false,
     "element": "Fire",
@@ -6337,8 +7433,12 @@
         "name": "Arisen Cerberus"
       },
       {
+        "id": 454,
+        "name": "Grand Knight Lugus"
+      },
+      {
         "id": 179,
-        "name": "Balor Elite"
+        "name": "Maelor"
       },
       {
         "id": 120,
@@ -6423,6 +7523,10 @@
         "name": "Flame"
       },
       {
+        "id": 41,
+        "name": "Blue Flame"
+      },
+      {
         "id": 266,
         "name": "Dracon"
       },
@@ -6501,8 +7605,16 @@
         "name": "Cerus"
       },
       {
+        "id": 455,
+        "name": "Dagda"
+      },
+      {
         "id": 255,
         "name": "Balor Flame"
+      },
+      {
+        "id": 481,
+        "name": "Elite Balor Flame"
       },
       {
         "id": 232,
@@ -6511,6 +7623,10 @@
       {
         "id": 271,
         "name": "Guivre"
+      },
+      {
+        "id": 351,
+        "name": "Arisen Vulcan, the Red Knight"
       }
     ]
   },
@@ -6581,6 +7697,10 @@
         "name": "Arisen Merlin"
       },
       {
+        "id": 431,
+        "name": "Furious Cerus"
+      },
+      {
         "id": 412,
         "name": "Arisen Surtr"
       },
@@ -6638,6 +7758,10 @@
       {
         "id": 220,
         "name": "Fallen Ithra, the White Knight"
+      },
+      {
+        "id": 349,
+        "name": "Arisen Ithra, the White Knight"
       }
     ]
   },
@@ -6729,8 +7853,16 @@
         "name": "Draconian Mage"
       },
       {
+        "id": 27,
+        "name": "Evil Eye"
+      },
+      {
         "id": 31,
         "name": "Flame"
+      },
+      {
+        "id": 48,
+        "name": "Fallen Witch"
       }
     ]
   },
@@ -6842,6 +7974,10 @@
       {
         "id": 353,
         "name": "Immortal Magus"
+      },
+      {
+        "id": 351,
+        "name": "Arisen Vulcan, the Red Knight"
       }
     ]
   },
@@ -6868,12 +8004,28 @@
     ],
     "monsters_use": [
       {
+        "id": 452,
+        "name": "Hobgoblin Lord"
+      },
+      {
+        "id": 490,
+        "name": "Alfar Lord"
+      },
+      {
+        "id": 463,
+        "name": "Alfar Mage"
+      },
+      {
         "id": 199,
         "name": "High Draconian Mage"
       },
       {
         "id": 232,
         "name": "Fallen Vulcan, the Red Knight"
+      },
+      {
+        "id": 351,
+        "name": "Arisen Vulcan, the Red Knight"
       }
     ]
   },
@@ -6887,7 +8039,27 @@
     "bought": true,
     "cost": 150000,
     "element": "Fire",
-    "mana_cost": 90
+    "mana_cost": 90,
+    "pets_use": [
+      {
+        "id": 127,
+        "name": "Balor Flame"
+      },
+      {
+        "id": 129,
+        "name": "Alfar Mage"
+      },
+      {
+        "id": 119,
+        "name": "Carman"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 455,
+        "name": "Dagda"
+      }
+    ]
   },
   {
     "name": "Flame V",
@@ -6916,6 +8088,10 @@
         "name": "Fallen Merlin"
       },
       {
+        "id": 493,
+        "name": "Elite Draconian Mage"
+      },
+      {
         "id": 300,
         "name": "Fallen Knight Vulcan"
       },
@@ -6924,8 +8100,20 @@
         "name": "Kerberos"
       },
       {
+        "id": 487,
+        "name": "Kobold Lord"
+      },
+      {
         "id": 293,
         "name": "Nothren Warlock"
+      },
+      {
+        "id": 468,
+        "name": "Arisen Alfar Mage"
+      },
+      {
+        "id": 440,
+        "name": "Arisen Cade"
       },
       {
         "id": 305,
@@ -6934,6 +8122,10 @@
       {
         "id": 312,
         "name": "Arisen Merlin"
+      },
+      {
+        "id": 485,
+        "name": "Elite Nothren Warlock"
       },
       {
         "id": 304,
@@ -6980,6 +8172,10 @@
         "name": "Arisen Cthulhu"
       },
       {
+        "id": 461,
+        "name": "Arisen Dagda"
+      },
+      {
         "id": 428,
         "name": "Arisen Kerberos"
       },
@@ -6994,6 +8190,10 @@
       {
         "id": 317,
         "name": "Chimera"
+      },
+      {
+        "id": 486,
+        "name": "Elite Kobold Lord"
       },
       {
         "id": 331,
@@ -7116,6 +8316,10 @@
         "name": "Balor Warlock"
       },
       {
+        "id": 457,
+        "name": "Elite Balor Warlock"
+      },
+      {
         "id": 296,
         "name": "Frilled Naga Mage"
       },
@@ -7180,6 +8384,10 @@
       {
         "id": 77,
         "name": "Seer"
+      },
+      {
+        "id": 118,
+        "name": "Gwyllgi"
       }
     ]
   },
@@ -7266,12 +8474,28 @@
     ],
     "monsters_use": [
       {
+        "id": 464,
+        "name": "Alfar"
+      },
+      {
+        "id": 444,
+        "name": "Hel"
+      },
+      {
         "id": 292,
         "name": "Nothren Raider"
       },
       {
         "id": 376,
         "name": "Turul"
+      },
+      {
+        "id": 480,
+        "name": "Elite Nothren Raider"
+      },
+      {
+        "id": 443,
+        "name": "Arisen Hel"
       },
       {
         "id": 395,
@@ -7298,6 +8522,10 @@
       {
         "id": 39,
         "name": "Draconian Lord"
+      },
+      {
+        "id": 64,
+        "name": "Dark Mage"
       },
       {
         "id": 43,
@@ -7439,6 +8667,10 @@
         "name": "Anubis"
       },
       {
+        "id": 334,
+        "name": "Fallen Nekromancer"
+      },
+      {
         "id": 401,
         "name": "Final Horseman"
       },
@@ -7572,6 +8804,10 @@
         "name": "Greater Yokai"
       },
       {
+        "id": 119,
+        "name": "Carman"
+      },
+      {
         "id": 95,
         "name": "Surtr's Mighty Flame"
       },
@@ -7608,6 +8844,34 @@
       {
         "id": 285,
         "name": "Pollux"
+      }
+    ]
+  },
+  {
+    "name": "Fright",
+    "id": 622,
+    "tier": 6,
+    "type": "Debuff",
+    "description": "Frighten an opponent. Stunning it and potentially blinding or lulling it with fear.",
+    "is_magic": true,
+    "bought": false,
+    "causes": [
+      "Blind",
+      "Stunned",
+      "Lulled"
+    ],
+    "pets_use": [
+      {
+        "id": 124,
+        "name": "Scary Skeleton"
+      },
+      {
+        "id": 123,
+        "name": "Spooky Ghost"
+      },
+      {
+        "id": 125,
+        "name": "Very Scary Skeleton"
       }
     ]
   },
@@ -7709,8 +8973,20 @@
     ],
     "monsters_use": [
       {
+        "id": 448,
+        "name": "False King Meliodas"
+      },
+      {
+        "id": 446,
+        "name": "Arisen King Meliodas"
+      },
+      {
         "id": 337,
         "name": "Arisen Naggeneen"
+      },
+      {
+        "id": 447,
+        "name": "Arisen Warlock Trevelyan"
       }
     ]
   },
@@ -7735,6 +9011,10 @@
       {
         "id": 427,
         "name": "Arisen Phoenix"
+      },
+      {
+        "id": 472,
+        "name": "Elite Fomorian Mage"
       },
       {
         "id": 375,
@@ -7782,6 +9062,10 @@
     ],
     "monsters_use": [
       {
+        "id": 41,
+        "name": "Blue Flame"
+      },
+      {
         "id": 42,
         "name": "Draconian Acolyte"
       },
@@ -7816,6 +9100,10 @@
       {
         "id": 283,
         "name": "Castor"
+      },
+      {
+        "id": 349,
+        "name": "Arisen Ithra, the White Knight"
       }
     ]
   },
@@ -7842,8 +9130,24 @@
     ],
     "monsters_use": [
       {
+        "id": 452,
+        "name": "Hobgoblin Lord"
+      },
+      {
+        "id": 490,
+        "name": "Alfar Lord"
+      },
+      {
+        "id": 463,
+        "name": "Alfar Mage"
+      },
+      {
         "id": 199,
         "name": "High Draconian Mage"
+      },
+      {
+        "id": 349,
+        "name": "Arisen Ithra, the White Knight"
       }
     ]
   },
@@ -7857,7 +9161,19 @@
     "bought": true,
     "cost": 150000,
     "element": "Water",
-    "mana_cost": 90
+    "mana_cost": 90,
+    "pets_use": [
+      {
+        "id": 119,
+        "name": "Carman"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 449,
+        "name": "Fallen Warlock Trevelyan"
+      }
+    ]
   },
   {
     "name": "Frost V",
@@ -7886,12 +9202,32 @@
         "name": "Fallen Merlin"
       },
       {
+        "id": 493,
+        "name": "Elite Draconian Mage"
+      },
+      {
         "id": 275,
         "name": "Kerberos"
       },
       {
+        "id": 487,
+        "name": "Kobold Lord"
+      },
+      {
         "id": 293,
         "name": "Nothren Warlock"
+      },
+      {
+        "id": 468,
+        "name": "Arisen Alfar Mage"
+      },
+      {
+        "id": 440,
+        "name": "Arisen Cade"
+      },
+      {
+        "id": 305,
+        "name": "Arisen Carman"
       },
       {
         "id": 312,
@@ -7900,6 +9236,10 @@
       {
         "id": 348,
         "name": "Ebon Scruug"
+      },
+      {
+        "id": 485,
+        "name": "Elite Nothren Warlock"
       },
       {
         "id": 304,
@@ -7948,6 +9288,10 @@
       {
         "id": 317,
         "name": "Chimera"
+      },
+      {
+        "id": 486,
+        "name": "Elite Kobold Lord"
       },
       {
         "id": 332,
@@ -8126,6 +9470,12 @@
         "level": 225,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 437,
+        "name": "Fallen Beowulf"
+      }
     ]
   },
   {
@@ -8161,6 +9511,12 @@
         "name": "Beowulf",
         "level": 225,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 437,
+        "name": "Fallen Beowulf"
       }
     ]
   },
@@ -8223,6 +9579,12 @@
         "name": "High Taranis",
         "level": 220,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 450,
+        "name": "Glatisant"
       }
     ]
   },
@@ -8585,8 +9947,20 @@
     "bought": false,
     "monsters_use": [
       {
+        "id": 445,
+        "name": "Yggdrasil"
+      },
+      {
         "id": 404,
         "name": "Fey Yeti"
+      },
+      {
+        "id": 438,
+        "name": "The Dioscuri"
+      },
+      {
+        "id": 442,
+        "name": "Arisen Yggdrasil"
       }
     ]
   },
@@ -8614,14 +9988,6 @@
       {
         "id": 408,
         "name": "Fey Cockatrice"
-      },
-      {
-        "id": 412,
-        "name": "Arisen Surtr"
-      },
-      {
-        "id": 403,
-        "name": "Ashen Phoenix"
       },
       {
         "id": 405,
@@ -8658,12 +10024,24 @@
         "name": "Demon Knight"
       },
       {
+        "id": 33,
+        "name": "Great Mimic"
+      },
+      {
         "id": 78,
         "name": "Lord of Wolves"
       },
       {
         "id": 90,
         "name": "Dark Slime"
+      },
+      {
+        "id": 99,
+        "name": "Legionnaire"
+      },
+      {
+        "id": 128,
+        "name": "Small Dragon"
       },
       {
         "id": 111,
@@ -8780,6 +10158,10 @@
       {
         "id": 362,
         "name": "The Fool (2020)"
+      },
+      {
+        "id": 430,
+        "name": "The Fool (2021)"
       }
     ]
   },
@@ -8800,6 +10182,22 @@
     ],
     "monsters_use": [
       {
+        "id": 424,
+        "name": "Sister Neman"
+      },
+      {
+        "id": 425,
+        "name": "Sister Badb"
+      },
+      {
+        "id": 426,
+        "name": "Sister Macha"
+      },
+      {
+        "id": 423,
+        "name": "Arisen Morrigan"
+      },
+      {
         "id": 358,
         "name": "The Morrigan"
       }
@@ -8809,11 +10207,10 @@
     "name": "Greed",
     "id": 254,
     "tier": 9,
-    "type": "Magic",
-    "description": "Drains 10% of damage dealt.",
-    "is_magic": true,
+    "type": "Attack",
+    "description": "-",
+    "is_magic": false,
     "bought": false,
-    "mana_cost": 1,
     "pets_use": [
       {
         "id": 105,
@@ -8828,6 +10225,10 @@
       {
         "id": 280,
         "name": "Mammon"
+      },
+      {
+        "id": 352,
+        "name": "Arisen Mammon"
       }
     ]
   },
@@ -8853,7 +10254,6 @@
     "description": "You have a 10% stat boost when defending territories.",
     "is_magic": true,
     "bought": false,
-    "mana_cost": 5,
     "learned_by": [
       {
         "id": 78,
@@ -8891,6 +10291,10 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 462,
+        "name": "Arisen Alfar"
+      },
       {
         "id": 298,
         "name": "Heimdall"
@@ -8932,6 +10336,14 @@
     ],
     "monsters_use": [
       {
+        "id": 462,
+        "name": "Arisen Alfar"
+      },
+      {
+        "id": 345,
+        "name": "Queen of Dokkalfar"
+      },
+      {
         "id": 376,
         "name": "Turul"
       },
@@ -8958,6 +10370,10 @@
       {
         "id": 323,
         "name": "Fallen Vanguard"
+      },
+      {
+        "id": 314,
+        "name": "Hades"
       },
       {
         "id": 336,
@@ -9014,6 +10430,10 @@
         "name": "Greater Triton"
       },
       {
+        "id": 435,
+        "name": "Fallen Gilgamesh"
+      },
+      {
         "id": 395,
         "name": "Fjalar"
       }
@@ -9062,10 +10482,64 @@
     "bought": true,
     "cost": 2500,
     "mana_cost": 10,
+    "pets_use": [
+      {
+        "id": 121,
+        "name": "Gullinkambi"
+      }
+    ],
     "monsters_use": [
       {
         "id": 381,
         "name": "Hawk"
+      }
+    ]
+  },
+  {
+    "name": "Haste",
+    "id": 636,
+    "tier": 9,
+    "type": "Buff",
+    "description": "Temporarily increases a party member's foresight.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 40,
+    "gives": [
+      "Foresight \u2191"
+    ],
+    "learned_by": [
+      {
+        "id": 87,
+        "name": "Time Mage",
+        "level": 150,
+        "specialization": true
+      },
+      {
+        "id": 85,
+        "name": "Chronomancer",
+        "level": 200,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Haste+",
+    "id": 640,
+    "tier": 10,
+    "type": "AoE Buff",
+    "description": "Temporarily increases all party member's foresight.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 200,
+    "gives": [
+      "Foresight \u2191"
+    ],
+    "learned_by": [
+      {
+        "id": 85,
+        "name": "Chronomancer",
+        "level": 225,
+        "specialization": true
       }
     ]
   },
@@ -9114,8 +10588,20 @@
         "name": "Draconian Lord"
       },
       {
+        "id": 286,
+        "name": "Earthworm"
+      },
+      {
+        "id": 64,
+        "name": "Dark Mage"
+      },
+      {
         "id": 126,
         "name": "Grey Wolfman"
+      },
+      {
+        "id": 53,
+        "name": "Imp"
       },
       {
         "id": 72,
@@ -9136,6 +10622,10 @@
       {
         "id": 297,
         "name": "Midnight Imp"
+      },
+      {
+        "id": 101,
+        "name": "Reaper"
       },
       {
         "id": 112,
@@ -9196,6 +10686,18 @@
         "name": "Arisen Phoenix"
       },
       {
+        "id": 472,
+        "name": "Elite Fomorian Mage"
+      },
+      {
+        "id": 496,
+        "name": "Fallen Ashen Phoenix"
+      },
+      {
+        "id": 497,
+        "name": "Great Phoenician Mage"
+      },
+      {
         "id": 375,
         "name": "Kraken"
       },
@@ -9210,57 +10712,19 @@
     ]
   },
   {
-    "name": "Holy",
-    "id": 89,
-    "tier": 4,
-    "type": "Magic",
-    "description": "Deals great holy damage.",
-    "is_magic": true,
+    "name": "High Tenacity",
+    "id": 610,
+    "tier": 10,
+    "type": "Passive",
+    "description": "Damage taken from some self-inflicted status effects will not fully deplete your HP.",
+    "is_magic": false,
     "bought": false,
-    "element": "Holy",
-    "mana_cost": 90,
     "learned_by": [
       {
-        "id": 23,
-        "name": "Sorcerer",
-        "level": 65,
+        "id": 79,
+        "name": "Realmshifter",
+        "level": 225,
         "specialization": false
-      }
-    ],
-    "pets_use": [
-      {
-        "id": 46,
-        "name": "Twilight Wisp"
-      },
-      {
-        "id": 48,
-        "name": "Pale Dragon"
-      }
-    ],
-    "monsters_use": [
-      {
-        "id": 161,
-        "name": "Fairy"
-      },
-      {
-        "id": 207,
-        "name": "Fomor"
-      },
-      {
-        "id": 276,
-        "name": "The Fool (2019)"
-      },
-      {
-        "id": 400,
-        "name": "First Horseman"
-      },
-      {
-        "id": 402,
-        "name": "Second Horseman"
-      },
-      {
-        "id": 406,
-        "name": "Third Horseman"
       }
     ]
   },
@@ -9282,69 +10746,6 @@
         "name": "Titanguard",
         "level": 220,
         "specialization": false
-      }
-    ]
-  },
-  {
-    "name": "Holy II",
-    "id": 123,
-    "tier": 5,
-    "type": "Magic",
-    "description": "Deals great holy damage.",
-    "is_magic": true,
-    "bought": false,
-    "element": "Holy",
-    "mana_cost": 140,
-    "learned_by": [
-      {
-        "id": 25,
-        "name": "Cleric",
-        "level": 125,
-        "specialization": true
-      }
-    ],
-    "pets_use": [
-      {
-        "id": 48,
-        "name": "Pale Dragon"
-      }
-    ],
-    "monsters_use": [
-      {
-        "id": 400,
-        "name": "First Horseman"
-      },
-      {
-        "id": 150,
-        "name": "Ljosalfar Lord"
-      },
-      {
-        "id": 145,
-        "name": "Ljosalfar Mage"
-      },
-      {
-        "id": 402,
-        "name": "Second Horseman"
-      },
-      {
-        "id": 279,
-        "name": "Apollyon"
-      },
-      {
-        "id": 185,
-        "name": "Skoll"
-      },
-      {
-        "id": 406,
-        "name": "Third Horseman"
-      },
-      {
-        "id": 335,
-        "name": "Arisen Mimic King"
-      },
-      {
-        "id": 401,
-        "name": "Final Horseman"
       }
     ]
   },
@@ -9379,6 +10780,10 @@
         "name": "Fafnir"
       },
       {
+        "id": 116,
+        "name": "Great Pegasus"
+      },
+      {
         "id": 84,
         "name": "Pegasus"
       }
@@ -9391,6 +10796,10 @@
       {
         "id": 390,
         "name": "Dark Pegasus"
+      },
+      {
+        "id": 374,
+        "name": "Pegasus"
       }
     ]
   },
@@ -9525,12 +10934,36 @@
         "name": "Fallen Merlin"
       },
       {
+        "id": 449,
+        "name": "Fallen Warlock Trevelyan"
+      },
+      {
+        "id": 448,
+        "name": "False King Meliodas"
+      },
+      {
+        "id": 492,
+        "name": "Elite Draconian"
+      },
+      {
         "id": 342,
         "name": "Pumpkinhead"
       },
       {
+        "id": 446,
+        "name": "Arisen King Meliodas"
+      },
+      {
         "id": 312,
         "name": "Arisen Merlin"
+      },
+      {
+        "id": 447,
+        "name": "Arisen Warlock Trevelyan"
+      },
+      {
+        "id": 470,
+        "name": "Elite Fomorian"
       },
       {
         "id": 328,
@@ -9584,6 +11017,10 @@
         "name": "Dokkalfar Lord"
       },
       {
+        "id": 345,
+        "name": "Queen of Dokkalfar"
+      },
+      {
         "id": 264,
         "name": "Racul"
       }
@@ -9617,6 +11054,10 @@
       {
         "id": 232,
         "name": "Fallen Vulcan, the Red Knight"
+      },
+      {
+        "id": 351,
+        "name": "Arisen Vulcan, the Red Knight"
       },
       {
         "id": 314,
@@ -9691,6 +11132,10 @@
       {
         "id": 280,
         "name": "Mammon"
+      },
+      {
+        "id": 352,
+        "name": "Arisen Mammon"
       }
     ]
   },
@@ -9790,6 +11235,9 @@
     "bought": false,
     "element": "Water",
     "mana_cost": 25,
+    "causes": [
+      "Frozen"
+    ],
     "learned_by": [
       {
         "id": 7,
@@ -9850,6 +11298,22 @@
     ],
     "monsters_use": [
       {
+        "id": 449,
+        "name": "Fallen Warlock Trevelyan"
+      },
+      {
+        "id": 448,
+        "name": "False King Meliodas"
+      },
+      {
+        "id": 446,
+        "name": "Arisen King Meliodas"
+      },
+      {
+        "id": 447,
+        "name": "Arisen Warlock Trevelyan"
+      },
+      {
         "id": 353,
         "name": "Immortal Magus"
       }
@@ -9873,6 +11337,10 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 472,
+        "name": "Elite Fomorian Mage"
+      },
       {
         "id": 404,
         "name": "Fey Yeti"
@@ -9941,6 +11409,10 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 375,
+        "name": "Kraken"
+      },
       {
         "id": 330,
         "name": "Anubis"
@@ -10020,6 +11492,10 @@
       {
         "id": 72,
         "name": "Lizarr Lord"
+      },
+      {
+        "id": 73,
+        "name": "Lizarr Noble"
       },
       {
         "id": 188,
@@ -10154,6 +11630,10 @@
         "name": "Fallen Merlin"
       },
       {
+        "id": 449,
+        "name": "Fallen Warlock Trevelyan"
+      },
+      {
         "id": 285,
         "name": "Pollux"
       },
@@ -10162,12 +11642,20 @@
         "name": "Pumpkinhead"
       },
       {
+        "id": 345,
+        "name": "Queen of Dokkalfar"
+      },
+      {
         "id": 310,
         "name": "Arisen Ankou"
       },
       {
         "id": 312,
         "name": "Arisen Merlin"
+      },
+      {
+        "id": 447,
+        "name": "Arisen Warlock Trevelyan"
       },
       {
         "id": 319,
@@ -10342,6 +11830,40 @@
       {
         "id": 32,
         "name": "Storm Dragon"
+      }
+    ]
+  },
+  {
+    "name": "Impale",
+    "id": 612,
+    "tier": 10,
+    "type": "Attack",
+    "description": "Attack with your weapon extended, dealing moderate damage but mitigating damage from your opponent's next attack.",
+    "is_magic": false,
+    "bought": false,
+    "element": "Arcane",
+    "pets_use": [
+      {
+        "id": 128,
+        "name": "Cruel Banshee"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 471,
+        "name": "First Stable Keeper"
+      },
+      {
+        "id": 474,
+        "name": "Second Stable Keeper"
+      },
+      {
+        "id": 475,
+        "name": "Third Stable Keeper"
+      },
+      {
+        "id": 476,
+        "name": "Final Stable Keeper"
       }
     ]
   },
@@ -10534,6 +12056,18 @@
         "name": "Ebon Scruug"
       },
       {
+        "id": 432,
+        "name": "Ferocious Cerus"
+      },
+      {
+        "id": 431,
+        "name": "Furious Cerus"
+      },
+      {
+        "id": 441,
+        "name": "Arisen Balin"
+      },
+      {
         "id": 314,
         "name": "Hades"
       }
@@ -10589,7 +12123,17 @@
         "specialization": false
       }
     ],
+    "pets_use": [
+      {
+        "id": 115,
+        "name": "Glatisant"
+      }
+    ],
     "monsters_use": [
+      {
+        "id": 451,
+        "name": "Sapling"
+      },
       {
         "id": 359,
         "name": "Coral Serpent"
@@ -10601,6 +12145,10 @@
       {
         "id": 294,
         "name": "Nothren Valkyrie"
+      },
+      {
+        "id": 483,
+        "name": "Elite Nothren Valkyrie"
       }
     ]
   },
@@ -10627,6 +12175,10 @@
     ],
     "monsters_use": [
       {
+        "id": 462,
+        "name": "Arisen Alfar"
+      },
+      {
         "id": 342,
         "name": "Pumpkinhead"
       },
@@ -10645,6 +12197,9 @@
     "is_magic": true,
     "bought": false,
     "mana_cost": 1,
+    "causes": [
+      "Cursed"
+    ],
     "monsters_use": [
       {
         "id": 276,
@@ -10686,6 +12241,90 @@
     ]
   },
   {
+    "name": "Lacuna",
+    "id": 642,
+    "tier": 8,
+    "type": "Magic",
+    "description": "Deals non-elemental magic damage and may suspend an enemy in time.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 80,
+    "causes": [
+      "Stasis"
+    ],
+    "learned_by": [
+      {
+        "id": 87,
+        "name": "Time Mage",
+        "level": 160,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Lacuna II",
+    "id": 638,
+    "tier": 9,
+    "type": "Magic",
+    "description": "Deals non-elemental magic damage and may suspend an enemy in time.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 80,
+    "causes": [
+      "Stasis"
+    ],
+    "learned_by": [
+      {
+        "id": 85,
+        "name": "Chronomancer",
+        "level": 200,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Lacunus",
+    "id": 643,
+    "tier": 8,
+    "type": "AoE Magic",
+    "description": "Deals non-elemental magic damage and may suspend an enemy in time.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 160,
+    "causes": [
+      "Stasis"
+    ],
+    "learned_by": [
+      {
+        "id": 87,
+        "name": "Time Mage",
+        "level": 175,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Lacunus II",
+    "id": 639,
+    "tier": 9,
+    "type": "AoE Magic",
+    "description": "Deals non-elemental magic damage to all enemies and may suspend an enemy in time.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 240,
+    "causes": [
+      "Stasis"
+    ],
+    "learned_by": [
+      {
+        "id": 85,
+        "name": "Chronomancer",
+        "level": 220,
+        "specialization": true
+      }
+    ]
+  },
+  {
     "name": "Last Breath",
     "id": 577,
     "tier": 9,
@@ -10701,6 +12340,15 @@
         "specialization": true
       }
     ]
+  },
+  {
+    "name": "Lay Spikes",
+    "id": 611,
+    "tier": 10,
+    "type": "Buff",
+    "description": "Lay spikes around your opponent, potentially greatly increasing damage and the chance for a critical strike.",
+    "is_magic": false,
+    "bought": false
   },
   {
     "name": "Life Siphon",
@@ -10756,12 +12404,24 @@
     ],
     "monsters_use": [
       {
+        "id": 455,
+        "name": "Dagda"
+      },
+      {
         "id": 354,
         "name": "Immortal"
       },
       {
         "id": 355,
         "name": "Immortal Lord"
+      },
+      {
+        "id": 461,
+        "name": "Arisen Dagda"
+      },
+      {
+        "id": 436,
+        "name": "Fallen Heretic"
       },
       {
         "id": 331,
@@ -10870,6 +12530,10 @@
         "name": "Draconian Lord"
       },
       {
+        "id": 266,
+        "name": "Dracon"
+      },
+      {
         "id": 46,
         "name": "Fallen Knight"
       },
@@ -10922,6 +12586,10 @@
       {
         "id": 225,
         "name": "Cavelord"
+      },
+      {
+        "id": 440,
+        "name": "Arisen Cade"
       },
       {
         "id": 221,
@@ -10980,6 +12648,10 @@
       {
         "id": 342,
         "name": "Pumpkinhead"
+      },
+      {
+        "id": 345,
+        "name": "Queen of Dokkalfar"
       },
       {
         "id": 310,
@@ -11224,6 +12896,10 @@
         "name": "Great Sprout"
       },
       {
+        "id": 35,
+        "name": "Living Armor"
+      },
+      {
         "id": 36,
         "name": "Lizarr Warrior"
       },
@@ -11240,8 +12916,20 @@
         "name": "Lizarr Knight"
       },
       {
+        "id": 72,
+        "name": "Lizarr Lord"
+      },
+      {
+        "id": 73,
+        "name": "Lizarr Noble"
+      },
+      {
         "id": 78,
         "name": "Lord of Wolves"
+      },
+      {
+        "id": 188,
+        "name": "Twilight Knight"
       },
       {
         "id": 267,
@@ -11264,12 +12952,32 @@
         "name": "Balor Guardian"
       },
       {
+        "id": 459,
+        "name": "Elite Balor Guardian"
+      },
+      {
         "id": 96,
         "name": "Great Troll"
       },
       {
         "id": 243,
         "name": "Dark Wolfman"
+      },
+      {
+        "id": 471,
+        "name": "First Stable Keeper"
+      },
+      {
+        "id": 474,
+        "name": "Second Stable Keeper"
+      },
+      {
+        "id": 475,
+        "name": "Third Stable Keeper"
+      },
+      {
+        "id": 476,
+        "name": "Final Stable Keeper"
       }
     ]
   },
@@ -11303,6 +13011,14 @@
     "element": "Physical",
     "mana_cost": 100,
     "monsters_use": [
+      {
+        "id": 500,
+        "name": "Phoenician"
+      },
+      {
+        "id": 301,
+        "name": "Pyre"
+      },
       {
         "id": 398,
         "name": "Great Lizarr Knight"
@@ -11351,6 +13067,18 @@
     ],
     "monsters_use": [
       {
+        "id": 424,
+        "name": "Sister Neman"
+      },
+      {
+        "id": 493,
+        "name": "Elite Draconian Mage"
+      },
+      {
+        "id": 345,
+        "name": "Queen of Dokkalfar"
+      },
+      {
         "id": 426,
         "name": "Sister Macha"
       }
@@ -11382,8 +13110,16 @@
     ],
     "monsters_use": [
       {
+        "id": 345,
+        "name": "Queen of Dokkalfar"
+      },
+      {
         "id": 427,
         "name": "Arisen Phoenix"
+      },
+      {
+        "id": 496,
+        "name": "Fallen Ashen Phoenix"
       },
       {
         "id": 423,
@@ -11392,6 +13128,10 @@
       {
         "id": 403,
         "name": "Ashen Phoenix"
+      },
+      {
+        "id": 433,
+        "name": "Nidhogg"
       },
       {
         "id": 358,
@@ -11414,13 +13154,89 @@
         "id": 108,
         "name": "Ashen Phoenix"
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 433,
+        "name": "Nidhogg"
+      }
+    ]
+  },
+  {
+    "name": "Lyon's Execution",
+    "id": 620,
+    "tier": 6,
+    "type": "Attack",
+    "description": "-",
+    "is_magic": false,
+    "bought": false,
+    "mana_cost": 5,
+    "pets_use": [
+      {
+        "id": 122,
+        "name": "Lindworm"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 449,
+        "name": "Fallen Warlock Trevelyan"
+      },
+      {
+        "id": 448,
+        "name": "False King Meliodas"
+      },
+      {
+        "id": 446,
+        "name": "Arisen King Meliodas"
+      },
+      {
+        "id": 447,
+        "name": "Arisen Warlock Trevelyan"
+      }
+    ]
+  },
+  {
+    "name": "Lyon's Mark",
+    "id": 619,
+    "tier": 6,
+    "type": "Debuff",
+    "description": "-",
+    "is_magic": false,
+    "bought": false,
+    "causes": [
+      "Lyon's Mark"
+    ],
+    "pets_use": [
+      {
+        "id": 122,
+        "name": "Lindworm"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 449,
+        "name": "Fallen Warlock Trevelyan"
+      },
+      {
+        "id": 448,
+        "name": "False King Meliodas"
+      },
+      {
+        "id": 446,
+        "name": "Arisen King Meliodas"
+      },
+      {
+        "id": 447,
+        "name": "Arisen Warlock Trevelyan"
+      }
     ]
   },
   {
     "name": "Mage's Dance",
     "id": 231,
     "tier": 6,
-    "type": "Magic",
+    "type": "AoE Magic",
     "description": "Deals random non-elemental damage with the potential to cause negative status effects.",
     "is_magic": true,
     "bought": false,
@@ -11443,6 +13259,10 @@
       {
         "id": 288,
         "name": "Ingenious Cade"
+      },
+      {
+        "id": 440,
+        "name": "Arisen Cade"
       }
     ]
   },
@@ -11450,7 +13270,7 @@
     "name": "Mage's Pavane",
     "id": 351,
     "tier": 9,
-    "type": "Magic",
+    "type": "AoE Magic",
     "description": "Deals random non-elemental damage with the potential to cause negative status effects.",
     "is_magic": true,
     "bought": false,
@@ -11509,6 +13329,18 @@
         "name": "Grand Mystic",
         "level": 125,
         "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 122,
+        "name": "Lindworm"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 121,
+        "name": "High Draconian Mystic"
       }
     ]
   },
@@ -11647,6 +13479,18 @@
         "level": 125,
         "specialization": false
       }
+    ],
+    "pets_use": [
+      {
+        "id": 122,
+        "name": "Lindworm"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 121,
+        "name": "High Draconian Mystic"
+      }
     ]
   },
   {
@@ -11690,6 +13534,12 @@
         "name": "Heretic",
         "level": 230,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 486,
+        "name": "Elite Kobold Lord"
       }
     ]
   },
@@ -11735,6 +13585,22 @@
         "level": 125,
         "specialization": false
       }
+    ],
+    "pets_use": [
+      {
+        "id": 122,
+        "name": "Lindworm"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 121,
+        "name": "High Draconian Mystic"
+      },
+      {
+        "id": 442,
+        "name": "Arisen Yggdrasil"
+      }
     ]
   },
   {
@@ -11757,6 +13623,12 @@
         "level": 200,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 487,
+        "name": "Kobold Lord"
+      }
     ]
   },
   {
@@ -11778,6 +13650,20 @@
         "name": "Heretic",
         "level": 225,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 445,
+        "name": "Yggdrasil"
+      },
+      {
+        "id": 486,
+        "name": "Elite Kobold Lord"
+      },
+      {
+        "id": 436,
+        "name": "Fallen Heretic"
       }
     ]
   },
@@ -11843,6 +13729,10 @@
       }
     ],
     "pets_use": [
+      {
+        "id": 126,
+        "name": "Balor Worm"
+      },
       {
         "id": 70,
         "name": "Death Worm"
@@ -11913,6 +13803,12 @@
         "level": 140,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 121,
+        "name": "High Draconian Mystic"
+      }
     ]
   },
   {
@@ -11932,6 +13828,12 @@
         "level": 225,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 487,
+        "name": "Kobold Lord"
+      }
     ]
   },
   {
@@ -11950,6 +13852,16 @@
         "name": "Heretic",
         "level": 240,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 486,
+        "name": "Elite Kobold Lord"
+      },
+      {
+        "id": 436,
+        "name": "Fallen Heretic"
       }
     ]
   },
@@ -11995,6 +13907,22 @@
         "level": 125,
         "specialization": false
       }
+    ],
+    "pets_use": [
+      {
+        "id": 122,
+        "name": "Lindworm"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 121,
+        "name": "High Draconian Mystic"
+      },
+      {
+        "id": 442,
+        "name": "Arisen Yggdrasil"
+      }
     ]
   },
   {
@@ -12038,6 +13966,16 @@
         "name": "Heretic",
         "level": 225,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 445,
+        "name": "Yggdrasil"
+      },
+      {
+        "id": 436,
+        "name": "Fallen Heretic"
       }
     ]
   },
@@ -12085,7 +14023,7 @@
   {
     "name": "Mana Rush",
     "id": 384,
-    "tier": 1,
+    "tier": 8,
     "type": "Passive",
     "description": "You may channel mana to escape falling in battle.",
     "is_magic": false,
@@ -12108,6 +14046,16 @@
         "name": "Heretic",
         "level": 1,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 436,
+        "name": "Fallen Heretic"
+      },
+      {
+        "id": 334,
+        "name": "Fallen Nekromancer"
       }
     ]
   },
@@ -12281,12 +14229,20 @@
     ],
     "monsters_use": [
       {
+        "id": 35,
+        "name": "Living Armor"
+      },
+      {
         "id": 77,
         "name": "Demon Knight"
       },
       {
         "id": 57,
         "name": "Mythril Armor"
+      },
+      {
+        "id": 87,
+        "name": "Adamantine Knight"
       }
     ]
   },
@@ -12329,6 +14285,12 @@
       {
         "id": 61,
         "name": "Undead Golem"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 301,
+        "name": "Pyre"
       }
     ]
   },
@@ -12382,8 +14344,8 @@
         "name": "Demon Prince"
       },
       {
-        "id": 80,
-        "name": "Lost Pharaoh"
+        "id": 64,
+        "name": "Dark Mage"
       },
       {
         "id": 65,
@@ -12396,10 +14358,6 @@
       {
         "id": 66,
         "name": "Fomorian Mage"
-      },
-      {
-        "id": 290,
-        "name": "Ancient Gazer"
       },
       {
         "id": 91,
@@ -12420,6 +14378,10 @@
       {
         "id": 341,
         "name": "Ancient Draugr Mage"
+      },
+      {
+        "id": 290,
+        "name": "Ancient Gazer"
       },
       {
         "id": 116,
@@ -12493,6 +14455,10 @@
         "name": "Balor Worm"
       },
       {
+        "id": 488,
+        "name": "Elite Balor Worm"
+      },
+      {
         "id": 276,
         "name": "The Fool (2019)"
       },
@@ -12533,12 +14499,28 @@
         "name": "Balor Warlock"
       },
       {
+        "id": 481,
+        "name": "Elite Balor Flame"
+      },
+      {
+        "id": 457,
+        "name": "Elite Balor Warlock"
+      },
+      {
         "id": 232,
         "name": "Fallen Vulcan, the Red Knight"
       },
       {
         "id": 271,
         "name": "Guivre"
+      },
+      {
+        "id": 351,
+        "name": "Arisen Vulcan, the Red Knight"
+      },
+      {
+        "id": 484,
+        "name": "Elite Kobold Mage"
       }
     ]
   },
@@ -12592,6 +14574,10 @@
         "name": "Arisen Arachne"
       },
       {
+        "id": 305,
+        "name": "Arisen Carman"
+      },
+      {
         "id": 312,
         "name": "Arisen Merlin"
       },
@@ -12612,8 +14598,16 @@
         "name": "Anubis"
       },
       {
+        "id": 315,
+        "name": "Arisen Cthulhu"
+      },
+      {
         "id": 317,
         "name": "Chimera"
+      },
+      {
+        "id": 334,
+        "name": "Fallen Nekromancer"
       },
       {
         "id": 313,
@@ -12638,6 +14632,10 @@
       "Rot"
     ],
     "monsters_use": [
+      {
+        "id": 345,
+        "name": "Queen of Dokkalfar"
+      },
       {
         "id": 402,
         "name": "Second Horseman"
@@ -12687,9 +14685,18 @@
     "causes": [
       "Poisoned",
       "Blight",
-      "Toxic"
+      "Toxic",
+      "T. Def \u2193\u2193"
     ],
     "monsters_use": [
+      {
+        "id": 424,
+        "name": "Sister Neman"
+      },
+      {
+        "id": 430,
+        "name": "The Fool (2021)"
+      },
       {
         "id": 425,
         "name": "Sister Badb"
@@ -12754,6 +14761,14 @@
         "name": "Arisen Undead Golem"
       },
       {
+        "id": 470,
+        "name": "Elite Fomorian"
+      },
+      {
+        "id": 473,
+        "name": "Elite Orc"
+      },
+      {
         "id": 367,
         "name": "Kelpie"
       },
@@ -12816,7 +14831,7 @@
     "id": 171,
     "tier": 8,
     "type": "Debuff",
-    "description": "The power to kill a yak from 200 yards away with mind bullets.",
+    "description": "25 percent chance per stat to decrease an opponent's stat.",
     "is_magic": true,
     "bought": false,
     "causes": [
@@ -12861,12 +14876,12 @@
         "name": "Jinn"
       },
       {
-        "id": 290,
-        "name": "Ancient Gazer"
-      },
-      {
         "id": 98,
         "name": "Harpy"
+      },
+      {
+        "id": 290,
+        "name": "Ancient Gazer"
       },
       {
         "id": 407,
@@ -12887,6 +14902,10 @@
       {
         "id": 181,
         "name": "Balor Warlock"
+      },
+      {
+        "id": 457,
+        "name": "Elite Balor Warlock"
       },
       {
         "id": 414,
@@ -12921,6 +14940,10 @@
     ],
     "pets_use": [
       {
+        "id": 120,
+        "name": "Hengreon"
+      },
+      {
         "id": 48,
         "name": "Pale Dragon"
       },
@@ -12954,14 +14977,20 @@
         "specialization": false
       }
     ],
-    "monsters_use": [
+    "pets_use": [
       {
-        "id": 248,
-        "name": "Crimson Yokai"
-      },
+        "id": 127,
+        "name": "Balor Flame"
+      }
+    ],
+    "monsters_use": [
       {
         "id": 277,
         "name": "Cerus"
+      },
+      {
+        "id": 248,
+        "name": "Crimson Yokai"
       },
       {
         "id": 251,
@@ -12982,6 +15011,14 @@
       {
         "id": 255,
         "name": "Balor Flame"
+      },
+      {
+        "id": 481,
+        "name": "Elite Balor Flame"
+      },
+      {
+        "id": 351,
+        "name": "Arisen Vulcan, the Red Knight"
       }
     ]
   },
@@ -13015,6 +15052,10 @@
         "name": "Surtr"
       },
       {
+        "id": 467,
+        "name": "Arisen Alfar Lord"
+      },
+      {
         "id": 353,
         "name": "Immortal Magus"
       },
@@ -13025,6 +15066,14 @@
       {
         "id": 412,
         "name": "Arisen Surtr"
+      },
+      {
+        "id": 331,
+        "name": "Fallen Ifrit"
+      },
+      {
+        "id": 334,
+        "name": "Fallen Nekromancer"
       },
       {
         "id": 313,
@@ -13048,6 +15097,16 @@
         "name": "Heretic",
         "level": 230,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 432,
+        "name": "Ferocious Cerus"
+      },
+      {
+        "id": 431,
+        "name": "Furious Cerus"
       }
     ]
   },
@@ -13087,6 +15146,10 @@
       {
         "id": 294,
         "name": "Nothren Valkyrie"
+      },
+      {
+        "id": 483,
+        "name": "Elite Nothren Valkyrie"
       }
     ]
   },
@@ -13139,8 +15202,16 @@
         "name": "Fallen King Arthus"
       },
       {
+        "id": 254,
+        "name": "Ancient Jinn"
+      },
+      {
         "id": 370,
         "name": "Arisen Hydra"
+      },
+      {
+        "id": 349,
+        "name": "Arisen Ithra, the White Knight"
       }
     ]
   },
@@ -13170,6 +15241,10 @@
     ],
     "monsters_use": [
       {
+        "id": 447,
+        "name": "Arisen Warlock Trevelyan"
+      },
+      {
         "id": 353,
         "name": "Immortal Magus"
       },
@@ -13178,8 +15253,20 @@
         "name": "Nothren Valkyrie"
       },
       {
+        "id": 438,
+        "name": "The Dioscuri"
+      },
+      {
+        "id": 483,
+        "name": "Elite Nothren Valkyrie"
+      },
+      {
         "id": 332,
         "name": "Fallen Leviathan"
+      },
+      {
+        "id": 334,
+        "name": "Fallen Nekromancer"
       },
       {
         "id": 313,
@@ -13230,6 +15317,10 @@
         "name": "Arisen Merlin"
       },
       {
+        "id": 334,
+        "name": "Fallen Nekromancer"
+      },
+      {
         "id": 313,
         "name": "Odin"
       }
@@ -13266,8 +15357,16 @@
         "name": "Fallen King Arthus"
       },
       {
+        "id": 254,
+        "name": "Ancient Jinn"
+      },
+      {
         "id": 221,
         "name": "Fallen Thor, the Storm God"
+      },
+      {
+        "id": 350,
+        "name": "Arisen Thor, the Storm God"
       }
     ]
   },
@@ -13301,6 +15400,10 @@
         "name": "Ingenious Cade"
       },
       {
+        "id": 440,
+        "name": "Arisen Cade"
+      },
+      {
         "id": 312,
         "name": "Arisen Merlin"
       },
@@ -13311,6 +15414,10 @@
       {
         "id": 304,
         "name": "Mighty Mimic"
+      },
+      {
+        "id": 334,
+        "name": "Fallen Nekromancer"
       },
       {
         "id": 333,
@@ -13379,8 +15486,16 @@
         "name": "Ancient Jinn"
       },
       {
+        "id": 343,
+        "name": "Arisen Demeter, the Earth Magus"
+      },
+      {
         "id": 370,
         "name": "Arisen Hydra"
+      },
+      {
+        "id": 442,
+        "name": "Arisen Yggdrasil"
       }
     ]
   },
@@ -13409,12 +15524,24 @@
     ],
     "monsters_use": [
       {
+        "id": 445,
+        "name": "Yggdrasil"
+      },
+      {
         "id": 353,
         "name": "Immortal Magus"
       },
       {
+        "id": 438,
+        "name": "The Dioscuri"
+      },
+      {
         "id": 324,
         "name": "Fallen Gaia"
+      },
+      {
+        "id": 334,
+        "name": "Fallen Nekromancer"
       }
     ]
   },
@@ -13554,8 +15681,79 @@
         "name": "Fallen Leviathan"
       },
       {
+        "id": 434,
+        "name": "Fallen Realmshifter"
+      },
+      {
+        "id": 395,
+        "name": "Fjalar"
+      },
+      {
         "id": 374,
         "name": "Pegasus"
+      }
+    ]
+  },
+  {
+    "name": "Natura",
+    "id": 635,
+    "tier": 5,
+    "type": "AoE Magic",
+    "description": "Deals earthen damage to all opponents in battle.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Earthen",
+    "mana_cost": 70,
+    "causes": [
+      "Rot"
+    ],
+    "learned_by": [
+      {
+        "id": 28,
+        "name": "Scholar",
+        "level": 110,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Natura II",
+    "id": 631,
+    "tier": 7,
+    "type": "AoE Magic",
+    "description": "Deals earthen damage to all opponents in battle.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Earthen",
+    "mana_cost": 100,
+    "causes": [
+      "Rot"
+    ],
+    "learned_by": [
+      {
+        "id": 45,
+        "name": "Magus",
+        "level": 150,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Natura III",
+    "id": 626,
+    "tier": 9,
+    "type": "AoE Magic",
+    "description": "Deals earthen damage to all opponents in battle.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Earthen",
+    "mana_cost": 200,
+    "learned_by": [
+      {
+        "id": 50,
+        "name": "Maji",
+        "level": 200,
+        "specialization": true
       }
     ]
   },
@@ -13612,6 +15810,10 @@
         "name": "Dark Dragon"
       },
       {
+        "id": 123,
+        "name": "Spooky Ghost"
+      },
+      {
         "id": 46,
         "name": "Twilight Wisp"
       }
@@ -13622,12 +15824,20 @@
         "name": "Demon Prince"
       },
       {
+        "id": 64,
+        "name": "Dark Mage"
+      },
+      {
         "id": 77,
         "name": "Demon Knight"
       },
       {
         "id": 92,
         "name": "Greater Demon"
+      },
+      {
+        "id": 70,
+        "name": "Lesser Sluagh"
       },
       {
         "id": 207,
@@ -13666,6 +15876,10 @@
         "name": "The Fool (2019)"
       },
       {
+        "id": 111,
+        "name": "Vampire Lord"
+      },
+      {
         "id": 119,
         "name": "Ankou"
       },
@@ -13696,6 +15910,14 @@
       {
         "id": 402,
         "name": "Second Horseman"
+      },
+      {
+        "id": 453,
+        "name": "Terrifying Ghost"
+      },
+      {
+        "id": 494,
+        "name": "Balor Gateway"
       },
       {
         "id": 367,
@@ -13773,6 +15995,10 @@
       {
         "id": 406,
         "name": "Third Horseman"
+      },
+      {
+        "id": 460,
+        "name": "Arisen Balor King"
       },
       {
         "id": 335,
@@ -13873,6 +16099,10 @@
       {
         "id": 157,
         "name": "Balor Guardian"
+      },
+      {
+        "id": 459,
+        "name": "Elite Balor Guardian"
       },
       {
         "id": 242,
@@ -13993,6 +16223,10 @@
         "name": "Dokkalfar Lord"
       },
       {
+        "id": 440,
+        "name": "Arisen Cade"
+      },
+      {
         "id": 194,
         "name": "Nin-Kilim"
       }
@@ -14029,12 +16263,12 @@
     ],
     "monsters_use": [
       {
-        "id": 413,
-        "name": "Fallen Merlin"
-      },
-      {
         "id": 277,
         "name": "Cerus"
+      },
+      {
+        "id": 413,
+        "name": "Fallen Merlin"
       },
       {
         "id": 311,
@@ -14057,12 +16291,24 @@
         "name": "Arisen Naggeneen"
       },
       {
+        "id": 432,
+        "name": "Ferocious Cerus"
+      },
+      {
+        "id": 431,
+        "name": "Furious Cerus"
+      },
+      {
         "id": 307,
         "name": "Mighty Griffin"
       },
       {
         "id": 315,
         "name": "Arisen Cthulhu"
+      },
+      {
+        "id": 314,
+        "name": "Hades"
       }
     ]
   },
@@ -14096,6 +16342,10 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 426,
+        "name": "Sister Macha"
+      },
       {
         "id": 427,
         "name": "Arisen Phoenix"
@@ -14150,6 +16400,12 @@
         "id": 101,
         "name": "Fey Chimera"
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 434,
+        "name": "Fallen Realmshifter"
+      }
     ]
   },
   {
@@ -14167,8 +16423,20 @@
     ],
     "pets_use": [
       {
+        "id": 126,
+        "name": "Balor Worm"
+      },
+      {
+        "id": 118,
+        "name": "Gwyllgi"
+      },
+      {
         "id": 86,
         "name": "War Horse"
+      },
+      {
+        "id": 120,
+        "name": "Hengreon"
       }
     ],
     "monsters_use": [
@@ -14189,6 +16457,14 @@
         "name": "Surtr"
       },
       {
+        "id": 277,
+        "name": "Cerus"
+      },
+      {
+        "id": 455,
+        "name": "Dagda"
+      },
+      {
         "id": 140,
         "name": "Frost Troll"
       },
@@ -14201,12 +16477,12 @@
         "name": "Arisen Orc Lord"
       },
       {
-        "id": 179,
-        "name": "Balor Elite"
-      },
-      {
         "id": 170,
         "name": "Colossus"
+      },
+      {
+        "id": 454,
+        "name": "Grand Knight Lugus"
       },
       {
         "id": 257,
@@ -14215,6 +16491,14 @@
       {
         "id": 124,
         "name": "Great Orc"
+      },
+      {
+        "id": 179,
+        "name": "Maelor"
+      },
+      {
+        "id": 425,
+        "name": "Sister Badb"
       },
       {
         "id": 300,
@@ -14227,6 +16511,10 @@
       {
         "id": 291,
         "name": "Nothren Berserker"
+      },
+      {
+        "id": 285,
+        "name": "Pollux"
       },
       {
         "id": 342,
@@ -14253,8 +16541,24 @@
         "name": "Ebon Scruug"
       },
       {
+        "id": 479,
+        "name": "Elite Nothren Berserker"
+      },
+      {
+        "id": 491,
+        "name": "Elite Orc Lord"
+      },
+      {
+        "id": 432,
+        "name": "Ferocious Cerus"
+      },
+      {
         "id": 404,
         "name": "Fey Yeti"
+      },
+      {
+        "id": 431,
+        "name": "Furious Cerus"
       },
       {
         "id": 367,
@@ -14265,6 +16569,10 @@
         "name": "Odok Golem"
       },
       {
+        "id": 438,
+        "name": "The Dioscuri"
+      },
+      {
         "id": 406,
         "name": "Third Horseman"
       },
@@ -14273,12 +16581,44 @@
         "name": "Anubis"
       },
       {
+        "id": 441,
+        "name": "Arisen Balin"
+      },
+      {
+        "id": 460,
+        "name": "Arisen Balor King"
+      },
+      {
+        "id": 461,
+        "name": "Arisen Dagda"
+      },
+      {
         "id": 412,
         "name": "Arisen Surtr"
       },
       {
+        "id": 469,
+        "name": "Baldr"
+      },
+      {
         "id": 390,
         "name": "Dark Pegasus"
+      },
+      {
+        "id": 483,
+        "name": "Elite Nothren Valkyrie"
+      },
+      {
+        "id": 401,
+        "name": "Final Horseman"
+      },
+      {
+        "id": 439,
+        "name": "Finesse"
+      },
+      {
+        "id": 374,
+        "name": "Pegasus"
       }
     ]
   },
@@ -14312,6 +16652,18 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 272,
+        "name": "Sea Serpent"
+      },
+      {
+        "id": 270,
+        "name": "Cave Sprout"
+      },
+      {
+        "id": 464,
+        "name": "Alfar"
+      },
       {
         "id": 213,
         "name": "Dokkalfar"
@@ -14382,7 +16734,7 @@
       },
       {
         "id": 343,
-        "name": "Arisen Demeter, The Earth Magus"
+        "name": "Arisen Demeter, the Earth Magus"
       },
       {
         "id": 372,
@@ -14409,6 +16761,10 @@
     ],
     "monsters_use": [
       {
+        "id": 466,
+        "name": "Frightening Skeleton"
+      },
+      {
         "id": 311,
         "name": "Crimson Wood"
       },
@@ -14423,6 +16779,10 @@
       {
         "id": 330,
         "name": "Anubis"
+      },
+      {
+        "id": 315,
+        "name": "Arisen Cthulhu"
       },
       {
         "id": 314,
@@ -14455,6 +16815,10 @@
     ],
     "monsters_use": [
       {
+        "id": 450,
+        "name": "Glatisant"
+      },
+      {
         "id": 354,
         "name": "Immortal"
       },
@@ -14479,6 +16843,12 @@
         "name": "Realmshifter",
         "level": 225,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 434,
+        "name": "Fallen Realmshifter"
       }
     ]
   },
@@ -14542,9 +16912,27 @@
     "id": 602,
     "tier": 1,
     "type": "Multi-round Attack",
-    "description": "Wait one turn, then return half of an opponent's attack damage back at them.",
+    "description": "Wait one turn, then return twice the amount of damage taken while waiting.",
     "is_magic": false,
-    "bought": false
+    "bought": false,
+    "monsters_use": [
+      {
+        "id": 501,
+        "name": "Great Phoenician"
+      },
+      {
+        "id": 441,
+        "name": "Arisen Balin"
+      },
+      {
+        "id": 469,
+        "name": "Baldr"
+      },
+      {
+        "id": 439,
+        "name": "Finesse"
+      }
+    ]
   },
   {
     "name": "Perfect Shot",
@@ -14556,14 +16944,24 @@
     "bought": true,
     "cost": 0,
     "element": "Physical",
-    "mana_cost": 80
+    "mana_cost": 80,
+    "monsters_use": [
+      {
+        "id": 444,
+        "name": "Hel"
+      },
+      {
+        "id": 443,
+        "name": "Arisen Hel"
+      }
+    ]
   },
   {
     "name": "Petrify",
     "id": 170,
     "tier": 5,
     "type": "Debuff",
-    "description": "Chance to petrify an opponent",
+    "description": "90 percent chance to petrify an opponent.",
     "is_magic": true,
     "bought": false,
     "causes": [
@@ -14585,10 +16983,6 @@
     ],
     "monsters_use": [
       {
-        "id": 80,
-        "name": "Lost Pharaoh"
-      },
-      {
         "id": 107,
         "name": "Carman's Gargoyle"
       },
@@ -14601,6 +16995,10 @@
         "name": "Arisen Lost Pharaoh"
       },
       {
+        "id": 445,
+        "name": "Yggdrasil"
+      },
+      {
         "id": 193,
         "name": "Cockatrice"
       },
@@ -14611,6 +17009,10 @@
       {
         "id": 265,
         "name": "Odok Golem"
+      },
+      {
+        "id": 442,
+        "name": "Arisen Yggdrasil"
       },
       {
         "id": 401,
@@ -14697,6 +17099,10 @@
       {
         "id": 50,
         "name": "Greater Yokai"
+      },
+      {
+        "id": 119,
+        "name": "Carman"
       }
     ],
     "monsters_use": [
@@ -14709,12 +17115,24 @@
         "name": "Green Slime"
       },
       {
+        "id": 137,
+        "name": "Arachne"
+      },
+      {
         "id": 154,
         "name": "Gnat"
       },
       {
         "id": 34,
         "name": "Greater Snake"
+      },
+      {
+        "id": 270,
+        "name": "Cave Sprout"
+      },
+      {
+        "id": 48,
+        "name": "Fallen Witch"
       },
       {
         "id": 33,
@@ -14739,6 +17157,10 @@
       {
         "id": 208,
         "name": "Balor Worm"
+      },
+      {
+        "id": 488,
+        "name": "Elite Balor Worm"
       },
       {
         "id": 268,
@@ -14800,11 +17222,19 @@
         "name": "Naggeneen"
       },
       {
+        "id": 121,
+        "name": "Gullinkambi"
+      },
+      {
         "id": 36,
         "name": "Cockatrice"
       }
     ],
     "monsters_use": [
+      {
+        "id": 154,
+        "name": "Gnat"
+      },
       {
         "id": 190,
         "name": "Buzzard"
@@ -14832,6 +17262,10 @@
       {
         "id": 158,
         "name": "Rotten Slime"
+      },
+      {
+        "id": 444,
+        "name": "Hel"
       },
       {
         "id": 268,
@@ -14890,12 +17324,24 @@
         "name": "Balor Marauder"
       },
       {
+        "id": 456,
+        "name": "Elite Balor Marauder"
+      },
+      {
         "id": 295,
         "name": "Frilled Naga Warrior"
       },
       {
         "id": 194,
         "name": "Nin-Kilim"
+      },
+      {
+        "id": 443,
+        "name": "Arisen Hel"
+      },
+      {
+        "id": 482,
+        "name": "Elite Kobold"
       }
     ]
   },
@@ -14919,8 +17365,16 @@
         "name": "Nothren Berserker"
       },
       {
+        "id": 479,
+        "name": "Elite Nothren Berserker"
+      },
+      {
         "id": 294,
         "name": "Nothren Valkyrie"
+      },
+      {
+        "id": 483,
+        "name": "Elite Nothren Valkyrie"
       }
     ]
   },
@@ -15063,8 +17517,16 @@
         "name": "Balor Guardian"
       },
       {
+        "id": 459,
+        "name": "Elite Balor Guardian"
+      },
+      {
         "id": 288,
         "name": "Ingenious Cade"
+      },
+      {
+        "id": 455,
+        "name": "Dagda"
       },
       {
         "id": 178,
@@ -15087,16 +17549,32 @@
         "name": "Nothren Warlock"
       },
       {
+        "id": 440,
+        "name": "Arisen Cade"
+      },
+      {
         "id": 187,
         "name": "Balor King"
+      },
+      {
+        "id": 485,
+        "name": "Elite Nothren Warlock"
       },
       {
         "id": 404,
         "name": "Fey Yeti"
       },
       {
+        "id": 460,
+        "name": "Arisen Balor King"
+      },
+      {
         "id": 315,
         "name": "Arisen Cthulhu"
+      },
+      {
+        "id": 461,
+        "name": "Arisen Dagda"
       },
       {
         "id": 335,
@@ -15180,6 +17658,10 @@
       {
         "id": 133,
         "name": "Arisen Orc Lord"
+      },
+      {
+        "id": 491,
+        "name": "Elite Orc Lord"
       }
     ]
   },
@@ -15204,6 +17686,10 @@
       }
     ],
     "pets_use": [
+      {
+        "id": 126,
+        "name": "Balor Worm"
+      },
       {
         "id": 70,
         "name": "Death Worm"
@@ -15241,6 +17727,10 @@
       {
         "id": 184,
         "name": "Sandstone Golem"
+      },
+      {
+        "id": 482,
+        "name": "Elite Kobold"
       },
       {
         "id": 372,
@@ -15304,6 +17794,12 @@
         "level": 90,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 449,
+        "name": "Fallen Warlock Trevelyan"
+      }
     ]
   },
   {
@@ -15333,6 +17829,10 @@
         "name": "Arisen Ronin"
       },
       {
+        "id": 435,
+        "name": "Fallen Gilgamesh"
+      },
+      {
         "id": 323,
         "name": "Fallen Vanguard"
       },
@@ -15350,15 +17850,19 @@
     "name": "Putrid Breath",
     "id": 246,
     "tier": 7,
-    "type": "Multi-round Attack",
+    "type": "Multi-round Magic",
     "description": "Naggeneen feels ill, then throws up on you giving you the Toxic status.",
-    "is_magic": false,
+    "is_magic": true,
     "bought": false,
     "mana_cost": 1,
     "monsters_use": [
       {
         "id": 420,
         "name": "Age-Old Mimic"
+      },
+      {
+        "id": 430,
+        "name": "The Fool (2021)"
       },
       {
         "id": 273,
@@ -15399,9 +17903,17 @@
       {
         "id": 58,
         "name": "Giant Basilisk"
+      },
+      {
+        "id": 115,
+        "name": "Glatisant"
       }
     ],
     "monsters_use": [
+      {
+        "id": 420,
+        "name": "Age-Old Mimic"
+      },
       {
         "id": 373,
         "name": "Hydra"
@@ -15443,12 +17955,24 @@
         "name": "Fallen Gaia"
       },
       {
+        "id": 331,
+        "name": "Fallen Ifrit"
+      },
+      {
         "id": 332,
         "name": "Fallen Leviathan"
       },
       {
         "id": 333,
         "name": "Fallen Taranis"
+      },
+      {
+        "id": 326,
+        "name": "Lyonesse Assassin"
+      },
+      {
+        "id": 328,
+        "name": "Lyonesse Knight"
       },
       {
         "id": 319,
@@ -15495,6 +18019,10 @@
       {
         "id": 406,
         "name": "Third Horseman"
+      },
+      {
+        "id": 443,
+        "name": "Arisen Hel"
       },
       {
         "id": 405,
@@ -15552,6 +18080,10 @@
     ],
     "monsters_use": [
       {
+        "id": 64,
+        "name": "Dark Mage"
+      },
+      {
         "id": 42,
         "name": "Draconian Acolyte"
       },
@@ -15564,8 +18096,8 @@
         "name": "Fomorian Mage"
       },
       {
-        "id": 290,
-        "name": "Ancient Gazer"
+        "id": 84,
+        "name": "Undead Golem"
       },
       {
         "id": 108,
@@ -15578,6 +18110,10 @@
       {
         "id": 341,
         "name": "Ancient Draugr Mage"
+      },
+      {
+        "id": 290,
+        "name": "Ancient Gazer"
       },
       {
         "id": 219,
@@ -15662,7 +18198,11 @@
       },
       {
         "id": 343,
-        "name": "Arisen Demeter, The Earth Magus"
+        "name": "Arisen Demeter, the Earth Magus"
+      },
+      {
+        "id": 484,
+        "name": "Elite Kobold Mage"
       }
     ]
   },
@@ -15715,8 +18255,16 @@
     ],
     "monsters_use": [
       {
+        "id": 472,
+        "name": "Elite Fomorian Mage"
+      },
+      {
         "id": 404,
         "name": "Fey Yeti"
+      },
+      {
+        "id": 375,
+        "name": "Kraken"
       }
     ]
   },
@@ -15745,11 +18293,15 @@
       {
         "id": 277,
         "name": "Cerus"
+      },
+      {
+        "id": 430,
+        "name": "The Fool (2021)"
       }
     ]
   },
   {
-    "name": "Quick attack",
+    "name": "Quick Attack",
     "id": 165,
     "tier": 6,
     "type": "Attack",
@@ -15773,9 +18325,17 @@
       {
         "id": 75,
         "name": "Dire Wolf"
+      },
+      {
+        "id": 118,
+        "name": "Gwyllgi"
       }
     ],
     "monsters_use": [
+      {
+        "id": 444,
+        "name": "Hel"
+      },
       {
         "id": 273,
         "name": "Naggeneen"
@@ -15793,8 +18353,56 @@
         "name": "Arisen Naggeneen"
       },
       {
+        "id": 443,
+        "name": "Arisen Hel"
+      },
+      {
         "id": 428,
         "name": "Arisen Kerberos"
+      }
+    ]
+  },
+  {
+    "name": "Quickcast",
+    "id": 587,
+    "tier": 9,
+    "type": "Passive",
+    "description": "When wielding two staves, spells that require multiple turns to cast may require 1 less.",
+    "is_magic": false,
+    "bought": false,
+    "learned_by": [
+      {
+        "id": 84,
+        "name": "Sequencer",
+        "level": 1,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Ragnarok",
+    "id": 616,
+    "tier": 5,
+    "type": "Multi-round Attack",
+    "description": "Cleanses debuffs.",
+    "is_magic": false,
+    "bought": false,
+    "monsters_use": [
+      {
+        "id": 444,
+        "name": "Hel"
+      },
+      {
+        "id": 411,
+        "name": "Surtr"
+      },
+      {
+        "id": 443,
+        "name": "Arisen Hel"
+      },
+      {
+        "id": 412,
+        "name": "Arisen Surtr"
       }
     ]
   },
@@ -15816,6 +18424,10 @@
       {
         "id": 77,
         "name": "Demon Knight"
+      },
+      {
+        "id": 57,
+        "name": "Mythril Armor"
       },
       {
         "id": 87,
@@ -15871,6 +18483,10 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 500,
+        "name": "Phoenician"
+      },
       {
         "id": 301,
         "name": "Pyre"
@@ -15952,7 +18568,9 @@
       "T. Mag \u2193",
       "T. Res \u2193",
       "T. Mag \u2193\u2193",
-      "T. Res \u2193\u2193"
+      "T. Res \u2193\u2193",
+      "T. Def \u2193\u2193",
+      "T. Att \u2193\u2193"
     ],
     "learned_by": [
       {
@@ -15960,6 +18578,12 @@
         "name": "Realmshifter",
         "level": 230,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 438,
+        "name": "The Dioscuri"
       }
     ]
   },
@@ -16006,6 +18630,10 @@
         "name": "The Mightiest Mimic"
       },
       {
+        "id": 434,
+        "name": "Fallen Realmshifter"
+      },
+      {
         "id": 405,
         "name": "Fey Chimera"
       }
@@ -16021,8 +18649,24 @@
     "bought": false,
     "monsters_use": [
       {
+        "id": 498,
+        "name": "Fallen Phoenix"
+      },
+      {
+        "id": 500,
+        "name": "Phoenician"
+      },
+      {
+        "id": 499,
+        "name": "Phoenician Mage"
+      },
+      {
         "id": 110,
         "name": "Sluagh"
+      },
+      {
+        "id": 455,
+        "name": "Dagda"
       },
       {
         "id": 119,
@@ -16031,6 +18675,18 @@
       {
         "id": 287,
         "name": "Headless"
+      },
+      {
+        "id": 496,
+        "name": "Fallen Ashen Phoenix"
+      },
+      {
+        "id": 501,
+        "name": "Great Phoenician"
+      },
+      {
+        "id": 497,
+        "name": "Great Phoenician Mage"
       },
       {
         "id": 375,
@@ -16102,6 +18758,14 @@
         "name": "Ebon Scruug"
       },
       {
+        "id": 432,
+        "name": "Ferocious Cerus"
+      },
+      {
+        "id": 431,
+        "name": "Furious Cerus"
+      },
+      {
         "id": 412,
         "name": "Arisen Surtr"
       },
@@ -16165,6 +18829,24 @@
         "name": "Beowulf",
         "level": 225,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 325,
+        "name": "Fallen Arcanic"
+      },
+      {
+        "id": 437,
+        "name": "Fallen Beowulf"
+      },
+      {
+        "id": 329,
+        "name": "Fallen Freyja"
+      },
+      {
+        "id": 333,
+        "name": "Fallen Taranis"
       }
     ]
   },
@@ -16239,6 +18921,12 @@
         "level": 225,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 434,
+        "name": "Fallen Realmshifter"
+      }
     ]
   },
   {
@@ -16292,8 +18980,20 @@
         "name": "Fallen Ithra, the White Knight"
       },
       {
+        "id": 441,
+        "name": "Arisen Balin"
+      },
+      {
+        "id": 349,
+        "name": "Arisen Ithra, the White Knight"
+      },
+      {
         "id": 412,
         "name": "Arisen Surtr"
+      },
+      {
+        "id": 439,
+        "name": "Finesse"
       },
       {
         "id": 336,
@@ -16302,28 +19002,6 @@
       {
         "id": 326,
         "name": "Lyonesse Assassin"
-      }
-    ]
-  },
-  {
-    "name": "Rot",
-    "id": 596,
-    "tier": 8,
-    "type": "Debuff",
-    "description": "Causes an opponent to rot.",
-    "is_magic": true,
-    "bought": false,
-    "element": "Earthen",
-    "mana_cost": 20,
-    "causes": [
-      "Rot"
-    ],
-    "learned_by": [
-      {
-        "id": 37,
-        "name": "Gaia",
-        "level": 175,
-        "specialization": false
       }
     ]
   },
@@ -16366,6 +19044,12 @@
         "name": "Realmshifter",
         "level": 225,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 434,
+        "name": "Fallen Realmshifter"
       }
     ]
   },
@@ -16425,6 +19109,10 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 461,
+        "name": "Arisen Dagda"
+      },
       {
         "id": 374,
         "name": "Pegasus"
@@ -16517,7 +19205,6 @@
     "description": "Your stats increase as you defeat magical enemies that practice the elements.",
     "is_magic": true,
     "bought": false,
-    "mana_cost": 1,
     "learned_by": [
       {
         "id": 65,
@@ -16568,7 +19255,21 @@
         "specialization": false
       }
     ],
+    "pets_use": [
+      {
+        "id": 113,
+        "name": "Untamed Cerus"
+      }
+    ],
     "monsters_use": [
+      {
+        "id": 472,
+        "name": "Elite Fomorian Mage"
+      },
+      {
+        "id": 450,
+        "name": "Glatisant"
+      },
       {
         "id": 375,
         "name": "Kraken"
@@ -16595,12 +19296,12 @@
     ],
     "monsters_use": [
       {
-        "id": 225,
-        "name": "Cavelord"
-      },
-      {
         "id": 277,
         "name": "Cerus"
+      },
+      {
+        "id": 225,
+        "name": "Cavelord"
       },
       {
         "id": 425,
@@ -16609,6 +19310,14 @@
       {
         "id": 285,
         "name": "Pollux"
+      },
+      {
+        "id": 432,
+        "name": "Ferocious Cerus"
+      },
+      {
+        "id": 431,
+        "name": "Furious Cerus"
       }
     ]
   },
@@ -16719,6 +19428,40 @@
         "level": 1,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 343,
+        "name": "Arisen Demeter, the Earth Magus"
+      },
+      {
+        "id": 349,
+        "name": "Arisen Ithra, the White Knight"
+      },
+      {
+        "id": 350,
+        "name": "Arisen Thor, the Storm God"
+      },
+      {
+        "id": 351,
+        "name": "Arisen Vulcan, the Red Knight"
+      },
+      {
+        "id": 435,
+        "name": "Fallen Gilgamesh"
+      },
+      {
+        "id": 331,
+        "name": "Fallen Ifrit"
+      },
+      {
+        "id": 333,
+        "name": "Fallen Taranis"
+      },
+      {
+        "id": 323,
+        "name": "Fallen Vanguard"
+      }
     ]
   },
   {
@@ -16782,6 +19525,10 @@
     ],
     "monsters_use": [
       {
+        "id": 64,
+        "name": "Dark Mage"
+      },
+      {
         "id": 101,
         "name": "Reaper"
       }
@@ -16799,6 +19546,24 @@
     "mana_cost": 15,
     "gives": [
       "T. Att \u2191"
+    ],
+    "monsters_use": [
+      {
+        "id": 471,
+        "name": "First Stable Keeper"
+      },
+      {
+        "id": 474,
+        "name": "Second Stable Keeper"
+      },
+      {
+        "id": 475,
+        "name": "Third Stable Keeper"
+      },
+      {
+        "id": 476,
+        "name": "Final Stable Keeper"
+      }
     ]
   },
   {
@@ -16879,6 +19644,10 @@
       {
         "id": 50,
         "name": "Greater Yokai"
+      },
+      {
+        "id": 119,
+        "name": "Carman"
       }
     ],
     "monsters_use": [
@@ -16939,6 +19708,10 @@
         "name": "Scruug"
       },
       {
+        "id": 114,
+        "name": "Cerus"
+      },
+      {
         "id": 105,
         "name": "Ebon Scruug"
       }
@@ -16947,6 +19720,10 @@
       {
         "id": 344,
         "name": "King of Ljosalfar"
+      },
+      {
+        "id": 499,
+        "name": "Phoenician Mage"
       },
       {
         "id": 347,
@@ -16973,8 +19750,24 @@
         "name": "Balor King"
       },
       {
+        "id": 432,
+        "name": "Ferocious Cerus"
+      },
+      {
+        "id": 431,
+        "name": "Furious Cerus"
+      },
+      {
         "id": 185,
         "name": "Skoll"
+      },
+      {
+        "id": 460,
+        "name": "Arisen Balor King"
+      },
+      {
+        "id": 484,
+        "name": "Elite Kobold Mage"
       }
     ]
   },
@@ -17024,6 +19817,12 @@
         "level": 1,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 320,
+        "name": "Ortanite Golem"
+      }
     ]
   },
   {
@@ -17036,7 +19835,7 @@
     "bought": false,
     "mana_cost": 100,
     "causes": [
-      "Dex \u2193"
+      "T. Dex \u2193"
     ],
     "gives": [
       "T. Def \u2193",
@@ -17059,6 +19858,10 @@
       {
         "id": 79,
         "name": "Succubus"
+      },
+      {
+        "id": 115,
+        "name": "Glatisant"
       },
       {
         "id": 93,
@@ -17088,7 +19891,6 @@
     "description": "Mana is regenerated as Ward damage is taken.",
     "is_magic": false,
     "bought": false,
-    "mana_cost": 1,
     "learned_by": [
       {
         "id": 47,
@@ -17106,7 +19908,6 @@
     "description": "Mana is regenerated as Ward damage is taken.",
     "is_magic": false,
     "bought": false,
-    "mana_cost": 1,
     "learned_by": [
       {
         "id": 64,
@@ -17195,6 +19996,10 @@
         "name": "Gheist"
       },
       {
+        "id": 126,
+        "name": "Balor Worm"
+      },
+      {
         "id": 50,
         "name": "Greater Yokai"
       },
@@ -17205,6 +20010,10 @@
       {
         "id": 45,
         "name": "Dark Dragon"
+      },
+      {
+        "id": 123,
+        "name": "Spooky Ghost"
       }
     ],
     "monsters_use": [
@@ -17219,6 +20028,10 @@
       {
         "id": 191,
         "name": "Gheist"
+      },
+      {
+        "id": 489,
+        "name": "Spooky Ghost"
       },
       {
         "id": 377,
@@ -17251,6 +20064,10 @@
       {
         "id": 284,
         "name": "Midnight Gazer"
+      },
+      {
+        "id": 453,
+        "name": "Terrifying Ghost"
       }
     ]
   },
@@ -17306,6 +20123,64 @@
     ]
   },
   {
+    "name": "Slow",
+    "id": 637,
+    "tier": 9,
+    "type": "Debuff",
+    "description": "Temporarily decreases the foresight of an opponent.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 40,
+    "causes": [
+      "Foresight \u2193"
+    ],
+    "learned_by": [
+      {
+        "id": 87,
+        "name": "Time Mage",
+        "level": 150,
+        "specialization": true
+      },
+      {
+        "id": 85,
+        "name": "Chronomancer",
+        "level": 200,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Slow+",
+    "id": 641,
+    "tier": 10,
+    "type": "AoE Debuff",
+    "description": "Temporarily decreases the foresight of all opponents.",
+    "is_magic": true,
+    "bought": false,
+    "mana_cost": 200,
+    "causes": [
+      "Foresight \u2193"
+    ],
+    "learned_by": [
+      {
+        "id": 85,
+        "name": "Chronomancer",
+        "level": 225,
+        "specialization": true
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 462,
+        "name": "Arisen Alfar"
+      },
+      {
+        "id": 468,
+        "name": "Arisen Alfar Mage"
+      }
+    ]
+  },
+  {
     "name": "Smite",
     "id": 238,
     "tier": 3,
@@ -17325,6 +20200,12 @@
         "name": "Inquisitor",
         "level": 175,
         "specialization": true
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 117,
+        "name": "Llamrai"
       }
     ]
   },
@@ -17380,6 +20261,10 @@
         "name": "Dark Slime"
       },
       {
+        "id": 444,
+        "name": "Hel"
+      },
+      {
         "id": 288,
         "name": "Ingenious Cade"
       },
@@ -17394,6 +20279,14 @@
       {
         "id": 393,
         "name": "Snow Elf Rogue"
+      },
+      {
+        "id": 440,
+        "name": "Arisen Cade"
+      },
+      {
+        "id": 443,
+        "name": "Arisen Hel"
       }
     ]
   },
@@ -17693,6 +20586,12 @@
         "level": 225,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 434,
+        "name": "Fallen Realmshifter"
+      }
     ]
   },
   {
@@ -17892,6 +20791,10 @@
     ],
     "monsters_use": [
       {
+        "id": 452,
+        "name": "Hobgoblin Lord"
+      },
+      {
         "id": 199,
         "name": "High Draconian Mage"
       },
@@ -17940,12 +20843,24 @@
         "name": "Fallen Merlin"
       },
       {
+        "id": 493,
+        "name": "Elite Draconian Mage"
+      },
+      {
         "id": 275,
         "name": "Kerberos"
       },
       {
+        "id": 487,
+        "name": "Kobold Lord"
+      },
+      {
         "id": 293,
         "name": "Nothren Warlock"
+      },
+      {
+        "id": 440,
+        "name": "Arisen Cade"
       },
       {
         "id": 312,
@@ -17954,6 +20869,10 @@
       {
         "id": 348,
         "name": "Ebon Scruug"
+      },
+      {
+        "id": 485,
+        "name": "Elite Nothren Warlock"
       },
       {
         "id": 307,
@@ -18012,12 +20931,20 @@
         "name": "Chimera"
       },
       {
+        "id": 486,
+        "name": "Elite Kobold Lord"
+      },
+      {
         "id": 333,
         "name": "Fallen Taranis"
       },
       {
         "id": 336,
         "name": "King Gradlon"
+      },
+      {
+        "id": 327,
+        "name": "Lyonesse Warlock"
       },
       {
         "id": 321,
@@ -18093,6 +21020,10 @@
     ],
     "monsters_use": [
       {
+        "id": 127,
+        "name": "Jinn"
+      },
+      {
         "id": 156,
         "name": "Zu"
       },
@@ -18159,6 +21090,38 @@
       {
         "id": 147,
         "name": "Ljosalfar"
+      },
+      {
+        "id": 440,
+        "name": "Arisen Cade"
+      }
+    ]
+  },
+  {
+    "name": "Speed III",
+    "id": 615,
+    "tier": 7,
+    "type": "Buff",
+    "description": "Temporarily greatly improves one's dexterity.",
+    "is_magic": false,
+    "bought": false,
+    "gives": [
+      "T.Dex \u2191\u2191\u2191"
+    ],
+    "pets_use": [
+      {
+        "id": 121,
+        "name": "Gullinkambi"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 444,
+        "name": "Hel"
+      },
+      {
+        "id": 443,
+        "name": "Arisen Hel"
       }
     ]
   },
@@ -18249,7 +21212,7 @@
     "id": 370,
     "tier": 8,
     "type": "Multi-round Magic",
-    "description": "Fallen Merlin is looking to the stars...",
+    "description": "Multi-hitting magical ultimate. Lowers your defenses, blinds, burns and curses.",
     "is_magic": true,
     "bought": false,
     "causes": [
@@ -18267,6 +21230,14 @@
       {
         "id": 312,
         "name": "Arisen Merlin"
+      },
+      {
+        "id": 432,
+        "name": "Ferocious Cerus"
+      },
+      {
+        "id": 431,
+        "name": "Furious Cerus"
       }
     ]
   },
@@ -18315,6 +21286,16 @@
         "level": 1,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 324,
+        "name": "Fallen Gaia"
+      },
+      {
+        "id": 323,
+        "name": "Fallen Vanguard"
+      }
     ]
   },
   {
@@ -18325,7 +21306,6 @@
     "description": "You are less likely to be afflicted with a status condition.",
     "is_magic": false,
     "bought": false,
-    "mana_cost": 1,
     "learned_by": [
       {
         "id": 64,
@@ -18344,6 +21324,20 @@
         "name": "Gilgamesh",
         "level": 1,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 355,
+        "name": "Immortal Lord"
+      },
+      {
+        "id": 435,
+        "name": "Fallen Gilgamesh"
+      },
+      {
+        "id": 320,
+        "name": "Ortanite Golem"
       }
     ]
   },
@@ -18367,6 +21361,10 @@
       {
         "id": 276,
         "name": "The Fool (2019)"
+      },
+      {
+        "id": 430,
+        "name": "The Fool (2021)"
       },
       {
         "id": 178,
@@ -18432,16 +21430,16 @@
     ],
     "monsters_use": [
       {
+        "id": 64,
+        "name": "Dark Mage"
+      },
+      {
         "id": 66,
         "name": "Fomorian Mage"
       },
       {
         "id": 302,
         "name": "Storm Core"
-      },
-      {
-        "id": 290,
-        "name": "Ancient Gazer"
       },
       {
         "id": 108,
@@ -18458,6 +21456,10 @@
       {
         "id": 341,
         "name": "Ancient Draugr Mage"
+      },
+      {
+        "id": 290,
+        "name": "Ancient Gazer"
       },
       {
         "id": 219,
@@ -18478,6 +21480,10 @@
       {
         "id": 146,
         "name": "Gorgon"
+      },
+      {
+        "id": 440,
+        "name": "Arisen Cade"
       },
       {
         "id": 180,
@@ -18556,12 +21562,20 @@
         "name": "Balor Warlock"
       },
       {
+        "id": 457,
+        "name": "Elite Balor Warlock"
+      },
+      {
         "id": 221,
         "name": "Fallen Thor, the Storm God"
       },
       {
         "id": 350,
         "name": "Arisen Thor, the Storm God"
+      },
+      {
+        "id": 484,
+        "name": "Elite Kobold Mage"
       }
     ]
   },
@@ -18628,6 +21642,14 @@
       {
         "id": 207,
         "name": "Fomor"
+      },
+      {
+        "id": 444,
+        "name": "Hel"
+      },
+      {
+        "id": 443,
+        "name": "Arisen Hel"
       }
     ]
   },
@@ -18687,8 +21709,16 @@
     ],
     "monsters_use": [
       {
+        "id": 498,
+        "name": "Fallen Phoenix"
+      },
+      {
         "id": 288,
         "name": "Ingenious Cade"
+      },
+      {
+        "id": 440,
+        "name": "Arisen Cade"
       }
     ]
   },
@@ -18710,6 +21740,18 @@
         "name": "Stargazer",
         "level": 125,
         "specialization": true
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 114,
+        "name": "Cerus"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 499,
+        "name": "Phoenician Mage"
       }
     ]
   },
@@ -18760,6 +21802,10 @@
         "name": "Apollyon"
       },
       {
+        "id": 480,
+        "name": "Elite Nothren Raider"
+      },
+      {
         "id": 220,
         "name": "Fallen Ithra, the White Knight"
       },
@@ -18772,8 +21818,24 @@
         "name": "Nothren Valkyrie"
       },
       {
-        "id": 329,
-        "name": "Fallen Freyja"
+        "id": 441,
+        "name": "Arisen Balin"
+      },
+      {
+        "id": 349,
+        "name": "Arisen Ithra, the White Knight"
+      },
+      {
+        "id": 351,
+        "name": "Arisen Vulcan, the Red Knight"
+      },
+      {
+        "id": 483,
+        "name": "Elite Nothren Valkyrie"
+      },
+      {
+        "id": 439,
+        "name": "Finesse"
       }
     ]
   },
@@ -18826,6 +21888,10 @@
       {
         "id": 336,
         "name": "King Gradlon"
+      },
+      {
+        "id": 328,
+        "name": "Lyonesse Knight"
       }
     ]
   },
@@ -18859,6 +21925,10 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 501,
+        "name": "Great Phoenician"
+      },
       {
         "id": 354,
         "name": "Immortal"
@@ -18932,6 +22002,12 @@
         "level": 220,
         "specialization": false
       }
+    ],
+    "pets_use": [
+      {
+        "id": 113,
+        "name": "Untamed Cerus"
+      }
     ]
   },
   {
@@ -18975,6 +22051,18 @@
         "name": "Noble Gaia",
         "level": 220,
         "specialization": false
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 112,
+        "name": "Raging Cerus"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 450,
+        "name": "Glatisant"
       }
     ]
   },
@@ -19119,23 +22207,6 @@
     ]
   },
   {
-    "name": "The Sequencer",
-    "id": 587,
-    "tier": 9,
-    "type": "Passive",
-    "description": "Spells cast when wielding two staves may be cast twice.",
-    "is_magic": false,
-    "bought": false,
-    "learned_by": [
-      {
-        "id": 84,
-        "name": "Sequencer",
-        "level": 1,
-        "specialization": true
-      }
-    ]
-  },
-  {
     "name": "The Swashbuckler",
     "id": 460,
     "tier": 7,
@@ -19231,6 +22302,10 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 1,
+        "name": "Barbarian"
+      },
       {
         "id": 122,
         "name": "Bear"
@@ -19482,6 +22557,10 @@
         "name": "The Fool (2020)"
       },
       {
+        "id": 430,
+        "name": "The Fool (2021)"
+      },
+      {
         "id": 273,
         "name": "Naggeneen"
       },
@@ -19503,7 +22582,6 @@
     "description": "-",
     "is_magic": false,
     "bought": false,
-    "element": "Physical",
     "pets_use": [
       {
         "id": 85,
@@ -19514,8 +22592,16 @@
         "name": "War Horse"
       },
       {
+        "id": 120,
+        "name": "Hengreon"
+      },
+      {
         "id": 88,
         "name": "Dark Pegasus"
+      },
+      {
+        "id": 116,
+        "name": "Great Pegasus"
       },
       {
         "id": 84,
@@ -19530,6 +22616,14 @@
       {
         "id": 367,
         "name": "Kelpie"
+      },
+      {
+        "id": 390,
+        "name": "Dark Pegasus"
+      },
+      {
+        "id": 374,
+        "name": "Pegasus"
       }
     ]
   },
@@ -19565,6 +22659,44 @@
     "bought": true,
     "cost": 2400000000,
     "mana_cost": 220
+  },
+  {
+    "name": "Tree of Demise",
+    "id": 617,
+    "tier": 7,
+    "type": "Buff",
+    "description": "-",
+    "is_magic": false,
+    "bought": false,
+    "monsters_use": [
+      {
+        "id": 445,
+        "name": "Yggdrasil"
+      },
+      {
+        "id": 442,
+        "name": "Arisen Yggdrasil"
+      }
+    ]
+  },
+  {
+    "name": "Tree of Life",
+    "id": 618,
+    "tier": 7,
+    "type": "Buff",
+    "description": "-",
+    "is_magic": false,
+    "bought": false,
+    "monsters_use": [
+      {
+        "id": 445,
+        "name": "Yggdrasil"
+      },
+      {
+        "id": 442,
+        "name": "Arisen Yggdrasil"
+      }
+    ]
   },
   {
     "name": "Tree Trunk",
@@ -19728,7 +22860,7 @@
       },
       {
         "id": 343,
-        "name": "Arisen Demeter, The Earth Magus"
+        "name": "Arisen Demeter, the Earth Magus"
       }
     ]
   },
@@ -19755,6 +22887,10 @@
     ],
     "monsters_use": [
       {
+        "id": 452,
+        "name": "Hobgoblin Lord"
+      },
+      {
         "id": 160,
         "name": "Death Worm"
       },
@@ -19768,7 +22904,7 @@
       },
       {
         "id": 343,
-        "name": "Arisen Demeter, The Earth Magus"
+        "name": "Arisen Demeter, the Earth Magus"
       }
     ]
   },
@@ -19787,6 +22923,16 @@
       {
         "id": 70,
         "name": "Death Worm"
+      },
+      {
+        "id": 119,
+        "name": "Carman"
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 442,
+        "name": "Arisen Yggdrasil"
       }
     ]
   },
@@ -19817,16 +22963,32 @@
         "name": "Fallen Merlin"
       },
       {
+        "id": 445,
+        "name": "Yggdrasil"
+      },
+      {
         "id": 311,
         "name": "Crimson Wood"
+      },
+      {
+        "id": 493,
+        "name": "Elite Draconian Mage"
       },
       {
         "id": 275,
         "name": "Kerberos"
       },
       {
+        "id": 487,
+        "name": "Kobold Lord"
+      },
+      {
         "id": 293,
         "name": "Nothren Warlock"
+      },
+      {
+        "id": 440,
+        "name": "Arisen Cade"
       },
       {
         "id": 305,
@@ -19841,12 +23003,20 @@
         "name": "Ebon Scruug"
       },
       {
+        "id": 485,
+        "name": "Elite Nothren Warlock"
+      },
+      {
         "id": 304,
         "name": "Mighty Mimic"
       },
       {
         "id": 324,
         "name": "Fallen Gaia"
+      },
+      {
+        "id": 334,
+        "name": "Fallen Nekromancer"
       },
       {
         "id": 316,
@@ -19873,12 +23043,24 @@
     ],
     "monsters_use": [
       {
+        "id": 315,
+        "name": "Arisen Cthulhu"
+      },
+      {
         "id": 428,
         "name": "Arisen Kerberos"
       },
       {
         "id": 423,
         "name": "Arisen Morrigan"
+      },
+      {
+        "id": 317,
+        "name": "Chimera"
+      },
+      {
+        "id": 486,
+        "name": "Elite Kobold Lord"
       },
       {
         "id": 324,
@@ -19959,6 +23141,10 @@
         "name": "Age-Old Mimic"
       },
       {
+        "id": 301,
+        "name": "Pyre"
+      },
+      {
         "id": 166,
         "name": "Gargoyle"
       },
@@ -20019,12 +23205,24 @@
         "name": "Balor Assassin"
       },
       {
+        "id": 458,
+        "name": "Elite Balor Assassin"
+      },
+      {
         "id": 232,
         "name": "Fallen Vulcan, the Red Knight"
       },
       {
         "id": 370,
         "name": "Arisen Hydra"
+      },
+      {
+        "id": 351,
+        "name": "Arisen Vulcan, the Red Knight"
+      },
+      {
+        "id": 482,
+        "name": "Elite Kobold"
       }
     ]
   },
@@ -20057,6 +23255,10 @@
     ],
     "monsters_use": [
       {
+        "id": 444,
+        "name": "Hel"
+      },
+      {
         "id": 301,
         "name": "Pyre"
       },
@@ -20071,6 +23273,10 @@
       {
         "id": 357,
         "name": "Succubus"
+      },
+      {
+        "id": 480,
+        "name": "Elite Nothren Raider"
       },
       {
         "id": 368,
@@ -20102,7 +23308,7 @@
     "tier": 10,
     "type": "Multi-round Magic",
     "description": "Deal mixed damage of all elements, deals extra damage to those weak against any element.  Requires 2 turns in battle.",
-    "is_magic": false,
+    "is_magic": true,
     "bought": false,
     "mana_cost": 360,
     "learned_by": [
@@ -20213,6 +23419,15 @@
     ]
   },
   {
+    "name": "Upward Strike II",
+    "id": 613,
+    "tier": 10,
+    "type": "Attack",
+    "description": "Attack with both hands gripped tightly, dealing paltry to immense damage.  Requires 2 turns in battle.",
+    "is_magic": false,
+    "bought": false
+  },
+  {
     "name": "Valhallan Dissonance",
     "id": 545,
     "tier": 10,
@@ -20244,6 +23459,16 @@
         "level": 1,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 469,
+        "name": "Baldr"
+      },
+      {
+        "id": 437,
+        "name": "Fallen Beowulf"
+      }
     ]
   },
   {
@@ -20264,6 +23489,12 @@
         "level": 0,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 329,
+        "name": "Fallen Freyja"
+      }
     ]
   },
   {
@@ -20274,7 +23505,6 @@
     "description": "Your attacks may cause blight and may be critical more often. Your follower is also stronger and may attack more often.",
     "is_magic": false,
     "bought": false,
-    "mana_cost": 1,
     "causes": [
       "Blight"
     ],
@@ -20332,6 +23562,12 @@
         "level": 225,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 469,
+        "name": "Baldr"
+      }
     ]
   },
   {
@@ -20367,6 +23603,12 @@
         "name": "Beowulf",
         "level": 240,
         "specialization": false
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 437,
+        "name": "Fallen Beowulf"
       }
     ]
   },
@@ -20468,6 +23710,30 @@
     "bought": false
   },
   {
+    "name": "Volley II",
+    "id": 608,
+    "tier": 5,
+    "type": "Attack",
+    "description": "Deal damage thrice, grants 2 turns of Ward, and may temporarily increase dexterity.",
+    "is_magic": false,
+    "bought": false,
+    "gives": [
+      "T. Dex \u2191"
+    ]
+  },
+  {
+    "name": "Volley III",
+    "id": 609,
+    "tier": 10,
+    "type": "Attack",
+    "description": "Deal damage thrice, grants 3 turns of Ward, and may temporarily increase dexterity.",
+    "is_magic": false,
+    "bought": false,
+    "gives": [
+      "T. Dex \u2191"
+    ]
+  },
+  {
     "name": "Wail",
     "id": 180,
     "tier": 5,
@@ -20486,6 +23752,10 @@
         "name": "Banshee"
       },
       {
+        "id": 128,
+        "name": "Cruel Banshee"
+      },
+      {
         "id": 79,
         "name": "Succubus"
       },
@@ -20500,8 +23770,20 @@
         "name": "Banshee"
       },
       {
+        "id": 498,
+        "name": "Fallen Phoenix"
+      },
+      {
+        "id": 499,
+        "name": "Phoenician Mage"
+      },
+      {
         "id": 276,
         "name": "The Fool (2019)"
+      },
+      {
+        "id": 430,
+        "name": "The Fool (2021)"
       },
       {
         "id": 141,
@@ -20510,6 +23792,14 @@
       {
         "id": 287,
         "name": "Headless"
+      },
+      {
+        "id": 496,
+        "name": "Fallen Ashen Phoenix"
+      },
+      {
+        "id": 497,
+        "name": "Great Phoenician Mage"
       },
       {
         "id": 335,
@@ -20521,25 +23811,40 @@
     "name": "Wallop",
     "id": 378,
     "tier": 8,
-    "type": "Debuff",
+    "type": "Attack",
     "description": "Pumpkinhead used Wallop!",
-    "is_magic": true,
+    "is_magic": false,
     "bought": false,
-    "mana_cost": 5,
     "causes": [
       "T. Def \u2193\u2193",
       "T. Res \u2193\u2193"
     ],
     "pets_use": [
       {
+        "id": 124,
+        "name": "Scary Skeleton"
+      },
+      {
         "id": 100,
         "name": "Pumpkinhead"
+      },
+      {
+        "id": 125,
+        "name": "Very Scary Skeleton"
       }
     ],
     "monsters_use": [
       {
+        "id": 466,
+        "name": "Frightening Skeleton"
+      },
+      {
         "id": 342,
         "name": "Pumpkinhead"
+      },
+      {
+        "id": 478,
+        "name": "Very Scary Skeleton"
       }
     ]
   },
@@ -20575,6 +23880,10 @@
     ],
     "monsters_use": [
       {
+        "id": 1,
+        "name": "Barbarian"
+      },
+      {
         "id": 5,
         "name": "Fallen Warrior"
       },
@@ -20601,6 +23910,18 @@
       {
         "id": 289,
         "name": "Almighty Balin"
+      },
+      {
+        "id": 441,
+        "name": "Arisen Balin"
+      },
+      {
+        "id": 469,
+        "name": "Baldr"
+      },
+      {
+        "id": 439,
+        "name": "Finesse"
       }
     ]
   },
@@ -20678,6 +23999,12 @@
         "level": 230,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 435,
+        "name": "Fallen Gilgamesh"
+      }
     ]
   },
   {
@@ -20691,6 +24018,10 @@
     "cost": 10000,
     "mana_cost": 60,
     "pets_use": [
+      {
+        "id": 130,
+        "name": "Alfar"
+      },
       {
         "id": 55,
         "name": "Orichalcum Golem"
@@ -20755,6 +24086,12 @@
         "level": 210,
         "specialization": false
       }
+    ],
+    "monsters_use": [
+      {
+        "id": 435,
+        "name": "Fallen Gilgamesh"
+      }
     ]
   },
   {
@@ -20778,6 +24115,10 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 345,
+        "name": "Queen of Dokkalfar"
+      },
       {
         "id": 314,
         "name": "Hades"
@@ -20917,6 +24258,186 @@
         "name": "Sequencer",
         "level": 200,
         "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Wildfire",
+    "id": 632,
+    "tier": 5,
+    "type": "AoE Magic",
+    "description": "Deals fire damage to all opponents in battle.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Fire",
+    "mana_cost": 70,
+    "causes": [
+      "Burning"
+    ],
+    "learned_by": [
+      {
+        "id": 28,
+        "name": "Scholar",
+        "level": 110,
+        "specialization": true
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 498,
+        "name": "Fallen Phoenix"
+      }
+    ]
+  },
+  {
+    "name": "Wildfire II",
+    "id": 629,
+    "tier": 8,
+    "type": "AoE Magic",
+    "description": "Deals fire damage to all opponents in battle.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Fire",
+    "mana_cost": 100,
+    "causes": [
+      "Burning"
+    ],
+    "learned_by": [
+      {
+        "id": 45,
+        "name": "Magus",
+        "level": 150,
+        "specialization": true
+      }
+    ]
+  },
+  {
+    "name": "Wildfire III",
+    "id": 623,
+    "tier": 9,
+    "type": "AoE Magic",
+    "description": "Deals fire damage to all opponents in battle.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Fire",
+    "mana_cost": 200,
+    "learned_by": [
+      {
+        "id": 50,
+        "name": "Maji",
+        "level": 200,
+        "specialization": true
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 446,
+        "name": "Arisen King Meliodas"
+      },
+      {
+        "id": 496,
+        "name": "Fallen Ashen Phoenix"
+      },
+      {
+        "id": 497,
+        "name": "Great Phoenician Mage"
+      },
+      {
+        "id": 461,
+        "name": "Arisen Dagda"
+      }
+    ]
+  },
+  {
+    "name": "Winter Wind",
+    "id": 633,
+    "tier": 5,
+    "type": "AoE Magic",
+    "description": "Deals ice damage to all opponents in battle.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Water",
+    "mana_cost": 70,
+    "causes": [
+      "Frozen"
+    ],
+    "learned_by": [
+      {
+        "id": 28,
+        "name": "Scholar",
+        "level": 110,
+        "specialization": true
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 490,
+        "name": "Alfar Lord"
+      },
+      {
+        "id": 463,
+        "name": "Alfar Mage"
+      }
+    ]
+  },
+  {
+    "name": "Winter Wind II",
+    "id": 628,
+    "tier": 7,
+    "type": "AoE Magic",
+    "description": "Deals ice damage to all opponents in battle.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Water",
+    "mana_cost": 100,
+    "causes": [
+      "Frozen"
+    ],
+    "learned_by": [
+      {
+        "id": 45,
+        "name": "Magus",
+        "level": 150,
+        "specialization": true
+      }
+    ],
+    "pets_use": [
+      {
+        "id": 129,
+        "name": "Alfar Mage"
+      }
+    ]
+  },
+  {
+    "name": "Winter Wind III",
+    "id": 624,
+    "tier": 9,
+    "type": "AoE Magic",
+    "description": "Deals ice damage to all opponents in battle.",
+    "is_magic": true,
+    "bought": false,
+    "element": "Water",
+    "mana_cost": 200,
+    "learned_by": [
+      {
+        "id": 50,
+        "name": "Maji",
+        "level": 200,
+        "specialization": true
+      }
+    ],
+    "monsters_use": [
+      {
+        "id": 467,
+        "name": "Arisen Alfar Lord"
+      },
+      {
+        "id": 468,
+        "name": "Arisen Alfar Mage"
+      },
+      {
+        "id": 446,
+        "name": "Arisen King Meliodas"
       }
     ]
   },
@@ -21143,12 +24664,16 @@
         "name": "Great Lizarr Noble"
       },
       {
-        "id": 179,
-        "name": "Balor Elite"
-      },
-      {
         "id": 399,
         "name": "Fey Dragon"
+      },
+      {
+        "id": 454,
+        "name": "Grand Knight Lugus"
+      },
+      {
+        "id": 179,
+        "name": "Maelor"
       },
       {
         "id": 212,
@@ -21210,6 +24735,10 @@
     ],
     "monsters_use": [
       {
+        "id": 498,
+        "name": "Fallen Phoenix"
+      },
+      {
         "id": 308,
         "name": "Griffin"
       },
@@ -21218,8 +24747,16 @@
         "name": "Phoenix"
       },
       {
+        "id": 496,
+        "name": "Fallen Ashen Phoenix"
+      },
+      {
         "id": 271,
         "name": "Guivre"
+      },
+      {
+        "id": 405,
+        "name": "Fey Chimera"
       }
     ]
   },
@@ -21237,7 +24774,17 @@
       "Mag \u2191",
       "Dex \u2191"
     ],
+    "pets_use": [
+      {
+        "id": 115,
+        "name": "Glatisant"
+      }
+    ],
     "monsters_use": [
+      {
+        "id": 492,
+        "name": "Elite Draconian"
+      },
       {
         "id": 419,
         "name": "Arisen Tiamat"
@@ -21282,8 +24829,20 @@
         "name": "Mighty Griffin"
       },
       {
+        "id": 419,
+        "name": "Arisen Tiamat"
+      },
+      {
         "id": 417,
         "name": "Arisen Typhon"
+      },
+      {
+        "id": 329,
+        "name": "Fallen Freyja"
+      },
+      {
+        "id": 336,
+        "name": "King Gradlon"
       },
       {
         "id": 319,
@@ -21312,6 +24871,10 @@
       }
     ],
     "monsters_use": [
+      {
+        "id": 498,
+        "name": "Fallen Phoenix"
+      },
       {
         "id": 399,
         "name": "Fey Dragon"
@@ -21412,8 +24975,24 @@
         "name": "Nothren Valkyrie"
       },
       {
+        "id": 441,
+        "name": "Arisen Balin"
+      },
+      {
         "id": 412,
         "name": "Arisen Surtr"
+      },
+      {
+        "id": 351,
+        "name": "Arisen Vulcan, the Red Knight"
+      },
+      {
+        "id": 483,
+        "name": "Elite Nothren Valkyrie"
+      },
+      {
+        "id": 439,
+        "name": "Finesse"
       }
     ]
   }

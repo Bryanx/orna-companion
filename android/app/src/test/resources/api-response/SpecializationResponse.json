@@ -4,6 +4,9 @@
     "name": "Apprentice",
     "female_name": "Apprentice",
     "cost": "5,000 orns",
+    "price": "5000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A new and gifted student of magic. It has additional spell capacity.",
     "tier": 3,
     "images": [
@@ -31,6 +34,9 @@
     "name": "Assassin",
     "female_name": "Assassin",
     "cost": "200,000 orns",
+    "price": "200000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "Not much is known about these scoundrels, and it can be assumed that is how they prefer it. Their attacks have the chance to temporarily destroy enemy defenses.",
     "tier": 9,
     "images": [
@@ -46,6 +52,10 @@
         {
           "id": 443,
           "name": "Assassinate"
+        },
+        {
+          "id": 507,
+          "name": "Apothecarist III"
         }
       ],
       "learns": [],
@@ -67,6 +77,9 @@
     "name": "Bard",
     "female_name": "Bard",
     "cost": "50,000 orns",
+    "price": "50000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A simple fighter well versed in the arts of music and dance.  Learns songs recanting tales of power, magic, and more.",
     "tier": 7,
     "images": [
@@ -103,7 +116,7 @@
           "id": 231,
           "name": "Mage's Dance",
           "level": 160,
-          "type": "Magic"
+          "type": "AoE Magic"
         },
         {
           "id": 232,
@@ -138,6 +151,9 @@
     "name": "Beastmaster",
     "female_name": "Beastmaster",
     "cost": "50,000 orns",
+    "price": "50000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A true master of nurturing beasts of the wild.  Followers of a Beastmaster are stronger and may attack more often. (pets gain 5% increase to each action chance)",
     "tier": 7,
     "images": [
@@ -163,6 +179,9 @@
     "name": "Berserker",
     "female_name": "Berserker",
     "cost": "25,000 orns",
+    "price": "25000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A ruthless warrior that seemingly fights without self-preservation. Learns strong attacks and buffs.",
     "tier": 5,
     "images": [
@@ -223,6 +242,9 @@
     "name": "Brawler",
     "female_name": "Brawler",
     "cost": "5,000 orns",
+    "price": "5000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A brutal fighter who stops at nothing to win a brawl. Learns alternative forms of damage.",
     "tier": 3,
     "images": [
@@ -263,6 +285,9 @@
     "name": "Cataphract",
     "female_name": "Cataphract",
     "cost": "200,000 orns",
+    "price": "200000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An expert in defense who begins battle with Ward activated.",
     "tier": 9,
     "images": [
@@ -342,6 +367,9 @@
     "name": "Charmer",
     "female_name": "Charmer",
     "cost": "200,000 orns",
+    "price": "200000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A bard of Lyonesse versed in the arts of music and dance. Learns songs recanting tales of power, magic, and more.",
     "tier": 9,
     "images": [
@@ -372,7 +400,7 @@
           "id": 351,
           "name": "Mage's Pavane",
           "level": 210,
-          "type": "Magic"
+          "type": "AoE Magic"
         },
         {
           "id": 350,
@@ -409,10 +437,71 @@
     ]
   },
   {
+    "id": 85,
+    "name": "Chronomancer",
+    "female_name": "Chronomancer",
+    "cost": "",
+    "price": "200000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
+    "description": "A master of the magical arts that control time. Chronomancers can alter the flow of battle when battling with a party",
+    "tier": 9,
+    "images": [
+      "subclasses/chronomancer/default_f.png",
+      "subclasses/chronomancer/default_m.png"
+    ],
+    "skills": {
+      "passives": [],
+      "learns": [
+        {
+          "id": 638,
+          "name": "Lacuna II",
+          "level": 200,
+          "type": "Magic"
+        },
+        {
+          "id": 637,
+          "name": "Slow",
+          "level": 200,
+          "type": "Debuff"
+        },
+        {
+          "id": 636,
+          "name": "Haste",
+          "level": 200,
+          "type": "Buff"
+        },
+        {
+          "id": 639,
+          "name": "Lacunus II",
+          "level": 220,
+          "type": "AoE Magic"
+        },
+        {
+          "id": 641,
+          "name": "Slow+",
+          "level": 225,
+          "type": "AoE Debuff"
+        },
+        {
+          "id": 640,
+          "name": "Haste+",
+          "level": 225,
+          "type": "AoE Buff"
+        }
+      ],
+      "slots": 0
+    },
+    "boosts": []
+  },
+  {
     "id": 25,
     "name": "Cleric",
     "female_name": "Cleric",
     "cost": "25,000 orns",
+    "price": "25000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An advanced magic user that can cast healing and defensive spells. Learns healing and holy magic.",
     "tier": 5,
     "images": [
@@ -448,7 +537,7 @@
         },
         {
           "id": 123,
-          "name": "Holy II",
+          "name": "Faith II",
           "level": 125,
           "type": "Magic"
         }
@@ -475,6 +564,9 @@
     "name": "Duelist",
     "female_name": "Duelist",
     "cost": "",
+    "price": "25000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An ambidextrous fighter, most comfortable sacrificing their shield for additional weaponry. Learns skills involving multiple weapons.",
     "tier": 5,
     "images": [
@@ -530,6 +622,9 @@
     "name": "Guardian",
     "female_name": "Guardian",
     "cost": "25,000 orns",
+    "price": "25000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An experienced fighter that specializes in fighting against the forces of magic. Learns anti-magic skills.",
     "tier": 5,
     "images": [
@@ -602,10 +697,34 @@
     ]
   },
   {
+    "id": 86,
+    "name": "High Cleric",
+    "female_name": "High Cleric",
+    "cost": "",
+    "price": "200000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
+    "description": "An advanced magic user that can cast healing and defensive spells. Learns healing and holy magic.",
+    "tier": 9,
+    "images": [
+      "subclasses/highcleric/default_f.png",
+      "subclasses/highcleric/default_m.png"
+    ],
+    "skills": {
+      "passives": [],
+      "learns": [],
+      "slots": 0
+    },
+    "boosts": []
+  },
+  {
     "id": 26,
     "name": "Hunter",
     "female_name": "Hunter",
     "cost": "25,000 orns",
+    "price": "25000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An agile warrior that can focus all might into strong physical attacks. Learns both offensive and survivability skills.",
     "tier": 5,
     "images": [
@@ -625,7 +744,7 @@
           "id": 134,
           "name": "Arrowstorm",
           "level": 105,
-          "type": "Attack"
+          "type": "AoE Attack"
         },
         {
           "id": 133,
@@ -664,6 +783,9 @@
     "name": "Inquisitor",
     "female_name": "Inquisitor",
     "cost": "50,000 orns",
+    "price": "50000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A long forgotten Inquisitor of Avalon.  Learns Holy and defensive skills.",
     "tier": 7,
     "images": [
@@ -730,6 +852,9 @@
     "name": "Magus",
     "female_name": "Magus",
     "cost": "50,000 orns",
+    "price": "50000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A talented magician who conjures magic with ease.  Spells cast by the Magus cost less mana (Spells cost 25% less mana).",
     "tier": 7,
     "images": [
@@ -744,6 +869,30 @@
         }
       ],
       "learns": [
+        {
+          "id": 628,
+          "name": "Winter Wind II",
+          "level": 150,
+          "type": "AoE Magic"
+        },
+        {
+          "id": 629,
+          "name": "Wildfire II",
+          "level": 150,
+          "type": "AoE Magic"
+        },
+        {
+          "id": 631,
+          "name": "Natura II",
+          "level": 150,
+          "type": "AoE Magic"
+        },
+        {
+          "id": 630,
+          "name": "Chain Lightning II",
+          "level": 150,
+          "type": "AoE Magic"
+        },
         {
           "id": 241,
           "name": "Great Meditation",
@@ -769,6 +918,9 @@
     "name": "Maji",
     "female_name": "Maji",
     "cost": "200,000 orns",
+    "price": "200000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An expert magician who conjures magic with ease. Spells cast by the Maji cost far less mana.",
     "tier": 9,
     "images": [
@@ -778,15 +930,27 @@
     "skills": {
       "passives": [
         {
-          "id": 579,
-          "name": "Depletion"
-        },
-        {
           "id": 349,
           "name": "The Maji"
+        },
+        {
+          "id": 579,
+          "name": "Depletion"
         }
       ],
       "learns": [
+        {
+          "id": 624,
+          "name": "Winter Wind III",
+          "level": 200,
+          "type": "AoE Magic"
+        },
+        {
+          "id": 623,
+          "name": "Wildfire III",
+          "level": 200,
+          "type": "AoE Magic"
+        },
         {
           "id": 576,
           "name": "Great Meditation II",
@@ -794,10 +958,22 @@
           "type": "Buff"
         },
         {
+          "id": 626,
+          "name": "Natura III",
+          "level": 200,
+          "type": "AoE Magic"
+        },
+        {
           "id": 241,
           "name": "Great Meditation",
           "level": 200,
           "type": "Buff"
+        },
+        {
+          "id": 625,
+          "name": "Chain Lightning III",
+          "level": 200,
+          "type": "AoE Magic"
         }
       ],
       "slots": 4
@@ -822,6 +998,9 @@
     "name": "Merchant",
     "female_name": "Merchant",
     "cost": "25,000 orns",
+    "price": "25000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An established trader who chooses wealth over knowledge. They gather less experience from combat, but may find more gold or items.",
     "tier": 5,
     "images": [
@@ -845,6 +1024,9 @@
     "name": "Pikeman",
     "female_name": "Shieldmaiden",
     "cost": "25,000 orns",
+    "price": "25000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An defensive warrior who focuses on deflecting damage at the right time.  Ward is automatically activated in battle.",
     "tier": 5,
     "images": [
@@ -880,6 +1062,9 @@
     "name": "Raider",
     "female_name": "Raider",
     "cost": "200,000 orns",
+    "price": "200000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A formidable raider of Nothren that fights without care or self-preservation.",
     "tier": 9,
     "images": [
@@ -922,6 +1107,9 @@
     "name": "Ranger",
     "female_name": "Ranger",
     "cost": "50,000 orns",
+    "price": "50000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A seasoned archer that can focus all might into strong projectile attacks. Learns both offensive and survivability skills.",
     "tier": 7,
     "images": [
@@ -941,7 +1129,7 @@
           "id": 445,
           "name": "Arrowstorm II",
           "level": 150,
-          "type": "Attack"
+          "type": "AoE Attack"
         },
         {
           "id": 139,
@@ -974,6 +1162,9 @@
     "name": "Scholar",
     "female_name": "Scholar",
     "cost": "25,000 orns",
+    "price": "25000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A well educated magic user that deals extra damage when exploiting enemy weaknesses. Learns elemental imbuing spells and elemental spells that deal extra to those weak against it.",
     "tier": 5,
     "images": [
@@ -984,14 +1175,8 @@
       "passives": [],
       "learns": [
         {
-          "id": 117,
-          "name": "Frost III",
-          "level": 100,
-          "type": "Magic"
-        },
-        {
-          "id": 110,
-          "name": "Spark III",
+          "id": 118,
+          "name": "Flame III",
           "level": 100,
           "type": "Magic"
         },
@@ -1002,20 +1187,44 @@
           "type": "Magic"
         },
         {
-          "id": 118,
-          "name": "Flame III",
+          "id": 110,
+          "name": "Spark III",
           "level": 100,
           "type": "Magic"
         },
         {
-          "id": 113,
-          "name": "Imbue Lightning",
-          "level": 120,
-          "type": "Buff"
+          "id": 117,
+          "name": "Frost III",
+          "level": 100,
+          "type": "Magic"
         },
         {
-          "id": 116,
-          "name": "Imbue Earth",
+          "id": 633,
+          "name": "Winter Wind",
+          "level": 110,
+          "type": "AoE Magic"
+        },
+        {
+          "id": 634,
+          "name": "Chain Lightning",
+          "level": 110,
+          "type": "AoE Magic"
+        },
+        {
+          "id": 635,
+          "name": "Natura",
+          "level": 110,
+          "type": "AoE Magic"
+        },
+        {
+          "id": 632,
+          "name": "Wildfire",
+          "level": 110,
+          "type": "AoE Magic"
+        },
+        {
+          "id": 114,
+          "name": "Imbue Ice",
           "level": 120,
           "type": "Buff"
         },
@@ -1026,8 +1235,14 @@
           "type": "Buff"
         },
         {
-          "id": 114,
-          "name": "Imbue Ice",
+          "id": 116,
+          "name": "Imbue Earth",
+          "level": 120,
+          "type": "Buff"
+        },
+        {
+          "id": 113,
+          "name": "Imbue Lightning",
           "level": 120,
           "type": "Buff"
         }
@@ -1050,6 +1265,9 @@
     "name": "Seeker",
     "female_name": "Seeker",
     "cost": "",
+    "price": "25000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "One who always knows where to go. Seekers have increased view distance.",
     "tier": 5,
     "images": [
@@ -1073,6 +1291,9 @@
     "name": "Sequencer",
     "female_name": "Sequencer",
     "cost": "",
+    "price": "200000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A mage that prefers a more cannon-like approach to engaging battles. Spells may occasionally be cast twice while dual-wielding magical staves.",
     "tier": 9,
     "images": [
@@ -1082,8 +1303,12 @@
     "skills": {
       "passives": [
         {
+          "id": 606,
+          "name": "Doublecast"
+        },
+        {
           "id": 587,
-          "name": "The Sequencer"
+          "name": "Quickcast"
         }
       ],
       "learns": [
@@ -1116,6 +1341,9 @@
     "name": "Stargazer",
     "female_name": "Stargazer",
     "cost": "25,000 orns",
+    "price": "25000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An advanced magic user that can cast cosmic magic, capable of damaging and debuffing an opponent.",
     "tier": 5,
     "images": [
@@ -1164,6 +1392,9 @@
     "name": "Swashbuckler",
     "female_name": "Swashbuckler",
     "cost": "50,000 orns",
+    "price": "50000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "Cunning and unique warriors, their attack power increases when equipped with minimal defense.",
     "tier": 7,
     "images": [
@@ -1211,6 +1442,9 @@
     "name": "Tamer",
     "female_name": "Tamer",
     "cost": "200,000 orns",
+    "price": "200000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A true expert of nurturing beasts of the wild. Followers of a Tamer are stronger and may attack more often.",
     "tier": 9,
     "images": [
@@ -1237,10 +1471,59 @@
     "boosts": []
   },
   {
+    "id": 87,
+    "name": "Time Mage",
+    "female_name": "Time Mage",
+    "cost": "",
+    "price": "50000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
+    "description": "A master of the magical arts that control time. Chronomancers can alter the flow of battle when battling with a party",
+    "tier": 7,
+    "images": [
+      "subclasses/timemage/default_f.png",
+      "subclasses/timemage/default_m.png"
+    ],
+    "skills": {
+      "passives": [],
+      "learns": [
+        {
+          "id": 636,
+          "name": "Haste",
+          "level": 150,
+          "type": "Buff"
+        },
+        {
+          "id": 637,
+          "name": "Slow",
+          "level": 150,
+          "type": "Debuff"
+        },
+        {
+          "id": 642,
+          "name": "Lacuna",
+          "level": 160,
+          "type": "Magic"
+        },
+        {
+          "id": 643,
+          "name": "Lacunus",
+          "level": 175,
+          "type": "AoE Magic"
+        }
+      ],
+      "slots": 0
+    },
+    "boosts": []
+  },
+  {
     "id": 57,
     "name": "Trickster",
     "female_name": "Trickster",
     "cost": "5,000 orns",
+    "price": "5000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A resourceful thief that employs dirty tricks to win battles. Learns debuffing skills.",
     "tier": 3,
     "images": [
@@ -1283,6 +1566,9 @@
     "name": "Warden",
     "female_name": "Warden",
     "cost": "50,000 orns",
+    "price": "50000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A master of defending what they have claimed. Wardens are more difficult to defeat in Area control defenses.",
     "tier": 7,
     "images": [

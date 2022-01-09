@@ -4,6 +4,9 @@
     "name": "Adept",
     "female_name": "Adept",
     "cost": "100,000 orns",
+    "price": "100000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A hybrid class that favours all but magic. Can wield equipment of both the rogue and knight.",
     "tier": 4,
     "images": [
@@ -78,6 +81,9 @@
     "name": "Arcanic",
     "female_name": "Arcanic",
     "cost": "3,500,000 orns",
+    "price": "3500000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A deadly rogue of Annwn trained in lost arcane techniques. It is immune to arcane magic and can wield equipment of the rogue.",
     "tier": 8,
     "images": [
@@ -190,6 +196,9 @@
     "name": "Archdruid",
     "female_name": "Archdruid",
     "cost": "2,000,000 orns",
+    "price": "2000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A powerful magician skilled in the art of taming beasts.  It is naturally strong against the powers of light and dark and can wield equipment of both the rogue and mage.",
     "tier": 7,
     "images": [
@@ -282,6 +291,9 @@
     "name": "Archmage",
     "female_name": "Witch",
     "cost": "10,000 orns",
+    "price": "10000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A powerful mage who further favours magic over all else. Can wield archistaffs and robes.",
     "tier": 2,
     "images": [
@@ -374,6 +386,9 @@
     "name": "Atlas Vanguard",
     "female_name": "Athena Vanguard",
     "cost": "3,500,000 orns",
+    "price": "3500000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A stalwart holy warrior of Lyonesse that is well versed in methods of ward and survivability. It is immune to holy magic and can wield equipment of the warrior.",
     "tier": 8,
     "images": [
@@ -476,6 +491,9 @@
     "name": "Augur",
     "female_name": "Augur",
     "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
     "description": "An alternative version of the Mystic class. Purchase this class to support the game and gain an alternative sprite.",
     "tier": 4,
     "images": [
@@ -507,6 +525,9 @@
     "name": "Bahamut",
     "female_name": "Bahamut",
     "cost": "7,000,000 orns",
+    "price": "7000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "One who has fused themselves with mighty dragons, learning the secrets of combining might with magic. Their offense is determined by both attack and magic stats, is immune to Dragon magic, and can wield equipment of both the warrior and mage.",
     "tier": 9,
     "images": [
@@ -585,6 +606,9 @@
     "name": "Battlemage",
     "female_name": "Battlemage",
     "cost": "500,000 orns",
+    "price": "500000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A very skilled magic user that can cast spells repetitively. It has a good chance casting spells for free and can wield equipment of both the knight and mage.",
     "tier": 6,
     "images": [
@@ -673,6 +697,9 @@
     "name": "Battle Master",
     "female_name": "Battle Master",
     "cost": "50,000 orns",
+    "price": "50000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A highly skilled warrior that favours attack power over all else. This class can wield any weapon or piece of equipment found.",
     "tier": 3,
     "images": [
@@ -738,6 +765,9 @@
     "name": "Beowulf",
     "female_name": "Bestla",
     "cost": "15,000,000 orns",
+    "price": "15000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A storied rank of those aligned with Dragons, this class brings the tales, poems, and stances of war into battle and favors unconventional weaponry. Their offense is determined by both attack and magic stats, is immune to Dragon magic, and can wield any piece of equipment found.",
     "tier": 10,
     "images": [
@@ -749,6 +779,8 @@
       "classes/beowulf/3_m.png",
       "classes/beowulf/4_f.png",
       "classes/beowulf/4_m.png",
+      "classes/beowulf/5_f.png",
+      "classes/beowulf/5_m.png",
       "classes/beowulf/default_f.png",
       "classes/beowulf/default_m.png"
     ],
@@ -838,6 +870,9 @@
     "name": "Blademaster",
     "female_name": "Blademaster",
     "cost": "500,000 orns",
+    "price": "500000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A very skilled weapon master of Avalon. It has a good chance of eluding defeat in battle and can wield equipment of both the rogue and knight.",
     "tier": 6,
     "images": [
@@ -908,6 +943,9 @@
     "name": "Centurion",
     "female_name": "Centurion",
     "cost": "50,000 orns",
+    "price": "50000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A warrior trained in the art of defensive techniques. This class favours skills that allow them to outlast their opponents.",
     "tier": 3,
     "images": [
@@ -974,6 +1012,9 @@
     "name": "Conjuror",
     "female_name": "Conjuress",
     "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
     "description": "An alternative version of the Sorcerer class. Purchase this class to support the game and gain an alternative sprite.",
     "tier": 3,
     "images": [
@@ -992,6 +1033,9 @@
     "name": "Deity",
     "female_name": "Deity",
     "cost": "20,000,000 orns",
+    "price": "20000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "The ancient elves believed they could break the traditions of elemental alignment, but never quite succeeded. Deities, relics of this time, utilize unstable elemental affinities to gain both protection, and weakness, to the elements. These skilled warriors can equip any piece of equipment found.",
     "tier": 10,
     "images": [
@@ -1152,6 +1196,9 @@
     "name": "Dragon Knight",
     "female_name": "Dragon Knightess",
     "cost": "2,000,000 orns",
+    "price": "2000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "One who rides with the most powerful of dragons.   It is naturally strong against dragon magic and can wield equipment of both the knight and mage.",
     "tier": 7,
     "images": [
@@ -1222,6 +1269,9 @@
     "name": "Dragoon",
     "female_name": "Dragoness",
     "cost": "250,000 orns",
+    "price": "250000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "One who rides with dragons. Can wield any piece of equipment they choose.",
     "tier": 5,
     "images": [
@@ -1313,6 +1363,9 @@
     "name": "Druid",
     "female_name": "Druid",
     "cost": "250,000 orns",
+    "price": "250000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A powerful magician skilled in the art of taming beasts. Can wield any piece of equipment they choose.",
     "tier": 5,
     "images": [
@@ -1420,6 +1473,9 @@
     "name": "Freyr",
     "female_name": "Freyja",
     "cost": "3,500,000 orns",
+    "price": "3500000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "One of the highest order of Nothren warriors and valkyries. It is immune to dragon magic, has special bonds with beasts, and can wield equipment of the warrior or mage.",
     "tier": 8,
     "images": [
@@ -1500,6 +1556,9 @@
     "name": "Frost Mage",
     "female_name": "Frost Mage",
     "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
     "description": "A mage of the Frozenguard that has mastered the arts of the cold.",
     "tier": 2,
     "images": [
@@ -1603,6 +1662,9 @@
     "name": "Gaia",
     "female_name": "Gaia",
     "cost": "5,000,000 orns",
+    "price": "5000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A knight of nature and balance who has truly mastered the powers of the earth below. It is immune to earthen magic and can wield any piece of equipment they choose.",
     "tier": 8,
     "images": [
@@ -1641,7 +1703,7 @@
         },
         {
           "id": 596,
-          "name": "Rot",
+          "name": "Decay",
           "level": 175,
           "type": "Debuff"
         },
@@ -1685,6 +1747,9 @@
     "name": "Gilgamesh",
     "female_name": "Gallia",
     "cost": "15,000,000 orns",
+    "price": "15000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A seldomly encountered warrior who specializes in using their defenses as a weapon. This clas grows stronger with Ward upkeep and can convert their defenses into damage or regenerative effect. They can wield equipment of the warrior and are immune to arcane magic while resistant to powers of the dragons.",
     "tier": 10,
     "images": [
@@ -1696,6 +1761,8 @@
       "classes/gilgamesh/3_m.png",
       "classes/gilgamesh/4_f.png",
       "classes/gilgamesh/4_m.png",
+      "classes/gilgamesh/5_f.png",
+      "classes/gilgamesh/5_m.png",
       "classes/gilgamesh/default_f.png",
       "classes/gilgamesh/default_m.png"
     ],
@@ -1781,6 +1848,9 @@
     "name": "Gladiator",
     "female_name": "Gladiator",
     "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
     "description": "An alternative version of the Adept class. Purchase this class to support the game and gain an alternative sprite.",
     "tier": 4,
     "images": [
@@ -1812,6 +1882,9 @@
     "name": "Grand Ifrit",
     "female_name": "Grand Ifrit",
     "cost": "10,000,000 orns",
+    "price": "10000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An elite force of smoke and ash who has truly mastered the powers of flame. It is immune to fire magic and can wield any piece of equipment they choose.",
     "tier": 9,
     "images": [
@@ -1886,6 +1959,9 @@
     "name": "Grand Mystic",
     "female_name": "Grand Mystic",
     "cost": "500,000 orns",
+    "price": "500000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A mystical fighter of Annwn that mixes magic and dexterity. It can dodge attacks more effectively as damage is taken and can wield equipment of both the rogue and mage.",
     "tier": 6,
     "images": [
@@ -1920,7 +1996,7 @@
         },
         {
           "id": 165,
-          "name": "Quick attack",
+          "name": "Quick Attack",
           "level": 125,
           "type": "Attack"
         },
@@ -1968,6 +2044,9 @@
     "name": "Great Leviathan",
     "female_name": "Great Leviathan",
     "cost": "10,000,000 orns",
+    "price": "10000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An elite force of tide and ice who has truly mastered the powers of the seas.  It is immune to water magic and can wield any piece of equipment they choose.",
     "tier": 9,
     "images": [
@@ -2042,6 +2121,9 @@
     "name": "Heretic",
     "female_name": "Hera",
     "cost": "15,000,000 orns",
+    "price": "15000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "Once followers of Apollyon, these exiled warlocks favor the more destructive magic and become stronger as their mana fades. They have attuned themselves to the basic elements and can wield equipment of the mage.",
     "tier": 10,
     "images": [
@@ -2053,6 +2135,8 @@
       "classes/heretic/3_m.png",
       "classes/heretic/4_f.png",
       "classes/heretic/4_m.png",
+      "classes/heretic/5_f.png",
+      "classes/heretic/5_m.png",
       "classes/heretic/default_f.png",
       "classes/heretic/default_m.png"
     ],
@@ -2192,6 +2276,9 @@
     "name": "High Taranis",
     "female_name": "High Taranis",
     "cost": "10,000,000 orns",
+    "price": "10000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An elite force of lightning and thunder who has truly mastered the powers of the skies. It is immune to lightning magic and can wield any piece of equipment they choose.",
     "tier": 9,
     "images": [
@@ -2266,6 +2353,9 @@
     "name": "Ifrit",
     "female_name": "Ifrit",
     "cost": "5,000,000 orns",
+    "price": "5000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A knight of smoke and ash who has truly mastered the powers of the flame. It is immune to fire magic and can wield any piece of equipment they choose.",
     "tier": 8,
     "images": [
@@ -2342,6 +2432,9 @@
     "name": "Knight",
     "female_name": "Knightess",
     "cost": "10,000 orns",
+    "price": "10000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A fighting class that favours defense and HP over magic and skills. Can wield heavier armor and weapons.",
     "tier": 2,
     "images": [
@@ -2388,6 +2481,9 @@
     "name": "Legionnaire",
     "female_name": "Legionnaire",
     "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
     "description": "A soldier of the Earthen Legion that has mastered the arts of the ground below them.",
     "tier": 2,
     "images": [
@@ -2397,12 +2493,12 @@
     "skills": {
       "passives": [
         {
-          "id": 18,
-          "name": "HP Step"
-        },
-        {
           "id": 6,
           "name": "EXP Step"
+        },
+        {
+          "id": 18,
+          "name": "HP Step"
         }
       ],
       "learns": [
@@ -2411,6 +2507,12 @@
           "name": "Heal",
           "level": 20,
           "type": "Healing"
+        },
+        {
+          "id": 596,
+          "name": "Decay",
+          "level": 20,
+          "type": "Debuff"
         },
         {
           "id": 62,
@@ -2461,6 +2563,9 @@
     "name": "Leviathan",
     "female_name": "Leviathan",
     "cost": "5,000,000 orns",
+    "price": "5000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A knight of tide and ice who has truly mastered the powers of the seas. It is immune to water magic and can wield any piece of equipment they choose.",
     "tier": 8,
     "images": [
@@ -2537,6 +2642,9 @@
     "name": "Mage",
     "female_name": "Mage",
     "cost": "2,500 orns",
+    "price": "2500.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A skilled individual who favours magic over strength. Can wield staves and robes.",
     "tier": 1,
     "images": [
@@ -2624,6 +2732,9 @@
     "name": "Majestic",
     "female_name": "Majestic",
     "cost": "250,000 orns",
+    "price": "250000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A royal servant to the kingdom of Annwn, skilled in elemental offense. Can wield any piece of equipment they choose.",
     "tier": 5,
     "images": [
@@ -2722,6 +2833,9 @@
     "name": "Majistrate",
     "female_name": "Majistrate",
     "cost": "2,000,000 orns",
+    "price": "2000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An elite force of the kingdom of Annwn, skilled in elemental offense.  It is naturally strong against arcane magic and can wield equipment of both the knight and rogue",
     "tier": 7,
     "images": [
@@ -2816,6 +2930,9 @@
     "name": "Mystic",
     "female_name": "Mystic",
     "cost": "100,000 orns",
+    "price": "100000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A hybrid class that mixes dexterity and magic. Can wield equipment of both the rogue and mage.",
     "tier": 4,
     "images": [
@@ -2896,6 +3013,9 @@
     "name": "Nekromancer",
     "female_name": "Nekromagus",
     "cost": "3,500,000 orns",
+    "price": "3500000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An exiled magus of Avalon that utilizes the dark powers of the fallen to overcome its foes. It is immune to dark magic and can wield the equipment of the mage.",
     "tier": 8,
     "images": [
@@ -3006,6 +3126,9 @@
     "name": "Noble Gaia",
     "female_name": "Noble Gaia",
     "cost": "10,000,000 orns",
+    "price": "10000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An elite force of nature and balance who has truly mastered the powers of the earth below. It is immune to earthen magic and can wield any piece of equipment they choose.",
     "tier": 9,
     "images": [
@@ -3080,6 +3203,9 @@
     "name": "Nyx",
     "female_name": "Nyx",
     "cost": "7,000,000 orns",
+    "price": "7000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An elusive assassin of Balor. It is well versed in taking away enemy defenses, is immune to dark magic, and can wield the equipment of the rogue.",
     "tier": 9,
     "images": [
@@ -3164,7 +3290,10 @@
     "name": "Omnimancer",
     "female_name": "Omnimagus",
     "cost": "7,000,000 orns",
-    "description": "An unorthodox magus of Avalon that has achievedtrue affinity with all four basic elements. It can cast multi-elemental spells and can occasionally resist the damage of any basic element. It wields the equipment of the mage.",
+    "price": "7000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
+    "description": "An unorthodox magus of Avalon that has achieved true affinity with all four basic elements. It can cast multi-elemental spells and can occasionally resist the damage of any basic element. It wields the equipment of the mage.",
     "tier": 9,
     "images": [
       "classes/omnimancer/1_f.png",
@@ -3370,6 +3499,9 @@
     "name": "Paladin",
     "female_name": "Valkyrie",
     "cost": "10,000 orns",
+    "price": "10000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An elite warrior who decides those who may fall and those who may live in battle. Can wield heavier armor and weapons and practices elemental attacks.",
     "tier": 2,
     "images": [
@@ -3456,6 +3588,9 @@
     "name": "Phalanx",
     "female_name": "Phalanx",
     "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
     "description": "An alternative version of the Centurion class. Purchase this class to support the game and gain an alternative sprite.",
     "tier": 3,
     "images": [
@@ -3474,6 +3609,9 @@
     "name": "Realmshifter",
     "female_name": "Realmshifter",
     "cost": "15,000,000 orns",
+    "price": "15000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "Masters of all that is clandestine, ancient Annwn's realmshifters have the ability to always find the cutting edge in battle. They can see in the dark, are immune to the powers of light & dark, and can wield equipment of the rogue.",
     "tier": 10,
     "images": [
@@ -3485,6 +3623,8 @@
       "classes/realmshifter/3_m.png",
       "classes/realmshifter/4_f.png",
       "classes/realmshifter/4_m.png",
+      "classes/realmshifter/5_f.png",
+      "classes/realmshifter/5_m.png",
       "classes/realmshifter/default_f.png",
       "classes/realmshifter/default_m.png"
     ],
@@ -3495,6 +3635,10 @@
           "name": "Saboteur II"
         },
         {
+          "id": 505,
+          "name": "Resurgence"
+        },
+        {
           "id": 506,
           "name": "Recharge II"
         },
@@ -3503,16 +3647,12 @@
           "name": "Mystic Feather"
         },
         {
-          "id": 507,
-          "name": "Apothecarist III"
-        },
-        {
           "id": 508,
           "name": "Realm's Light"
         },
         {
-          "id": 505,
-          "name": "Resurgence"
+          "id": 610,
+          "name": "High Tenacity"
         }
       ],
       "learns": [
@@ -3568,6 +3708,9 @@
     "name": "Rogue",
     "female_name": "Rogue",
     "cost": "10,000 orns",
+    "price": "10000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A fighter well versed in various weaponry. Can wield daggers, bows, and some swords.",
     "tier": 2,
     "images": [
@@ -3660,6 +3803,9 @@
     "name": "Royal Guard",
     "female_name": "Royal Guard",
     "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
     "description": "A fighting class that favours defense and HP over magic and skills. Can wield heavier armor and weapons.",
     "tier": 2,
     "images": [
@@ -3709,6 +3855,9 @@
     "name": "Runeblade",
     "female_name": "Runeblade",
     "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
     "description": "An alternative version of the Spellsword class. Purchase this class to support the game and gain an alternative sprite.",
     "tier": 4,
     "images": [
@@ -3740,6 +3889,9 @@
     "name": "Rune Knight",
     "female_name": "Rune Knightess",
     "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
     "description": "An elite warrior who decides those who may fall and those who may live in battle. Can wield heavier armor and weapons and practices elemental attacks.",
     "tier": 2,
     "images": [
@@ -3825,6 +3977,9 @@
     "name": "Scorcher",
     "female_name": "Scorcher",
     "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
     "description": "A rogue of the Inferno Knights. This fighting class can learn rare fire magic.",
     "tier": 2,
     "images": [
@@ -3946,6 +4101,9 @@
     "name": "Sorcerer",
     "female_name": "Sorcereress",
     "cost": "50,000 orns",
+    "price": "50000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "An even more powerful mage who practices magic of dark and light. Can wield archistaffs and robes.",
     "tier": 3,
     "images": [
@@ -3992,7 +4150,7 @@
         },
         {
           "id": 89,
-          "name": "Holy",
+          "name": "Faith",
           "level": 65,
           "type": "Magic"
         },
@@ -4034,6 +4192,9 @@
     "name": "Spellsword",
     "female_name": "Spellsword",
     "cost": "100,000 orns",
+    "price": "100000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A hybrid class that mixes defense and magic. Can wield equipment of both the knight and mage.",
     "tier": 4,
     "images": [
@@ -4101,7 +4262,7 @@
           "type": "Magic"
         }
       ],
-      "slots": 4
+      "slots": 6
     },
     "learns": "Basic magic, Buffs",
     "stats": [
@@ -4114,6 +4275,9 @@
     "name": "Storm Knight",
     "female_name": "Storm Valkyrie",
     "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
     "description": "A soldier of Stormforce that has mastered the arts of the sky above them.",
     "tier": 2,
     "images": [
@@ -4193,6 +4357,9 @@
     "name": "Taranis",
     "female_name": "Taranis",
     "cost": "5,000,000 orns",
+    "price": "5000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A knight of lightning and thunder who has truly mastered the powers of the skies. It is immune to lightning magic and can wield any piece of equipment they choose.",
     "tier": 8,
     "images": [
@@ -4269,6 +4436,9 @@
     "name": "Thief",
     "female_name": "Thief",
     "cost": "2,500 orns",
+    "price": "2500.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A tricky fighting class that favours speed and damage over defense. Can wield daggers, bows, and some swords.",
     "tier": 1,
     "images": [
@@ -4336,6 +4506,9 @@
     "name": "Titanguard",
     "female_name": "Titanguard",
     "cost": "7,000,000 orns",
+    "price": "7000000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A seasoned and stalwart holy warrior of Lyonesse that is strongly versed in methods of ward and survivability. It is immune to holy magic and can wield equipment of the warrior.",
     "tier": 9,
     "images": [
@@ -4438,6 +4611,9 @@
     "name": "Wanderer",
     "female_name": "Wanderess",
     "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
     "description": "A fighter well versed in various weaponry. Can wield daggers, bows, and some swords.",
     "tier": 2,
     "images": [
@@ -4525,6 +4701,9 @@
     "name": "Warlock",
     "female_name": "Warlock",
     "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
     "description": "A powerful mage who further favours magic over all else. Can wield archistaffs and robes.",
     "tier": 2,
     "images": [
@@ -4616,6 +4795,9 @@
     "name": "Warlord",
     "female_name": "Warlord",
     "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
     "description": "An alternative version of the Battle Master class. Purchase this class to support the game and gain an alternative sprite.",
     "tier": 3,
     "images": [
@@ -4634,6 +4816,9 @@
     "name": "Warrior",
     "female_name": "Warrior",
     "cost": "2,500 orns",
+    "price": "2500.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
     "description": "A melee class who favours physical attacks and brute strength over magic. Can wield most weapons and armor.",
     "tier": 1,
     "images": [
