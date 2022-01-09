@@ -59,6 +59,16 @@ class ItemListViewModel(
 
     val allPossibleStats: List<String> = Item.STATS
 
+    val allPossibleGives: LiveData<List<String>> by lazy {
+        repository.fetchAllPossibleGives()
+            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+    }
+
+    val allPossibleImmunities: LiveData<List<String>> by lazy {
+        repository.fetchAllPossibleImmunities()
+            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+    }
+
     val itemList: MutableLiveData<List<Item>> = MutableLiveData()
 
     var sessionItemFilter: MutableLiveData<ItemFilter> =
@@ -105,6 +115,16 @@ class ItemListViewModel(
 
     fun updateSelectedStats(stats: List<String>) {
         sessionItemFilter.value = sessionItemFilter.value?.copy(stats = stats)
+        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
+    }
+
+    fun updateSelectedGives(gives: List<String>) {
+        sessionItemFilter.value = sessionItemFilter.value?.copy(gives = gives)
+        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
+    }
+
+    fun updateSelectedImmunities(immunities: List<String>) {
+        sessionItemFilter.value = sessionItemFilter.value?.copy(immunities = immunities)
         resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
     }
 

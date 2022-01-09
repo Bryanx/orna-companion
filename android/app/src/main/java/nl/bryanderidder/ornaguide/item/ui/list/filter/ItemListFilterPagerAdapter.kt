@@ -24,6 +24,8 @@ class ItemListFilterPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
             "Element" to ::ItemListFilterElementFragment,
             "Equip class" to ::ItemListFilterEquippedByFragment,
             "Stats" to ::ItemListFilterStatFragment,
+            "Gives" to ::ItemListFilterGiveFragment,
+            "Immunities" to ::ItemListFilterImmunityFragment,
         )
 
         val FILTER_TAB_LABELS: List<String> = FILTER_TAB_ITEMS.keys.toList()

@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import nl.bryanderidder.ornaguide.item.model.Item
+import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import nl.bryanderidder.ornaguide.shared.util.NetworkUtil.handleException
 import nl.bryanderidder.ornaguide.shared.util.NetworkUtil.handleExceptionWithNetworkMessage
@@ -23,6 +24,7 @@ import timber.log.Timber
 class ItemRepository(
     private val client: OrnaClient,
     private val dao: ItemDao,
+    private val converters: OrnaTypeConverters,
 ) {
 
     @WorkerThread
@@ -115,6 +117,22 @@ class ItemRepository(
     @WorkerThread
     fun fetchAllPossibleEquippedBy() = flow {
         val results = dao.getAllPossibleEquippedBy().flatMap { it.equippedBy }.distinct().toList()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleGives() = flow {
+        val results = dao.getAllPossibleGives()
+            .flatMap { converters.toStringList(it) }
+            .distinct()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossibleImmunities() = flow {
+        val results = dao.getAllPossibleImmunities()
+            .flatMap { converters.toStringList(it) }
+            .distinct()
         emit(results)
     }.flowOn(Dispatchers.IO)
 }

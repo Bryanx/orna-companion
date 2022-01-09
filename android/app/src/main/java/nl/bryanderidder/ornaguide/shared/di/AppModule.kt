@@ -137,7 +137,7 @@ val appModule: Module = module {
     single { SkillRepository(get(), get())}
     single { SpecializationRepository(get(), get(), get())}
     single { PetRepository(get(), get())}
-    single { ItemRepository(get(), get()) }
+    single { ItemRepository(get(), get(), get()) }
     single { MonsterRepository(get(), get()) }
     single { NpcRepository(get(), get()) }
     single { AchievementRepository(get(), get()) }

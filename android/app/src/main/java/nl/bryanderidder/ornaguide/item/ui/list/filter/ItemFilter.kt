@@ -14,6 +14,8 @@ data class ItemFilter(
     var elements: List<String> = listOf(),
     var equippedByList: List<String> = listOf(),
     var stats: List<String> = listOf(),
+    var gives: List<String> = listOf(),
+    var immunities: List<String> = listOf(),
 ) {
     fun applyFilter(list: List<Item>): List<Item> {
         return if (isEmpty())
@@ -36,6 +38,10 @@ data class ItemFilter(
             newList = newList.filter { item -> equippedByList.any(item.equippedBy.toString()::contains) }
         if (stats.isNotEmpty())
             newList = newList.filter { item -> stats.any(item.statsAsMap()::containsKey) }
+        if (gives.isNotEmpty())
+            newList = newList.filter { item -> gives.any(item.gives::contains) }
+        if (immunities.isNotEmpty())
+            newList = newList.filter { item -> immunities.any(item.immunities::contains) }
         return newList
     }
 
@@ -52,5 +58,7 @@ data class ItemFilter(
         elements,
         equippedByList,
         stats,
+        gives,
+        immunities,
     )
 }
