@@ -64,6 +64,11 @@ class ItemListViewModel(
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
     }
 
+    val allPossibleCauses: LiveData<List<String>> by lazy {
+        repository.fetchAllPossibleCauses()
+            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+    }
+
     val allPossibleImmunities: LiveData<List<String>> by lazy {
         repository.fetchAllPossibleImmunities()
             .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
@@ -124,6 +129,11 @@ class ItemListViewModel(
 
     fun updateSelectedGives(gives: List<String>) {
         sessionItemFilter.value = sessionItemFilter.value?.copy(gives = gives)
+        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
+    }
+
+    fun updateSelectedCauses(causes: List<String>) {
+        sessionItemFilter.value = sessionItemFilter.value?.copy(causes = causes)
         resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
     }
 

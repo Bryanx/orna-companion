@@ -25,6 +25,7 @@ class ItemListFilterPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
             "Equip class" to ::ItemListFilterEquippedByFragment,
             "Stats" to ::ItemListFilterStatFragment,
             "Gives" to ::ItemListFilterGiveFragment,
+            "Causes" to ::ItemListFilterCauseFragment,
             "Immunities" to ::ItemListFilterImmunityFragment,
             "Cures" to ::ItemListFilterCureFragment,
         )

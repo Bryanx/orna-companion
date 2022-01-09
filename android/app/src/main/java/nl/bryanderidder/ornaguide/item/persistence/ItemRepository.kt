@@ -129,6 +129,14 @@ class ItemRepository(
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
+    fun fetchAllPossibleCauses() = flow {
+        val results = dao.getAllPossibleCauses()
+            .flatMap { converters.toStringList(it) }
+            .distinct()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
     fun fetchAllPossibleImmunities() = flow {
         val results = dao.getAllPossibleImmunities()
             .flatMap { converters.toStringList(it) }
