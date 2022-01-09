@@ -98,8 +98,8 @@
     <string name="search">Search</string>
     <string name="guides">Guides</string>
     <string name="crit">Crit</string>
-    <string name="immunities">Immunities</string>
-    <string name="gives">Gives</string>
+    <string name="immunities">Immunities:</string>
+    <string name="gives">Gives:</string>
     <string name="more">More</string>
     <string name="crash_reports">Crash reports</string>
     <string name="crash_reports_summary">Send a crash report when this app crashes. This greatly helps improve the app!</string>
