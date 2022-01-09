@@ -30,6 +30,7 @@ class SkillDetailActivity :
             learnedByAdapter = LearnedByAdapter(get())
             monstersUseAdapter = MonstersUseAdapter(get())
             petsUseAdapter = PetsUseAdapter(get())
+            buffedByAdapter = BuffedByAdapter(get())
             vm = getViewModel<SkillDetailViewModel>()
                 .apply { loadSkill() }
         }

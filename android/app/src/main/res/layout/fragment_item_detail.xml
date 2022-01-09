@@ -77,6 +77,29 @@
             tools:text="T. Dex ↓\nT. Crit ↑↑"/>
 
         <TextView
+            android:id="@+id/causes"
+            android:paddingTop="@dimen/cardDividerPadding"
+            style="@style/databaseItemPageDescription"
+            android:text="@string/causes"
+            app:gone="@{vm.item.causes.isEmpty()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/givesList"/>
+
+        <TextView
+            android:id="@+id/causesList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@{vm.item.formattedCauses()}"
+            app:gone="@{vm.item.causes.isEmpty()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/causes"
+            tools:listitem="@layout/item_item_equipped_by"
+            tools:text="T. Dex ↓\nT. Crit ↑↑"/>
+
+        <TextView
             android:id="@+id/equippedBy"
             android:paddingTop="@dimen/cardDividerPadding"
             style="@style/databaseItemPageDescription"
@@ -84,7 +107,7 @@
             app:gone="@{vm.item.equippedBy.isEmpty()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/givesList"/>
+            app:layout_constraintTop_toBottomOf="@id/causesList"/>
 
         <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
             android:id="@+id/equippedByList"

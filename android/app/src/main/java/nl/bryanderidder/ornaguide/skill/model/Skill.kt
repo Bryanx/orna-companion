@@ -26,6 +26,7 @@ data class Skill(
     @Json(name = "mana_cost") val manaCost: Int = 0,
     @Json(name = "monsters_use") val monstersUse: List<IdNamePair> = listOf(),
     @Json(name = "pets_use") val petsUse: List<IdNamePair> = listOf(),
+    @Json(name = "buffed_by") val buffedBy: List<IdNamePair> = listOf(),
     @Json(name = "name") val name: String = "",
     @Json(name = "tier") val tier: Int = 0,
     @Json(name = "type") val type: String = "",

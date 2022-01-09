@@ -35,7 +35,10 @@ object DatabaseMigrations {
     val MIGRATION_6_7: Migration = object : Migration(6, 7) {
         override fun migrate(database: SupportSQLiteDatabase) {
             database.execSQL("ALTER TABLE Skill ADD COLUMN cures TEXT DEFAULT '' NOT NULL")
+            database.execSQL("ALTER TABLE Skill ADD COLUMN buffedBy TEXT DEFAULT '' NOT NULL")
             database.execSQL("ALTER TABLE Item ADD COLUMN cures TEXT DEFAULT '' NOT NULL")
+            database.execSQL("ALTER TABLE Item ADD COLUMN causes TEXT DEFAULT '' NOT NULL")
+            database.execSQL("ALTER TABLE Item ADD COLUMN viewDistance INTEGER DEFAULT 0 NOT NULL")
         }
     }
 }

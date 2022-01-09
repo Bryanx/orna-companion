@@ -75,7 +75,7 @@
     <string name="default_tier_filter">Default tier filter</string>
     <string name="default_tier_filter_description">Set the default tier that is loaded for all objects (requires app restart)</string>
     <string name="sync">Sync with Orna.Guide</string>
-    <string name="sync_description">This can take a few minutes. This is only neccessary for new objects, existing objects are synced automatically.</string>
+    <string name="sync_description">This can take a few minutes. This is only necessary for new objects, existing objects are synced automatically.</string>
     <string name="customization">Customization</string>
     <string name="community">Community</string>
     <string name="credit_list">Actu8tr, aimbotzach, AncientKBird, Beardmonster, Biokemyst, blank, Ceimir, Coreonysis, eazyx, Flicsmo, izzy, Jakovious, Jensen, JohnDragon, Karzdan, Levelz, Major, MattNo5ss, napalminator, nimu, NovaKane, PuzzleKnight, Polygons, Ryan Ogi, Stack, Suugin, tagzrdum, The Lotus Note, and all members of the Discord who have posted screenshots and collected data to make all this possible.</string>
@@ -110,4 +110,7 @@
     <string name="crash_reports_dialog_description">Do you want to send a crash report when this app crashes? This greatly helps improve the app!</string>
     <string name="reset">RESET</string>
     <string name="cures">Cures:</string>
+    <string name="view_distance">+View distance</string>
+    <string name="causes">Causes:</string>
+    <string name="buffed_by">Buffed by:</string>
 </resources>

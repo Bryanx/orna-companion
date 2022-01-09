@@ -22,6 +22,10 @@
             type="nl.bryanderidder.ornaguide.skill.ui.detail.PetsUseAdapter" />
 
         <variable
+            name="buffedByAdapter"
+            type="nl.bryanderidder.ornaguide.skill.ui.detail.BuffedByAdapter" />
+
+        <variable
             name="vm"
             type="nl.bryanderidder.ornaguide.skill.ui.detail.SkillDetailViewModel" />
     </data>
@@ -189,6 +193,33 @@
                     tools:listitem="@layout/item_skill_learned_by" />
 
                 <TextView
+                    android:id="@+id/buffedBy"
+                    android:paddingTop="@dimen/cardPadding"
+                    style="@style/databaseItemPageDescription"
+                    android:text="@string/buffed_by"
+                    app:gone="@{vm.skill.buffedBy.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/learnedByList" />
+
+                <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
+                    android:id="@+id/buffedByList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:fadeScrollbars="false"
+                    android:overScrollMode="never"
+                    android:paddingTop="6dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    app:gone="@{vm.skill.buffedBy.isEmpty()}"
+                    app:buffedByAdapter="@{buffedByAdapter}"
+                    app:buffedByList="@{vm.skill.buffedBy}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/buffedBy"
+                    tools:listitem="@layout/item_skill_monsters_use" />
+
+                <TextView
                     android:id="@+id/monstersUse"
                     android:paddingTop="@dimen/cardPadding"
                     style="@style/databaseItemPageDescription"
@@ -196,7 +227,7 @@
                     app:gone="@{vm.skill.monstersUse.isEmpty()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/learnedByList" />
+                    app:layout_constraintTop_toBottomOf="@+id/buffedByList" />
 
                 <nl.bryanderidder.ornaguide.shared.ui.recyclerview.FlexRecyclerView
                     android:id="@+id/monstersUseList"

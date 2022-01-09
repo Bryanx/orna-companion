@@ -71,6 +71,19 @@
                     tools:text="Att: 178 Def: 123" />
 
                 <TextView
+                    android:id="@+id/viewDistance"
+                    style="@style/databaseItemDescription"
+                    android:text="@string/view_distance"
+                    android:textAlignment="center"
+                    android:paddingBottom="@dimen/cardPadding"
+                    android:textColor="@color/ornaGreen"
+                    app:showIf="@{vm.item.viewDistance}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/stats"
+                    tools:text="+View distance" />
+
+                <TextView
                     android:id="@+id/cures"
                     style="@style/databaseItemDescription"
                     android:text="@{vm.item.formattedCures()}"
@@ -79,7 +92,7 @@
                     app:gone="@{vm.item.cures.isEmpty()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/stats"
+                    app:layout_constraintTop_toBottomOf="@+id/viewDistance"
                     tools:text="Cures: Frozen, Poisoned" />
 
                 <TextView

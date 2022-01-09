@@ -26,7 +26,9 @@ data class Item(
     @Json(name = "quests") val quests: List<IdNamePair> = listOf(),
     @Json(name = "prevents") val immunities: List<String> = listOf(),
     @Json(name = "gives") val gives: List<String> = listOf(),
+    @Json(name = "causes") val causes: List<String> = listOf(),
     @Json(name = "cures") val cures: List<String> = listOf(),
+    @Json(name = "view_distance") val viewDistance: Boolean = false,
 ) {
 
     @Ignore
@@ -120,6 +122,9 @@ data class Item(
 
     @Ignore
     fun formattedGives(): String = gives.joinToString("\n")
+
+    @Ignore
+    fun formattedCauses(): String = causes.joinToString("\n")
 
     @Ignore
     fun formattedCures(): SpannableStringBuilder =

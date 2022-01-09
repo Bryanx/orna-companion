@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import nl.bryanderidder.ornaguide.shared.util.ImageUtil
 import nl.bryanderidder.ornaguide.skill.model.Skill
+import nl.bryanderidder.ornaguide.skill.ui.detail.BuffedByAdapter
 import nl.bryanderidder.ornaguide.skill.ui.detail.LearnedByAdapter
 import nl.bryanderidder.ornaguide.skill.ui.detail.MonstersUseAdapter
 import nl.bryanderidder.ornaguide.skill.ui.detail.PetsUseAdapter
@@ -23,6 +24,13 @@ object SkillViewBinding {
     @JvmStatic
     @BindingAdapter("learnedByAdapter", "learnedByList", requireAll = true)
     fun bindAdapterLearnedByList(view: RecyclerView, adapter: LearnedByAdapter, items: List<Skill.LearnedBy>?) {
+        view.adapter = adapter
+        adapter.setItemList(items ?: listOf())
+    }
+
+    @JvmStatic
+    @BindingAdapter("buffedByAdapter", "buffedByList", requireAll = true)
+    fun bindBuffedByList(view: RecyclerView, adapter: BuffedByAdapter, items: List<Skill.IdNamePair>?) {
         view.adapter = adapter
         adapter.setItemList(items ?: listOf())
     }
