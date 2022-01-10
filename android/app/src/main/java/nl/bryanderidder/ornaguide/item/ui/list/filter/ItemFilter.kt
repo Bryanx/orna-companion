@@ -38,7 +38,9 @@ data class ItemFilter(
             newList = newList.filter { item -> elements.contains(item.element) }
         if (equippedByList.isNotEmpty())
             newList = newList.filter { item -> equippedByList.any(item.equippedBy.toString()::contains) }
-        if (stats.isNotEmpty())
+        if (stats.isNotEmpty() && stats.contains("View distance"))
+            newList = newList.filter { item -> stats.any(item.statsAsMap()::containsKey) || item.viewDistance }
+        if (stats.isNotEmpty() && !stats.contains("View distance"))
             newList = newList.filter { item -> stats.any(item.statsAsMap()::containsKey) }
         if (gives.isNotEmpty())
             newList = newList.filter { item -> gives.any(item.gives::contains) }
