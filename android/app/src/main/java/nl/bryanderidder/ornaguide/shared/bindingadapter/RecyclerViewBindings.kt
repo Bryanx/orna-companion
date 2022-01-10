@@ -33,7 +33,9 @@ object RecyclerViewBindings {
     ) {
         if (view.adapter == null)
             view.adapter = adapter
-        (view.adapter as SearchListAdapter).submitList(items?.take(50))
+        (view.adapter as SearchListAdapter).submitList(items?.take(50)) {
+            view.scrollToPosition(0)
+        }
     }
 
     @JvmStatic
