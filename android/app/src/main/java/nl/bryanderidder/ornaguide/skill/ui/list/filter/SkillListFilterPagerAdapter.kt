@@ -23,7 +23,7 @@ class SkillListFilterPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
             "Type" to ::SkillListFilterTypeFragment,
             "Element" to ::SkillListFilterElementFragment,
             "Source" to ::SkillListFilterSourceFragment,
-            "Cure" to ::SkillListFilterCureFragment,
+            "Cures" to ::SkillListFilterCureFragment,
             "Gives" to ::SkillListFilterGiveFragment,
             "Causes" to ::SkillListFilterCauseFragment,
         )
