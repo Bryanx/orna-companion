@@ -85,6 +85,7 @@ class OrnaTypeConverters(private val moshi: Moshi) {
 
     @TypeConverter
     fun toSkillIdNamePair(value: String): List<Skill.IdNamePair> {
+        if (value.isEmpty()) return listOf()
         val listType = Types.newParameterizedType(List::class.java, Skill.IdNamePair::class.java)
         val adapter: JsonAdapter<List<Skill.IdNamePair>> = moshi.adapter(listType)
         return adapter.fromJson(value) ?: listOf()
