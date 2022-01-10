@@ -111,15 +111,17 @@ class ItemRepository(
     @WorkerThread
     fun fetchAllPossibleElements() = flow {
         val results = dao.getAllPossibleElements()
+            .filter(String::isNotEmpty)
         emit(results)
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
     fun fetchAllPossibleEquippedBy() = flow {
         val results = dao.getAllPossibleEquippedBy()
-            .flatMap(Item::equippedBy)
+            .flatMap(converters::toIdNamePair)
+            .map(Item.IdNamePair::name)
             .distinct()
-            .toList()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 

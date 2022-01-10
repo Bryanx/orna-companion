@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 import nl.bryanderidder.ornaguide.skill.model.Skill
 import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
 import nl.bryanderidder.ornaguide.skill.ui.list.filter.SkillFilter
@@ -36,36 +37,29 @@ class SkillListViewModel(
         private set
 
     val allPossibleTiers: LiveData<List<Int>> by lazy {
-        repository.fetchAllPossibleTiers()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleTiers().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleTypes: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleTypes()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleTypes().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleElements: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleElements()
-            .map { it.filter(String::isNotEmpty).toList() }
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleElements().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleSources: List<String> = listOf("Drop", "Bought from Arcanist")
 
     val allPossibleCures: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleCures()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleCures().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleGives: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleGives()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleGives().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleCauses: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleCauses()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleCauses().asLiveDataIO(viewModelScope)
     }
 
     val skillList: MutableLiveData<List<Skill>> = MutableLiveData()
@@ -92,43 +86,31 @@ class SkillListViewModel(
         }
     }
 
-    fun updateSelectedTiers(tiers: List<String>) {
-        sessionSkillFilter.value = sessionSkillFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
-        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
-    }
+    fun updateSelectedTiers(tiers: List<String>) =
+        updateFilter(sessionSkillFilter.value?.copy(tiers = tiers.map(String::toInt).toList()))
 
-    fun updateSelectedTypes(types: List<String>) {
-        sessionSkillFilter.value = sessionSkillFilter.value?.copy(types = types)
-        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
-    }
+    fun updateSelectedTypes(types: List<String>) =
+        updateFilter(sessionSkillFilter.value?.copy(types = types))
 
-    fun updateSelectedElements(elements: List<String>) {
-        sessionSkillFilter.value = sessionSkillFilter.value?.copy(elements = elements)
-        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
-    }
+    fun updateSelectedElements(elements: List<String>) =
+        updateFilter(sessionSkillFilter.value?.copy(elements = elements))
 
-    fun updateSelectedSources(sources: List<String>) {
-        sessionSkillFilter.value = sessionSkillFilter.value?.copy(sources = sources)
-        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
-    }
+    fun updateSelectedSources(sources: List<String>) =
+        updateFilter(sessionSkillFilter.value?.copy(sources = sources))
 
-    fun updateSelectedCures(cures: List<String>) {
-        sessionSkillFilter.value = sessionSkillFilter.value?.copy(cures = cures)
-        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
-    }
+    fun updateSelectedCures(cures: List<String>) =
+        updateFilter(sessionSkillFilter.value?.copy(cures = cures))
 
-    fun updateSelectedGives(gives: List<String>) {
-        sessionSkillFilter.value = sessionSkillFilter.value?.copy(gives = gives)
-        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
-    }
+    fun updateSelectedGives(gives: List<String>) =
+        updateFilter(sessionSkillFilter.value?.copy(gives = gives))
 
-    fun updateSelectedCauses(causes: List<String>) {
-        sessionSkillFilter.value = sessionSkillFilter.value?.copy(causes = causes)
-        resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
-    }
+    fun updateSelectedCauses(causes: List<String>) =
+        updateFilter(sessionSkillFilter.value?.copy(causes = causes))
 
-    fun onClearFilters() {
-        sessionSkillFilter.value = SkillFilter()
+    fun onClearFilters() = updateFilter(SkillFilter())
+
+    fun updateFilter(filter: SkillFilter?) {
+        sessionSkillFilter.value = filter
         resultCount = sessionSkillFilter.value?.countFilterResults(skillList.value) ?: 0
     }
 

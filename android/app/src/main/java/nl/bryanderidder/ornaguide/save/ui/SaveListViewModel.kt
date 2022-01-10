@@ -49,19 +49,16 @@ class SaveListViewModel(
         saveRepo.fetchAllPossibleTypes().collect(allPossibleTypes::postValue)
     }
 
-    fun updateSelectedTiers(tiers: List<String>) {
-        sessionSaveFilter.value = sessionSaveFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
-        resultCount = sessionSaveFilter.value?.countFilterResults(saveList.value) ?: 0
+    fun updateSelectedTiers(tiers: List<String>) =
+        updateFilter(sessionSaveFilter.value?.copy(tiers = tiers.map(String::toInt).toList()))
 
-    }
+    fun updateSelectedTypes(types: List<String>) =
+        updateFilter(sessionSaveFilter.value?.copy(types = types))
 
-    fun updateSelectedTypes(types: List<String>) {
-        sessionSaveFilter.value = sessionSaveFilter.value?.copy(types = types)
-        resultCount = sessionSaveFilter.value?.countFilterResults(saveList.value) ?: 0
-    }
+    fun onClearFilters() = updateFilter(SaveFilter())
 
-    fun onClearFilters() {
-        sessionSaveFilter.value = SaveFilter()
+    fun updateFilter(filter: SaveFilter?) {
+        sessionSaveFilter.value = filter
         resultCount = sessionSaveFilter.value?.countFilterResults(saveList.value) ?: 0
     }
 

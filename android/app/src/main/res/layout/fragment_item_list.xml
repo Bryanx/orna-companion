@@ -62,6 +62,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/itemListRecyclerView"
             style="@style/databaseListRecyclerView"
             app:listAdapter="@{adapter}"
             app:listAdapterItems="@{vm.itemList}"

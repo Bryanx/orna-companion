@@ -4,20 +4,17 @@ import androidx.databinding.Bindable
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.monster.model.Monster
 import nl.bryanderidder.ornaguide.monster.persistence.MonsterRepository
 import nl.bryanderidder.ornaguide.monster.ui.list.filter.MonsterFilter
-import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 
 class MonsterListViewModel(
     private val repository: MonsterRepository,
@@ -37,43 +34,35 @@ class MonsterListViewModel(
         private set
     
     val allPossibleTiers: LiveData<List<Int>> by lazy {
-        repository.fetchAllPossibleTiers()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleTiers().asLiveDataIO(viewModelScope)
     }
     
     val allPossibleTypes: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleTypes()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleTypes().asLiveDataIO(viewModelScope)
     }
     
     val allPossibleSpawns: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleSpawns()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleSpawns().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleWeakTos: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleWeakTos()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleWeakTos().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleResistantTos: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleResistantTos()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleResistantTos().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleImmuneTos: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleImmuneTos()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleImmuneTos().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleImmuneToStatuses: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleImmuneToStatuses()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleImmuneToStatuses().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleVulnerableToStatuses: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleVulnerableToStatuses()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleVulnerableToStatuses().asLiveDataIO(viewModelScope)
     }
 
     val monsterList: MutableLiveData<List<Monster>> = MutableLiveData()
@@ -100,48 +89,34 @@ class MonsterListViewModel(
         }
     }
     
-    fun updateSelectedTiers(tiers: List<String>) {
-        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
-        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
-    }
+    fun updateSelectedTiers(tiers: List<String>) =
+        updateFilter(sessionMonsterFilter.value?.copy(tiers = tiers.map(String::toInt).toList()))
     
-    fun updateSelectedTypes(types: List<String>) {
-        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(types = types)
-        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
-    }
+    fun updateSelectedTypes(types: List<String>) =
+        updateFilter(sessionMonsterFilter.value?.copy(types = types))
     
-    fun updateSelectedSpawns(spawns: List<String>) {
-        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(spawns = spawns)
-        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
-    }
+    fun updateSelectedSpawns(spawns: List<String>) =
+        updateFilter(sessionMonsterFilter.value?.copy(spawns = spawns))
 
-    fun updateSelectedWeakTos(weakTos: List<String>) {
-        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(weakTos = weakTos)
-        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
-    }
+    fun updateSelectedWeakTos(weakTos: List<String>) =
+        updateFilter(sessionMonsterFilter.value?.copy(weakTos = weakTos))
 
-    fun updateSelectedResistantTos(resistantTos: List<String>) {
-        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(resistantTos = resistantTos)
-        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
-    }
+    fun updateSelectedResistantTos(resistantTos: List<String>) =
+        updateFilter(sessionMonsterFilter.value?.copy(resistantTos = resistantTos))
 
-    fun updateSelectedImmuneTos(immuneTos: List<String>) {
-        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(immuneTos = immuneTos)
-        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
-    }
+    fun updateSelectedImmuneTos(immuneTos: List<String>) =
+        updateFilter(sessionMonsterFilter.value?.copy(immuneTos = immuneTos))
 
-    fun updateSelectedImmuneToStatuses(immuneToStatuses: List<String>) {
-        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(immuneToStatuses = immuneToStatuses)
-        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
-    }
+    fun updateSelectedImmuneToStatuses(immuneToStatuses: List<String>) =
+        updateFilter(sessionMonsterFilter.value?.copy(immuneToStatuses = immuneToStatuses))
 
-    fun updateSelectedVulnerableToStatuses(vulnerableToStatuses: List<String>) {
-        sessionMonsterFilter.value = sessionMonsterFilter.value?.copy(vulnerableToStatuses = vulnerableToStatuses)
-        resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
-    }
+    fun updateSelectedVulnerableToStatuses(vulnerableToStatuses: List<String>) =
+        updateFilter(sessionMonsterFilter.value?.copy(vulnerableToStatuses = vulnerableToStatuses))
 
-    fun onClearFilters() {
-        sessionMonsterFilter.value = MonsterFilter()
+    fun onClearFilters() = updateFilter(MonsterFilter())
+
+    fun updateFilter(filter: MonsterFilter?) {
+        sessionMonsterFilter.value = filter
         resultCount = sessionMonsterFilter.value?.countFilterResults(monsterList.value) ?: 0
     }
 

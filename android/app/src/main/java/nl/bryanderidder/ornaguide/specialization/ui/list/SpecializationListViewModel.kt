@@ -4,14 +4,13 @@ import androidx.databinding.Bindable
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
 import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationRepository
 import nl.bryanderidder.ornaguide.specialization.ui.list.filter.SpecializationFilter
@@ -33,13 +32,11 @@ class SpecializationListViewModel(
         private set
 
     val allPossibleTiers: LiveData<List<Int>> by lazy {
-        repository.fetchAllPossibleTiers()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleTiers().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleBoosts: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleBoosts()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleBoosts().asLiveDataIO(viewModelScope)
     }
 
     val specializationList: MutableLiveData<List<Specialization>> = MutableLiveData()
@@ -64,18 +61,16 @@ class SpecializationListViewModel(
         }
     }
 
-    fun updateSelectedTiers(tiers: List<String>) {
-        sessionSpecializationFilter.value = sessionSpecializationFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
-        resultCount = sessionSpecializationFilter.value?.countFilterResults(specializationList.value) ?: 0
-    }
+    fun updateSelectedTiers(tiers: List<String>) =
+        updateFilter(sessionSpecializationFilter.value?.copy(tiers = tiers.map(String::toInt).toList()))
 
-    fun updateSelectedBoosts(boosts: List<String>) {
-        sessionSpecializationFilter.value = sessionSpecializationFilter.value?.copy(boosts = boosts)
-        resultCount = sessionSpecializationFilter.value?.countFilterResults(specializationList.value) ?: 0
-    }
+    fun updateSelectedBoosts(boosts: List<String>) =
+        updateFilter(sessionSpecializationFilter.value?.copy(boosts = boosts))
 
-    fun onClearFilters() {
-        sessionSpecializationFilter.value = SpecializationFilter()
+    fun onClearFilters() = updateFilter(SpecializationFilter())
+
+    fun updateFilter(filter: SpecializationFilter?) {
+        sessionSpecializationFilter.value = filter
         resultCount = sessionSpecializationFilter.value?.countFilterResults(specializationList.value) ?: 0
     }
 

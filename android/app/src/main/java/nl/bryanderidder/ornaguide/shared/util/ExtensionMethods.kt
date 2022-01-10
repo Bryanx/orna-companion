@@ -22,6 +22,8 @@ import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
@@ -30,6 +32,7 @@ import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
@@ -206,3 +209,6 @@ fun <T> List<T>.forEachApply(action: (T) -> Unit): List<T> {
     forEach(action)
     return this
 }
+
+fun <T> Flow<List<T>>.asLiveDataIO(scope: CoroutineScope): LiveData<List<T>> =
+    asLiveData(scope.coroutineContext + Dispatchers.IO)

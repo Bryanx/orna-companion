@@ -4,11 +4,9 @@ import androidx.databinding.Bindable
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -16,6 +14,7 @@ import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.pet.persistence.PetRepository
 import nl.bryanderidder.ornaguide.pet.ui.list.filter.PetFilter
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 
 class PetListViewModel(
     private val repository: PetRepository,
@@ -35,8 +34,7 @@ class PetListViewModel(
         private set
 
     val allPossibleTiers: LiveData<List<Int>> by lazy {
-        repository.fetchAllPossibleTiers()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleTiers().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleStats: List<String> = Pet.STATS
@@ -65,18 +63,16 @@ class PetListViewModel(
         }
     }
 
-    fun updateSelectedTiers(tiers: List<String>) {
-        sessionPetFilter.value = sessionPetFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
-        resultCount = sessionPetFilter.value?.countFilterResults(petList.value) ?: 0
-    }
+    fun updateSelectedTiers(tiers: List<String>) =
+        updateFilter(sessionPetFilter.value?.copy(tiers = tiers.map(String::toInt).toList()))
 
-    fun updateSelectedStats(stats: List<String>) {
-        sessionPetFilter.value = sessionPetFilter.value?.copy(stats = stats)
-        resultCount = sessionPetFilter.value?.countFilterResults(petList.value) ?: 0
-    }
+    fun updateSelectedStats(stats: List<String>) =
+        updateFilter(sessionPetFilter.value?.copy(stats = stats))
 
-    fun onClearFilters() {
-        sessionPetFilter.value = PetFilter()
+    fun onClearFilters() = updateFilter(PetFilter())
+
+    fun updateFilter(filter: PetFilter?) {
+        sessionPetFilter.value = filter
         resultCount = sessionPetFilter.value?.countFilterResults(petList.value) ?: 0
     }
 

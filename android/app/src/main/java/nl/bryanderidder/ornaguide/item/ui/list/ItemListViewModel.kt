@@ -17,6 +17,7 @@ import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
 import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemFilter
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 
 class ItemListViewModel(
     private val repository: ItemRepository,
@@ -36,46 +37,36 @@ class ItemListViewModel(
         private set
 
     val allPossibleTiers: LiveData<List<Int>> by lazy {
-        repository.fetchAllPossibleTiers()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleTiers().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleTypes: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleTypes()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleTypes().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleElements: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleElements()
-            .map { it.filter(String::isNotEmpty).toList() }
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleElements().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleEquippedBy: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleEquippedBy()
-            .map { it.map(Item.IdNamePair::name).toList() }
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleEquippedBy().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleStats: List<String> = Item.STATS
 
     val allPossibleGives: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleGives()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleGives().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleCauses: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleCauses()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleCauses().asLiveDataIO(viewModelScope)
     }
 
     val allPossibleImmunities: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleImmunities()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleImmunities().asLiveDataIO(viewModelScope)
     }
     val allPossibleCures: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleCures()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleCures().asLiveDataIO(viewModelScope)
     }
 
     val itemList: MutableLiveData<List<Item>> = MutableLiveData()
@@ -102,53 +93,37 @@ class ItemListViewModel(
         }
     }
 
-    fun updateSelectedTiers(tiers: List<String>) {
-        sessionItemFilter.value = sessionItemFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
-        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
-    }
+    fun updateSelectedTiers(tiers: List<String>) =
+        updateFilter(sessionItemFilter.value?.copy(tiers = tiers.map(String::toInt).toList()))
 
-    fun updateSelectedType(types: List<String>) {
-        sessionItemFilter.value = sessionItemFilter.value?.copy(types = types)
-        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
-    }
+    fun updateSelectedType(types: List<String>) =
+        updateFilter(sessionItemFilter.value?.copy(types = types))
 
-    fun updateSelectedElement(elements: List<String>) {
-        sessionItemFilter.value = sessionItemFilter.value?.copy(elements = elements)
-        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
-    }
+    fun updateSelectedElement(elements: List<String>) =
+        updateFilter(sessionItemFilter.value?.copy(elements = elements))
 
-    fun updateSelectedEquippedByList(equippedByList: List<String>) {
-        sessionItemFilter.value = sessionItemFilter.value?.copy(equippedByList = equippedByList)
-        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
-    }
+    fun updateSelectedEquippedByList(equippedByList: List<String>) =
+        updateFilter(sessionItemFilter.value?.copy(equippedByList = equippedByList))
 
-    fun updateSelectedStats(stats: List<String>) {
-        sessionItemFilter.value = sessionItemFilter.value?.copy(stats = stats)
-        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
-    }
+    fun updateSelectedStats(stats: List<String>) =
+        updateFilter(sessionItemFilter.value?.copy(stats = stats))
 
-    fun updateSelectedGives(gives: List<String>) {
-        sessionItemFilter.value = sessionItemFilter.value?.copy(gives = gives)
-        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
-    }
+    fun updateSelectedGives(gives: List<String>) =
+        updateFilter(sessionItemFilter.value?.copy(gives = gives))
 
-    fun updateSelectedCauses(causes: List<String>) {
-        sessionItemFilter.value = sessionItemFilter.value?.copy(causes = causes)
-        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
-    }
+    fun updateSelectedCauses(causes: List<String>) =
+        updateFilter(sessionItemFilter.value?.copy(causes = causes))
 
-    fun updateSelectedImmunities(immunities: List<String>) {
-        sessionItemFilter.value = sessionItemFilter.value?.copy(immunities = immunities)
-        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
-    }
+    fun updateSelectedImmunities(immunities: List<String>) =
+        updateFilter(sessionItemFilter.value?.copy(immunities = immunities))
 
-    fun updateSelectedCures(cures: List<String>) {
-        sessionItemFilter.value = sessionItemFilter.value?.copy(cures = cures)
-        resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
-    }
+    fun updateSelectedCures(cures: List<String>) =
+        updateFilter(sessionItemFilter.value?.copy(cures = cures))
 
-    fun onClearFilters() {
-        sessionItemFilter.value = ItemFilter()
+    fun onClearFilters() = updateFilter(ItemFilter())
+
+    fun updateFilter(filter: ItemFilter?) {
+        sessionItemFilter.value = filter
         resultCount = sessionItemFilter.value?.countFilterResults(itemList.value) ?: 0
     }
 

@@ -4,11 +4,9 @@ import androidx.databinding.Bindable
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -16,6 +14,7 @@ import nl.bryanderidder.ornaguide.achievement.model.Achievement
 import nl.bryanderidder.ornaguide.achievement.persistence.AchievementRepository
 import nl.bryanderidder.ornaguide.achievement.ui.list.filter.AchievementFilter
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 
 class AchievementListViewModel(
     private val repository: AchievementRepository,
@@ -35,8 +34,7 @@ class AchievementListViewModel(
         private set
 
     val allPossibleTiers: LiveData<List<Int>> by lazy {
-        repository.fetchAllPossibleTiers()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleTiers().asLiveDataIO(viewModelScope)
     }
 
     val achievementList: MutableLiveData<List<Achievement>> = MutableLiveData()
@@ -63,13 +61,13 @@ class AchievementListViewModel(
         }
     }
 
-    fun updateSelectedTiers(tiers: List<String>) {
-        sessionAchievementFilter.value = sessionAchievementFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
-        resultCount = sessionAchievementFilter.value?.countFilterResults(achievementList.value) ?: 0
-    }
+    fun updateSelectedTiers(tiers: List<String>) =
+        updateFilter(AchievementFilter(tiers = tiers.map(String::toInt).toList()))
 
-    fun onClearFilters() {
-        sessionAchievementFilter.value = AchievementFilter()
+    fun onClearFilters() = updateFilter(AchievementFilter())
+
+    fun updateFilter(filter: AchievementFilter?) {
+        sessionAchievementFilter.value = filter
         resultCount = sessionAchievementFilter.value?.countFilterResults(achievementList.value) ?: 0
     }
 

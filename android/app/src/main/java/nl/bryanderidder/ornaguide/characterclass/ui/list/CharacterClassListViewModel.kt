@@ -4,11 +4,9 @@ import androidx.databinding.Bindable
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -16,6 +14,7 @@ import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRepository
 import nl.bryanderidder.ornaguide.characterclass.ui.list.filter.CharacterClassFilter
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 
 class CharacterClassListViewModel(
     private val repository: CharacterClassRepository,
@@ -35,11 +34,10 @@ class CharacterClassListViewModel(
         private set
 
     val allPossibleTiers: LiveData<List<Int>> by lazy {
-        repository.fetchAllPossibleTiers()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleTiers().asLiveDataIO(viewModelScope)
     }
 
-    val allPossibleCostTypes: LiveData<List<String>> = MutableLiveData(listOf("Orns", "Money"))
+    val allPossibleCostTypes: List<String> = listOf("Orns", "Money")
 
     val characterClassList: MutableLiveData<List<CharacterClass>> = MutableLiveData()
 
@@ -65,18 +63,16 @@ class CharacterClassListViewModel(
         }
     }
 
-    fun updateSelectedTiers(tiers: List<String>) {
-        sessionCharacterClassFilter.value = sessionCharacterClassFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
-        resultCount = sessionCharacterClassFilter.value?.countFilterResults(characterClassList.value) ?: 0
-    }
+    fun updateSelectedTiers(tiers: List<String>) =
+        updateFilter(sessionCharacterClassFilter.value?.copy(tiers = tiers.map(String::toInt).toList()))
 
-    fun updateSelectedCostTypes(costTypes: List<String>) {
-        sessionCharacterClassFilter.value = sessionCharacterClassFilter.value?.copy(costTypes = costTypes)
-        resultCount = sessionCharacterClassFilter.value?.countFilterResults(characterClassList.value) ?: 0
-    }
+    fun updateSelectedCostTypes(costTypes: List<String>) =
+        updateFilter(sessionCharacterClassFilter.value?.copy(costTypes = costTypes))
 
-    fun onClearFilters() {
-        sessionCharacterClassFilter.value = CharacterClassFilter()
+    fun onClearFilters() = updateFilter(CharacterClassFilter())
+
+    fun updateFilter(filter: CharacterClassFilter?) {
+        sessionCharacterClassFilter.value = filter
         resultCount = sessionCharacterClassFilter.value?.countFilterResults(characterClassList.value) ?: 0
     }
 

@@ -109,6 +109,7 @@ class SkillRepository(
     @WorkerThread
     fun fetchAllPossibleElements() = flow {
         val results = dao.getAllPossibleElements()
+            .filter(String::isNotEmpty)
         emit(results)
     }.flowOn(Dispatchers.IO)
 

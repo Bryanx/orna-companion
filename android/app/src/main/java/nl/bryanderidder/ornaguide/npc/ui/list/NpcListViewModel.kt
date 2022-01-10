@@ -4,11 +4,9 @@ import androidx.databinding.Bindable
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -16,6 +14,7 @@ import nl.bryanderidder.ornaguide.npc.model.Npc
 import nl.bryanderidder.ornaguide.npc.persistence.NpcRepository
 import nl.bryanderidder.ornaguide.npc.ui.list.filter.NpcFilter
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
+import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 
 class NpcListViewModel(
     private val repository: NpcRepository,
@@ -35,8 +34,7 @@ class NpcListViewModel(
         private set
 
     val allPossibleTiers: LiveData<List<Int>> by lazy {
-        repository.fetchAllPossibleTiers()
-            .asLiveData(viewModelScope.coroutineContext + Dispatchers.IO)
+        repository.fetchAllPossibleTiers().asLiveDataIO(viewModelScope)
     }
 
     val npcList: MutableLiveData<List<Npc>> = MutableLiveData()
@@ -61,13 +59,13 @@ class NpcListViewModel(
         }
     }
 
-    fun updateSelectedTiers(tiers: List<String>) {
-        sessionNpcFilter.value = sessionNpcFilter.value?.copy(tiers = tiers.map(String::toInt).toList())
-        resultCount = sessionNpcFilter.value?.countFilterResults(npcList.value) ?: 0
-    }
+    fun updateSelectedTiers(tiers: List<String>) =
+        updateFilter(sessionNpcFilter.value?.copy(tiers = tiers.map(String::toInt).toList()))
 
-    fun onClearFilters() {
-        sessionNpcFilter.value = NpcFilter()
+    fun onClearFilters() = updateFilter(NpcFilter())
+
+    fun updateFilter(filter: NpcFilter?) {
+        sessionNpcFilter.value = filter
         resultCount = sessionNpcFilter.value?.countFilterResults(npcList.value) ?: 0
     }
 
