@@ -34,7 +34,7 @@ data class SkillFilter(
             newList = newList.filter { skill -> types.contains(skill.type) }
         if (elements.isNotEmpty())
             newList = newList.filter { skill -> elements.contains(skill.element) }
-        if (sources.isNotEmpty() && !sources.contains("Drop"))
+        if (sources.isNotEmpty() && !sources.contains("Learned"))
             newList = newList.filter { it.bought }
         if (sources.isNotEmpty() && !sources.contains("Bought from Arcanist"))
             newList = newList.filter { !it.bought }

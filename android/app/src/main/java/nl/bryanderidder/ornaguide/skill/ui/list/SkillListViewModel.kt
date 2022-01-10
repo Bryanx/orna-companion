@@ -48,7 +48,7 @@ class SkillListViewModel(
         repository.fetchAllPossibleElements().asLiveDataIO(viewModelScope)
     }
 
-    val allPossibleSources: List<String> = listOf("Drop", "Bought from Arcanist")
+    val allPossibleSources: List<String> = listOf("Learned", "Bought from Arcanist")
 
     val allPossibleCures: LiveData<List<String>> by lazy {
         repository.fetchAllPossibleCures().asLiveDataIO(viewModelScope)
