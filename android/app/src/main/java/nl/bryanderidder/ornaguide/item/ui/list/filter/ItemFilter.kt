@@ -16,10 +16,10 @@ data class ItemFilter(
     var elements: List<String> = listOf(),
     var equippedByList: List<String> = listOf(),
     var stats: List<String> = listOf(),
+    var cures: List<String> = listOf(),
     var gives: List<String> = listOf(),
     var causes: List<String> = listOf(),
     var immunities: List<String> = listOf(),
-    var cures: List<String> = listOf(),
 ) {
     fun applyFilter(list: List<Item>): List<Item> {
         return if (isEmpty())
@@ -44,14 +44,14 @@ data class ItemFilter(
             newList = newList.filter { item -> stats.any(item.statsAsMap()::containsKey) || item.viewDistance }
         if (stats.isNotEmpty() && !stats.contains("View distance"))
             newList = newList.filter { item -> stats.any(item.statsAsMap()::containsKey) }
+        if (cures.isNotEmpty())
+            newList = newList.filter { item -> cures.any(item.cures::contains) }
         if (gives.isNotEmpty())
             newList = newList.filter { item -> gives.any(item.gives::contains) }
         if (causes.isNotEmpty())
             newList = newList.filter { item -> causes.any(item.causes::contains) }
         if (immunities.isNotEmpty())
             newList = newList.filter { item -> immunities.any(item.immunities::contains) }
-        if (cures.isNotEmpty())
-            newList = newList.filter { item -> cures.any(item.cures::contains) }
         return newList
     }
 
@@ -68,9 +68,9 @@ data class ItemFilter(
         elements,
         equippedByList,
         stats,
+        cures,
         gives,
         causes,
         immunities,
-        cures,
     )
 }

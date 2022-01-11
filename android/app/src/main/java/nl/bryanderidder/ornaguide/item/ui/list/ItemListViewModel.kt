@@ -51,6 +51,10 @@ class ItemListViewModel(
 
     val allPossibleStats: List<String> = Item.STATS
 
+    val allPossibleCures: LiveData<List<String>> by lazy {
+        repository.fetchAllPossibleCures().asLiveDataIO(viewModelScope)
+    }
+
     val allPossibleGives: LiveData<List<String>> by lazy {
         repository.fetchAllPossibleGives().asLiveDataIO(viewModelScope)
     }
@@ -61,9 +65,6 @@ class ItemListViewModel(
 
     val allPossibleImmunities: LiveData<List<String>> by lazy {
         repository.fetchAllPossibleImmunities().asLiveDataIO(viewModelScope)
-    }
-    val allPossibleCures: LiveData<List<String>> by lazy {
-        repository.fetchAllPossibleCures().asLiveDataIO(viewModelScope)
     }
 
     val itemList: MutableLiveData<List<Item>> = MutableLiveData()
@@ -105,6 +106,9 @@ class ItemListViewModel(
     fun updateSelectedStats(stats: List<String>) =
         updateFilter(sessionItemFilter.value?.copy(stats = stats))
 
+    fun updateSelectedCures(cures: List<String>) =
+        updateFilter(sessionItemFilter.value?.copy(cures = cures))
+
     fun updateSelectedGives(gives: List<String>) =
         updateFilter(sessionItemFilter.value?.copy(gives = gives))
 
@@ -113,9 +117,6 @@ class ItemListViewModel(
 
     fun updateSelectedImmunities(immunities: List<String>) =
         updateFilter(sessionItemFilter.value?.copy(immunities = immunities))
-
-    fun updateSelectedCures(cures: List<String>) =
-        updateFilter(sessionItemFilter.value?.copy(cures = cures))
 
     fun onClearFilters() = updateFilter(ItemFilter())
 
