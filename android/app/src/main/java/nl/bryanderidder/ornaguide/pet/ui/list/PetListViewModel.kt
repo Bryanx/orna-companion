@@ -18,7 +18,7 @@ import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 
 class PetListViewModel(
     private val repository: PetRepository,
-    sharedPrefs: SharedPrefsUtil
+    private val sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
     @get:Bindable
@@ -42,9 +42,9 @@ class PetListViewModel(
     val petList: MutableLiveData<List<Pet>> = MutableLiveData()
 
     var sessionPetFilter: MutableLiveData<PetFilter> =
-        MutableLiveData(PetFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
+        MutableLiveData(sharedPrefs.getPetFilter())
     var petFilter: MutableLiveData<PetFilter> =
-        MutableLiveData(PetFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
+        MutableLiveData(sharedPrefs.getPetFilter())
 
     init {
         loadItems()
@@ -78,6 +78,7 @@ class PetListViewModel(
 
     fun onSubmit(dialog: DialogFragment) {
         petFilter.value = sessionPetFilter.value?.copy()
+        petFilter.value?.let(sharedPrefs::setPetFilter)
         loadItems()
         dialog.dismiss()
     }

@@ -18,7 +18,7 @@ import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 
 class AchievementListViewModel(
     private val repository: AchievementRepository,
-    sharedPrefs: SharedPrefsUtil
+    private val sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
     @get:Bindable
@@ -39,10 +39,10 @@ class AchievementListViewModel(
 
     val achievementList: MutableLiveData<List<Achievement>> = MutableLiveData()
 
-    var sessionAchievementFilter: MutableLiveData<AchievementFilter> = MutableLiveData(
-        AchievementFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
-    var achievementFilter: MutableLiveData<AchievementFilter> = MutableLiveData(
-        AchievementFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
+    var sessionAchievementFilter: MutableLiveData<AchievementFilter> =
+        MutableLiveData(sharedPrefs.getAchievementFilter())
+    var achievementFilter: MutableLiveData<AchievementFilter> =
+        MutableLiveData(sharedPrefs.getAchievementFilter())
 
     init {
         loadItems()
@@ -73,6 +73,7 @@ class AchievementListViewModel(
 
     fun onSubmit(dialog: DialogFragment) {
         achievementFilter.value = sessionAchievementFilter.value?.copy()
+        achievementFilter.value?.let(sharedPrefs::setAchievementFilter)
         loadItems()
         dialog.dismiss()
     }

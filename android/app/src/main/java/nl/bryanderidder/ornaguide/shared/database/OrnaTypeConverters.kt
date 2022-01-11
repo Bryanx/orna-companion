@@ -3,16 +3,33 @@ package nl.bryanderidder.ornaguide.shared.database
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
 import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
+import nl.bryanderidder.ornaguide.achievement.ui.list.filter.AchievementFilter
+import nl.bryanderidder.ornaguide.achievement.ui.list.filter.AchievementFilterJsonAdapter
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
+import nl.bryanderidder.ornaguide.characterclass.ui.list.filter.CharacterClassFilter
+import nl.bryanderidder.ornaguide.characterclass.ui.list.filter.CharacterClassFilterJsonAdapter
 import nl.bryanderidder.ornaguide.item.model.Item
+import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemFilter
+import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemFilterJsonAdapter
 import nl.bryanderidder.ornaguide.monster.model.Monster
+import nl.bryanderidder.ornaguide.monster.ui.list.filter.MonsterFilter
+import nl.bryanderidder.ornaguide.monster.ui.list.filter.MonsterFilterJsonAdapter
 import nl.bryanderidder.ornaguide.npc.model.Npc
+import nl.bryanderidder.ornaguide.npc.ui.list.filter.NpcFilter
+import nl.bryanderidder.ornaguide.npc.ui.list.filter.NpcFilterJsonAdapter
 import nl.bryanderidder.ornaguide.pet.model.Pet
+import nl.bryanderidder.ornaguide.pet.ui.list.filter.PetFilter
+import nl.bryanderidder.ornaguide.pet.ui.list.filter.PetFilterJsonAdapter
 import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
 import nl.bryanderidder.ornaguide.skill.model.Skill
+import nl.bryanderidder.ornaguide.skill.ui.list.filter.SkillFilter
+import nl.bryanderidder.ornaguide.skill.ui.list.filter.SkillFilterJsonAdapter
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
+import nl.bryanderidder.ornaguide.specialization.ui.list.filter.SpecializationFilter
+import nl.bryanderidder.ornaguide.specialization.ui.list.filter.SpecializationFilterJsonAdapter
 
 
 /**
@@ -171,5 +188,66 @@ class OrnaTypeConverters(private val moshi: Moshi) {
         val listType = Types.newParameterizedType(List::class.java, SearchResult::class.java)
         val adapter: JsonAdapter<List<SearchResult>> = moshi.adapter(listType)
         return adapter.toJson(type)
+    }
+
+    fun fromCharacterClassFilter(value: String): CharacterClassFilter? =
+        fromFilter(value) { CharacterClassFilterJsonAdapter(moshi).fromJson(value) }
+
+    fun toCharacterClassFilter(type: CharacterClassFilter): String =
+        toFilter { CharacterClassFilterJsonAdapter(moshi).toJson(type) }
+
+    fun fromSpecializationFilter(value: String): SpecializationFilter? =
+        fromFilter(value) { SpecializationFilterJsonAdapter(moshi).fromJson(value) }
+
+    fun toSpecializationFilter(type: SpecializationFilter): String =
+        toFilter { SpecializationFilterJsonAdapter(moshi).toJson(type) }
+
+    fun fromAchievementFilter(value: String): AchievementFilter? =
+        fromFilter(value) { AchievementFilterJsonAdapter(moshi).fromJson(value) }
+
+    fun toAchievementFilter(type: AchievementFilter): String =
+        toFilter { AchievementFilterJsonAdapter(moshi).toJson(type) }
+
+    fun fromNpcFilter(value: String): NpcFilter? =
+        fromFilter(value) { NpcFilterJsonAdapter(moshi).fromJson(value) }
+
+    fun toNpcFilter(type: NpcFilter): String =
+        toFilter { NpcFilterJsonAdapter(moshi).toJson(type) }
+
+    fun fromPetFilter(value: String): PetFilter? =
+        fromFilter(value) { PetFilterJsonAdapter(moshi).fromJson(value) }
+
+    fun toPetFilter(type: PetFilter): String =
+        toFilter { PetFilterJsonAdapter(moshi).toJson(type) }
+
+    fun fromSkillFilter(value: String): SkillFilter? =
+        fromFilter(value) { SkillFilterJsonAdapter(moshi).fromJson(value) }
+
+    fun toSkillFilter(type: SkillFilter): String =
+        toFilter { SkillFilterJsonAdapter(moshi).toJson(type) }
+
+    fun fromMonsterFilter(value: String): MonsterFilter? =
+        fromFilter(value) { MonsterFilterJsonAdapter(moshi).fromJson(value) }
+
+    fun toMonsterFilter(type: MonsterFilter): String =
+        toFilter { MonsterFilterJsonAdapter(moshi).toJson(type) }
+
+    fun fromItemFilter(value: String): ItemFilter? =
+        fromFilter(value) { ItemFilterJsonAdapter(moshi).fromJson(value) }
+
+    fun toItemFilter(type: ItemFilter): String =
+        toFilter { ItemFilterJsonAdapter(moshi).toJson(type) }
+
+    private fun toFilter(callback: () -> String): String = try {
+        callback()
+    } catch (e: AssertionError) {
+        ""
+    }
+
+    private fun <T> fromFilter(value: String, callback: () -> T?): T? = try {
+        if (value.isEmpty()) null
+        else callback()
+    } catch (e: JsonDataException) {
+        null
     }
 }

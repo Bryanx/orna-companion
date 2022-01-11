@@ -18,7 +18,7 @@ import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 
 class NpcListViewModel(
     private val repository: NpcRepository,
-    sharedPrefs: SharedPrefsUtil
+    private val sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
     @get:Bindable
@@ -39,8 +39,10 @@ class NpcListViewModel(
 
     val npcList: MutableLiveData<List<Npc>> = MutableLiveData()
 
-    var sessionNpcFilter: MutableLiveData<NpcFilter> = MutableLiveData(NpcFilter())
-    var npcFilter: MutableLiveData<NpcFilter> = MutableLiveData(NpcFilter())
+    var sessionNpcFilter: MutableLiveData<NpcFilter> =
+        MutableLiveData(sharedPrefs.getNpcFilter())
+    var npcFilter: MutableLiveData<NpcFilter> =
+        MutableLiveData(sharedPrefs.getNpcFilter())
 
     init {
         loadItems()
@@ -71,6 +73,7 @@ class NpcListViewModel(
 
     fun onSubmit(dialog: DialogFragment) {
         npcFilter.value = sessionNpcFilter.value?.copy()
+        npcFilter.value?.let(sharedPrefs::setNpcFilter)
         loadItems()
         dialog.dismiss()
     }

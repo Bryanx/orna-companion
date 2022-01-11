@@ -4,14 +4,11 @@ import androidx.databinding.Bindable
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
@@ -21,7 +18,7 @@ import nl.bryanderidder.ornaguide.skill.ui.list.filter.SkillFilter
 
 class SkillListViewModel(
     private val repository: SkillRepository,
-    sharedPrefs: SharedPrefsUtil
+    private val sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
     @get:Bindable
@@ -65,9 +62,9 @@ class SkillListViewModel(
     val skillList: MutableLiveData<List<Skill>> = MutableLiveData()
 
     var sessionSkillFilter: MutableLiveData<SkillFilter> =
-        MutableLiveData(SkillFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
+        MutableLiveData(sharedPrefs.getSkillFilter())
     var skillFilter: MutableLiveData<SkillFilter> =
-        MutableLiveData(SkillFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
+        MutableLiveData(sharedPrefs.getSkillFilter())
 
     init {
         loadItems()
@@ -116,6 +113,7 @@ class SkillListViewModel(
 
     fun onSubmit(dialog: DialogFragment) {
         skillFilter.value = sessionSkillFilter.value?.copy()
+        skillFilter.value?.let(sharedPrefs::setSkillFilter)
         loadItems()
         dialog.dismiss()
     }

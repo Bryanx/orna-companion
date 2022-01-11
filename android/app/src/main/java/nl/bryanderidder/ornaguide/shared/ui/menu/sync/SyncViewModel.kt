@@ -14,6 +14,7 @@ import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
 import nl.bryanderidder.ornaguide.monster.persistence.MonsterRepository
 import nl.bryanderidder.ornaguide.npc.persistence.NpcRepository
 import nl.bryanderidder.ornaguide.pet.persistence.PetRepository
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.skill.persistence.SkillRepository
 import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationRepository
 
@@ -26,6 +27,7 @@ class SyncViewModel(
     private val monsterRepo: MonsterRepository,
     private val npcRepo: NpcRepository,
     private val achievementRepo: AchievementRepository,
+    private val sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
     @get:Bindable
@@ -117,6 +119,7 @@ class SyncViewModel(
                     onError = { toastMessage = it }
                 ) as Flow<Any>
             ) { true }.collect {
+                sharedPrefs.clearAllFilters()
                 isLoading = false
             }
         }

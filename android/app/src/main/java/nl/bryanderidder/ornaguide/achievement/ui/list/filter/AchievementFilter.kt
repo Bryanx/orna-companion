@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.achievement.ui.list.filter
 
+import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.achievement.model.Achievement
 import nl.bryanderidder.ornaguide.shared.util.forEachApply
 
@@ -8,6 +9,7 @@ import nl.bryanderidder.ornaguide.shared.util.forEachApply
  * Pojo for achievement filter
  * @author Bryan de Ridder
  */
+@JsonClass(generateAdapter = true)
 data class AchievementFilter(
     var tiers: List<Int> = listOf(),
 ) {

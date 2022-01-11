@@ -18,7 +18,7 @@ import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 
 class MonsterListViewModel(
     private val repository: MonsterRepository,
-    sharedPrefs: SharedPrefsUtil
+    private val sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
     @get:Bindable
@@ -68,9 +68,9 @@ class MonsterListViewModel(
     val monsterList: MutableLiveData<List<Monster>> = MutableLiveData()
 
     var sessionMonsterFilter: MutableLiveData<MonsterFilter> =
-        MutableLiveData(MonsterFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
+        MutableLiveData(sharedPrefs.getMonsterFilter())
     var monsterFilter: MutableLiveData<MonsterFilter> =
-        MutableLiveData(MonsterFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
+        MutableLiveData(sharedPrefs.getMonsterFilter())
 
     init {
         loadItems()
@@ -122,6 +122,7 @@ class MonsterListViewModel(
 
     fun onSubmit(dialog: DialogFragment) {
         monsterFilter.value = sessionMonsterFilter.value?.copy()
+        monsterFilter.value?.let(sharedPrefs::setMonsterFilter)
         loadItems()
         dialog.dismiss()
     }

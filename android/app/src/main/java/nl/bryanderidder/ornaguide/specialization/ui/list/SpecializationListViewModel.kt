@@ -10,13 +10,15 @@ import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
 import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationRepository
 import nl.bryanderidder.ornaguide.specialization.ui.list.filter.SpecializationFilter
 
 class SpecializationListViewModel(
-    private val repository: SpecializationRepository
+    private val repository: SpecializationRepository,
+    private val sharedPrefs: SharedPrefsUtil,
 ) : BindingViewModel() {
 
     @get:Bindable
@@ -41,8 +43,10 @@ class SpecializationListViewModel(
 
     val specializationList: MutableLiveData<List<Specialization>> = MutableLiveData()
 
-    var sessionSpecializationFilter: MutableLiveData<SpecializationFilter> = MutableLiveData(SpecializationFilter())
-    var specializationFilter: MutableLiveData<SpecializationFilter> = MutableLiveData(SpecializationFilter())
+    var sessionSpecializationFilter: MutableLiveData<SpecializationFilter> =
+        MutableLiveData(sharedPrefs.getSpecializationFilter())
+    var specializationFilter: MutableLiveData<SpecializationFilter> =
+        MutableLiveData(sharedPrefs.getSpecializationFilter())
 
     init {
         loadItems()
@@ -76,6 +80,7 @@ class SpecializationListViewModel(
 
     fun onSubmit(dialog: DialogFragment) {
         specializationFilter.value = sessionSpecializationFilter.value?.copy()
+        specializationFilter.value?.let(sharedPrefs::setSpecializationFilter)
         loadItems()
         dialog.dismiss()
     }

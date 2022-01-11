@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.pet.ui.list.filter
 
+import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.pet.model.Pet
 import nl.bryanderidder.ornaguide.shared.util.forEachApply
 
@@ -8,6 +9,7 @@ import nl.bryanderidder.ornaguide.shared.util.forEachApply
  * Pojo for pet filter
  * @author Bryan de Ridder
  */
+@JsonClass(generateAdapter = true)
 data class PetFilter(
     var tiers: List<Int> = listOf(),
     var stats: List<String> = listOf(),

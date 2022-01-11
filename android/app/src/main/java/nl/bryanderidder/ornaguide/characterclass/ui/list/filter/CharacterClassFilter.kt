@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.characterclass.ui.list.filter
 
+import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.shared.util.forEachApply
 
@@ -8,6 +9,7 @@ import nl.bryanderidder.ornaguide.shared.util.forEachApply
  * Pojo for character class filter
  * @author Bryan de Ridder
  */
+@JsonClass(generateAdapter = true)
 data class CharacterClassFilter(
     var tiers: List<Int> = listOf(),
     var costTypes: List<String> = listOf(),

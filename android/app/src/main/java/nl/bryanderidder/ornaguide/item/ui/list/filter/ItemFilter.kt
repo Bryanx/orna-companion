@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.item.ui.list.filter
 
+import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.shared.util.forEachApply
 
@@ -8,6 +9,7 @@ import nl.bryanderidder.ornaguide.shared.util.forEachApply
  * Pojo for item filter
  * @author Bryan de Ridder
  */
+@JsonClass(generateAdapter = true)
 data class ItemFilter(
     var tiers: List<Int> = listOf(),
     var types: List<String> = listOf(),

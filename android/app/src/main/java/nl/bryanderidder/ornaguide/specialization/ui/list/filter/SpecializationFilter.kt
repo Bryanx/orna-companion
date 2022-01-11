@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.specialization.ui.list.filter
 
+import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.shared.util.forEachApply
 import nl.bryanderidder.ornaguide.specialization.model.Specialization
 
@@ -8,6 +9,7 @@ import nl.bryanderidder.ornaguide.specialization.model.Specialization
  * Pojo for specialization filter
  * @author Bryan de Ridder
  */
+@JsonClass(generateAdapter = true)
 data class SpecializationFilter(
     var tiers: List<Int> = listOf(),
     var boosts: List<String> = listOf(),

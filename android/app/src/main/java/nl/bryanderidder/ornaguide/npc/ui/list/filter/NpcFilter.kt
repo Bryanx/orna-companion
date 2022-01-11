@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.npc.ui.list.filter
 
+import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.npc.model.Npc
 import nl.bryanderidder.ornaguide.shared.util.forEachApply
 
@@ -8,6 +9,7 @@ import nl.bryanderidder.ornaguide.shared.util.forEachApply
  * Pojo for npc filter
  * @author Bryan de Ridder
  */
+@JsonClass(generateAdapter = true)
 data class NpcFilter(
     var tiers: List<Int> = listOf(),
 ) {

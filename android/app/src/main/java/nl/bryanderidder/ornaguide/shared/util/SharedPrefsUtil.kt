@@ -1,8 +1,16 @@
 package nl.bryanderidder.ornaguide.shared.util
 
 import android.content.SharedPreferences
+import nl.bryanderidder.ornaguide.achievement.ui.list.filter.AchievementFilter
+import nl.bryanderidder.ornaguide.characterclass.ui.list.filter.CharacterClassFilter
+import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemFilter
+import nl.bryanderidder.ornaguide.monster.ui.list.filter.MonsterFilter
+import nl.bryanderidder.ornaguide.npc.ui.list.filter.NpcFilter
+import nl.bryanderidder.ornaguide.pet.ui.list.filter.PetFilter
 import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
 import nl.bryanderidder.ornaguide.shared.ui.menu.search.SearchResult
+import nl.bryanderidder.ornaguide.skill.ui.list.filter.SkillFilter
+import nl.bryanderidder.ornaguide.specialization.ui.list.filter.SpecializationFilter
 
 
 /**
@@ -98,6 +106,62 @@ class SharedPrefsUtil(
     fun getItemFilterTab(): Int =
         prefs.getInt(ITEM_FILTER_TAB, 0)
 
+    fun setCharacterClassFilter(value: CharacterClassFilter) =
+        prefs.edit().putString(CHARACTER_CLASS_FILTER, converters.toCharacterClassFilter(value)).apply()
+
+    fun getCharacterClassFilter(): CharacterClassFilter =
+        converters.fromCharacterClassFilter(prefs.getString(CHARACTER_CLASS_FILTER, "") ?: "")
+            ?: CharacterClassFilter(tiers = listOf(DEFAULT_TIER))
+
+    fun setSpecializationFilter(value: SpecializationFilter) =
+        prefs.edit().putString(SPECIALIZATION_FILTER, converters.toSpecializationFilter(value)).apply()
+
+    fun getSpecializationFilter(): SpecializationFilter =
+        converters.fromSpecializationFilter(prefs.getString(SPECIALIZATION_FILTER, "") ?: "")
+            ?: SpecializationFilter()
+
+    fun setSkillFilter(value: SkillFilter) =
+        prefs.edit().putString(SKILL_FILTER, converters.toSkillFilter(value)).apply()
+
+    fun getSkillFilter(): SkillFilter =
+        converters.fromSkillFilter(prefs.getString(SKILL_FILTER, "") ?: "")
+            ?: SkillFilter(tiers = listOf(DEFAULT_TIER))
+
+    fun setPetFilter(value: PetFilter) =
+        prefs.edit().putString(PET_FILTER, converters.toPetFilter(value)).apply()
+
+    fun getPetFilter(): PetFilter =
+        converters.fromPetFilter(prefs.getString(PET_FILTER, "") ?: "")
+            ?: PetFilter(tiers = listOf(DEFAULT_TIER))
+
+    fun setMonsterFilter(value: MonsterFilter) =
+        prefs.edit().putString(MONSTER_FILTER, converters.toMonsterFilter(value)).apply()
+
+    fun getMonsterFilter(): MonsterFilter =
+        converters.fromMonsterFilter(prefs.getString(MONSTER_FILTER, "") ?: "")
+            ?: MonsterFilter(tiers = listOf(DEFAULT_TIER))
+
+    fun setItemFilter(value: ItemFilter) =
+        prefs.edit().putString(ITEM_FILTER, converters.toItemFilter(value)).apply()
+
+    fun getItemFilter(): ItemFilter =
+        converters.fromItemFilter(prefs.getString(ITEM_FILTER, "") ?: "")
+            ?: ItemFilter(tiers = listOf(DEFAULT_TIER))
+
+    fun setNpcFilter(value: NpcFilter) =
+        prefs.edit().putString(NPC_FILTER, converters.toNpcFilter(value)).apply()
+
+    fun getNpcFilter(): NpcFilter =
+        converters.fromNpcFilter(prefs.getString(NPC_FILTER, "") ?: "")
+            ?: NpcFilter()
+
+    fun setAchievementFilter(value: AchievementFilter) =
+        prefs.edit().putString(ACHIEVEMENT_FILTER, converters.toAchievementFilter(value)).apply()
+
+    fun getAchievementFilter(): AchievementFilter =
+        converters.fromAchievementFilter(prefs.getString(ACHIEVEMENT_FILTER, "") ?: "")
+            ?: AchievementFilter(tiers = listOf(DEFAULT_TIER))
+
     fun setNpcFilterTab(value: Int) =
         prefs.edit().putInt(NPC_FILTER_TAB, value).apply()
 
@@ -115,9 +179,6 @@ class SharedPrefsUtil(
 
     fun getSaveFilterTab(): Int =
         prefs.getInt(SAVE_FILTER_TAB, 0)
-
-    fun getDefaultTier(): Int =
-        prefs.getString(DEFAULT_TIER, "1")?.toInt() ?: 1
 
     fun isSameSizeDiscoverItems(): Boolean =
         prefs.getBoolean(SAME_SIZE_DISCOVER_ITEMS, false)
@@ -153,6 +214,16 @@ class SharedPrefsUtil(
         prefs.edit().putString(SEARCH_HISTORY, json).apply()
     }
 
+    fun clearAllFilters() {
+        val editor = prefs.edit()
+        listOf(CHARACTER_CLASS_FILTER, CHARACTER_CLASS_FILTER_TAB, SPECIALIZATION_FILTER,
+            SPECIALIZATION_FILTER_TAB, SKILL_FILTER, SKILL_FILTER_TAB, PET_FILTER, PET_FILTER_TAB,
+            MONSTER_FILTER, MONSTER_FILTER_TAB, ITEM_FILTER, ITEM_FILTER_TAB, NPC_FILTER,
+            NPC_FILTER_TAB, ACHIEVEMENT_FILTER, ACHIEVEMENT_FILTER_TAB, SAVE_FILTER_TAB)
+            .forEach(editor::remove)
+        editor.apply()
+    }
+
     companion object {
         const val IS_FIRST_START: String = "IS_FIRST_START"
         const val SEARCH_HISTORY: String = "SEARCH_HISTORY"
@@ -167,19 +238,27 @@ class SharedPrefsUtil(
         const val NPC_ID: String = "NPC_ID"
         const val ACHIEVEMENT_ID: String = "ACHIEVEMENT_ID"
 
-        //navigation filters
+        //filters
+        const val CHARACTER_CLASS_FILTER: String = "CHARACTER_CLASS_FILTER"
         const val CHARACTER_CLASS_FILTER_TAB: String = "CHARACTER_CLASS_FILTER_TAB"
+        const val SPECIALIZATION_FILTER: String = "SPECIALIZATION_FILTER"
         const val SPECIALIZATION_FILTER_TAB: String = "SPECIALIZATION_FILTER_TAB"
+        const val SKILL_FILTER: String = "SKILL_FILTER"
         const val SKILL_FILTER_TAB: String = "SKILL_FILTER_TAB"
+        const val PET_FILTER: String = "PET_FILTER"
         const val PET_FILTER_TAB: String = "PET_FILTER_TAB"
+        const val MONSTER_FILTER: String = "MONSTER_FILTER"
         const val MONSTER_FILTER_TAB: String = "MONSTER_FILTER_TAB"
+        const val ITEM_FILTER: String = "ITEM_FILTER"
         const val ITEM_FILTER_TAB: String = "ITEM_FILTER_TAB"
+        const val NPC_FILTER: String = "NPC_FILTER"
         const val NPC_FILTER_TAB: String = "NPC_FILTER_TAB"
+        const val ACHIEVEMENT_FILTER: String = "ACHIEVEMENT_FILTER"
         const val ACHIEVEMENT_FILTER_TAB: String = "ACHIEVEMENT_FILTER_TAB"
         const val SAVE_FILTER_TAB: String = "SAVE_FILTER_TAB"
 
         //settings
-        const val DEFAULT_TIER: String = "DEFAULT_TIER"
+        const val DEFAULT_TIER: Int = 1
         const val SAME_SIZE_DISCOVER_ITEMS: String = "SAME_SIZE_DISCOVER_ITEMS"
         const val CRASH_REPORTS: String = "CRASH_REPORTS"
         const val CRASH_REPORTS_REMINDER_SHOWN: String = "CRASH_REPORTS_REMINDER_SHOWN"

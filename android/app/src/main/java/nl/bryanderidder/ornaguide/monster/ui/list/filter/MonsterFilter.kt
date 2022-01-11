@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.monster.ui.list.filter
 
+import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.monster.model.Monster
 import nl.bryanderidder.ornaguide.shared.util.forEachApply
 
@@ -8,6 +9,7 @@ import nl.bryanderidder.ornaguide.shared.util.forEachApply
  * Pojo for monster filter
  * @author Bryan de Ridder
  */
+@JsonClass(generateAdapter = true)
 data class MonsterFilter(
     var tiers: List<Int> = listOf(),
     var types: List<String> = listOf(),

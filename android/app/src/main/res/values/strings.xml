@@ -72,8 +72,6 @@
     <string name="discord">Discord Orna: The GPS RPG</string>
     <string name="ornaguide_url">https://orna.guide/</string>
     <string name="ornaguide">Orna.Guide</string>
-    <string name="default_tier_filter">Default tier filter</string>
-    <string name="default_tier_filter_description">Set the default tier that is loaded for all objects (requires app restart)</string>
     <string name="sync">Sync with Orna.Guide</string>
     <string name="sync_description">This can take a few minutes. This is only necessary for new objects, existing objects are synced automatically.</string>
     <string name="customization">Customization</string>

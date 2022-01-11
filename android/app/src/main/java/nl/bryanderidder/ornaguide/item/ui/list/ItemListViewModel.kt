@@ -4,14 +4,11 @@ import androidx.databinding.Bindable
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.item.persistence.ItemRepository
@@ -21,7 +18,7 @@ import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 
 class ItemListViewModel(
     private val repository: ItemRepository,
-    sharedPrefs: SharedPrefsUtil
+    private val sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
     @get:Bindable
@@ -72,9 +69,9 @@ class ItemListViewModel(
     val itemList: MutableLiveData<List<Item>> = MutableLiveData()
 
     var sessionItemFilter: MutableLiveData<ItemFilter> =
-        MutableLiveData(ItemFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
+        MutableLiveData(sharedPrefs.getItemFilter())
     var itemFilter: MutableLiveData<ItemFilter> =
-        MutableLiveData(ItemFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
+        MutableLiveData(sharedPrefs.getItemFilter())
 
     init {
         loadItems()
@@ -129,6 +126,7 @@ class ItemListViewModel(
 
     fun onSubmit(dialog: DialogFragment) {
         itemFilter.value = sessionItemFilter.value?.copy()
+        itemFilter.value?.let(sharedPrefs::setItemFilter)
         loadItems()
         dialog.dismiss()
     }

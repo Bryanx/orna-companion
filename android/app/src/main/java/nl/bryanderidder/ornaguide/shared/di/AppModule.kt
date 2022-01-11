@@ -87,7 +87,7 @@ val appModule: Module = module {
 
     viewModel { SkillListViewModel(get(), get()) }
     viewModel { SkillDetailViewModel(get(), get()) }
-    viewModel { SpecializationListViewModel(get()) }
+    viewModel { SpecializationListViewModel(get(), get()) }
     viewModel { SpecializationDetailViewModel(get(), get()) }
     viewModel { PetListViewModel(get(), get()) }
     viewModel { PetDetailViewModel(get(), get()) }
@@ -106,7 +106,7 @@ val appModule: Module = module {
     viewModel { SaveListViewModel(get()) }
     viewModel { SaveButtonViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get(), get()) }
     viewModel { SearchViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get()) }
-    viewModel { SyncViewModel(get(), get(), get(), get(), get(), get(), get(), get()) }
+    viewModel { SyncViewModel(get(), get(), get(), get(), get(), get(), get(), get(), get()) }
 
     // DB:
 

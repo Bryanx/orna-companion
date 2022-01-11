@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.skill.ui.list.filter
 
+import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.shared.util.forEachApply
 import nl.bryanderidder.ornaguide.skill.model.Skill
 
@@ -8,6 +9,7 @@ import nl.bryanderidder.ornaguide.skill.model.Skill
  * Pojo for skill filter
  * @author Bryan de Ridder
  */
+@JsonClass(generateAdapter = true)
 data class SkillFilter(
     var tiers: List<Int> = listOf(),
     var types: List<String> = listOf(),

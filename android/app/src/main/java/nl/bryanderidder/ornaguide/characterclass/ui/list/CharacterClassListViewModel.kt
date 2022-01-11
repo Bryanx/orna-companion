@@ -18,7 +18,7 @@ import nl.bryanderidder.ornaguide.shared.util.asLiveDataIO
 
 class CharacterClassListViewModel(
     private val repository: CharacterClassRepository,
-    sharedPrefs: SharedPrefsUtil
+    private val sharedPrefs: SharedPrefsUtil
 ) : BindingViewModel() {
 
     @get:Bindable
@@ -42,9 +42,9 @@ class CharacterClassListViewModel(
     val characterClassList: MutableLiveData<List<CharacterClass>> = MutableLiveData()
 
     var sessionCharacterClassFilter: MutableLiveData<CharacterClassFilter> =
-        MutableLiveData(CharacterClassFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
+        MutableLiveData(sharedPrefs.getCharacterClassFilter())
     var characterClassFilter: MutableLiveData<CharacterClassFilter> =
-        MutableLiveData(CharacterClassFilter(tiers = listOf(sharedPrefs.getDefaultTier())))
+        MutableLiveData(sharedPrefs.getCharacterClassFilter())
 
     init {
         loadItems()
@@ -78,6 +78,7 @@ class CharacterClassListViewModel(
 
     fun onSubmit(dialog: DialogFragment) {
         characterClassFilter.value = sessionCharacterClassFilter.value?.copy()
+        characterClassFilter.value?.let(sharedPrefs::setCharacterClassFilter)
         loadItems()
         dialog.dismiss()
     }
