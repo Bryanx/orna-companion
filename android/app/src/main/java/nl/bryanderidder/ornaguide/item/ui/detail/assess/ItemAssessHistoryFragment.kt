@@ -6,15 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import com.skydoves.bindables.BindingFragment
 import nl.bryanderidder.ornaguide.R
-import nl.bryanderidder.ornaguide.databinding.FragmentItemAssessBinding
+import nl.bryanderidder.ornaguide.databinding.FragmentItemAssessHistoryBinding
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
+import org.koin.android.viewmodel.ext.android.getViewModel
 
 
 /**
- * Tab where users can assess an item
+ * Tab where users can see the item's assess history
  * @author Bryan de Ridder
  */
-class ItemAssessFragment : BindingFragment<FragmentItemAssessBinding>(R.layout.fragment_item_assess) {
+class ItemAssessHistoryFragment : BindingFragment<FragmentItemAssessHistoryBinding>(R.layout.fragment_item_assess_history) {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,10 +24,9 @@ class ItemAssessFragment : BindingFragment<FragmentItemAssessBinding>(R.layout.f
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         return binding {
-            lifecycleOwner = this@ItemAssessFragment
-            vm = getSharedViewModel()
+            lifecycleOwner = this@ItemAssessHistoryFragment
             assessVM = getSharedViewModel()
-            context = requireContext()
+            adapter = ItemAssessHistoryAdapter()
         }.root
     }
 }

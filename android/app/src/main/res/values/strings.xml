@@ -112,4 +112,5 @@
     <string name="causes">Causes:</string>
     <string name="buffed_by">Buffed by:</string>
     <string name="missing_data_placeholder">Go to \'More\' - \'Sync with Orna.Guide\'\nto get the latest data.</string>
+    <string name="close">Close</string>
 </resources>

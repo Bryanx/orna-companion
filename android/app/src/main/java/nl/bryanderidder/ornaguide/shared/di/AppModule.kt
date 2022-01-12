@@ -93,7 +93,7 @@ val appModule: Module = module {
     viewModel { PetDetailViewModel(get(), get()) }
     viewModel { ItemListViewModel(get(), get()) }
     viewModel { ItemDetailViewModel(get(), get()) }
-    viewModel { ItemAssessViewModel(get()) }
+    viewModel { ItemAssessViewModel(get(), get()) }
     viewModel { MonsterListViewModel(get(), get()) }
     viewModel { MonsterDetailViewModel(get(), get()) }
     viewModel { NpcListViewModel(get(), get()) }
@@ -122,6 +122,7 @@ val appModule: Module = module {
             .addMigrations(DatabaseMigrations.MIGRATION_4_5)
             .addMigrations(DatabaseMigrations.MIGRATION_5_6)
             .addMigrations(DatabaseMigrations.MIGRATION_6_7)
+            .addMigrations(DatabaseMigrations.MIGRATION_7_8)
             .build()
     }
 
@@ -134,6 +135,7 @@ val appModule: Module = module {
     single { get<OrnaDatabase>().npcDao() }
     single { get<OrnaDatabase>().achievementDao() }
     single { get<OrnaDatabase>().saveDao() }
+    single { get<OrnaDatabase>().itemAssessDao() }
     single { CharacterClassRepository(get(), get()) }
     single { SkillRepository(get(), get(), get())}
     single { SpecializationRepository(get(), get(), get())}
@@ -143,6 +145,6 @@ val appModule: Module = module {
     single { NpcRepository(get(), get()) }
     single { AchievementRepository(get(), get()) }
     single { SaveRepository(get()) }
-    single { ItemAssessRepository(get()) }
+    single { ItemAssessRepository(get(), get(), get()) }
 
 }

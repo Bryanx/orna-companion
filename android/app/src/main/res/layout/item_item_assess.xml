@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="itemAssess"
+            type="nl.bryanderidder.ornaguide.item.model.ItemAssess" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginVertical="@dimen/cardPadding"
+        android:clickable="true"
+        app:onClickShowAssessDialog="@{itemAssess}"
+        app:cardBackgroundColor="@color/backgroundColorDark"
+        app:cardCornerRadius="@dimen/cardCornerRadius"
+        app:cardElevation="0dp"
+        app:gone="@{itemAssess.quality.isEmpty()}">
+
+        <TextView
+            android:id="@+id/date"
+            android:padding="@dimen/cardPadding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/inactiveTabTextColor"
+            android:text="@{itemAssess.formattedCreationDate()}"
+            tools:text="15-07-2022" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/cardPadding"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/assessmentQuality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`Quality: ` + itemAssess.formattedQuality()}"
+                app:itemQualityColor="@{itemAssess}"
+                tools:text="Quality: 170\%"/>
+
+            <TextView
+                android:id="@+id/assessmentQualityType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{itemAssess.formattedQualityType()}"
+                app:itemQualityColor="@{itemAssess}"
+                tools:text="Legendary" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

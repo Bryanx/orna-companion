@@ -12,11 +12,15 @@ import kotlinx.coroutines.launch
 import nl.bryanderidder.ornaguide.item.model.ItemAssess
 import nl.bryanderidder.ornaguide.item.persistence.ItemAssessRepository
 import nl.bryanderidder.ornaguide.item.persistence.ItemAssessRequestBody
+import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 import nl.bryanderidder.ornaguide.shared.util.hideKeyboard
 
 class ItemAssessViewModel(
     private val repository: ItemAssessRepository,
+    private val sharedPrefsUtil: SharedPrefsUtil,
 ) : BindingViewModel() {
+
+    val itemAssessList: MutableLiveData<List<ItemAssess>> = MutableLiveData()
 
     val itemAssessResult: MutableLiveData<ItemAssess> = MutableLiveData(ItemAssess())
 
@@ -25,6 +29,19 @@ class ItemAssessViewModel(
     @get:Bindable
     var toastMessage: String? by bindingProperty(null)
         private set
+
+    init {
+        loadItems()
+    }
+
+    private fun loadItems() = viewModelScope.launch {
+        repository.getItemAssessList(
+            itemId = sharedPrefsUtil.getItemId(),
+            onError = { toastMessage = it }
+        ).collect {
+            itemAssessList.postValue(it)
+        }
+    }
 
     fun updateAttack(value: String) {
         if (inputIsValid(value)) itemAssessBody.attack = value.toInt()
@@ -75,7 +92,10 @@ class ItemAssessViewModel(
             repository.assessItem(
                 body = itemAssessBody,
                 onError = { toastMessage = it })
-                .collect(itemAssessResult::postValue)
+                .collect {
+                    itemAssessResult.postValue(it)
+                    loadItems()
+                }
         }
     }
 }

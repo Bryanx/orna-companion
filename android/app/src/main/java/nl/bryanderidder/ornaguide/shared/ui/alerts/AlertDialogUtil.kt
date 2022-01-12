@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import nl.bryanderidder.ornaguide.R
+import nl.bryanderidder.ornaguide.item.model.ItemAssess
 import nl.bryanderidder.ornaguide.shared.util.SharedPrefsUtil
 
 
@@ -29,4 +30,12 @@ fun Context.showCrashReportsDialog(sharedPrefs: SharedPrefsUtil) {
             }
             .setIcon(R.drawable.ic_baseline_bug_report_24)
             .show()
+}
+
+fun Context.showAssessDialog(itemAssess: ItemAssess) {
+    AlertDialog.Builder(this)
+        .setTitle("${itemAssess.name} assessment")
+        .setMessage(itemAssess.report(this).append("\n\n"))
+        .setPositiveButton(getString(R.string.close)) { _, _ -> }
+        .show()
 }

@@ -49,6 +49,10 @@
     <color name="elementArcaneColor">#494EFF</color>
     <color name="arenaColor">#FFC107</color>
 
+    <color name="masterForged">#B88855</color>
+    <color name="demonForged">#C05486</color>
+    <color name="godForged">#C8AA4F</color>
+
     <color name="onboardingBackgroundColor">#534A48</color>
 
     <color name="discordColor">#7289DA</color>

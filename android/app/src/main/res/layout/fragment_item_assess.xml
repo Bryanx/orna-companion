@@ -12,6 +12,10 @@
         <variable
             name="assessVM"
             type="nl.bryanderidder.ornaguide.item.ui.detail.assess.ItemAssessViewModel" />
+
+        <variable
+            name="context"
+            type="android.content.Context" />
     </data>
 
     <LinearLayout
@@ -292,29 +296,12 @@
                         tools:text="Meteor Armor assessment"/>
 
                     <TextView
-                        android:id="@+id/assessmentQuality"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@{`Quality: ` + assessVM.itemAssessResult.formattedQuality()}"
-                        app:itemQualityColor="@{assessVM.itemAssessResult.quality}"
-                        tools:text="Quality: 170\%"/>
-
-                    <TextView
-                        android:id="@+id/assessmentQualityType"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="@dimen/cardPadding"
-                        app:itemQualityColor="@{assessVM.itemAssessResult.quality}"
-                        app:itemQualityText="@{assessVM.itemAssessResult.quality}"
-                        tools:text="Legendary" />
-
-                    <TextView
                         android:id="@+id/assessmentLevels"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:singleLine="false"
                         android:lineHeight="20dp"
-                        android:text="@{assessVM.itemAssessResult.stats.formattedLevels()}"
+                        android:text="@{assessVM.itemAssessResult.report(context)}"
                         tools:text="Level 10:  defense: 225\tresistance: 225\nMasterforged:"/>
 
                 </LinearLayout>

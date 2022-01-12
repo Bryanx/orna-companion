@@ -13,6 +13,7 @@ import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.databinding.ActivityItemDetailBinding
 import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.item.ui.detail.assess.ItemAssessFragment
+import nl.bryanderidder.ornaguide.item.ui.detail.assess.ItemAssessHistoryFragment
 import org.koin.android.viewmodel.ext.android.getViewModel
 
 /**
@@ -31,11 +32,14 @@ class ItemDetailActivity :
             lifecycleOwner = this@ItemDetailActivity
             activity = this@ItemDetailActivity
             vm = getViewModel<ItemDetailViewModel>().apply { loadItem {
-                val pager = ItemDetailPagerAdapter(supportFragmentManager, lifecycle, getTabs(it))
+                val tabs = getTabs(it)
+                val pager = ItemDetailPagerAdapter(supportFragmentManager, lifecycle, tabs)
                 viewPager.adapter = pager
                 TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
                     tab.text = pager.labels[position]
                 }.attach()
+                if (tabs.size > 1)
+                    viewPager.setCurrentItem(1, false)
             } }
         }
     }
@@ -43,8 +47,9 @@ class ItemDetailActivity :
     private fun getTabs(item: Item): Map<String, () -> Fragment> =
         if (item.isEquipmentType())
             mapOf<String, () -> Fragment>(
+                "Assess" to ::ItemAssessFragment,
                 "Details" to ::ItemDetailFragment,
-                "Assess" to ::ItemAssessFragment)
+                "History" to ::ItemAssessHistoryFragment)
         else
             mapOf<String, () -> Fragment>("Details" to ::ItemDetailFragment)
 

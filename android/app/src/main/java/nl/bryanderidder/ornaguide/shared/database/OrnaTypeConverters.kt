@@ -12,6 +12,8 @@ import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
 import nl.bryanderidder.ornaguide.characterclass.ui.list.filter.CharacterClassFilter
 import nl.bryanderidder.ornaguide.characterclass.ui.list.filter.CharacterClassFilterJsonAdapter
 import nl.bryanderidder.ornaguide.item.model.Item
+import nl.bryanderidder.ornaguide.item.persistence.ItemAssessRequestBody
+import nl.bryanderidder.ornaguide.item.persistence.ItemAssessRequestBodyJsonAdapter
 import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemFilter
 import nl.bryanderidder.ornaguide.item.ui.list.filter.ItemFilterJsonAdapter
 import nl.bryanderidder.ornaguide.monster.model.Monster
@@ -49,6 +51,21 @@ class OrnaTypeConverters(private val moshi: Moshi) {
     fun toStringList(value: String): List<String> = when {
         value.isEmpty() -> listOf()
         else -> jsonAdapter.fromJson(value) ?: listOf()
+    }
+
+    @TypeConverter
+    fun fromIntList(value: List<Int>): String {
+        val listType = Types.newParameterizedType(List::class.java, Integer::class.java)
+        val adapter: JsonAdapter<List<Int>> = moshi.adapter(listType)
+        return adapter.toJson(value)
+    }
+
+    @TypeConverter
+    fun toIntList(value: String): List<Int> {
+        if (value.isEmpty()) return listOf()
+        val listType = Types.newParameterizedType(List::class.java, Integer::class.java)
+        val adapter: JsonAdapter<List<Int>> = moshi.adapter(listType)
+        return adapter.fromJson(value) ?: listOf()
     }
 
     @TypeConverter
@@ -189,6 +206,9 @@ class OrnaTypeConverters(private val moshi: Moshi) {
         val adapter: JsonAdapter<List<SearchResult>> = moshi.adapter(listType)
         return adapter.toJson(type)
     }
+
+    fun fromItemAssessRequestBody(body: ItemAssessRequestBody): String =
+        ItemAssessRequestBodyJsonAdapter(moshi).toJson(body)
 
     fun fromCharacterClassFilter(value: String): CharacterClassFilter? =
         fromFilter(value) { CharacterClassFilterJsonAdapter(moshi).fromJson(value) }
