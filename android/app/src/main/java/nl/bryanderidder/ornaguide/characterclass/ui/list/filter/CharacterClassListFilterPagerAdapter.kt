@@ -21,6 +21,7 @@ class CharacterClassListFilterPagerAdapter(fm: FragmentManager, lifecycle: Lifec
         val FILTER_TAB_CharacterClassS = mapOf<String, () -> Fragment>(
             "Tier" to ::CharacterClassListFilterTierFragment,
             "Cost Type" to ::CharacterClassListFilterCostTypeFragment,
+            "Preferred Weapon" to ::CharacterClassListFilterPreferredWeaponFragment,
         )
 
         val FILTER_TAB_LABELS: List<String> = FILTER_TAB_CharacterClassS.keys.toList()

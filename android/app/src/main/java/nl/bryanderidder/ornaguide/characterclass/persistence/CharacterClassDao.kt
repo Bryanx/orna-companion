@@ -24,6 +24,9 @@ interface CharacterClassDao {
     @Query("SELECT DISTINCT tier FROM CharacterClass ORDER BY tier")
     suspend fun getAllPossibleTiers(): List<Int>
 
+    @Query("SELECT DISTINCT preferredWeapons FROM CharacterClass")
+    suspend fun getAllPossiblePreferredWeapons(): List<String>
+
     @Query(
         """
       SELECT *

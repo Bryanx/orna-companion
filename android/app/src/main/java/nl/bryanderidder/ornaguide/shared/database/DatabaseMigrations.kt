@@ -46,6 +46,7 @@ object DatabaseMigrations {
         override fun migrate(database: SupportSQLiteDatabase) {
             database.execSQL("CREATE TABLE IF NOT EXISTS `ItemAssess` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `itemId` INTEGER NOT NULL, `name` TEXT NOT NULL, `quality` TEXT NOT NULL, `requestBody` TEXT NOT NULL, `creationDate` INTEGER NOT NULL, `attackBase` INTEGER NOT NULL, `attackValues` TEXT NOT NULL, `defenseBase` INTEGER NOT NULL, `defenseValues` TEXT NOT NULL, `dexterityBase` INTEGER NOT NULL, `dexterityValues` TEXT NOT NULL, `hpBase` INTEGER NOT NULL, `hpValues` TEXT NOT NULL, `magicBase` INTEGER NOT NULL, `magicValues` TEXT NOT NULL, `manaBase` INTEGER NOT NULL, `manaValues` TEXT NOT NULL, `resistanceBase` INTEGER NOT NULL, `resistanceValues` TEXT NOT NULL, `wardBase` INTEGER NOT NULL, `wardValues` TEXT NOT NULL, `critBase` INTEGER NOT NULL, `critValues` TEXT NOT NULL)")
             database.execSQL("ALTER TABLE Item ADD COLUMN category TEXT DEFAULT '' NOT NULL")
+            database.execSQL("ALTER TABLE CharacterClass ADD COLUMN preferredWeapons TEXT DEFAULT '' NOT NULL")
         }
     }
 }

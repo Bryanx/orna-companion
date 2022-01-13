@@ -13,6 +13,7 @@ import nl.bryanderidder.ornaguide.shared.util.forEachApply
 data class CharacterClassFilter(
     var tiers: List<Int> = listOf(),
     var costTypes: List<String> = listOf(),
+    var preferredWeapons: List<String> = listOf(),
 ) {
     fun applyFilter(list: List<CharacterClass>): List<CharacterClass> {
         return if (isEmpty()) {
@@ -31,6 +32,8 @@ data class CharacterClassFilter(
             newList = newList.filter { it.cost.contains("$") }
         if (costTypes.isNotEmpty() && !costTypes.contains("Money"))
             newList = newList.filter { it.cost.contains("orns") }
+        if (preferredWeapons.isNotEmpty())
+            newList = newList.filter { preferredWeapons.any(it.preferredWeapons::contains) }
         return newList
     }
 
@@ -44,5 +47,6 @@ data class CharacterClassFilter(
     fun getFilters() = listOf(
         tiers,
         costTypes,
+        preferredWeapons,
     )
 }

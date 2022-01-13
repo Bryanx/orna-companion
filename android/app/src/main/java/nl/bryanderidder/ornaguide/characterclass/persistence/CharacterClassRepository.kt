@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import nl.bryanderidder.ornaguide.characterclass.model.CharacterClass
+import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import nl.bryanderidder.ornaguide.shared.util.NetworkUtil
 import timber.log.Timber
@@ -22,6 +23,7 @@ import timber.log.Timber
 class CharacterClassRepository(
     private val client: OrnaClient,
     private val dao: CharacterClassDao,
+    private val typeConverter: OrnaTypeConverters,
 ) {
 
     @WorkerThread
@@ -97,6 +99,15 @@ class CharacterClassRepository(
     @WorkerThread
     fun fetchAllPossibleTiers() = flow {
         val results = dao.getAllPossibleTiers()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun fetchAllPossiblePreferredWeapons() = flow {
+        val results = dao.getAllPossiblePreferredWeapons()
+            .flatMap(typeConverter::toStringList)
+            .distinct()
+            .sorted()
         emit(results)
     }.flowOn(Dispatchers.IO)
 }

@@ -37,6 +37,10 @@ class CharacterClassListViewModel(
         repository.fetchAllPossibleTiers().asLiveDataIO(viewModelScope)
     }
 
+    val allPossiblePreferredWeapons: LiveData<List<String>> by lazy {
+        repository.fetchAllPossiblePreferredWeapons().asLiveDataIO(viewModelScope)
+    }
+
     val allPossibleCostTypes: List<String> = listOf("Orns", "Money")
 
     val characterClassList: MutableLiveData<List<CharacterClass>> = MutableLiveData()
@@ -68,6 +72,9 @@ class CharacterClassListViewModel(
 
     fun updateSelectedCostTypes(costTypes: List<String>) =
         updateFilter(sessionCharacterClassFilter.value?.copy(costTypes = costTypes))
+
+    fun updateSelectedPreferredWeapons(preferredWeapons: List<String>) =
+        updateFilter(sessionCharacterClassFilter.value?.copy(preferredWeapons = preferredWeapons))
 
     fun onClearFilters() = updateFilter(CharacterClassFilter())
 

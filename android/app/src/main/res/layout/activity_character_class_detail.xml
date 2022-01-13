@@ -66,15 +66,30 @@
                     tools:text="Mage" />
 
                 <TextView
+                    android:id="@+id/preferredWeapons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.characterClass.formattedPreferredWeapons()}"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:paddingBottom="12dp"
+                    app:gone="@{vm.characterClass.preferredWeapons.isEmpty()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    tools:text="Preferred weapons: Axes &amp; Hammers" />
+
+                <TextView
                     android:id="@+id/description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{vm.characterClass.description}"
                     android:textAlignment="center"
                     android:textColor="@color/textColor"
+                    android:paddingBottom="12dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    app:layout_constraintTop_toBottomOf="@+id/preferredWeapons"
                     tools:text="A skilled individual who favours magic over strength. Can wield staves and robes." />
 
 
@@ -82,7 +97,6 @@
                     android:id="@+id/cost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
                     android:text="@{`Cost: ` + vm.characterClass.cost}"
                     android:textColor="@color/textColorHeader"
                     android:textStyle="bold"

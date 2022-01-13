@@ -17,7 +17,8 @@ data class CharacterClass(
     @Json(name = "learns") val learns: String = "",
     @Json(name = "skills") @Embedded val skills: Skills = Skills(),
     @Json(name = "tier") val tier: Int = 0,
-    @Json(name = "stats") val stats: List<String> = listOf()
+    @Json(name = "stats") val stats: List<String> = listOf(),
+    @Json(name = "preferred_weapons") val preferredWeapons: List<String> = listOf(),
 ) {
     @Ignore val imageUrls: List<String> = images.map { ORNA_IMAGE_PREFIX + it }.toList()
     @Ignore val previewImageUrl: String = imageUrls.last()
@@ -46,6 +47,13 @@ data class CharacterClass(
 
     @Ignore
     fun formattedLearns(): String = "Learns ${learns.toLowerCase()}"
+
+    @Ignore
+    fun formattedPreferredWeapons(): String = when {
+        preferredWeapons.isEmpty() -> ""
+        preferredWeapons.size == 1 -> "Preferred weapon: ${preferredWeapons[0]}"
+        else -> "Preferred weapons: ${preferredWeapons.joinToString(", ")}"
+    }
 
     companion object {
         const val NAME = "Class"
