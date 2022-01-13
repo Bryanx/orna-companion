@@ -33,6 +33,9 @@ interface ItemDao {
     @Query("SELECT DISTINCT equippedBy FROM Item")
     suspend fun getAllPossibleEquippedBy(): List<String>
 
+    @Query("SELECT DISTINCT category FROM Item ORDER BY category")
+    suspend fun getAllPossibleCategories(): List<String>
+
     @Query("SELECT DISTINCT gives FROM Item")
     suspend fun getAllPossibleGives(): List<String>
 

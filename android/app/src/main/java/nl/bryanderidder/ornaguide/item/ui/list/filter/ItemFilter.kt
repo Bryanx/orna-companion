@@ -15,6 +15,7 @@ data class ItemFilter(
     var types: List<String> = listOf(),
     var elements: List<String> = listOf(),
     var equippedByList: List<String> = listOf(),
+    var categories: List<String> = listOf(),
     var stats: List<String> = listOf(),
     var cures: List<String> = listOf(),
     var gives: List<String> = listOf(),
@@ -40,6 +41,8 @@ data class ItemFilter(
             newList = newList.filter { item -> elements.contains(item.element) }
         if (equippedByList.isNotEmpty())
             newList = newList.filter { item -> equippedByList.any(item.equippedBy.toString()::contains) }
+        if (categories.isNotEmpty())
+            newList = newList.filter { item -> categories.contains(item.category) }
         if (stats.isNotEmpty() && stats.contains("View distance"))
             newList = newList.filter { item -> stats.any(item.statsAsMap()::containsKey) || item.viewDistance }
         if (stats.isNotEmpty() && !stats.contains("View distance"))
@@ -67,6 +70,7 @@ data class ItemFilter(
         types,
         elements,
         equippedByList,
+        categories,
         stats,
         cures,
         gives,

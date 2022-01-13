@@ -49,6 +49,10 @@ class ItemListViewModel(
         repository.fetchAllPossibleEquippedBy().asLiveDataIO(viewModelScope)
     }
 
+    val allPossibleCategories: LiveData<List<String>> by lazy {
+        repository.fetchAllPossibleCategories().asLiveDataIO(viewModelScope)
+    }
+
     val allPossibleStats: List<String> = Item.STATS
 
     val allPossibleCures: LiveData<List<String>> by lazy {
@@ -102,6 +106,9 @@ class ItemListViewModel(
 
     fun updateSelectedEquippedByList(equippedByList: List<String>) =
         updateFilter(sessionItemFilter.value?.copy(equippedByList = equippedByList))
+
+    fun updateSelectedCategories(categories: List<String>) =
+        updateFilter(sessionItemFilter.value?.copy(categories = categories))
 
     fun updateSelectedStats(stats: List<String>) =
         updateFilter(sessionItemFilter.value?.copy(stats = stats))

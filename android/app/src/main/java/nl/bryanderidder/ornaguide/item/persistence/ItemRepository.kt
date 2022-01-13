@@ -126,6 +126,13 @@ class ItemRepository(
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
+    fun fetchAllPossibleCategories() = flow {
+        val results = dao.getAllPossibleCategories()
+            .filter(String::isNotEmpty)
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
     fun fetchAllPossibleGives() = flow {
         val results = dao.getAllPossibleGives()
             .flatMap(converters::toStringList)
