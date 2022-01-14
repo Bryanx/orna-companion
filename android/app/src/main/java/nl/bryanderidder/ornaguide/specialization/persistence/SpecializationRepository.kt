@@ -1,10 +1,7 @@
 package nl.bryanderidder.ornaguide.specialization.persistence
 
 import androidx.annotation.WorkerThread
-import com.skydoves.sandwich.message
-import com.skydoves.sandwich.onError
-import com.skydoves.sandwich.onException
-import com.skydoves.sandwich.suspendOnSuccess
+import com.skydoves.sandwich.*
 import com.squareup.moshi.Moshi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
@@ -52,15 +49,17 @@ class SpecializationRepository(
             .suspendOnSuccess {
                 dao.insertSpecializationList(response.body() ?: listOf())
                 emit(response.body() ?: listOf())
+                onComplete()
             }
-            .onError {
+            .suspendOnError {
                 onError(message())
-                Timber.e(message())
+                Timber.w(message())
+                emit(listOf())
             }
             .onException {
                 NetworkUtil.handleExceptionWithNetworkMessage(onError, exception)
             }
-    }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
+    }.onStart { onStart() }.flowOn(Dispatchers.IO)
 
     fun fetchSpecialization(
         id: Int,

@@ -35,93 +35,103 @@ class SyncViewModel(
         private set
 
     @get:Bindable
-    var isLoading: Boolean by bindingProperty(false)
+    var resultMessage: String by bindingProperty("Syncing")
         private set
 
     @get:Bindable
-    var isStarted: Boolean by bindingProperty(false)
+    var resultSubMessage: String by bindingProperty("This may take a few minutes...")
         private set
 
     @get:Bindable
-    var characterClassMessage: String by bindingProperty("")
+    var resultSuccess: Boolean by bindingProperty(false)
         private set
 
     @get:Bindable
-    var skillMessage: String by bindingProperty("")
+    var isLoading: Boolean by bindingProperty(true)
         private set
 
     @get:Bindable
-    var specializationMessage: String by bindingProperty("")
+    var characterClassMessage: String by bindingProperty("Fetching classes")
         private set
 
     @get:Bindable
-    var petMessage: String by bindingProperty("")
+    var skillMessage: String by bindingProperty("Fetching skills")
         private set
 
     @get:Bindable
-    var itemMessage: String by bindingProperty("")
+    var specializationMessage: String by bindingProperty("Fetching specializations")
         private set
 
     @get:Bindable
-    var monsterMessage: String by bindingProperty("")
+    var petMessage: String by bindingProperty("Fetching pets")
         private set
 
     @get:Bindable
-    var npcMessage: String by bindingProperty("")
+    var itemMessage: String by bindingProperty("Fetching items")
         private set
 
     @get:Bindable
-    var achievementMessage: String by bindingProperty("")
+    var monsterMessage: String by bindingProperty("Fetching monsters")
+        private set
+
+    @get:Bindable
+    var npcMessage: String by bindingProperty("Fetching NPCs")
+        private set
+
+    @get:Bindable
+    var achievementMessage: String by bindingProperty("Fetching achievements")
         private set
 
     init {
         viewModelScope.launch {
-            isLoading = true
             combine(
                 characterClassRepo.syncDbWithNetwork(
-                    onStart = { characterClassMessage = "Fetching classes" },
                     onComplete = { characterClassMessage = "Classes successfully synced."},
-                    onError = { toastMessage = it }
-                ) as Flow<Any>,
+                    onError = { characterClassMessage = "Classes failed to sync." }
+                ) as Flow<List<Any>>,
                 skillRepo.syncDbWithNetwork(
-                    onStart = { skillMessage = "Fetching skills" },
                     onComplete = { skillMessage = "Skills successfully synced."},
-                    onError = { toastMessage = it }
-                ) as Flow<Any>,
+                    onError = { skillMessage = "Skills failed to sync." }
+                ) as Flow<List<Any>>,
                 specializationRepo.syncDbWithNetwork(
-                    onStart = { specializationMessage = "Fetching specializations" },
                     onComplete = { specializationMessage = "Specializations successfully synced."},
-                    onError = { toastMessage = it }
-                ) as Flow<Any>,
+                    onError = { specializationMessage = "Specializations failed to sync." }
+                ) as Flow<List<Any>>,
                 petRepo.syncDbWithNetwork(
-                    onStart = { petMessage = "Fetching pets" },
                     onComplete = { petMessage = "Pets successfully synced."},
-                    onError = { toastMessage = it }
-                ) as Flow<Any>,
+                    onError = { petMessage = "Pets failed to sync." }
+                ) as Flow<List<Any>>,
                 itemRepo.syncDbWithNetwork(
-                    onStart = { itemMessage = "Fetching items" },
                     onComplete = { itemMessage = "Items successfully synced."},
-                    onError = { toastMessage = it }
-                ) as Flow<Any>,
+                    onError = { itemMessage = "Items failed to sync." }
+                ) as Flow<List<Any>>,
                 monsterRepo.syncDbWithNetwork(
-                    onStart = { monsterMessage = "Fetching monsters" },
                     onComplete = { monsterMessage = "Monsters successfully synced."},
-                    onError = { toastMessage = it }
-                ) as Flow<Any>,
+                    onError = { monsterMessage = "Monsters failed to sync." }
+                ) as Flow<List<Any>>,
                 npcRepo.syncDbWithNetwork(
-                    onStart = { npcMessage = "Fetching NPCs" },
                     onComplete = { npcMessage = "NPCs successfully synced."},
-                    onError = { toastMessage = it }
-                ) as Flow<Any>,
+                    onError = { npcMessage = "NPCs failed to sync." }
+                ) as Flow<List<Any>>,
                 achievementRepo.syncDbWithNetwork(
-                    onStart = { achievementMessage = "Fetching achievements" },
                     onComplete = { achievementMessage = "Achievements successfully synced."},
-                    onError = { toastMessage = it }
-                ) as Flow<Any>
-            ) { true }.collect {
+                    onError = { achievementMessage = "Achievements failed to sync." }
+                ) as Flow<List<Any>>
+            ) {
+                return@combine when {
+                    it.all(List<Any>::isEmpty) -> SyncResult("Sync failed", "Please try again later.", false)
+                    else -> SyncResult("Sync successful, ${it.count(List<Any>::isEmpty)} failed",
+                        "To prevent overloading the server syncing is blocked for the next 60 minutes.", true)
+                }
+            }.collect {
                 sharedPrefs.clearAllFilters()
                 isLoading = false
+                resultMessage = it.message
+                resultSubMessage = it.subMessage
+                resultSuccess = it.status
             }
         }
     }
+
+    data class SyncResult(val message: String, val subMessage: String, val status: Boolean)
 }

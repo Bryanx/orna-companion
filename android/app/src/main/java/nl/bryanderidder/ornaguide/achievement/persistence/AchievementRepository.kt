@@ -1,10 +1,7 @@
 package nl.bryanderidder.ornaguide.achievement.persistence
 
 import androidx.annotation.WorkerThread
-import com.skydoves.sandwich.message
-import com.skydoves.sandwich.onError
-import com.skydoves.sandwich.onException
-import com.skydoves.sandwich.suspendOnSuccess
+import com.skydoves.sandwich.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -48,15 +45,17 @@ class AchievementRepository(
             .suspendOnSuccess {
                 dao.insertAchievementList(response.body() ?: listOf())
                 emit(response.body() ?: listOf())
+                onComplete()
             }
-            .onError {
+            .suspendOnError {
                 onError(message())
-                Timber.e(message())
+                Timber.w(message())
+                emit(listOf())
             }
             .onException {
                 NetworkUtil.handleExceptionWithNetworkMessage(onError, exception)
             }
-    }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
+    }.onStart { onStart() }.flowOn(Dispatchers.IO)
 
     fun fetchAchievement(
         id: Int,

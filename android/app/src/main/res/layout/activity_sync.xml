@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                app:gone="@{!vm.loading}"
+                app:showIf="@{vm.loading}"
                 app:layout_constraintVertical_chainStyle="packed" />
 
             <ImageView
@@ -45,15 +45,23 @@
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_baseline_check_24"
-                app:gone="@{vm.loading}"
+                app:showIf="@{!vm.loading &amp;&amp; vm.resultSuccess}"
                 app:tint="?colorPrimary" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_baseline_clear_24"
+                app:showIf="@{!vm.loading &amp;&amp; !vm.resultSuccess}"
+                app:tint="@color/red" />
         </RelativeLayout>
 
         <TextView
             android:id="@+id/loadingHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{vm.loading ? `Syncing` : `Successfully synced`}"
+            android:text="@{vm.resultMessage}"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/loadingSubText"
@@ -69,7 +77,7 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="@dimen/buttonMargin"
             android:paddingTop="10dp"
-            android:text="@{vm.loading ? `This may take a few minutes...` : `To prevent overloading the server syncing is blocked for the next 60 minutes.`}"
+            android:text="@{vm.resultSubMessage}"
             android:textAlignment="center"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/guide33"
