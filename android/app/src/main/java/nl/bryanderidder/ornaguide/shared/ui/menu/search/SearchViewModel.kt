@@ -2,6 +2,7 @@ package nl.bryanderidder.ornaguide.shared.ui.menu.search
 
 import androidx.databinding.Bindable
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.skydoves.bindables.BindingViewModel
 import com.skydoves.bindables.bindingProperty
@@ -41,6 +42,8 @@ class SearchViewModel(
 
     var searchQuery = MutableStateFlow("")
 
+    var liveDataQuery: MutableLiveData<String> = MutableLiveData("")
+
     var searchResults: MutableLiveData<List<SearchResult>> = MutableLiveData(listOf())
 
     init {
@@ -57,6 +60,7 @@ class SearchViewModel(
     fun setQuery(query: String) {
         val replace = query.replace(("[^a-z|^A-Z| |']").toRegex(), "")
         searchQuery.value = replace
+        liveDataQuery.value = query
     }
 
     private fun loadSearchHistory() =

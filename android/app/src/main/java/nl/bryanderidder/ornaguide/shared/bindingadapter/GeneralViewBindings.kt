@@ -14,6 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
@@ -142,6 +143,8 @@ object GeneralViewBindings {
         val DRAWABLE_BOTTOM = 3
         et.setOnTouchListener(View.OnTouchListener { v, event ->
             if (event.action == MotionEvent.ACTION_UP) {
+                if (et.compoundDrawables[DRAWABLE_RIGHT] == null)
+                    return@OnTouchListener true
                 if (event.rawX >= et.right - et.compoundDrawables[DRAWABLE_RIGHT].bounds.width() * 2) {
                     et.focusAndShowKeyboard()
                     et.text?.clear()
@@ -150,6 +153,15 @@ object GeneralViewBindings {
             }
             false
         })
+    }
+
+    @JvmStatic
+    @BindingAdapter("showSearchDrawablesIf")
+    fun onShowSearchDrawablesIf(et: TextInputEditText, isVisible: Boolean) {
+        if (isVisible)
+            et.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_search_24, 0, R.drawable.ic_baseline_clear_24, 0)
+        else
+            et.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_search_24, 0, 0, 0)
     }
 
     @JvmStatic
