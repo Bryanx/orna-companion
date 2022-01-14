@@ -9,6 +9,7 @@ import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.item.model.ItemAssess
 import nl.bryanderidder.ornaguide.item.persistence.ItemAssessRepository
 import nl.bryanderidder.ornaguide.item.persistence.ItemAssessRequestBody
@@ -19,6 +20,8 @@ class ItemAssessViewModel(
     private val repository: ItemAssessRepository,
     private val sharedPrefsUtil: SharedPrefsUtil,
 ) : BindingViewModel() {
+
+    val itemAssess: MutableLiveData<ItemAssess> = MutableLiveData()
 
     val itemAssessList: MutableLiveData<List<ItemAssess>> = MutableLiveData()
 
@@ -32,6 +35,15 @@ class ItemAssessViewModel(
 
     init {
         loadItems()
+    }
+
+    fun loadItem() = viewModelScope.launch {
+        repository.getItemAssess(
+            itemAssessId = sharedPrefsUtil.getItemAssessId(),
+            onError = { toastMessage = it }
+        ).collect {
+            itemAssess.postValue(it)
+        }
     }
 
     private fun loadItems() = viewModelScope.launch {
@@ -85,10 +97,11 @@ class ItemAssessViewModel(
 
     private fun inputIsValid(value: String) = value.isNotEmpty() && value != "-" && value != "+"
 
-    fun onSubmit(id: Int, stats: Map<String, Int>, view: View): Job {
+    fun onSubmit(item: Item, stats: Map<String, Int>, view: View): Job {
         view.hideKeyboard()
         return viewModelScope.launch {
-            itemAssessBody.id = id
+            itemAssessBody.id = item.id
+            itemAssessBody.image = item.image
             repository.assessItem(
                 body = itemAssessBody,
                 onError = { toastMessage = it })

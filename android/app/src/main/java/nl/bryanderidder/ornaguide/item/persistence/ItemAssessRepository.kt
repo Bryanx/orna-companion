@@ -36,6 +36,7 @@ class ItemAssessRepository(
                 if (result != null) {
                     if (result.quality != "0") {
                         result.requestBody = converters.fromItemAssessRequestBody(body)
+                        result.itemImage = body.image
                         dao.insertItemAssess(result)
                     }
                     emit(result)
@@ -58,6 +59,19 @@ class ItemAssessRepository(
         onComplete: () -> Unit = {},
         onError: (String?) -> Unit,
     ) = flow {
-        emit(dao.getItemAssessList(itemId))
+        val result = dao.getItemAssessList(itemId)
+        emit(result)
+    }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
+    fun getItemAssess(
+        itemAssessId: Int,
+        onStart: () -> Unit = {},
+        onComplete: () -> Unit = {},
+        onError: (String?) -> Unit,
+    ) = flow {
+        if (itemAssessId == -1) return@flow
+        val result = dao.getItemAssess(itemAssessId)
+        emit(result)
     }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
 }

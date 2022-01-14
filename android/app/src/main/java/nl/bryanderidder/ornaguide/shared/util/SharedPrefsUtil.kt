@@ -58,6 +58,12 @@ class SharedPrefsUtil(
     fun getItemId(): Int =
         prefs.getInt(ITEM_ID, 1)
 
+    fun setItemAssessId(value: Int) =
+        prefs.edit().putInt(ITEM_ASSESS_ID, value).apply()
+
+    fun getItemAssessId(): Int =
+        prefs.getInt(ITEM_ASSESS_ID, -1)
+
     fun setNpcId(value: Int) =
         prefs.edit().putInt(NPC_ID, value).apply()
 
@@ -235,6 +241,7 @@ class SharedPrefsUtil(
         const val PET_ID: String = "PET_ID"
         const val MONSTER_ID: String = "MONSTER_ID"
         const val ITEM_ID: String = "ITEM_ID"
+        const val ITEM_ASSESS_ID: String = "ITEM_ASSESS_ID"
         const val NPC_ID: String = "NPC_ID"
         const val ACHIEVEMENT_ID: String = "ACHIEVEMENT_ID"
 

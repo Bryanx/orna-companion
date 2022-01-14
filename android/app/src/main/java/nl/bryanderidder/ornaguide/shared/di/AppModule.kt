@@ -123,6 +123,7 @@ val appModule: Module = module {
             .addMigrations(DatabaseMigrations.MIGRATION_5_6)
             .addMigrations(DatabaseMigrations.MIGRATION_6_7)
             .addMigrations(DatabaseMigrations.MIGRATION_7_8)
+            .addMigrations(DatabaseMigrations.MIGRATION_8_9)
             .build()
     }
 

@@ -256,7 +256,7 @@
                 android:layout_height="?actionBarSize"
                 android:layout_margin="24dp"
                 android:clickable="true"
-                app:onClickWithSelf="@{(v) -> assessVM.onSubmit(vm.item.id, vm.item.statsAsMap(), v)}"
+                app:onClickWithSelf="@{(v) -> assessVM.onSubmit(vm.item, vm.item.statsAsMap(), v)}"
                 app:cardBackgroundColor="@color/ornaGreen"
                 app:cardCornerRadius="@dimen/cardCornerRadius"
                 app:cardElevation="0dp">

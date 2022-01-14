@@ -1,6 +1,5 @@
 package nl.bryanderidder.ornaguide.item.ui
 
-import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -11,18 +10,9 @@ import nl.bryanderidder.ornaguide.item.ui.detail.ItemDroppedByAdapter
 import nl.bryanderidder.ornaguide.item.ui.detail.ItemEquippedByAdapter
 import nl.bryanderidder.ornaguide.item.ui.detail.ItemMaterialsAdapter
 import nl.bryanderidder.ornaguide.item.ui.detail.ItemQuestsAdapter
-import nl.bryanderidder.ornaguide.shared.ui.alerts.showAssessDialog
 import nl.bryanderidder.ornaguide.shared.util.color
 
 object ItemViewBinding {
-
-    @JvmStatic
-    @BindingAdapter("onClickShowAssessDialog")
-    fun bindOnClickShowAssessDialog(view: View, itemAssess: ItemAssess) {
-        view.setOnClickListener {
-            view.context.showAssessDialog(itemAssess)
-        }
-    }
 
     @JvmStatic
     @BindingAdapter("arenaTextColor")
@@ -63,7 +53,7 @@ object ItemViewBinding {
 
     @JvmStatic
     @BindingAdapter("itemQualityColor")
-    fun bindItemQualityColor(view: TextView, itemAssess: ItemAssess) {
-        view.setTextColor(itemAssess.getQualityColor(view.context))
+    fun bindItemQualityColor(view: TextView, itemAssess: ItemAssess?) {
+        itemAssess?.getQualityColor(view.context)?.let(view::setTextColor)
     }
 }

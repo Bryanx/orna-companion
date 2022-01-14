@@ -10,12 +10,12 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginVertical="@dimen/cardPadding"
         android:clickable="true"
-        app:onClickShowAssessDialog="@{itemAssess}"
         app:cardBackgroundColor="@color/backgroundColorDark"
         app:cardCornerRadius="@dimen/cardCornerRadius"
         app:cardElevation="0dp"

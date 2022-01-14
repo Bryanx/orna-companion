@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="nl.bryanderidder.ornaguide.item.ui.detail.assess.ItemAssessViewModel" />
+
+        <variable
+            name="context"
+            type="android.content.Context" />
+
+        <variable
+            name="dialog"
+            type="nl.bryanderidder.ornaguide.item.ui.detail.assess.ItemAssessDialogFragment" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cardColor">
+
+            <View
+                android:id="@+id/bottomSheetTopDivider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/dividerColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginVertical="24dp"
+                android:layout_marginStart="24dp"
+                android:contentDescription="@string/item_assessment_image"
+                app:glideSrc="@{vm.itemAssess.previewImageUrl}"
+                app:layout_constraintBottom_toBottomOf="@+id/subTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/title"
+                app:layout_constraintVertical_bias="0.5"
+                tools:src="@drawable/monsters" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:text="@{vm.itemAssess.name}"
+                android:textAlignment="textStart"
+                android:textColor="@color/textColorHeader"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/subTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/bottomSheetTopDivider"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Vulcan Longsword" />
+
+            <TextView
+                android:id="@+id/subTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/cardPadding"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="24dp"
+                android:text="@{`Assessed at: ` + vm.itemAssess.formattedDate()}"
+                android:textColor="@color/textColor"
+                app:layout_constraintBottom_toTopOf="@+id/reportCard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                tools:text="Item assessed at: 12-02-2022" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/reportCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                app:cardBackgroundColor="@color/backgroundColorDark"
+                app:cardCornerRadius="@dimen/cardCornerRadius"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/clearFilterButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/subTitle">
+
+                <TextView
+                    android:id="@+id/report"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/cardPadding"
+                    android:text="@{vm.itemAssess.report(context)}"
+                    android:textColor="@color/textColor"
+                    tools:text="@string/report_placeholder" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/clearFilterButton"
+                android:layout_width="0dp"
+                android:layout_height="?actionBarSize"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                app:cardBackgroundColor="@color/inactiveButtonColor"
+                app:cardCornerRadius="@dimen/cardCornerRadius"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reportCard"
+                app:listenOnClick="@{dialog::dismiss}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/close"
+                    android:textAllCaps="true"
+                    android:textColor="@color/textColor" />
+
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

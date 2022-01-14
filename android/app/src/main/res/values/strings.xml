@@ -113,4 +113,6 @@
     <string name="buffed_by">Buffed by:</string>
     <string name="missing_data_placeholder">Go to \'More\' - \'Sync with Orna.Guide\'\nto get the latest data.</string>
     <string name="close">Close</string>
+    <string name="report_placeholder">Quality 135%\nFamed\n\nGodforged\nDef:719 Dex:36 Res:203\n \nDemonforged\nDef:680 Dex:34 Res:192\n \nMasterforged\nDef:641 Dex:32 Res:181\n \nLevel 10\nDef:603 Dex:30 Res:171\n \nLevel 9\nDef:569 Dex:28 Res:161\n \nLevel 8\nDef:535 Dex:26 Res:152\n \nLevel 7\nDef:501 Dex:24 Res:142\n \nLevel 6\nDef:468 Dex:22 Res:133\n \nLevel 5\nDef:434 Dex:20 Res:123</string>
+    <string name="item_assessment_image">Item assessment image</string>
 </resources>

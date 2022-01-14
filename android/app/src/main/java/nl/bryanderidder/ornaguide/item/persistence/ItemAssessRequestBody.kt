@@ -22,4 +22,5 @@ data class ItemAssessRequestBody(
     @Json(name = "dexterity") var dexterity: Int? = null,
     @Json(name = "ward") var ward: Int? = null,
     @Json(name = "crit") var crit: Int? = null,
+    @Transient var image: String = "",
 )

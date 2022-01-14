@@ -8,6 +8,7 @@ import androidx.room.*
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.R
+import nl.bryanderidder.ornaguide.shared.util.ORNA_IMAGE_PREFIX
 import nl.bryanderidder.ornaguide.shared.util.color
 import java.time.Instant
 import java.time.LocalDateTime
@@ -24,7 +25,11 @@ data class ItemAssess(
     @Json(name = "stats") @Embedded val stats: Stats = Stats(),
     var requestBody: String = "",
     val creationDate: Long = Instant.now().toEpochMilli(),
+    @ColumnInfo(name = "itemImage") var itemImage: String = "",
 ) {
+    @Ignore
+    val previewImageUrl: String = ORNA_IMAGE_PREFIX + itemImage
+
     @JsonClass(generateAdapter = true)
     data class Stats(
         @Json(name = "attack") @Embedded val attack: AttackStatValue = AttackStatValue(),
@@ -143,6 +148,12 @@ data class ItemAssess(
             }
         }
         return builder
+    }
+
+    fun formattedDate(): String {
+        val dateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(creationDate),
+            TimeZone.getDefault().toZoneId())
+        return formatter.format(dateTime)
     }
 
     @Ignore
