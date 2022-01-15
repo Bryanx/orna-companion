@@ -28,6 +28,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -220,3 +221,13 @@ fun <T> List<T>.forEachApply(action: (T) -> Unit): List<T> {
 
 fun <T> Flow<List<T>>.asLiveDataIO(scope: CoroutineScope): LiveData<List<T>> =
     asLiveData(scope.coroutineContext + Dispatchers.IO)
+
+fun BottomSheetDialog.setOnShowBottomSheet(callback: (BottomSheetBehavior<FrameLayout>) -> Unit) {
+    setOnShowListener { dia ->
+        val dialog = dia as BottomSheetDialog
+        val bottomSheet = dialog.findViewById<FrameLayout>(R.id.design_bottom_sheet)
+        bottomSheet?.let {
+            callback(BottomSheetBehavior.from(it))
+        }
+    }
+}
