@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="activity"
             type="nl.bryanderidder.ornaguide.item.ui.detail.ItemDetailActivity" />
@@ -29,8 +28,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:background="@color/cardColor"
-                android:paddingBottom="100dp"
-                android:paddingHorizontal="12dp">
+                android:paddingHorizontal="12dp"
+                android:paddingBottom="100dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/image"
@@ -43,28 +42,46 @@
                     android:minHeight="140dp"
                     android:paddingBottom="@dimen/cardPadding"
                     android:scaleType="fitCenter"
+                    app:glideSrcNoPlaceholder="@{vm.item.previewImageUrl}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:glideSrcNoPlaceholder="@{vm.item.previewImageUrl}"
                     tools:src="@drawable/items" />
 
                 <TextView
                     android:id="@+id/name"
                     style="@style/databaseItemPageHeader"
                     android:text="@{vm.item.name}"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/element"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/image"
                     tools:text="Olld Hallowed Blade" />
+
+                <TextView
+                    android:id="@+id/element"
+                    style="@style/elementStyle"
+                    android:layout_marginStart="8dp"
+                    android:text="@{vm.item.element}"
+                    android:textAllCaps="true"
+                    app:elementColor="@{vm.item.element}"
+                    app:gone="@{vm.item.element.isEmpty()}"
+                    app:layout_constraintBottom_toBottomOf="@+id/name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/name"
+                    app:layout_constraintTop_toTopOf="@+id/name"
+                    tools:text="WATER"
+                    tools:textColor="@color/elementWaterColor" />
 
                 <TextView
                     android:id="@+id/stats"
                     style="@style/databaseItemPageStat"
                     android:paddingHorizontal="@dimen/cardPadding"
                     android:paddingBottom="@dimen/cardPadding"
-                    android:text="@{vm.item.formattedStats()}"
-                    app:gone="@{vm.item.formattedStats().isEmpty()}"
+                    app:itemStats="@{vm.item}"
+                    app:gone="@{vm.item.statsAsMap().isEmpty()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/name"
@@ -73,39 +90,15 @@
                 <TextView
                     android:id="@+id/viewDistance"
                     style="@style/databaseItemDescription"
+                    android:paddingBottom="@dimen/cardPadding"
                     android:text="@string/view_distance"
                     android:textAlignment="center"
-                    android:paddingBottom="@dimen/cardPadding"
                     android:textColor="@color/ornaGreen"
-                    app:showIf="@{vm.item.viewDistance}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/stats"
+                    app:showIf="@{vm.item.viewDistance}"
                     tools:text="+View distance" />
-
-                <TextView
-                    android:id="@+id/cures"
-                    style="@style/databaseItemDescription"
-                    android:text="@{vm.item.formattedCures()}"
-                    android:textAlignment="center"
-                    android:paddingBottom="@dimen/cardPadding"
-                    app:gone="@{vm.item.cures.isEmpty()}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/viewDistance"
-                    tools:text="Cures: Frozen, Poisoned" />
-
-                <TextView
-                    android:id="@+id/category"
-                    style="@style/databaseItemDescription"
-                    android:text="@{`Category: ` + vm.item.category}"
-                    android:textAlignment="center"
-                    android:paddingBottom="@dimen/cardPadding"
-                    app:gone="@{vm.item.category.isEmpty()}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cures"
-                    tools:text="Category: Swords" />
 
                 <TextView
                     android:id="@+id/description"
@@ -114,22 +107,8 @@
                     android:text="@{vm.item.description}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/category"
+                    app:layout_constraintTop_toBottomOf="@+id/viewDistance"
                     tools:text="Heavy armor crafted by Apollyon, the destructive exiled Balor mystic. Apollyon sought to destroy lands to stop the falling, but was exiled for his unorthodox approaches." />
-
-                <TextView
-                    android:id="@+id/element"
-                    style="@style/elementStyle"
-                    android:text="@{vm.item.element}"
-                    android:textAllCaps="true"
-                    android:layout_marginTop="@dimen/cardPadding"
-                    app:elementColor="@{vm.item.element}"
-                    app:gone="@{vm.item.element.isEmpty()}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/description"
-                    tools:text="WATER"
-                    tools:textColor="@color/elementWaterColor" />
 
                 <View
                     android:id="@+id/descriptionDivider"
@@ -139,7 +118,7 @@
                     android:background="@color/dividerColor"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/element" />
+                    app:layout_constraintTop_toBottomOf="@+id/description" />
 
 
                 <com.google.android.material.tabs.TabLayout
@@ -167,11 +146,11 @@
                     app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
                 <TextView
+                    android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingVertical="20dp"
                     android:paddingStart="8dp"
-                    android:id="@+id/title"
                     android:text="@string/item"
                     android:textAllCaps="true"
                     android:textColor="@color/textColor"
@@ -189,14 +168,14 @@
 
                 <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/save"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="@dimen/buttonMargin"
                     android:name="nl.bryanderidder.ornaguide.save.ui.button.SaveButtonFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/buttonMargin"
                     android:tag="Item"
-                    app:layout_constraintTop_toBottomOf="@+id/classTier"
-                    app:layout_constraintStart_toStartOf="@+id/classTier"
                     app:layout_constraintEnd_toEndOf="@+id/classTier"
+                    app:layout_constraintStart_toStartOf="@+id/classTier"
+                    app:layout_constraintTop_toBottomOf="@+id/classTier"
                     tools:layout="@layout/fragment_button_save" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

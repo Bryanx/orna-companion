@@ -56,31 +56,17 @@
                     app:layout_constraintTop_toBottomOf="@+id/image"
                     tools:text="Wolf" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/description"
-                    style="@style/databaseItemDescription"
-                    android:gravity="center"
-                    android:paddingHorizontal="@dimen/cardPadding"
-                    android:text="@{pet.description}"
-                    android:textAlignment="center"
-                    app:autoSizeTextType="uniform"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/name"
-                    tools:text="A fierce Chimera. This follower can cause one to go berserk, while assisting in battle with beastly spells." />
-
                 <TextView
                     android:id="@+id/stats"
                     style="@style/databaseItemDescription"
                     android:gravity="center"
-                    android:padding="@dimen/cardPadding"
-                    android:text="@{pet.formattedStats()}"
+                    android:paddingHorizontal="@dimen/cardPadding"
                     android:textAlignment="center"
+                    app:petStats="@{pet}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/description"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
                     tools:text="Heal chance 15%\nProtect chance 45%" />
 
                 <androidx.appcompat.widget.AppCompatTextView

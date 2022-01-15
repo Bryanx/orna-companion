@@ -1,6 +1,8 @@
 package nl.bryanderidder.ornaguide.item.ui
 
+import android.text.SpannableStringBuilder
 import android.widget.TextView
+import androidx.core.text.color
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import nl.bryanderidder.ornaguide.R
@@ -11,6 +13,7 @@ import nl.bryanderidder.ornaguide.item.ui.detail.ItemEquippedByAdapter
 import nl.bryanderidder.ornaguide.item.ui.detail.ItemMaterialsAdapter
 import nl.bryanderidder.ornaguide.item.ui.detail.ItemQuestsAdapter
 import nl.bryanderidder.ornaguide.shared.util.color
+import nl.bryanderidder.ornaguide.shared.util.getPlusOrMinusColor
 
 object ItemViewBinding {
 
@@ -55,5 +58,17 @@ object ItemViewBinding {
     @BindingAdapter("itemQualityColor")
     fun bindItemQualityColor(view: TextView, itemAssess: ItemAssess?) {
         itemAssess?.getQualityColor(view.context)?.let(view::setTextColor)
+    }
+
+    @JvmStatic
+    @BindingAdapter("itemStats")
+    fun bindItemStats(tv: TextView, item: Item?) {
+        val builder = SpannableStringBuilder()
+        item?.statsAsMap()?.map { (stat, value) ->
+            builder.append("$stat: ")
+            builder.color(tv.context.getPlusOrMinusColor(value)) { append("$value") }
+            builder.append("   ")
+        }
+        tv.text = builder.trimEnd()
     }
 }

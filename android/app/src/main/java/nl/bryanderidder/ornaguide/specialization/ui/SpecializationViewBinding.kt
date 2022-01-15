@@ -4,17 +4,12 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.shared.util.color
+import nl.bryanderidder.ornaguide.shared.util.getPlusOrMinusColor
 
 object SpecializationViewBinding {
 
     @JvmStatic
     @BindingAdapter("boostTextColor")
-    fun bindBoostTextColor(view: TextView, value: Int?) = view.setTextColor(
-        view.context.color(
-            if (value == null || value >= 0)
-                R.color.green
-            else
-                R.color.red
-        )
-    )
+    fun bindBoostTextColor(view: TextView, value: Int?) =
+        view.setTextColor(view.context.getPlusOrMinusColor(value))
 }

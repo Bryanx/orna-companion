@@ -34,6 +34,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
+import nl.bryanderidder.ornaguide.R
 import timber.log.Timber
 
 
@@ -94,6 +95,13 @@ fun View.setViewMargin(
 
 fun Context.color(id: Int): Int {
     return ContextCompat.getColor(this, id)
+}
+
+fun Context.getPlusOrMinusColor(value: Int?): Int {
+    return if (value == null || value >= 0)
+        ContextCompat.getColor(this, R.color.ornaGreen)
+    else
+        ContextCompat.getColor(this, R.color.red)
 }
 
 fun Context.attrColor(@ColorInt resId: Int): Int {

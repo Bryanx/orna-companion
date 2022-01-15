@@ -10,6 +10,7 @@ import com.squareup.moshi.JsonClass
 import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.shared.util.ORNA_IMAGE_PREFIX
 import nl.bryanderidder.ornaguide.shared.util.color
+import nl.bryanderidder.ornaguide.shared.util.getPlusOrMinusColor
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -135,16 +136,17 @@ data class ItemAssess(
         val statMap = listOf("Att" to stats.attack, "Def" to stats.defense, "Dex" to stats.dexterity, "Hp" to stats.hp, "Mag" to stats.magic, "Mana" to stats.mana, "Res" to stats.resistance, "Ward" to stats.ward, "Crit" to stats.crit).filter { (_, stat) -> stat.base != 0 }
         levels.forEachIndexed { i, level ->
             when {
-                level.contains("Masterforged") -> builder.bold { color(context.color(R.color.masterForged)) { append("$level") } }
-                level.contains("Demonforged") -> builder.bold { color(context.color(R.color.demonForged)) { append("$level") } }
-                level.contains("Godforged") -> builder.bold { color(context.color(R.color.godForged)) { append("$level") } }
+                level.contains("Masterforged") -> builder.bold { color(context.color(R.color.masterForged)) { append(level) } }
+                level.contains("Demonforged") -> builder.bold { color(context.color(R.color.demonForged)) { append(level) } }
+                level.contains("Godforged") -> builder.bold { color(context.color(R.color.godForged)) { append(level) } }
                 else -> builder.bold { append(level) }
             }
             builder.append("\n")
-            statMap.forEachIndexed { j, stat ->
+            statMap.forEach { stat ->
+                val value = stat.second.values.reversed()[i]
                 builder.append("${stat.first}:")
-                    .color(context.color(R.color.ornaGreen)) { append("${stat.second.values.reversed()[i]}") }
-                    .append(if (statMap.size > 3 && j == 3) "\n" else "  ")
+                    .color(context.getPlusOrMinusColor(value)) { append("$value") }
+                    .append("  ")
             }
         }
         return builder

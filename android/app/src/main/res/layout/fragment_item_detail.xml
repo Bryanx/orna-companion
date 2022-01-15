@@ -29,7 +29,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="100dp">
+        android:paddingBottom="50dp">
+
+        <TextView
+            android:id="@+id/cures"
+            android:paddingTop="@dimen/cardDividerPadding"
+            style="@style/databaseItemPageDescription"
+            android:text="@{vm.item.formattedCures()}"
+            android:textAlignment="center"
+            app:gone="@{vm.item.cures.isEmpty()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Cures:\nFrozen, Poisoned" />
 
         <TextView
             android:id="@+id/immunities"
@@ -39,7 +51,7 @@
             app:gone="@{vm.item.immunities.isEmpty()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/cures"/>
 
         <TextView
             android:id="@+id/immunitiesList"
@@ -207,6 +219,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/quests"
             tools:listitem="@layout/item_item_detail" />
+
+        <TextView
+            android:id="@+id/category"
+            android:paddingTop="@dimen/cardDividerPadding"
+            style="@style/databaseItemPageDescription"
+            android:text="@{`Category:\n` + vm.item.category}"
+            android:textAlignment="center"
+            app:gone="@{vm.item.category.isEmpty()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/questsList"
+            tools:text="Category:\nSwords" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

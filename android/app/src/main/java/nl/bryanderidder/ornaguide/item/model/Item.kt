@@ -115,10 +115,6 @@ data class Item(
             "Materials:"
 
     @Ignore
-    fun formattedStats(): String =
-        statsAsMap().map { (k, v) -> "$k:\u00A0$v" }.toList().joinToString("   ")
-
-    @Ignore
     fun formattedImmunities(): String = immunities.joinToString("\n")
 
     @Ignore
@@ -132,7 +128,7 @@ data class Item(
         if (cures.isEmpty())
             SpannableStringBuilder()
         else
-            "Cures: ${cures.joinToString(", ")}".makeBold("Cures:")
+            "Cures:\n${cures.joinToString(", ")}".makeBold("Cures:")
 
     @Ignore
     fun statsAsMap(): Map<String, Int> {
