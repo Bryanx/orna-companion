@@ -1,6 +1,9 @@
 package nl.bryanderidder.ornaguide.item.ui
 
+import android.app.Activity
 import android.text.SpannableStringBuilder
+import android.view.*
+import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.core.text.color
 import androidx.databinding.BindingAdapter
@@ -24,6 +27,15 @@ object ItemViewBinding {
             view.setTextColor(view.context.color(R.color.arenaColor))
         else
             view.setTextColor(view.context.color(R.color.textColor))
+    }
+
+    @JvmStatic
+    @BindingAdapter("onClickShowItemAssessMenu")
+    fun bindOnClickShowItemAssessMenu(view: View, clickListener: PopupMenu.OnMenuItemClickListener) {
+        val popup = PopupMenu(view.context, view)
+        popup.menuInflater.inflate(R.menu.fragment_dialog_item_assess_menu, popup.menu)
+        popup.setOnMenuItemClickListener(clickListener::onMenuItemClick)
+        view.setOnClickListener { popup.show() }
     }
 
     @JvmStatic

@@ -1,5 +1,6 @@
 package nl.bryanderidder.ornaguide.item.ui.detail.assess
 
+import android.view.MenuItem
 import android.view.View
 import androidx.databinding.Bindable
 import androidx.lifecycle.MutableLiveData
@@ -9,6 +10,7 @@ import com.skydoves.bindables.bindingProperty
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import nl.bryanderidder.ornaguide.R
 import nl.bryanderidder.ornaguide.item.model.Item
 import nl.bryanderidder.ornaguide.item.model.ItemAssess
 import nl.bryanderidder.ornaguide.item.persistence.ItemAssessRepository
@@ -53,6 +55,22 @@ class ItemAssessViewModel(
         ).collect {
             itemAssessList.postValue(it)
         }
+    }
+
+    fun onClickItemAssessMenuItem(item: MenuItem, dialog: ItemAssessDialogFragment): Boolean {
+        return when (item.itemId) {
+            R.id.action_delete_item_assess -> {
+                onDelete()
+                dialog.dismiss()
+                true
+            }
+            else -> false
+        }
+    }
+
+    fun onDelete() = viewModelScope.launch {
+        itemAssess.value?.let { repository.deleteItemAssess(it) }
+        loadItems()
     }
 
     fun updateAttack(value: String) {

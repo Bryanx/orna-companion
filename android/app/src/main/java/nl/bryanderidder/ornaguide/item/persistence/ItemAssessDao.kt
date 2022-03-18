@@ -1,9 +1,6 @@
 package nl.bryanderidder.ornaguide.item.persistence
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import nl.bryanderidder.ornaguide.item.model.ItemAssess
 
 
@@ -18,4 +15,7 @@ interface ItemAssessDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertItemAssess(ItemAssess: ItemAssess)
+
+    @Delete
+    suspend fun deleteItemAssess(ItemAssess: ItemAssess)
 }

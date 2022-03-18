@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
+import nl.bryanderidder.ornaguide.item.model.ItemAssess
 import nl.bryanderidder.ornaguide.shared.database.OrnaTypeConverters
 import nl.bryanderidder.ornaguide.shared.network.OrnaClient
 import nl.bryanderidder.ornaguide.shared.util.NetworkUtil
@@ -74,4 +75,7 @@ class ItemAssessRepository(
         val result = dao.getItemAssess(itemAssessId)
         emit(result)
     }.onStart { onStart() }.onCompletion { onComplete() }.flowOn(Dispatchers.IO)
+
+    suspend fun deleteItemAssess(itemAssess: ItemAssess) =
+        dao.deleteItemAssess(itemAssess)
 }
