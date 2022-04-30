@@ -44,7 +44,7 @@ data class ItemFilter(
         if (categories.isNotEmpty())
             newList = newList.filter { item -> categories.contains(item.category) }
         if (stats.isNotEmpty() && stats.contains("View distance"))
-            newList = newList.filter { item -> stats.any(item.statsAsMap()::containsKey) || item.viewDistance }
+            newList = newList.filter { item -> stats.any(item.statsAsMap()::containsKey) || item.viewDistance > 0 }
         if (stats.isNotEmpty() && !stats.contains("View distance"))
             newList = newList.filter { item -> stats.any(item.statsAsMap()::containsKey) }
         if (cures.isNotEmpty())

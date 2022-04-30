@@ -28,7 +28,7 @@ data class Item(
     @Json(name = "gives") val gives: List<String> = listOf(),
     @Json(name = "causes") val causes: List<String> = listOf(),
     @Json(name = "cures") val cures: List<String> = listOf(),
-    @Json(name = "view_distance") val viewDistance: Boolean = false,
+    @Json(name = "view_distance") val viewDistance: Int = 0,
     @Json(name = "category") val category: String = "",
 ) {
 

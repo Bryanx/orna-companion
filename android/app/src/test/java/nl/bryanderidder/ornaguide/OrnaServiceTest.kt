@@ -4,6 +4,7 @@ import com.skydoves.sandwich.ApiResponse
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import nl.bryanderidder.ornaguide.characterclass.persistence.CharacterClassRequestBody
+import nl.bryanderidder.ornaguide.item.persistence.ItemRequestBody
 import nl.bryanderidder.ornaguide.shared.network.OrnaService
 import nl.bryanderidder.ornaguide.skill.persistence.SkillRequestBody
 import org.hamcrest.CoreMatchers.`is`
@@ -34,7 +35,7 @@ class OrnaServiceTest : ApiAbstract<OrnaService>() {
         val response = service.fetchCharacterClassList(CharacterClassRequestBody(tier = 1))
         val responseBody = requireNotNull((response as ApiResponse.Success).data)
         mockWebServer.takeRequest()
-        assertThat(responseBody.count(), `is`(3))
+        assertThat(responseBody.count(), `is`(57))
     }
 
     @Throws(IOException::class)
@@ -44,6 +45,16 @@ class OrnaServiceTest : ApiAbstract<OrnaService>() {
         val response = service.fetchSkillList(SkillRequestBody(tier = 5))
         val responseBody = requireNotNull((response as ApiResponse.Success).data)
         mockWebServer.takeRequest()
-        assertThat(responseBody.count(), `is`(56))
+        assertThat(responseBody.count(), `is`(616))
+    }
+
+    @Throws(IOException::class)
+    @Test
+    fun fetchItemsNetworkTest() = runBlocking {
+        enqueueResponse("/ItemResponse.json")
+        val response = service.fetchItemList(ItemRequestBody())
+        val responseBody = requireNotNull((response as ApiResponse.Success).data)
+        mockWebServer.takeRequest()
+        assertThat(responseBody.count(), `is`(1535))
     }
 }
