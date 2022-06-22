@@ -55,4 +55,10 @@ object DatabaseMigrations {
             database.execSQL("ALTER TABLE ItemAssess ADD COLUMN itemImage TEXT DEFAULT '' NOT NULL")
         }
     }
+    // DB Migration version 9 to 10
+    val MIGRATION_9_10: Migration = object : Migration(9, 10) {
+        override fun migrate(database: SupportSQLiteDatabase) {
+            database.execSQL("ALTER TABLE Specialization ADD COLUMN preferredWeapons TEXT DEFAULT '' NOT NULL")
+        }
+    }
 }

@@ -24,6 +24,9 @@ interface SpecializationDao {
     @Query("SELECT DISTINCT tier FROM Specialization ORDER BY tier")
     suspend fun getAllPossibleTiers(): List<Int>
 
+    @Query("SELECT DISTINCT preferredWeapons FROM Specialization")
+    suspend fun getAllPossiblePreferredWeapons(): List<String>
+
     @Query("SELECT DISTINCT boosts FROM Specialization")
     suspend fun getAllPossibleBoosts(): List<String>
 

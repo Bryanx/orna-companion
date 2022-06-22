@@ -102,6 +102,15 @@ class SpecializationRepository(
     }.flowOn(Dispatchers.IO)
 
     @WorkerThread
+    fun fetchAllPossiblePreferredWeapons() = flow {
+        val results = dao.getAllPossiblePreferredWeapons()
+            .flatMap(converters::toStringList)
+            .distinct()
+            .sorted()
+        emit(results)
+    }.flowOn(Dispatchers.IO)
+
+    @WorkerThread
     fun fetchAllPossibleBoosts() = flow {
         val results = dao.getAllPossibleBoosts()
             .flatMap(converters::toBoost)

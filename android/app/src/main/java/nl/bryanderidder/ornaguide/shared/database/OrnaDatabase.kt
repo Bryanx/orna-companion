@@ -58,7 +58,7 @@ import nl.bryanderidder.ornaguide.specialization.persistence.SpecializationDao
         AchievementFTS::class,
         Save::class,
     ],
-    version = 9
+    version = 10
 )
 @TypeConverters(OrnaTypeConverters::class)
 abstract class OrnaDatabase : RoomDatabase() {

@@ -21,6 +21,7 @@ class SpecializationListFilterPagerAdapter(fm: FragmentManager, lifecycle: Lifec
         val FILTER_TAB_SPECIALIZATIONS = mapOf<String, () -> Fragment>(
             "Tier" to ::SpecializationListFilterTierFragment,
             "Boost" to ::SpecializationListFilterBoostFragment,
+            "Preferred Weapon" to ::SpecializationListFilterPreferredWeaponFragment,
         )
 
         val FILTER_TAB_LABELS: List<String> = FILTER_TAB_SPECIALIZATIONS.keys.toList()

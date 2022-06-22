@@ -65,8 +65,8 @@ val appModule: Module = module {
             .addInterceptor(NetworkLoggingInterceptor())
             .addInterceptor(CachingInterceptor(get(), get()))
             .connectTimeout(10, TimeUnit.SECONDS)
-            .writeTimeout(120, TimeUnit.SECONDS)
-            .readTimeout(120, TimeUnit.SECONDS)
+            .writeTimeout(180, TimeUnit.SECONDS)
+            .readTimeout(180, TimeUnit.SECONDS)
             .build()
     }
 
@@ -124,6 +124,7 @@ val appModule: Module = module {
             .addMigrations(DatabaseMigrations.MIGRATION_6_7)
             .addMigrations(DatabaseMigrations.MIGRATION_7_8)
             .addMigrations(DatabaseMigrations.MIGRATION_8_9)
+            .addMigrations(DatabaseMigrations.MIGRATION_9_10)
             .build()
     }
 

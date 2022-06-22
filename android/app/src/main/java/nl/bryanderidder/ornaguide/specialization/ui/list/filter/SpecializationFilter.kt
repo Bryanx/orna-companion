@@ -13,6 +13,7 @@ import nl.bryanderidder.ornaguide.specialization.model.Specialization
 data class SpecializationFilter(
     var tiers: List<Int> = listOf(),
     var boosts: List<String> = listOf(),
+    var preferredWeapons: List<String> = listOf(),
 ) {
     fun applyFilter(list: List<Specialization>): List<Specialization> {
         return if (isEmpty())
@@ -33,6 +34,8 @@ data class SpecializationFilter(
                 .map { it.formattedName() }
                 .any { boosts.contains(it) }
             }
+        if (preferredWeapons.isNotEmpty())
+            newList = newList.filter { preferredWeapons.any(it.preferredWeapons::contains) }
         return newList
     }
 
@@ -46,5 +49,6 @@ data class SpecializationFilter(
     fun getFilters() = listOf(
         tiers,
         boosts,
+        preferredWeapons,
     )
 }

@@ -37,6 +37,10 @@ class SpecializationListViewModel(
         repository.fetchAllPossibleTiers().asLiveDataIO(viewModelScope)
     }
 
+    val allPossiblePreferredWeapons: LiveData<List<String>> by lazy {
+        repository.fetchAllPossiblePreferredWeapons().asLiveDataIO(viewModelScope)
+    }
+
     val allPossibleBoosts: LiveData<List<String>> by lazy {
         repository.fetchAllPossibleBoosts().asLiveDataIO(viewModelScope)
     }
@@ -70,6 +74,9 @@ class SpecializationListViewModel(
 
     fun updateSelectedBoosts(boosts: List<String>) =
         updateFilter(sessionSpecializationFilter.value?.copy(boosts = boosts))
+
+    fun updateSelectedPreferredWeapons(preferredWeapons: List<String>) =
+        updateFilter(sessionSpecializationFilter.value?.copy(preferredWeapons = preferredWeapons))
 
     fun onClearFilters() = updateFilter(SpecializationFilter())
 
