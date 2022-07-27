@@ -1,73 +1,24 @@
 [
   {
-    "id": 62,
-    "name": "Boss Slayer",
-    "tier": 6,
-    "requirement": "Slay 500 bosses",
-    "reward": 50000
-  },
-  {
-    "id": 59,
-    "name": "Master Duke",
-    "tier": 7,
-    "requirement": "Take control of 10,000 areas",
-    "reward": 100000
-  },
-  {
-    "id": 5,
+    "id": 1,
     "name": "Value of Experience",
-    "tier": 5,
-    "requirement": "Reach level 100",
-    "reward": 25000
-  },
-  {
-    "id": 66,
-    "name": "Gladiator",
-    "tier": 6,
-    "requirement": "Defeat 5,000 players",
-    "reward": 50000
-  },
-  {
-    "id": 135,
-    "name": "The Endless",
-    "tier": 9,
-    "requirement": "Complete floor 375 in an endless gauntlet or dungeon",
-    "reward": 50000000
-  },
-  {
-    "id": 106,
-    "name": "Master Researcher",
-    "tier": 3,
-    "requirement": "Study 50 monsters",
-    "reward": 5000
-  },
-  {
-    "id": 18,
-    "name": "Boss Slayer",
-    "tier": 3,
-    "requirement": "Slay 50 bosses",
-    "reward": 5000
-  },
-  {
-    "id": 35,
-    "name": "The Traveller",
-    "tier": 5,
-    "requirement": "Travel 250,000 meters",
-    "reward": 50000
-  },
-  {
-    "id": 47,
-    "name": "Gauntlet Master",
     "tier": 1,
-    "requirement": "Complete 2 Gauntlets",
-    "reward": 500
+    "requirement": "Reach level 10",
+    "reward": 20
   },
   {
-    "id": 71,
-    "name": "Quest Seeker",
-    "tier": 7,
-    "requirement": "Complete 250 quests",
-    "reward": 250000
+    "id": 2,
+    "name": "Value of Experience",
+    "tier": 2,
+    "requirement": "Reach level 25",
+    "reward": 50
+  },
+  {
+    "id": 3,
+    "name": "Value of Experience",
+    "tier": 3,
+    "requirement": "Reach level 50",
+    "reward": 100
   },
   {
     "id": 4,
@@ -77,38 +28,17 @@
     "reward": 5000
   },
   {
-    "id": 114,
-    "name": "Skilled Herbalist",
-    "tier": 3,
-    "requirement": "Brew 100 potions",
-    "reward": 10000
+    "id": 5,
+    "name": "Value of Experience",
+    "tier": 5,
+    "requirement": "Reach level 100",
+    "reward": 25000
   },
   {
-    "id": 9,
+    "id": 6,
     "name": "Frequent Visitor",
-    "tier": 4,
-    "requirement": "Open the game 500 times",
-    "reward": 5000
-  },
-  {
-    "id": 53,
-    "name": "Master Blacksmith",
     "tier": 1,
-    "requirement": "Upgrade 5 items",
-    "reward": 500
-  },
-  {
-    "id": 91,
-    "name": "The Explorer",
-    "tier": 2,
-    "requirement": "Explore 25 areas",
-    "reward": 500
-  },
-  {
-    "id": 112,
-    "name": "Skilled Herbalist",
-    "tier": 1,
-    "requirement": "Brew 5 potions",
+    "requirement": "Open the game 5 times",
     "reward": 500
   },
   {
@@ -119,283 +49,52 @@
     "reward": 1000
   },
   {
-    "id": 41,
-    "name": "The Student",
-    "tier": 1,
-    "requirement": "Learn 5 skills",
-    "reward": 500
-  },
-  {
-    "id": 96,
-    "name": "Master Angler",
-    "tier": 10,
-    "requirement": "Catch 1500 fish",
-    "reward": 1000000
-  },
-  {
-    "id": 40,
-    "name": "The Polymath",
-    "tier": 5,
-    "requirement": "Unlock 15 classes",
-    "reward": 50000
-  },
-  {
-    "id": 81,
-    "name": "Monster Slayer",
-    "tier": 10,
-    "requirement": "Defeat 250,000 monsters",
-    "reward": 2500000
-  },
-  {
-    "id": 107,
-    "name": "Master Angler",
-    "tier": 4,
-    "requirement": "Catch 100 fish",
-    "reward": 10000
-  },
-  {
-    "id": 128,
-    "name": "The Endless",
-    "tier": 2,
-    "requirement": "Complete floor 175 in an endless gauntlet or dungeon",
-    "reward": 250000
-  },
-  {
-    "id": 20,
-    "name": "Boss Slayer",
-    "tier": 5,
-    "requirement": "Slay 250 bosses",
-    "reward": 25000
-  },
-  {
-    "id": 28,
-    "name": "Master Duke",
+    "id": 8,
+    "name": "Frequent Visitor",
     "tier": 3,
-    "requirement": "Take control of 100 areas",
-    "reward": 1000
+    "requirement": "Open the game 100 times",
+    "reward": 2500
   },
   {
-    "id": 115,
-    "name": "Skilled Herbalist",
-    "tier": 5,
-    "requirement": "Brew 2000 potions",
-    "reward": 50000
-  },
-  {
-    "id": 124,
-    "name": "Master Researcher",
-    "tier": 10,
-    "requirement": "Study 400 monsters",
-    "reward": 1000000
-  },
-  {
-    "id": 17,
-    "name": "Boss Slayer",
-    "tier": 2,
-    "requirement": "Slay 10 bosses",
-    "reward": 1000
-  },
-  {
-    "id": 117,
-    "name": "Skilled Herbalist",
+    "id": 9,
+    "name": "Frequent Visitor",
     "tier": 4,
-    "requirement": "Brew 500 potions",
-    "reward": 25000
-  },
-  {
-    "id": 64,
-    "name": "Gauntlet Master",
-    "tier": 8,
-    "requirement": "Complete 500 gauntlets",
-    "reward": 500000
-  },
-  {
-    "id": 129,
-    "name": "The Endless",
-    "tier": 3,
-    "requirement": "Complete floor 200 in an endless gauntlet or dungeon",
-    "reward": 500000
-  },
-  {
-    "id": 68,
-    "name": "Value of Experience",
-    "tier": 8,
-    "requirement": "Reach level 175",
-    "reward": 250000
-  },
-  {
-    "id": 118,
-    "name": "Champion",
-    "tier": 4,
-    "requirement": "Win in the coliseum 20 times",
-    "reward": 25000
-  },
-  {
-    "id": 67,
-    "name": "Master Duke",
-    "tier": 6,
-    "requirement": "Take control of 5,000 areas",
-    "reward": 50000
-  },
-  {
-    "id": 32,
-    "name": "The Traveller",
-    "tier": 2,
-    "requirement": "Travel 1000 meters",
+    "requirement": "Open the game 500 times",
     "reward": 5000
-  },
-  {
-    "id": 84,
-    "name": "Master Duke",
-    "tier": 8,
-    "requirement": "Take control of 25,000 areas",
-    "reward": 250000
-  },
-  {
-    "id": 33,
-    "name": "The Traveller",
-    "tier": 3,
-    "requirement": "Travel 50000 meters",
-    "reward": 10000
-  },
-  {
-    "id": 38,
-    "name": "The Polymath",
-    "tier": 3,
-    "requirement": "Unlock 7 classes",
-    "reward": 10000
-  },
-  {
-    "id": 77,
-    "name": "Master Blacksmith",
-    "tier": 5,
-    "requirement": "Upgrade 2000 items",
-    "reward": 50000
-  },
-  {
-    "id": 100,
-    "name": "Master Angler",
-    "tier": 6,
-    "requirement": "Catch 400 fish",
-    "reward": 50000
-  },
-  {
-    "id": 75,
-    "name": "Monster Slayer",
-    "tier": 9,
-    "requirement": "Defeat 100,000 monsters",
-    "reward": 1000000
-  },
-  {
-    "id": 90,
-    "name": "The Explorer",
-    "tier": 4,
-    "requirement": "Explore 500 areas",
-    "reward": 10000
-  },
-  {
-    "id": 120,
-    "name": "Master Researcher",
-    "tier": 2,
-    "requirement": "Study 20 monsters",
-    "reward": 1000
-  },
-  {
-    "id": 24,
-    "name": "Gladiator",
-    "tier": 4,
-    "requirement": "Defeat 500 players",
-    "reward": 5000
-  },
-  {
-    "id": 73,
-    "name": "Gauntlet Master",
-    "tier": 9,
-    "requirement": "Complete 1000 gauntlets",
-    "reward": 1000000
-  },
-  {
-    "id": 126,
-    "name": "Champion",
-    "tier": 7,
-    "requirement": "Win in the coliseum 60 times",
-    "reward": 100000
-  },
-  {
-    "id": 105,
-    "name": "Master Researcher",
-    "tier": 5,
-    "requirement": "Study 150 Monsters",
-    "reward": 25000
-  },
-  {
-    "id": 42,
-    "name": "The Student",
-    "tier": 2,
-    "requirement": "Learn 10 skills",
-    "reward": 5000
-  },
-  {
-    "id": 63,
-    "name": "Gauntlet Master",
-    "tier": 6,
-    "requirement": "Complete 100 gauntlets",
-    "reward": 100000
-  },
-  {
-    "id": 72,
-    "name": "Quest Seeker",
-    "tier": 5,
-    "requirement": "Complete 50 quests",
-    "reward": 50000
-  },
-  {
-    "id": 116,
-    "name": "Master Researcher",
-    "tier": 4,
-    "requirement": "Study 100 Monsters",
-    "reward": 10000
-  },
-  {
-    "id": 98,
-    "name": "Master Angler",
-    "tier": 7,
-    "requirement": "Catch 800 fish",
-    "reward": 100000
-  },
-  {
-    "id": 82,
-    "name": "Gauntlet Master",
-    "tier": 10,
-    "requirement": "Complete 2,000 gauntlets",
-    "reward": 2500000
-  },
-  {
-    "id": 119,
-    "name": "Master Researcher",
-    "tier": 1,
-    "requirement": "Study 10 monsters",
-    "reward": 100
-  },
-  {
-    "id": 26,
-    "name": "Master Duke",
-    "tier": 1,
-    "requirement": "Take control of 5 areas",
-    "reward": 25
-  },
-  {
-    "id": 70,
-    "name": "Master Blacksmith",
-    "tier": 3,
-    "requirement": "Upgrade 100 items",
-    "reward": 10000
   },
   {
     "id": 10,
     "name": "Frequent Visitor",
     "tier": 5,
     "requirement": "Open the game 2000 times",
+    "reward": 10000
+  },
+  {
+    "id": 11,
+    "name": "Monster Slayer",
+    "tier": 1,
+    "requirement": "Defeat 5 monsters",
+    "reward": 20
+  },
+  {
+    "id": 12,
+    "name": "Monster Slayer",
+    "tier": 2,
+    "requirement": "Defeat 25 monsters",
+    "reward": 50
+  },
+  {
+    "id": 13,
+    "name": "Monster Slayer",
+    "tier": 3,
+    "requirement": "Defeat 100 monsters",
+    "reward": 100
+  },
+  {
+    "id": 14,
+    "name": "Monster Slayer",
+    "tier": 4,
+    "requirement": "Defeat 500 monsters",
     "reward": 10000
   },
   {
@@ -406,60 +105,25 @@
     "reward": 25000
   },
   {
-    "id": 31,
-    "name": "The Traveller",
+    "id": 16,
+    "name": "Boss Slayer",
     "tier": 1,
-    "requirement": "Travel 100 meters",
-    "reward": 500
-  },
-  {
-    "id": 111,
-    "name": "Champion",
-    "tier": 3,
-    "requirement": "Win in the coliseum 10 times",
-    "reward": 10000
-  },
-  {
-    "id": 108,
-    "name": "Champion",
-    "tier": 10,
-    "requirement": "Win in the coliseum 150 times",
-    "reward": 2500000
-  },
-  {
-    "id": 50,
-    "name": "Gauntlet Master",
-    "tier": 4,
-    "requirement": "Complete 25 Gauntlets",
-    "reward": 25000
-  },
-  {
-    "id": 123,
-    "name": "Champion",
-    "tier": 5,
-    "requirement": "Win in the coliseum 40 times",
-    "reward": 50000
-  },
-  {
-    "id": 94,
-    "name": "Master Angler",
-    "tier": 1,
-    "requirement": "Catch 10 fish",
+    "requirement": "Slay 2 bosses",
     "reward": 100
   },
   {
-    "id": 104,
-    "name": "Master Angler",
+    "id": 17,
+    "name": "Boss Slayer",
     "tier": 2,
-    "requirement": "Catch 25 fish",
+    "requirement": "Slay 10 bosses",
     "reward": 1000
   },
   {
-    "id": 76,
-    "name": "Monster Slayer",
-    "tier": 7,
-    "requirement": "Defeat 10,000 monsters",
-    "reward": 100000
+    "id": 18,
+    "name": "Boss Slayer",
+    "tier": 3,
+    "requirement": "Slay 50 bosses",
+    "reward": 5000
   },
   {
     "id": 19,
@@ -469,94 +133,10 @@
     "reward": 10000
   },
   {
-    "id": 36,
-    "name": "The Polymath",
-    "tier": 1,
-    "requirement": "Unlock 2 classes",
-    "reward": 500
-  },
-  {
-    "id": 65,
-    "name": "Gladiator",
-    "tier": 7,
-    "requirement": "Defeat 10,000 players",
-    "reward": 100000
-  },
-  {
-    "id": 102,
-    "name": "Champion",
-    "tier": 2,
-    "requirement": "Win in the coliseum 5 times",
-    "reward": 5000
-  },
-  {
-    "id": 127,
-    "name": "The Endless",
-    "tier": 1,
-    "requirement": "Complete floor 150 in an endless gauntlet or dungeon",
-    "reward": 100000
-  },
-  {
-    "id": 2,
-    "name": "Value of Experience",
-    "tier": 2,
-    "requirement": "Reach level 25",
-    "reward": 50
-  },
-  {
-    "id": 12,
-    "name": "Monster Slayer",
-    "tier": 2,
-    "requirement": "Defeat 25 monsters",
-    "reward": 50
-  },
-  {
-    "id": 22,
-    "name": "Gladiator",
-    "tier": 2,
-    "requirement": "Defeat 25 players",
-    "reward": 50
-  },
-  {
-    "id": 113,
-    "name": "Skilled Herbalist",
-    "tier": 2,
-    "requirement": "Brew 25 potions",
-    "reward": 5000
-  },
-  {
-    "id": 79,
-    "name": "Value of Experience",
-    "tier": 6,
-    "requirement": "Reach Level 125",
-    "reward": 50000
-  },
-  {
-    "id": 130,
-    "name": "The Endless",
-    "tier": 4,
-    "requirement": "Complete floor 225 in an endless gauntlet or dungeon",
-    "reward": 1000000
-  },
-  {
-    "id": 29,
-    "name": "Master Duke",
-    "tier": 4,
-    "requirement": "Take control of 500 areas",
-    "reward": 10000
-  },
-  {
-    "id": 14,
-    "name": "Monster Slayer",
-    "tier": 4,
-    "requirement": "Defeat 500 monsters",
-    "reward": 10000
-  },
-  {
-    "id": 99,
-    "name": "Master Angler",
+    "id": 20,
+    "name": "Boss Slayer",
     "tier": 5,
-    "requirement": "Catch 200 fish",
+    "requirement": "Slay 250 bosses",
     "reward": 25000
   },
   {
@@ -567,67 +147,109 @@
     "reward": 20
   },
   {
-    "id": 51,
-    "name": "Quest Seeker",
-    "tier": 1,
-    "requirement": "Complete 2 quests",
-    "reward": 500
-  },
-  {
-    "id": 74,
-    "name": "Quest Seeker",
-    "tier": 8,
-    "requirement": "Complete 500 quests",
-    "reward": 500000
-  },
-  {
-    "id": 6,
-    "name": "Frequent Visitor",
-    "tier": 1,
-    "requirement": "Open the game 5 times",
-    "reward": 500
-  },
-  {
-    "id": 85,
-    "name": "Quest Seeker",
-    "tier": 10,
-    "requirement": "Complete 2000 quests",
-    "reward": 2500000
-  },
-  {
-    "id": 39,
-    "name": "The Polymath",
-    "tier": 4,
-    "requirement": "Unlock 10 classes",
-    "reward": 25000
-  },
-  {
-    "id": 133,
-    "name": "The Endless",
-    "tier": 7,
-    "requirement": "Complete floor 300 in an endless gauntlet or dungeon",
-    "reward": 10000000
-  },
-  {
-    "id": 110,
-    "name": "Champion",
-    "tier": 8,
-    "requirement": "Win in the coliseum 100 times",
-    "reward": 500000
-  },
-  {
-    "id": 92,
-    "name": "The Explorer",
-    "tier": 5,
-    "requirement": "Explore 2000 areas",
-    "reward": 25000
-  },
-  {
-    "id": 48,
-    "name": "Gauntlet Master",
+    "id": 22,
+    "name": "Gladiator",
     "tier": 2,
-    "requirement": "Complete 5 Gauntlets",
+    "requirement": "Defeat 25 players",
+    "reward": 50
+  },
+  {
+    "id": 23,
+    "name": "Gladiator",
+    "tier": 3,
+    "requirement": "Defeat 100 players",
+    "reward": 100
+  },
+  {
+    "id": 24,
+    "name": "Gladiator",
+    "tier": 4,
+    "requirement": "Defeat 500 players",
     "reward": 5000
+  },
+  {
+    "id": 25,
+    "name": "Gladiator",
+    "tier": 5,
+    "requirement": "Defeat 2,000 players",
+    "reward": 25000
+  },
+  {
+    "id": 26,
+    "name": "Master Duke",
+    "tier": 1,
+    "requirement": "Take control of 5 areas",
+    "reward": 25
+  },
+  {
+    "id": 27,
+    "name": "Master Duke",
+    "tier": 2,
+    "requirement": "Take control of 25 areas",
+    "reward": 500
+  },
+  {
+    "id": 28,
+    "name": "Master Duke",
+    "tier": 3,
+    "requirement": "Take control of 100 areas",
+    "reward": 1000
+  },
+  {
+    "id": 29,
+    "name": "Master Duke",
+    "tier": 4,
+    "requirement": "Take control of 500 areas",
+    "reward": 10000
+  },
+  {
+    "id": 30,
+    "name": "Master Duke",
+    "tier": 5,
+    "requirement": "Take control of 2000 areas",
+    "reward": 25000
+  },
+  {
+    "id": 31,
+    "name": "The Traveller",
+    "tier": 1,
+    "requirement": "Travel 100 meters",
+    "reward": 500
+  },
+  {
+    "id": 32,
+    "name": "The Traveller",
+    "tier": 2,
+    "requirement": "Travel 1000 meters",
+    "reward": 5000
+  },
+  {
+    "id": 33,
+    "name": "The Traveller",
+    "tier": 3,
+    "requirement": "Travel 50000 meters",
+    "reward": 10000
+  },
+  {
+    "id": 34,
+    "name": "The Traveller",
+    "tier": 4,
+    "requirement": "Travel 100000 meters",
+    "reward": 25000
+  },
+  {
+    "id": 35,
+    "name": "The Traveller",
+    "tier": 5,
+    "requirement": "Travel 250,000 meters",
+    "reward": 50000
+  },
+  {
+    "id": 36,
+    "name": "The Polymath",
+    "tier": 1,
+    "requirement": "Unlock 2 classes",
+    "reward": 500
   },
   {
     "id": 37,
@@ -637,6 +259,160 @@
     "reward": 5000
   },
   {
+    "id": 38,
+    "name": "The Polymath",
+    "tier": 3,
+    "requirement": "Unlock 7 classes",
+    "reward": 10000
+  },
+  {
+    "id": 39,
+    "name": "The Polymath",
+    "tier": 4,
+    "requirement": "Unlock 10 classes",
+    "reward": 25000
+  },
+  {
+    "id": 40,
+    "name": "The Polymath",
+    "tier": 5,
+    "requirement": "Unlock 15 classes",
+    "reward": 50000
+  },
+  {
+    "id": 41,
+    "name": "The Student",
+    "tier": 1,
+    "requirement": "Learn 5 skills",
+    "reward": 500
+  },
+  {
+    "id": 42,
+    "name": "The Student",
+    "tier": 2,
+    "requirement": "Learn 10 skills",
+    "reward": 5000
+  },
+  {
+    "id": 43,
+    "name": "The Student",
+    "tier": 3,
+    "requirement": "Learn 25 skills",
+    "reward": 10000
+  },
+  {
+    "id": 44,
+    "name": "The Student",
+    "tier": 4,
+    "requirement": "Learn 40 skills",
+    "reward": 25000
+  },
+  {
+    "id": 45,
+    "name": "The Student",
+    "tier": 5,
+    "requirement": "Learn 60 skills",
+    "reward": 50000
+  },
+  {
+    "id": 46,
+    "name": "Gauntlet Master",
+    "tier": 5,
+    "requirement": "Complete 50 Gauntlets",
+    "reward": 50000
+  },
+  {
+    "id": 47,
+    "name": "Gauntlet Master",
+    "tier": 1,
+    "requirement": "Complete 2 Gauntlets",
+    "reward": 500
+  },
+  {
+    "id": 48,
+    "name": "Gauntlet Master",
+    "tier": 2,
+    "requirement": "Complete 5 Gauntlets",
+    "reward": 5000
+  },
+  {
+    "id": 49,
+    "name": "Gauntlet Master",
+    "tier": 3,
+    "requirement": "Complete 10 Gauntlets",
+    "reward": 10000
+  },
+  {
+    "id": 50,
+    "name": "Gauntlet Master",
+    "tier": 4,
+    "requirement": "Complete 25 Gauntlets",
+    "reward": 25000
+  },
+  {
+    "id": 51,
+    "name": "Quest Seeker",
+    "tier": 1,
+    "requirement": "Complete 2 quests",
+    "reward": 500
+  },
+  {
+    "id": 52,
+    "name": "Quest Seeker",
+    "tier": 2,
+    "requirement": "Complete 5 quests",
+    "reward": 5000
+  },
+  {
+    "id": 53,
+    "name": "Master Blacksmith",
+    "tier": 1,
+    "requirement": "Upgrade 5 items",
+    "reward": 500
+  },
+  {
+    "id": 54,
+    "name": "Master Blacksmith",
+    "tier": 2,
+    "requirement": "Upgrade 25 items",
+    "reward": 5000
+  },
+  {
+    "id": 55,
+    "name": "Boss Slayer",
+    "tier": 10,
+    "requirement": "Slay 10,000 bosses",
+    "reward": 1000000
+  },
+  {
+    "id": 56,
+    "name": "Quest Seeker",
+    "tier": 9,
+    "requirement": "Complete 1000 quests",
+    "reward": 1000000
+  },
+  {
+    "id": 57,
+    "name": "Master Blacksmith",
+    "tier": 4,
+    "requirement": "Upgrade 500 items",
+    "reward": 25000
+  },
+  {
+    "id": 58,
+    "name": "Gauntlet Master",
+    "tier": 7,
+    "requirement": "Complete 250 gauntlets",
+    "reward": 250000
+  },
+  {
+    "id": 59,
+    "name": "Master Duke",
+    "tier": 7,
+    "requirement": "Take control of 10,000 areas",
+    "reward": 100000
+  },
+  {
     "id": 60,
     "name": "Value of Experience",
     "tier": 9,
@@ -644,17 +420,59 @@
     "reward": 500000
   },
   {
-    "id": 131,
-    "name": "The Endless",
-    "tier": 5,
-    "requirement": "Complete floor 250 in an endless gauntlet or dungeon",
-    "reward": 2500000
+    "id": 61,
+    "name": "Boss Slayer",
+    "tier": 9,
+    "requirement": "Slay 5,000 bosses",
+    "reward": 500000
   },
   {
-    "id": 83,
-    "name": "Gladiator",
+    "id": 62,
+    "name": "Boss Slayer",
+    "tier": 6,
+    "requirement": "Slay 500 bosses",
+    "reward": 50000
+  },
+  {
+    "id": 63,
+    "name": "Gauntlet Master",
+    "tier": 6,
+    "requirement": "Complete 100 gauntlets",
+    "reward": 100000
+  },
+  {
+    "id": 64,
+    "name": "Gauntlet Master",
     "tier": 8,
-    "requirement": "Defeat 25,000 players",
+    "requirement": "Complete 500 gauntlets",
+    "reward": 500000
+  },
+  {
+    "id": 65,
+    "name": "Gladiator",
+    "tier": 7,
+    "requirement": "Defeat 10,000 players",
+    "reward": 100000
+  },
+  {
+    "id": 66,
+    "name": "Gladiator",
+    "tier": 6,
+    "requirement": "Defeat 5,000 players",
+    "reward": 50000
+  },
+  {
+    "id": 67,
+    "name": "Master Duke",
+    "tier": 6,
+    "requirement": "Take control of 5,000 areas",
+    "reward": 50000
+  },
+  {
+    "id": 68,
+    "name": "Value of Experience",
+    "tier": 8,
+    "requirement": "Reach level 175",
     "reward": 250000
   },
   {
@@ -665,25 +483,74 @@
     "reward": 1000000
   },
   {
-    "id": 58,
-    "name": "Gauntlet Master",
+    "id": 70,
+    "name": "Master Blacksmith",
+    "tier": 3,
+    "requirement": "Upgrade 100 items",
+    "reward": 10000
+  },
+  {
+    "id": 71,
+    "name": "Quest Seeker",
     "tier": 7,
-    "requirement": "Complete 250 gauntlets",
+    "requirement": "Complete 250 quests",
     "reward": 250000
   },
   {
-    "id": 25,
-    "name": "Gladiator",
+    "id": 72,
+    "name": "Quest Seeker",
     "tier": 5,
-    "requirement": "Defeat 2000 players",
-    "reward": 25000
+    "requirement": "Complete 50 quests",
+    "reward": 50000
   },
   {
-    "id": 34,
-    "name": "The Traveller",
-    "tier": 4,
-    "requirement": "Travel 100000 meters",
-    "reward": 25000
+    "id": 73,
+    "name": "Gauntlet Master",
+    "tier": 9,
+    "requirement": "Complete 1000 gauntlets",
+    "reward": 1000000
+  },
+  {
+    "id": 74,
+    "name": "Quest Seeker",
+    "tier": 8,
+    "requirement": "Complete 500 quests",
+    "reward": 500000
+  },
+  {
+    "id": 75,
+    "name": "Monster Slayer",
+    "tier": 9,
+    "requirement": "Defeat 100,000 monsters",
+    "reward": 1000000
+  },
+  {
+    "id": 76,
+    "name": "Monster Slayer",
+    "tier": 7,
+    "requirement": "Defeat 10,000 monsters",
+    "reward": 100000
+  },
+  {
+    "id": 77,
+    "name": "Master Blacksmith",
+    "tier": 5,
+    "requirement": "Upgrade 2000 items",
+    "reward": 50000
+  },
+  {
+    "id": 78,
+    "name": "Value of Experience",
+    "tier": 7,
+    "requirement": "Reach Level 150",
+    "reward": 100000
+  },
+  {
+    "id": 79,
+    "name": "Value of Experience",
+    "tier": 6,
+    "requirement": "Reach Level 125",
+    "reward": 50000
   },
   {
     "id": 80,
@@ -693,66 +560,45 @@
     "reward": 250000
   },
   {
-    "id": 95,
-    "name": "Master Angler",
-    "tier": 3,
-    "requirement": "Catch 50 fish",
-    "reward": 5000
-  },
-  {
-    "id": 3,
-    "name": "Value of Experience",
-    "tier": 3,
-    "requirement": "Reach level 50",
-    "reward": 100
-  },
-  {
-    "id": 125,
-    "name": "Gladiator",
-    "tier": 9,
-    "requirement": "Defeat 100000 players",
-    "reward": 1000000
-  },
-  {
-    "id": 11,
+    "id": 81,
     "name": "Monster Slayer",
-    "tier": 1,
-    "requirement": "Defeat 5 monsters",
-    "reward": 20
-  },
-  {
-    "id": 45,
-    "name": "The Student",
-    "tier": 5,
-    "requirement": "Learn 60 skills",
-    "reward": 50000
-  },
-  {
-    "id": 121,
-    "name": "Quest Seeker",
-    "tier": 3,
-    "requirement": "Complete 10 quests",
-    "reward": 10000
-  },
-  {
-    "id": 46,
-    "name": "Gauntlet Master",
-    "tier": 5,
-    "requirement": "Complete 50 Gauntlets",
-    "reward": 50000
-  },
-  {
-    "id": 55,
-    "name": "Boss Slayer",
     "tier": 10,
-    "requirement": "Slay 10,000 bosses",
-    "reward": 1000000
+    "requirement": "Defeat 250,000 monsters",
+    "reward": 2500000
   },
   {
-    "id": 78,
-    "name": "Value of Experience",
+    "id": 82,
+    "name": "Gauntlet Master",
+    "tier": 10,
+    "requirement": "Complete 2,000 gauntlets",
+    "reward": 2500000
+  },
+  {
+    "id": 83,
+    "name": "Gladiator",
+    "tier": 8,
+    "requirement": "Defeat 25,000 players",
+    "reward": 250000
+  },
+  {
+    "id": 84,
+    "name": "Master Duke",
+    "tier": 8,
+    "requirement": "Take control of 25,000 areas",
+    "reward": 250000
+  },
+  {
+    "id": 85,
+    "name": "Quest Seeker",
+    "tier": 10,
+    "requirement": "Complete 2000 quests",
+    "reward": 2500000
+  },
+  {
+    "id": 86,
+    "name": "Boss Slayer",
     "tier": 7,
-    "requirement": "Reach Level 150",
+    "requirement": "Slay 1,000 bosses.",
     "reward": 100000
   },
   {
@@ -770,87 +616,31 @@
     "reward": 25
   },
   {
-    "id": 49,
-    "name": "Gauntlet Master",
+    "id": 89,
+    "name": "The Explorer",
     "tier": 3,
-    "requirement": "Complete 10 Gauntlets",
+    "requirement": "Explore 100 areas",
+    "reward": 1000
+  },
+  {
+    "id": 90,
+    "name": "The Explorer",
+    "tier": 4,
+    "requirement": "Explore 500 areas",
     "reward": 10000
   },
   {
-    "id": 1,
-    "name": "Value of Experience",
-    "tier": 1,
-    "requirement": "Reach level 10",
-    "reward": 20
-  },
-  {
-    "id": 8,
-    "name": "Frequent Visitor",
-    "tier": 3,
-    "requirement": "Open the game 100 times",
-    "reward": 2500
-  },
-  {
-    "id": 109,
-    "name": "Champion",
-    "tier": 9,
-    "requirement": "Win in the coliseum 125 times",
-    "reward": 1000000
-  },
-  {
-    "id": 27,
-    "name": "Master Duke",
+    "id": 91,
+    "name": "The Explorer",
     "tier": 2,
-    "requirement": "Take control of 25 areas",
+    "requirement": "Explore 25 areas",
     "reward": 500
   },
   {
-    "id": 61,
-    "name": "Boss Slayer",
-    "tier": 9,
-    "requirement": "Slay 5,000 bosses",
-    "reward": 500000
-  },
-  {
-    "id": 122,
-    "name": "Quest Seeker",
-    "tier": 4,
-    "requirement": "Complete 25 quests",
-    "reward": 25000
-  },
-  {
-    "id": 136,
-    "name": "The Endless",
-    "tier": 10,
-    "requirement": "Complete floor 400 in an endless gauntlet or dungeon",
-    "reward": 100000000
-  },
-  {
-    "id": 16,
-    "name": "Boss Slayer",
-    "tier": 1,
-    "requirement": "Slay 2 bosses",
-    "reward": 100
-  },
-  {
-    "id": 13,
-    "name": "Monster Slayer",
-    "tier": 3,
-    "requirement": "Defeat 100 monsters",
-    "reward": 100
-  },
-  {
-    "id": 54,
-    "name": "Master Blacksmith",
-    "tier": 2,
-    "requirement": "Upgrade 25 items",
-    "reward": 5000
-  },
-  {
-    "id": 57,
-    "name": "Master Blacksmith",
-    "tier": 4,
-    "requirement": "Upgrade 500 items",
+    "id": 92,
+    "name": "The Explorer",
+    "tier": 5,
+    "requirement": "Explore 2000 areas",
     "reward": 25000
   },
   {
@@ -861,81 +651,25 @@
     "reward": 250000
   },
   {
-    "id": 43,
-    "name": "The Student",
-    "tier": 3,
-    "requirement": "Learn 25 skills",
-    "reward": 10000
-  },
-  {
-    "id": 101,
+    "id": 94,
     "name": "Master Angler",
-    "tier": 9,
-    "requirement": "Catch 1250 fish",
-    "reward": 500000
-  },
-  {
-    "id": 134,
-    "name": "The Endless",
-    "tier": 8,
-    "requirement": "Complete floor 350 in an endless gauntlet or dungeon",
-    "reward": 25000000
-  },
-  {
-    "id": 23,
-    "name": "Gladiator",
-    "tier": 3,
-    "requirement": "Defeat 100 players",
+    "tier": 1,
+    "requirement": "Catch 10 fish",
     "reward": 100
   },
   {
-    "id": 56,
-    "name": "Quest Seeker",
-    "tier": 9,
-    "requirement": "Complete 1000 quests",
-    "reward": 1000000
-  },
-  {
-    "id": 86,
-    "name": "Boss Slayer",
-    "tier": 7,
-    "requirement": "Slay 1,000 bosses.",
-    "reward": 100000
-  },
-  {
-    "id": 30,
-    "name": "Master Duke",
-    "tier": 5,
-    "requirement": "Take control of 2000 areas",
-    "reward": 25000
-  },
-  {
-    "id": 44,
-    "name": "The Student",
-    "tier": 4,
-    "requirement": "Learn 40 skills",
-    "reward": 25000
-  },
-  {
-    "id": 103,
-    "name": "Champion",
-    "tier": 1,
-    "requirement": "Win in the coliseum 1 times",
-    "reward": 500
-  },
-  {
-    "id": 132,
-    "name": "The Endless",
-    "tier": 6,
-    "requirement": "Complete floor 275 in an endless gauntlet or dungeon",
-    "reward": 5000000
-  },
-  {
-    "id": 52,
-    "name": "Quest Seeker",
-    "tier": 2,
-    "requirement": "Complete 5 quests",
+    "id": 95,
+    "name": "Master Angler",
+    "tier": 3,
+    "requirement": "Catch 50 fish",
     "reward": 5000
+  },
+  {
+    "id": 96,
+    "name": "Master Angler",
+    "tier": 10,
+    "requirement": "Catch 1500 fish",
+    "reward": 1000000
   },
   {
     "id": 97,
@@ -945,10 +679,339 @@
     "reward": 250000
   },
   {
-    "id": 89,
-    "name": "The Explorer",
-    "tier": 3,
-    "requirement": "Explore 100 areas",
+    "id": 98,
+    "name": "Master Angler",
+    "tier": 7,
+    "requirement": "Catch 800 fish",
+    "reward": 100000
+  },
+  {
+    "id": 99,
+    "name": "Master Angler",
+    "tier": 5,
+    "requirement": "Catch 200 fish",
+    "reward": 25000
+  },
+  {
+    "id": 100,
+    "name": "Master Angler",
+    "tier": 6,
+    "requirement": "Catch 400 fish",
+    "reward": 50000
+  },
+  {
+    "id": 101,
+    "name": "Master Angler",
+    "tier": 9,
+    "requirement": "Catch 1250 fish",
+    "reward": 500000
+  },
+  {
+    "id": 102,
+    "name": "Champion",
+    "tier": 2,
+    "requirement": "Win in the coliseum 5 times",
+    "reward": 5000
+  },
+  {
+    "id": 103,
+    "name": "Champion",
+    "tier": 1,
+    "requirement": "Win in the coliseum 1 times",
+    "reward": 500
+  },
+  {
+    "id": 104,
+    "name": "Master Angler",
+    "tier": 2,
+    "requirement": "Catch 25 fish",
     "reward": 1000
+  },
+  {
+    "id": 105,
+    "name": "Master Researcher",
+    "tier": 5,
+    "requirement": "Study 150 Monsters",
+    "reward": 25000
+  },
+  {
+    "id": 106,
+    "name": "Master Researcher",
+    "tier": 3,
+    "requirement": "Study 50 monsters",
+    "reward": 5000
+  },
+  {
+    "id": 107,
+    "name": "Master Angler",
+    "tier": 4,
+    "requirement": "Catch 100 fish",
+    "reward": 10000
+  },
+  {
+    "id": 108,
+    "name": "Champion",
+    "tier": 10,
+    "requirement": "Win in the coliseum 150 times",
+    "reward": 2500000
+  },
+  {
+    "id": 109,
+    "name": "Champion",
+    "tier": 9,
+    "requirement": "Win in the coliseum 125 times",
+    "reward": 1000000
+  },
+  {
+    "id": 110,
+    "name": "Champion",
+    "tier": 8,
+    "requirement": "Win in the coliseum 100 times",
+    "reward": 500000
+  },
+  {
+    "id": 111,
+    "name": "Champion",
+    "tier": 3,
+    "requirement": "Win in the coliseum 10 times",
+    "reward": 10000
+  },
+  {
+    "id": 112,
+    "name": "Skilled Herbalist",
+    "tier": 1,
+    "requirement": "Brew 5 potions",
+    "reward": 500
+  },
+  {
+    "id": 113,
+    "name": "Skilled Herbalist",
+    "tier": 2,
+    "requirement": "Brew 25 potions",
+    "reward": 5000
+  },
+  {
+    "id": 114,
+    "name": "Skilled Herbalist",
+    "tier": 3,
+    "requirement": "Brew 100 potions",
+    "reward": 10000
+  },
+  {
+    "id": 115,
+    "name": "Skilled Herbalist",
+    "tier": 5,
+    "requirement": "Brew 2000 potions",
+    "reward": 50000
+  },
+  {
+    "id": 116,
+    "name": "Master Researcher",
+    "tier": 4,
+    "requirement": "Study 100 Monsters",
+    "reward": 10000
+  },
+  {
+    "id": 117,
+    "name": "Skilled Herbalist",
+    "tier": 4,
+    "requirement": "Brew 500 potions",
+    "reward": 25000
+  },
+  {
+    "id": 118,
+    "name": "Champion",
+    "tier": 4,
+    "requirement": "Win in the coliseum 20 times",
+    "reward": 25000
+  },
+  {
+    "id": 119,
+    "name": "Master Researcher",
+    "tier": 1,
+    "requirement": "Study 10 monsters",
+    "reward": 100
+  },
+  {
+    "id": 120,
+    "name": "Master Researcher",
+    "tier": 2,
+    "requirement": "Study 20 monsters",
+    "reward": 1000
+  },
+  {
+    "id": 121,
+    "name": "Quest Seeker",
+    "tier": 3,
+    "requirement": "Complete 10 quests",
+    "reward": 10000
+  },
+  {
+    "id": 122,
+    "name": "Quest Seeker",
+    "tier": 4,
+    "requirement": "Complete 25 quests",
+    "reward": 25000
+  },
+  {
+    "id": 123,
+    "name": "Champion",
+    "tier": 5,
+    "requirement": "Win in the coliseum 40 times",
+    "reward": 50000
+  },
+  {
+    "id": 124,
+    "name": "Master Researcher",
+    "tier": 10,
+    "requirement": "Study 400 monsters",
+    "reward": 1000000
+  },
+  {
+    "id": 125,
+    "name": "Gladiator",
+    "tier": 9,
+    "requirement": "Defeat 100,000 players",
+    "reward": 1000000
+  },
+  {
+    "id": 126,
+    "name": "Champion",
+    "tier": 7,
+    "requirement": "Win in the coliseum 60 times",
+    "reward": 100000
+  },
+  {
+    "id": 127,
+    "name": "The Endless",
+    "tier": 1,
+    "requirement": "Complete floor 150 in an endless gauntlet or dungeon",
+    "reward": 100000
+  },
+  {
+    "id": 128,
+    "name": "The Endless",
+    "tier": 2,
+    "requirement": "Complete floor 175 in an endless gauntlet or dungeon",
+    "reward": 250000
+  },
+  {
+    "id": 129,
+    "name": "The Endless",
+    "tier": 3,
+    "requirement": "Complete floor 200 in an endless gauntlet or dungeon",
+    "reward": 500000
+  },
+  {
+    "id": 130,
+    "name": "The Endless",
+    "tier": 4,
+    "requirement": "Complete floor 225 in an endless gauntlet or dungeon",
+    "reward": 1000000
+  },
+  {
+    "id": 131,
+    "name": "The Endless",
+    "tier": 5,
+    "requirement": "Complete floor 250 in an endless gauntlet or dungeon",
+    "reward": 2500000
+  },
+  {
+    "id": 132,
+    "name": "The Endless",
+    "tier": 6,
+    "requirement": "Complete floor 275 in an endless gauntlet or dungeon",
+    "reward": 5000000
+  },
+  {
+    "id": 133,
+    "name": "The Endless",
+    "tier": 7,
+    "requirement": "Complete floor 300 in an endless gauntlet or dungeon",
+    "reward": 10000000
+  },
+  {
+    "id": 134,
+    "name": "The Endless",
+    "tier": 8,
+    "requirement": "Complete floor 350 in an endless gauntlet or dungeon",
+    "reward": 25000000
+  },
+  {
+    "id": 135,
+    "name": "The Endless",
+    "tier": 9,
+    "requirement": "Complete floor 375 in an endless gauntlet or dungeon",
+    "reward": 50000000
+  },
+  {
+    "id": 136,
+    "name": "The Endless",
+    "tier": 10,
+    "requirement": "Complete floor 400 in an endless gauntlet or dungeon",
+    "reward": 100000000
+  },
+  {
+    "id": 137,
+    "name": "Arch-Gladiator",
+    "tier": 1,
+    "requirement": "Defeat 5 players in live PvP",
+    "reward": 20
+  },
+  {
+    "id": 138,
+    "name": "Arch-Gladiator",
+    "tier": 2,
+    "requirement": "Defeat 25 players in live PvP",
+    "reward": 50
+  },
+  {
+    "id": 139,
+    "name": "Arch-Gladiator",
+    "tier": 3,
+    "requirement": "Defeat 100 players in live PvP",
+    "reward": 100
+  },
+  {
+    "id": 140,
+    "name": "Arch-Gladiator",
+    "tier": 4,
+    "requirement": "Defeat 500 players in live PvP",
+    "reward": 5000
+  },
+  {
+    "id": 141,
+    "name": "Arch-Gladiator",
+    "tier": 5,
+    "requirement": "Defeat 2,000 players in live PvP",
+    "reward": 25000
+  },
+  {
+    "id": 142,
+    "name": "Arch-Gladiator",
+    "tier": 6,
+    "requirement": "Defeat 5,000 players in live PvP",
+    "reward": 50000
+  },
+  {
+    "id": 143,
+    "name": "Arch-Gladiator",
+    "tier": 7,
+    "requirement": "Defeat 10,000 players in live PvP",
+    "reward": 100000
+  },
+  {
+    "id": 144,
+    "name": "Arch-Gladiator",
+    "tier": 8,
+    "requirement": "Defeat 25,000 players in live PvP",
+    "reward": 250000
+  },
+  {
+    "id": 145,
+    "name": "Arch-Gladiator",
+    "tier": 9,
+    "requirement": "Defeat 100,000 players in live PvP",
+    "reward": 1000000
   }
 ]

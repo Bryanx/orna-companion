@@ -57,7 +57,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3")
     implementation("com.github.skydoves:transformationlayout:1.0.7")
     implementation("com.github.skydoves:bundler:1.0.3")
-    implementation("nl.bryanderidder:themed-toggle-button-group:1.3.4")
+    implementation("nl.bryanderidder:themed-toggle-button-group:1.4.0")
     implementation("com.mikepenz:aboutlibraries-core:8.8.4")
     implementation("com.mikepenz:aboutlibraries:8.8.4")
     implementation("com.github.AppIntro:AppIntro:6.1.0")
@@ -80,7 +80,7 @@ dependencies {
     implementation("org.koin:koin-android-viewmodel:2.2.2")
 
     // Network
-    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
     implementation("com.github.skydoves:sandwich:1.0.9")
@@ -108,7 +108,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:1.0.0-alpha08")
 
     // Play store
-    implementation("com.google.android.play:core:1.10.2")
+    implementation("com.google.android.play:core:1.10.3")
     implementation("com.google.android.play:core-ktx:1.8.1")
 
     testImplementation("junit:junit:4.+")

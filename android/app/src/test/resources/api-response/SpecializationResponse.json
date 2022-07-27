@@ -20,12 +20,12 @@
     },
     "boosts": [
       {
-        "name": "Mana",
-        "value": 5
-      },
-      {
         "name": "Magic",
         "value": 2
+      },
+      {
+        "name": "Mana",
+        "value": 5
       }
     ]
   },
@@ -46,19 +46,26 @@
     "skills": {
       "passives": [
         {
-          "id": 577,
-          "name": "Last Breath"
-        },
-        {
           "id": 443,
           "name": "Assassinate"
         },
         {
           "id": 507,
           "name": "Apothecarist III"
+        },
+        {
+          "id": 653,
+          "name": "Annwn Subterfuge"
         }
       ],
-      "learns": [],
+      "learns": [
+        {
+          "id": 654,
+          "name": "Counterattack II",
+          "level": 200,
+          "type": "Other"
+        }
+      ],
       "slots": 0
     },
     "boosts": [
@@ -70,6 +77,10 @@
         "name": "Dexterity",
         "value": 25
       }
+    ],
+    "preferred_weapons": [
+      "Daggers",
+      "Curved swords"
     ]
   },
   {
@@ -95,14 +106,20 @@
       ],
       "learns": [
         {
+          "id": 227,
+          "name": "Song of Power",
+          "level": 150,
+          "type": "Buff"
+        },
+        {
           "id": 228,
           "name": "Song of Magic",
           "level": 150,
           "type": "Buff"
         },
         {
-          "id": 227,
-          "name": "Song of Power",
+          "id": 657,
+          "name": "Appease II",
           "level": 150,
           "type": "Buff"
         },
@@ -119,14 +136,14 @@
           "type": "AoE Magic"
         },
         {
-          "id": 232,
-          "name": "Song of Resistance",
+          "id": 229,
+          "name": "Song of Defense",
           "level": 170,
           "type": "Buff"
         },
         {
-          "id": 229,
-          "name": "Song of Defense",
+          "id": 232,
+          "name": "Song of Resistance",
           "level": 170,
           "type": "Buff"
         },
@@ -144,6 +161,9 @@
         "name": "Mana",
         "value": 20
       }
+    ],
+    "preferred_weapons": [
+      "Instruments"
     ]
   },
   {
@@ -220,10 +240,6 @@
     },
     "boosts": [
       {
-        "name": "Hit Points",
-        "value": -10
-      },
-      {
         "name": "Attack",
         "value": 10
       },
@@ -234,7 +250,14 @@
       {
         "name": "Resistance",
         "value": 2
+      },
+      {
+        "name": "Hit Points",
+        "value": -10
       }
+    ],
+    "preferred_weapons": [
+      "Axes & Hammers"
     ]
   },
   {
@@ -255,14 +278,14 @@
       "passives": [],
       "learns": [
         {
-          "id": 360,
-          "name": "Tree Trunk",
+          "id": 359,
+          "name": "Torchstrike",
           "level": 50,
           "type": "Attack"
         },
         {
-          "id": 359,
-          "name": "Torchstrike",
+          "id": 360,
+          "name": "Tree Trunk",
           "level": 50,
           "type": "Attack"
         }
@@ -271,12 +294,12 @@
     },
     "boosts": [
       {
-        "name": "Hit Points",
-        "value": 5
-      },
-      {
         "name": "Attack",
         "value": 2
+      },
+      {
+        "name": "Hit Points",
+        "value": 5
       }
     ]
   },
@@ -303,18 +326,6 @@
       ],
       "learns": [
         {
-          "id": 126,
-          "name": "Fire Wall",
-          "level": 200,
-          "type": "Buff"
-        },
-        {
-          "id": 127,
-          "name": "Ice Wall",
-          "level": 200,
-          "type": "Buff"
-        },
-        {
           "id": 124,
           "name": "Lightning Wall",
           "level": 200,
@@ -327,8 +338,14 @@
           "type": "Buff"
         },
         {
-          "id": 137,
-          "name": "Holy Wall",
+          "id": 126,
+          "name": "Fire Wall",
+          "level": 200,
+          "type": "Buff"
+        },
+        {
+          "id": 127,
+          "name": "Ice Wall",
           "level": 200,
           "type": "Buff"
         },
@@ -341,6 +358,18 @@
         {
           "id": 136,
           "name": "Prism Wall",
+          "level": 200,
+          "type": "Buff"
+        },
+        {
+          "id": 137,
+          "name": "Holy Wall",
+          "level": 200,
+          "type": "Buff"
+        },
+        {
+          "id": 655,
+          "name": "Provoke II",
           "level": 200,
           "type": "Buff"
         }
@@ -360,6 +389,9 @@
         "name": "Hit Points",
         "value": 12
       }
+    ],
+    "preferred_weapons": [
+      "Polearms"
     ]
   },
   {
@@ -385,22 +417,22 @@
       ],
       "learns": [
         {
-          "id": 354,
-          "name": "Sonata of Power",
-          "level": 200,
-          "type": "Buff"
-        },
-        {
           "id": 353,
           "name": "Sonata of Magic",
           "level": 200,
           "type": "Buff"
         },
         {
-          "id": 351,
-          "name": "Mage's Pavane",
-          "level": 210,
-          "type": "AoE Magic"
+          "id": 354,
+          "name": "Sonata of Power",
+          "level": 200,
+          "type": "Buff"
+        },
+        {
+          "id": 657,
+          "name": "Appease II",
+          "level": 200,
+          "type": "Buff"
         },
         {
           "id": 350,
@@ -409,14 +441,20 @@
           "type": "Attack"
         },
         {
-          "id": 355,
-          "name": "Sonata of Resistance",
-          "level": 220,
-          "type": "Buff"
+          "id": 351,
+          "name": "Mage's Pavane",
+          "level": 210,
+          "type": "AoE Magic"
         },
         {
           "id": 352,
           "name": "Sonata of Defense",
+          "level": 220,
+          "type": "Buff"
+        },
+        {
+          "id": 355,
+          "name": "Sonata of Resistance",
           "level": 220,
           "type": "Buff"
         },
@@ -434,6 +472,9 @@
         "name": "Mana",
         "value": 30
       }
+    ],
+    "preferred_weapons": [
+      "Instruments"
     ]
   },
   {
@@ -454,10 +495,10 @@
       "passives": [],
       "learns": [
         {
-          "id": 638,
-          "name": "Lacuna II",
+          "id": 636,
+          "name": "Haste",
           "level": 200,
-          "type": "Magic"
+          "type": "Buff"
         },
         {
           "id": 637,
@@ -466,10 +507,10 @@
           "type": "Debuff"
         },
         {
-          "id": 636,
-          "name": "Haste",
+          "id": 638,
+          "name": "Lacuna II",
           "level": 200,
-          "type": "Buff"
+          "type": "Magic"
         },
         {
           "id": 639,
@@ -478,21 +519,24 @@
           "type": "AoE Magic"
         },
         {
-          "id": 641,
-          "name": "Slow+",
-          "level": 225,
-          "type": "AoE Debuff"
-        },
-        {
           "id": 640,
           "name": "Haste+",
           "level": 225,
           "type": "AoE Buff"
+        },
+        {
+          "id": 641,
+          "name": "Slow+",
+          "level": 225,
+          "type": "AoE Debuff"
         }
       ],
       "slots": 0
     },
-    "boosts": []
+    "boosts": [],
+    "preferred_weapons": [
+      "Archistaffs"
+    ]
   },
   {
     "id": 25,
@@ -546,17 +590,20 @@
     },
     "boosts": [
       {
-        "name": "Hit Points",
-        "value": 10
-      },
-      {
         "name": "Defense",
         "value": 2
       },
       {
         "name": "Resistance",
         "value": 2
+      },
+      {
+        "name": "Hit Points",
+        "value": 10
       }
+    ],
+    "preferred_weapons": [
+      "Axes & Hammers"
     ]
   },
   {
@@ -635,14 +682,8 @@
       "passives": [],
       "learns": [
         {
-          "id": 126,
-          "name": "Fire Wall",
-          "level": 100,
-          "type": "Buff"
-        },
-        {
-          "id": 127,
-          "name": "Ice Wall",
+          "id": 124,
+          "name": "Lightning Wall",
           "level": 100,
           "type": "Buff"
         },
@@ -653,8 +694,14 @@
           "type": "Buff"
         },
         {
-          "id": 124,
-          "name": "Lightning Wall",
+          "id": 126,
+          "name": "Fire Wall",
+          "level": 100,
+          "type": "Buff"
+        },
+        {
+          "id": 127,
+          "name": "Ice Wall",
           "level": 100,
           "type": "Buff"
         },
@@ -687,13 +734,16 @@
     },
     "boosts": [
       {
-        "name": "Hit Points",
-        "value": 10
-      },
-      {
         "name": "Resistance",
         "value": 5
+      },
+      {
+        "name": "Hit Points",
+        "value": 10
       }
+    ],
+    "preferred_weapons": [
+      "Swords"
     ]
   },
   {
@@ -715,7 +765,11 @@
       "learns": [],
       "slots": 0
     },
-    "boosts": []
+    "boosts": [],
+    "preferred_weapons": [
+      "Staffs",
+      "Axes & Hammers"
+    ]
   },
   {
     "id": 26,
@@ -735,16 +789,16 @@
       "passives": [],
       "learns": [
         {
-          "id": 139,
-          "name": "Remedy",
-          "level": 105,
-          "type": "Healing"
-        },
-        {
           "id": 134,
           "name": "Arrowstorm",
           "level": 105,
           "type": "AoE Attack"
+        },
+        {
+          "id": 139,
+          "name": "Remedy",
+          "level": 105,
+          "type": "Healing"
         },
         {
           "id": 133,
@@ -769,13 +823,16 @@
     },
     "boosts": [
       {
-        "name": "Hit Points",
-        "value": 10
-      },
-      {
         "name": "Attack",
         "value": 5
+      },
+      {
+        "name": "Hit Points",
+        "value": 10
       }
+    ],
+    "preferred_weapons": [
+      "Greatbows"
     ]
   },
   {
@@ -830,20 +887,20 @@
     },
     "boosts": [
       {
-        "name": "Hit Points",
-        "value": 10
-      },
-      {
-        "name": "Mana",
-        "value": -10
-      },
-      {
         "name": "Defense",
         "value": 5
       },
       {
         "name": "Resistance",
         "value": 5
+      },
+      {
+        "name": "Mana",
+        "value": -10
+      },
+      {
+        "name": "Hit Points",
+        "value": 10
       }
     ]
   },
@@ -882,14 +939,14 @@
           "type": "AoE Magic"
         },
         {
-          "id": 631,
-          "name": "Natura II",
+          "id": 630,
+          "name": "Chain Lightning II",
           "level": 150,
           "type": "AoE Magic"
         },
         {
-          "id": 630,
-          "name": "Chain Lightning II",
+          "id": 631,
+          "name": "Natura II",
           "level": 150,
           "type": "AoE Magic"
         },
@@ -911,6 +968,10 @@
         "name": "Resistance",
         "value": 5
       }
+    ],
+    "preferred_weapons": [
+      "Staffs",
+      "Archistaffs"
     ]
   },
   {
@@ -940,16 +1001,10 @@
       ],
       "learns": [
         {
-          "id": 624,
-          "name": "Winter Wind III",
+          "id": 241,
+          "name": "Great Meditation",
           "level": 200,
-          "type": "AoE Magic"
-        },
-        {
-          "id": 623,
-          "name": "Wildfire III",
-          "level": 200,
-          "type": "AoE Magic"
+          "type": "Buff"
         },
         {
           "id": 576,
@@ -958,20 +1013,26 @@
           "type": "Buff"
         },
         {
-          "id": 626,
-          "name": "Natura III",
+          "id": 623,
+          "name": "Wildfire III",
           "level": 200,
           "type": "AoE Magic"
         },
         {
-          "id": 241,
-          "name": "Great Meditation",
+          "id": 624,
+          "name": "Winter Wind III",
           "level": 200,
-          "type": "Buff"
+          "type": "AoE Magic"
         },
         {
           "id": 625,
           "name": "Chain Lightning III",
+          "level": 200,
+          "type": "AoE Magic"
+        },
+        {
+          "id": 626,
+          "name": "Natura III",
           "level": 200,
           "type": "AoE Magic"
         }
@@ -980,17 +1041,21 @@
     },
     "boosts": [
       {
+        "name": "Attack",
+        "value": -10
+      },
+      {
         "name": "Magic",
         "value": 10
       },
       {
         "name": "Resistance",
         "value": 10
-      },
-      {
-        "name": "Attack",
-        "value": -10
       }
+    ],
+    "preferred_weapons": [
+      "Staffs",
+      "Archistaffs"
     ]
   },
   {
@@ -1014,7 +1079,14 @@
           "name": "The Merchant"
         }
       ],
-      "learns": [],
+      "learns": [
+        {
+          "id": 656,
+          "name": "Appease",
+          "level": 100,
+          "type": "Buff"
+        }
+      ],
       "slots": 0
     },
     "boosts": []
@@ -1046,6 +1118,12 @@
           "name": "Shield Bash",
           "level": 100,
           "type": "Attack"
+        },
+        {
+          "id": 655,
+          "name": "Provoke II",
+          "level": 100,
+          "type": "Buff"
         }
       ],
       "slots": 0
@@ -1085,10 +1163,6 @@
     },
     "boosts": [
       {
-        "name": "Hit Points",
-        "value": -20
-      },
-      {
         "name": "Attack",
         "value": 20
       },
@@ -1099,7 +1173,14 @@
       {
         "name": "Resistance",
         "value": 2
+      },
+      {
+        "name": "Hit Points",
+        "value": -20
       }
+    ],
+    "preferred_weapons": [
+      "Axes & Hammers"
     ]
   },
   {
@@ -1126,16 +1207,16 @@
           "type": "Attack"
         },
         {
-          "id": 445,
-          "name": "Arrowstorm II",
-          "level": 150,
-          "type": "AoE Attack"
-        },
-        {
           "id": 139,
           "name": "Remedy",
           "level": 150,
           "type": "Healing"
+        },
+        {
+          "id": 445,
+          "name": "Arrowstorm II",
+          "level": 150,
+          "type": "AoE Attack"
         },
         {
           "id": 446,
@@ -1148,13 +1229,17 @@
     },
     "boosts": [
       {
-        "name": "Hit Points",
-        "value": 10
-      },
-      {
         "name": "Attack",
         "value": 5
+      },
+      {
+        "name": "Hit Points",
+        "value": 10
       }
+    ],
+    "preferred_weapons": [
+      "Bows",
+      "Greatbows"
     ]
   },
   {
@@ -1175,8 +1260,20 @@
       "passives": [],
       "learns": [
         {
+          "id": 110,
+          "name": "Spark III",
+          "level": 100,
+          "type": "Magic"
+        },
+        {
           "id": 118,
           "name": "Flame III",
+          "level": 100,
+          "type": "Magic"
+        },
+        {
+          "id": 117,
+          "name": "Frost III",
           "level": 100,
           "type": "Magic"
         },
@@ -1187,16 +1284,10 @@
           "type": "Magic"
         },
         {
-          "id": 110,
-          "name": "Spark III",
-          "level": 100,
-          "type": "Magic"
-        },
-        {
-          "id": 117,
-          "name": "Frost III",
-          "level": 100,
-          "type": "Magic"
+          "id": 632,
+          "name": "Wildfire",
+          "level": 110,
+          "type": "AoE Magic"
         },
         {
           "id": 633,
@@ -1213,12 +1304,6 @@
         {
           "id": 635,
           "name": "Natura",
-          "level": 110,
-          "type": "AoE Magic"
-        },
-        {
-          "id": 632,
-          "name": "Wildfire",
           "level": 110,
           "type": "AoE Magic"
         },
@@ -1251,13 +1336,16 @@
     },
     "boosts": [
       {
-        "name": "Mana",
-        "value": 10
-      },
-      {
         "name": "Defense",
         "value": 3
+      },
+      {
+        "name": "Mana",
+        "value": 10
       }
+    ],
+    "preferred_weapons": [
+      "Staffs"
     ]
   },
   {
@@ -1303,12 +1391,12 @@
     "skills": {
       "passives": [
         {
-          "id": 606,
-          "name": "Doublecast"
-        },
-        {
           "id": 587,
           "name": "Quickcast"
+        },
+        {
+          "id": 606,
+          "name": "Doublecast"
         }
       ],
       "learns": [
@@ -1334,6 +1422,10 @@
         "name": "Dexterity",
         "value": 15
       }
+    ],
+    "preferred_weapons": [
+      "Staffs",
+      "Archistaffs"
     ]
   },
   {
@@ -1385,6 +1477,9 @@
         "name": "Magic",
         "value": 5
       }
+    ],
+    "preferred_weapons": [
+      "Archistaffs"
     ]
   },
   {
@@ -1424,17 +1519,20 @@
         "value": 5
       },
       {
-        "name": "Magic",
-        "value": 3
-      },
-      {
         "name": "Defense",
         "value": -5
+      },
+      {
+        "name": "Magic",
+        "value": 3
       },
       {
         "name": "Resistance",
         "value": -3
       }
+    ],
+    "preferred_weapons": [
+      "Curved swords"
     ]
   },
   {
@@ -1468,7 +1566,11 @@
       ],
       "slots": 0
     },
-    "boosts": []
+    "boosts": [],
+    "preferred_weapons": [
+      "Bows",
+      "Greatbows"
+    ]
   },
   {
     "id": 87,
@@ -1514,7 +1616,10 @@
       ],
       "slots": 0
     },
-    "boosts": []
+    "boosts": [],
+    "preferred_weapons": [
+      "Archistaffs"
+    ]
   },
   {
     "id": 57,
@@ -1592,6 +1697,12 @@
           "name": "Shield Bash",
           "level": 150,
           "type": "Attack"
+        },
+        {
+          "id": 655,
+          "name": "Provoke II",
+          "level": 150,
+          "type": "Buff"
         }
       ],
       "slots": 0

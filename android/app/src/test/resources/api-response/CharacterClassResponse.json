@@ -74,6 +74,10 @@
     "stats": [
       "Defense",
       "Dexterity"
+    ],
+    "preferred_weapons": [
+      "Polearms",
+      "Curved swords"
     ]
   },
   {
@@ -101,20 +105,20 @@
     "skills": {
       "passives": [
         {
-          "id": 322,
-          "name": "Apothecarist II"
-        },
-        {
           "id": 154,
           "name": "Mystic Feather"
         },
         {
-          "id": 320,
-          "name": "Eternal Light II"
+          "id": 322,
+          "name": "Apothecarist II"
         },
         {
           "id": 321,
           "name": "Arcane Mastery"
+        },
+        {
+          "id": 320,
+          "name": "Eternal Light II"
         },
         {
           "id": 3,
@@ -127,14 +131,20 @@
       ],
       "learns": [
         {
+          "id": 319,
+          "name": "Arcanic Strike",
+          "level": 175,
+          "type": "Attack"
+        },
+        {
           "id": 385,
           "name": "No Affinity",
           "level": 175,
           "type": "Healing"
         },
         {
-          "id": 313,
-          "name": "Earth Affinity",
+          "id": 315,
+          "name": "Lightning Affinity",
           "level": 175,
           "type": "Buff"
         },
@@ -145,16 +155,10 @@
           "type": "Buff"
         },
         {
-          "id": 315,
-          "name": "Lightning Affinity",
+          "id": 313,
+          "name": "Earth Affinity",
           "level": 175,
           "type": "Buff"
-        },
-        {
-          "id": 319,
-          "name": "Arcanic Strike",
-          "level": 175,
-          "type": "Attack"
         },
         {
           "id": 312,
@@ -189,7 +193,12 @@
       ],
       "slots": 8
     },
-    "learns": "Forgotten techniques"
+    "learns": "Forgotten techniques",
+    "preferred_weapons": [
+      "Daggers",
+      "Bows",
+      "Curved swords"
+    ]
   },
   {
     "id": 38,
@@ -216,6 +225,10 @@
     "skills": {
       "passives": [
         {
+          "id": 32,
+          "name": "Beast Mode"
+        },
+        {
           "id": 289,
           "name": "Apothecarist"
         },
@@ -224,26 +237,22 @@
           "name": "Life Siphon"
         },
         {
-          "id": 32,
-          "name": "Beast Mode"
-        },
-        {
           "id": 382,
           "name": "Mana Saver"
         }
       ],
       "learns": [
         {
-          "id": 239,
-          "name": "Drain II",
-          "level": 150,
-          "type": "Magic"
-        },
-        {
           "id": 191,
           "name": "Blast III",
           "level": 150,
           "type": "Multi-round Magic"
+        },
+        {
+          "id": 239,
+          "name": "Drain II",
+          "level": 150,
+          "type": "Magic"
         },
         {
           "id": 179,
@@ -270,21 +279,27 @@
           "type": "Attack"
         },
         {
-          "id": 196,
-          "name": "Tiamat's Breath",
-          "level": 175,
-          "type": "Multi-round Magic"
-        },
-        {
           "id": 195,
           "name": "Cockatrice Breath",
           "level": 175,
           "type": "Magic"
+        },
+        {
+          "id": 196,
+          "name": "Tiamat's Breath",
+          "level": 175,
+          "type": "Multi-round Magic"
         }
       ],
       "slots": 10
     },
-    "learns": "Advanced beast magic"
+    "learns": "Advanced beast magic",
+    "preferred_weapons": [
+      "Staffs",
+      "Polearms",
+      "Archistaffs",
+      "Curved swords"
+    ]
   },
   {
     "id": 6,
@@ -355,6 +370,12 @@
           "type": "Magic"
         },
         {
+          "id": 75,
+          "name": "Meteor",
+          "level": 50,
+          "type": "Magic"
+        },
+        {
           "id": 83,
           "name": "Storm",
           "level": 50,
@@ -365,12 +386,6 @@
           "name": "Quake",
           "level": 50,
           "type": "Magic"
-        },
-        {
-          "id": 75,
-          "name": "Meteor",
-          "level": 50,
-          "type": "Magic"
         }
       ],
       "slots": 5
@@ -379,6 +394,10 @@
     "stats": [
       "Magic",
       "Resistance"
+    ],
+    "preferred_weapons": [
+      "Staffs",
+      "Archistaffs"
     ]
   },
   {
@@ -406,6 +425,10 @@
     "skills": {
       "passives": [
         {
+          "id": 155,
+          "name": "Second Chance"
+        },
+        {
           "id": 188,
           "name": "Steadfast"
         },
@@ -414,37 +437,15 @@
           "name": "Shoulders of Giants"
         },
         {
-          "id": 155,
-          "name": "Second Chance"
+          "id": 365,
+          "name": "Crest of Lyonesse"
         },
         {
           "id": 455,
           "name": "Siphon Ward"
-        },
-        {
-          "id": 365,
-          "name": "Crest of Lyonesse"
         }
       ],
       "learns": [
-        {
-          "id": 331,
-          "name": "Inferno Ward",
-          "level": 175,
-          "type": "Buff"
-        },
-        {
-          "id": 332,
-          "name": "Tidal Ward",
-          "level": 175,
-          "type": "Buff"
-        },
-        {
-          "id": 333,
-          "name": "Terra Ward",
-          "level": 175,
-          "type": "Buff"
-        },
         {
           "id": 334,
           "name": "Storm Ward",
@@ -456,6 +457,24 @@
           "name": "Guarding Strike",
           "level": 175,
           "type": "Attack"
+        },
+        {
+          "id": 333,
+          "name": "Terra Ward",
+          "level": 175,
+          "type": "Buff"
+        },
+        {
+          "id": 332,
+          "name": "Tidal Ward",
+          "level": 175,
+          "type": "Buff"
+        },
+        {
+          "id": 331,
+          "name": "Inferno Ward",
+          "level": 175,
+          "type": "Buff"
         },
         {
           "id": 336,
@@ -484,7 +503,11 @@
       ],
       "slots": 8
     },
-    "learns": "Ward-based skills, Holy skills"
+    "learns": "Ward-based skills, Holy skills",
+    "preferred_weapons": [
+      "Swords",
+      "Axes & Hammers"
+    ]
   },
   {
     "id": 62,
@@ -503,12 +526,12 @@
     "skills": {
       "passives": [
         {
-          "id": 6,
-          "name": "EXP Step"
-        },
-        {
           "id": 3,
           "name": "Critical Hits"
+        },
+        {
+          "id": 6,
+          "name": "EXP Step"
         },
         {
           "id": 289,
@@ -518,7 +541,11 @@
       "learns": [],
       "slots": 5
     },
-    "learns": "Basic magic, Debuffs"
+    "learns": "Basic magic, Debuffs",
+    "preferred_weapons": [
+      "Staffs",
+      "Curved swords"
+    ]
   },
   {
     "id": 67,
@@ -528,7 +555,7 @@
     "price": "7000000.00",
     "cost_type": 1,
     "cost_type_str": "orns",
-    "description": "One who has fused themselves with mighty dragons, learning the secrets of combining might with magic. Their offense is determined by both attack and magic stats, is immune to Dragon magic, and can wield equipment of both the warrior and mage.",
+    "description": "One who has fused themselves with mighty dragons, learning the secrets of combining might with magic. Their offense is determined by both attack and magic stats, ^[bis immune to Dragon magic, and can wield equipment of both the warrior and mage.",
     "tier": 9,
     "images": [
       "classes/bahamut/1_f.png",
@@ -545,38 +572,44 @@
     "skills": {
       "passives": [
         {
-          "id": 424,
-          "name": "Hybrid Monster"
-        },
-        {
           "id": 33,
           "name": "Dragon Slayer"
         },
         {
-          "id": 453,
-          "name": "Valhallan Strength II"
+          "id": 156,
+          "name": "Mana Siphon"
         },
         {
           "id": 189,
           "name": "Recharge"
         },
         {
-          "id": 156,
-          "name": "Mana Siphon"
+          "id": 453,
+          "name": "Valhallan Strength II"
+        },
+        {
+          "id": 424,
+          "name": "Hybrid Monster"
         }
       ],
       "learns": [
         {
-          "id": 419,
-          "name": "Beaststrike",
+          "id": 648,
+          "name": "Call of Idun",
           "level": 200,
-          "type": "Attack"
+          "type": "Buff"
         },
         {
           "id": 420,
           "name": "Lusus Naturae",
           "level": 200,
           "type": "Magic"
+        },
+        {
+          "id": 419,
+          "name": "Beaststrike",
+          "level": 200,
+          "type": "Attack"
         },
         {
           "id": 421,
@@ -599,97 +632,11 @@
       ],
       "slots": 11
     },
-    "learns": "Secrets of dragons"
-  },
-  {
-    "id": 31,
-    "name": "Battlemage",
-    "female_name": "Battlemage",
-    "cost": "500,000 orns",
-    "price": "500000.00",
-    "cost_type": 1,
-    "cost_type_str": "orns",
-    "description": "A very skilled magic user that can cast spells repetitively. It has a good chance casting spells for free and can wield equipment of both the knight and mage.",
-    "tier": 6,
-    "images": [
-      "classes/battlemage/1_f.png",
-      "classes/battlemage/1_m.png",
-      "classes/battlemage/2_f.png",
-      "classes/battlemage/2_m.png",
-      "classes/battlemage/3_f.png",
-      "classes/battlemage/3_m.png",
-      "classes/battlemage/4_f.png",
-      "classes/battlemage/4_m.png",
-      "classes/battlemage/default_f.png",
-      "classes/battlemage/default_m.png"
-    ],
-    "skills": {
-      "passives": [
-        {
-          "id": 156,
-          "name": "Mana Siphon"
-        },
-        {
-          "id": 32,
-          "name": "Beast Mode"
-        }
-      ],
-      "learns": [
-        {
-          "id": 547,
-          "name": "Magic Sword II",
-          "level": 125,
-          "type": "Magic"
-        },
-        {
-          "id": 157,
-          "name": "Multi-flame",
-          "level": 125,
-          "type": "Magic"
-        },
-        {
-          "id": 548,
-          "name": "Magic Hammer II",
-          "level": 125,
-          "type": "Magic"
-        },
-        {
-          "id": 158,
-          "name": "Multi-frost",
-          "level": 130,
-          "type": "Magic"
-        },
-        {
-          "id": 159,
-          "name": "Multi-spark",
-          "level": 135,
-          "type": "Magic"
-        },
-        {
-          "id": 549,
-          "name": "Magic Strikes II",
-          "level": 140,
-          "type": "Magic"
-        },
-        {
-          "id": 160,
-          "name": "Multi-tremor",
-          "level": 140,
-          "type": "Magic"
-        },
-        {
-          "id": 179,
-          "name": "Sorrow III",
-          "level": 150,
-          "type": "Multi-round Magic"
-        }
-      ],
-      "slots": 8
-    },
-    "learns": "Multi-damage spells",
-    "stats": [
-      "Resistance",
-      "Magic"
+    "learns": "Secrets of dragons",
+    "preferred_weapons": [
+      "Polearms",
+      "Axes & Hammers",
+      "Instruments"
     ]
   },
   {
@@ -715,16 +662,16 @@
     "skills": {
       "passives": [
         {
-          "id": 289,
-          "name": "Apothecarist"
-        },
-        {
           "id": 3,
           "name": "Critical Hits"
         },
         {
           "id": 6,
           "name": "EXP Step"
+        },
+        {
+          "id": 289,
+          "name": "Apothecarist"
         }
       ],
       "learns": [
@@ -758,6 +705,105 @@
     "learns": "Buffs",
     "stats": [
       "Attack"
+    ],
+    "preferred_weapons": [
+      "Curved swords"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Battlemage",
+    "female_name": "Battlemage",
+    "cost": "500,000 orns",
+    "price": "500000.00",
+    "cost_type": 1,
+    "cost_type_str": "orns",
+    "description": "A very skilled magic user that can cast spells repetitively. It has a good chance casting spells for free and can wield equipment of both the knight and mage.",
+    "tier": 6,
+    "images": [
+      "classes/battlemage/1_f.png",
+      "classes/battlemage/1_m.png",
+      "classes/battlemage/2_f.png",
+      "classes/battlemage/2_m.png",
+      "classes/battlemage/3_f.png",
+      "classes/battlemage/3_m.png",
+      "classes/battlemage/4_f.png",
+      "classes/battlemage/4_m.png",
+      "classes/battlemage/default_f.png",
+      "classes/battlemage/default_m.png"
+    ],
+    "skills": {
+      "passives": [
+        {
+          "id": 32,
+          "name": "Beast Mode"
+        },
+        {
+          "id": 156,
+          "name": "Mana Siphon"
+        }
+      ],
+      "learns": [
+        {
+          "id": 157,
+          "name": "Multi-flame",
+          "level": 125,
+          "type": "Magic"
+        },
+        {
+          "id": 548,
+          "name": "Magic Hammer II",
+          "level": 125,
+          "type": "Magic"
+        },
+        {
+          "id": 547,
+          "name": "Magic Sword II",
+          "level": 125,
+          "type": "Magic"
+        },
+        {
+          "id": 158,
+          "name": "Multi-frost",
+          "level": 130,
+          "type": "Magic"
+        },
+        {
+          "id": 159,
+          "name": "Multi-spark",
+          "level": 135,
+          "type": "Magic"
+        },
+        {
+          "id": 160,
+          "name": "Multi-tremor",
+          "level": 140,
+          "type": "Magic"
+        },
+        {
+          "id": 549,
+          "name": "Magic Strikes II",
+          "level": 140,
+          "type": "Magic"
+        },
+        {
+          "id": 179,
+          "name": "Sorrow III",
+          "level": 150,
+          "type": "Multi-round Magic"
+        }
+      ],
+      "slots": 8
+    },
+    "learns": "Multi-damage spells",
+    "stats": [
+      "Resistance",
+      "Magic"
+    ],
+    "preferred_weapons": [
+      "Swords",
+      "Polearms",
+      "Archistaffs"
     ]
   },
   {
@@ -791,20 +837,16 @@
           "name": "Valhallan Protection"
         },
         {
-          "id": 546,
-          "name": "Hybrid Monster II"
-        },
-        {
           "id": 189,
           "name": "Recharge"
         },
         {
-          "id": 156,
-          "name": "Mana Siphon"
+          "id": 644,
+          "name": "Ascension Synergy"
         },
         {
-          "id": 3,
-          "name": "Critical Hits"
+          "id": 546,
+          "name": "Hybrid Monster II"
         },
         {
           "id": 545,
@@ -813,16 +855,16 @@
       ],
       "learns": [
         {
-          "id": 537,
-          "name": "Verse",
+          "id": 645,
+          "name": "Call of Skadi",
           "level": 225,
-          "type": "Magic"
+          "type": "Buff"
         },
         {
-          "id": 538,
-          "name": "Beaststrikes",
+          "id": 646,
+          "name": "Call of Jord",
           "level": 225,
-          "type": "Attack"
+          "type": "Buff"
         },
         {
           "id": 540,
@@ -837,14 +879,20 @@
           "type": "Buff"
         },
         {
-          "id": 542,
-          "name": "Gait of Gunnr",
-          "level": 230,
-          "type": "Buff"
+          "id": 538,
+          "name": "Beaststrikes",
+          "level": 225,
+          "type": "Attack"
         },
         {
-          "id": 543,
-          "name": "Gait of Snotra",
+          "id": 537,
+          "name": "Verse",
+          "level": 225,
+          "type": "Magic"
+        },
+        {
+          "id": 542,
+          "name": "Gait of Gunnr",
           "level": 230,
           "type": "Buff"
         },
@@ -855,6 +903,12 @@
           "type": "Magic"
         },
         {
+          "id": 543,
+          "name": "Gait of Snotra",
+          "level": 230,
+          "type": "Buff"
+        },
+        {
           "id": 544,
           "name": "Verse III",
           "level": 240,
@@ -863,7 +917,13 @@
       ],
       "slots": 14
     },
-    "learns": "Poems & Ballads"
+    "learns": "Poems & Ballads",
+    "preferred_weapons": [
+      "Polearms",
+      "Axes & Hammers",
+      "Archistaffs",
+      "Instruments"
+    ]
   },
   {
     "id": 33,
@@ -890,12 +950,12 @@
     "skills": {
       "passives": [
         {
-          "id": 209,
-          "name": "Crest of Avalon"
-        },
-        {
           "id": 155,
           "name": "Second Chance"
+        },
+        {
+          "id": 209,
+          "name": "Crest of Avalon"
         }
       ],
       "learns": [
@@ -918,6 +978,12 @@
           "type": "Attack"
         },
         {
+          "id": 651,
+          "name": "Counterattack",
+          "level": 135,
+          "type": "Other"
+        },
+        {
           "id": 164,
           "name": "Swordplay",
           "level": 140,
@@ -936,6 +1002,11 @@
     "stats": [
       "Attack",
       "Defense"
+    ],
+    "preferred_weapons": [
+      "Swords",
+      "Daggers",
+      "Curved swords"
     ]
   },
   {
@@ -969,14 +1040,14 @@
       ],
       "learns": [
         {
-          "id": 291,
-          "name": "Fortify II",
+          "id": 68,
+          "name": "Barrier",
           "level": 50,
           "type": "Buff"
         },
         {
-          "id": 68,
-          "name": "Barrier",
+          "id": 291,
+          "name": "Fortify II",
           "level": 50,
           "type": "Buff"
         },
@@ -1005,6 +1076,9 @@
     "stats": [
       "Defense",
       "Attack"
+    ],
+    "preferred_weapons": [
+      "Polearms"
     ]
   },
   {
@@ -1026,7 +1100,10 @@
       "learns": [],
       "slots": 7
     },
-    "learns": "Holy and dark magic"
+    "learns": "Holy and dark magic",
+    "preferred_weapons": [
+      "Archistaffs"
+    ]
   },
   {
     "id": 81,
@@ -1053,64 +1130,34 @@
     "skills": {
       "passives": [
         {
-          "id": 454,
-          "name": "Steadfast II"
+          "id": 155,
+          "name": "Second Chance"
         },
         {
           "id": 534,
           "name": "Unstable Omnimancy"
         },
         {
-          "id": 155,
-          "name": "Second Chance"
+          "id": 533,
+          "name": "Demigod"
+        },
+        {
+          "id": 649,
+          "name": "The Deity"
         },
         {
           "id": 156,
           "name": "Mana Siphon"
         },
         {
-          "id": 190,
-          "name": "Life Siphon"
-        },
-        {
-          "id": 533,
-          "name": "Demigod"
+          "id": 454,
+          "name": "Steadfast II"
         }
       ],
       "learns": [
         {
-          "id": 509,
-          "name": "Viperseal",
-          "level": 225,
-          "type": "Magic"
-        },
-        {
-          "id": 512,
-          "name": "Viperstrike",
-          "level": 225,
-          "type": "Attack"
-        },
-        {
-          "id": 513,
-          "name": "Sacreseal",
-          "level": 225,
-          "type": "Magic"
-        },
-        {
-          "id": 514,
-          "name": "Sacrestrike",
-          "level": 225,
-          "type": "Attack"
-        },
-        {
-          "id": 515,
-          "name": "Gloomseal",
-          "level": 225,
-          "type": "Magic"
-        },
-        {
-          "id": 516,
-          "name": "Gloomstrike",
+          "id": 519,
+          "name": "Loststrike",
           "level": 225,
           "type": "Attack"
         },
@@ -1121,26 +1168,56 @@
           "type": "Magic"
         },
         {
-          "id": 519,
-          "name": "Loststrike",
+          "id": 516,
+          "name": "Gloomstrike",
           "level": 225,
           "type": "Attack"
         },
         {
-          "id": 521,
-          "name": "Viperseal II",
+          "id": 515,
+          "name": "Gloomseal",
+          "level": 225,
+          "type": "Magic"
+        },
+        {
+          "id": 514,
+          "name": "Sacrestrike",
+          "level": 225,
+          "type": "Attack"
+        },
+        {
+          "id": 513,
+          "name": "Sacreseal",
+          "level": 225,
+          "type": "Magic"
+        },
+        {
+          "id": 512,
+          "name": "Viperstrike",
+          "level": 225,
+          "type": "Attack"
+        },
+        {
+          "id": 509,
+          "name": "Viperseal",
+          "level": 225,
+          "type": "Magic"
+        },
+        {
+          "id": 528,
+          "name": "Loststrike II",
+          "level": 235,
+          "type": "Attack"
+        },
+        {
+          "id": 527,
+          "name": "Lostseal II",
           "level": 235,
           "type": "Magic"
         },
         {
-          "id": 523,
-          "name": "Sacreseal II",
-          "level": 235,
-          "type": "Magic"
-        },
-        {
-          "id": 524,
-          "name": "Sacrestrike II",
+          "id": 526,
+          "name": "Gloomstrike II",
           "level": 235,
           "type": "Attack"
         },
@@ -1151,22 +1228,22 @@
           "type": "Magic"
         },
         {
-          "id": 527,
-          "name": "Lostseal II",
+          "id": 524,
+          "name": "Sacrestrike II",
+          "level": 235,
+          "type": "Attack"
+        },
+        {
+          "id": 523,
+          "name": "Sacreseal II",
           "level": 235,
           "type": "Magic"
         },
         {
-          "id": 528,
-          "name": "Loststrike II",
+          "id": 521,
+          "name": "Viperseal II",
           "level": 235,
-          "type": "Attack"
-        },
-        {
-          "id": 526,
-          "name": "Gloomstrike II",
-          "level": 235,
-          "type": "Attack"
+          "type": "Magic"
         },
         {
           "id": 522,
@@ -1262,7 +1339,13 @@
       ],
       "slots": 9
     },
-    "learns": "Advanced Dragon Magic"
+    "learns": "Advanced Dragon Magic",
+    "preferred_weapons": [
+      "Swords",
+      "Staffs",
+      "Axes & Hammers",
+      "Archistaffs"
+    ]
   },
   {
     "id": 11,
@@ -1303,16 +1386,16 @@
       ],
       "learns": [
         {
-          "id": 186,
-          "name": "Dragon's Vengeance",
-          "level": 100,
-          "type": "Attack"
-        },
-        {
           "id": 98,
           "name": "Flare",
           "level": 100,
           "type": "Magic"
+        },
+        {
+          "id": 186,
+          "name": "Dragon's Vengeance",
+          "level": 100,
+          "type": "Attack"
         },
         {
           "id": 305,
@@ -1327,15 +1410,21 @@
           "type": "Attack"
         },
         {
+          "id": 97,
+          "name": "Dragon Breath",
+          "level": 120,
+          "type": "Magic"
+        },
+        {
           "id": 105,
           "name": "Wyvern Speed",
           "level": 120,
           "type": "Buff"
         },
         {
-          "id": 97,
-          "name": "Dragon Breath",
-          "level": 120,
+          "id": 100,
+          "name": "Flare II",
+          "level": 125,
           "type": "Magic"
         },
         {
@@ -1343,12 +1432,6 @@
           "name": "Dragon's Vengeance II",
           "level": 125,
           "type": "Multi-round Attack"
-        },
-        {
-          "id": 100,
-          "name": "Flare II",
-          "level": 125,
-          "type": "Magic"
         }
       ],
       "slots": 6
@@ -1356,6 +1439,10 @@
     "learns": "Dragon magic",
     "stats": [
       "Attack"
+    ],
+    "preferred_weapons": [
+      "Swords",
+      "Archistaffs"
     ]
   },
   {
@@ -1395,14 +1482,14 @@
       ],
       "learns": [
         {
-          "id": 109,
-          "name": "Sorrow",
+          "id": 99,
+          "name": "Blast",
           "level": 100,
           "type": "Magic"
         },
         {
-          "id": 99,
-          "name": "Blast",
+          "id": 109,
+          "name": "Sorrow",
           "level": 100,
           "type": "Magic"
         },
@@ -1437,28 +1524,28 @@
           "type": "Buff"
         },
         {
-          "id": 106,
-          "name": "Wisp's Heal",
-          "level": 120,
-          "type": "Healing"
-        },
-        {
           "id": 108,
           "name": "Blast II",
           "level": 120,
           "type": "Magic"
         },
         {
-          "id": 178,
-          "name": "Sorrow II",
-          "level": 125,
-          "type": "Multi-round Magic"
+          "id": 106,
+          "name": "Wisp's Heal",
+          "level": 120,
+          "type": "Healing"
         },
         {
           "id": 107,
           "name": "Wyvern's Wrath",
           "level": 125,
           "type": "Attack"
+        },
+        {
+          "id": 178,
+          "name": "Sorrow II",
+          "level": 125,
+          "type": "Multi-round Magic"
         }
       ],
       "slots": 6
@@ -1466,6 +1553,10 @@
     "learns": "Beast magic (buffs and debuffs)",
     "stats": [
       "Magic"
+    ],
+    "preferred_weapons": [
+      "Archistaffs",
+      "Curved swords"
     ]
   },
   {
@@ -1497,12 +1588,12 @@
           "name": "Dragon Slayer"
         },
         {
-          "id": 357,
-          "name": "Valhallan Strength"
-        },
-        {
           "id": 189,
           "name": "Recharge"
+        },
+        {
+          "id": 357,
+          "name": "Valhallan Strength"
         },
         {
           "id": 156,
@@ -1511,16 +1602,22 @@
       ],
       "learns": [
         {
-          "id": 340,
-          "name": "Jump II",
+          "id": 647,
+          "name": "Call of Brynhild",
           "level": 175,
-          "type": "Multi-round Attack"
+          "type": "Buff"
         },
         {
           "id": 341,
           "name": "Wyrm's Song",
           "level": 175,
           "type": "Buff"
+        },
+        {
+          "id": 340,
+          "name": "Jump II",
+          "level": 175,
+          "type": "Multi-round Attack"
         },
         {
           "id": 342,
@@ -1549,7 +1646,12 @@
       ],
       "slots": 10
     },
-    "learns": "Secrets of dragons"
+    "learns": "Secrets of dragons",
+    "preferred_weapons": [
+      "Polearms",
+      "Axes & Hammers",
+      "Instruments"
+    ]
   },
   {
     "id": 20,
@@ -1568,12 +1670,12 @@
     "skills": {
       "passives": [
         {
-          "id": 16,
-          "name": "Mana Step"
-        },
-        {
           "id": 6,
           "name": "EXP Step"
+        },
+        {
+          "id": 16,
+          "name": "Mana Step"
         }
       ],
       "learns": [
@@ -1614,8 +1716,8 @@
           "type": "Debuff"
         },
         {
-          "id": 66,
-          "name": "Spark II",
+          "id": 52,
+          "name": "Flame II",
           "level": 25,
           "type": "Magic"
         },
@@ -1632,8 +1734,8 @@
           "type": "Attack"
         },
         {
-          "id": 52,
-          "name": "Flame II",
+          "id": 66,
+          "name": "Spark II",
           "level": 25,
           "type": "Magic"
         },
@@ -1682,16 +1784,16 @@
     "skills": {
       "passives": [
         {
+          "id": 188,
+          "name": "Steadfast"
+        },
+        {
           "id": 154,
           "name": "Mystic Feather"
         },
         {
           "id": 187,
           "name": "Power of the Gods"
-        },
-        {
-          "id": 188,
-          "name": "Steadfast"
         }
       ],
       "learns": [
@@ -1702,22 +1804,10 @@
           "type": "Magic"
         },
         {
-          "id": 596,
-          "name": "Decay",
-          "level": 175,
-          "type": "Debuff"
-        },
-        {
           "id": 199,
           "name": "Earthstrike III",
           "level": 175,
           "type": "Attack"
-        },
-        {
-          "id": 55,
-          "name": "Great Heal",
-          "level": 175,
-          "type": "Healing"
         },
         {
           "id": 49,
@@ -1730,6 +1820,18 @@
           "name": "Earthstrike II",
           "level": 175,
           "type": "Attack"
+        },
+        {
+          "id": 55,
+          "name": "Great Heal",
+          "level": 175,
+          "type": "Healing"
+        },
+        {
+          "id": 596,
+          "name": "Decay",
+          "level": 175,
+          "type": "Debuff"
         },
         {
           "id": 224,
@@ -1769,14 +1871,6 @@
     "skills": {
       "passives": [
         {
-          "id": 491,
-          "name": "Bastille"
-        },
-        {
-          "id": 456,
-          "name": "Siphon Ward II"
-        },
-        {
           "id": 155,
           "name": "Second Chance"
         },
@@ -1785,16 +1879,24 @@
           "name": "Steadfast II"
         },
         {
+          "id": 456,
+          "name": "Siphon Ward II"
+        },
+        {
+          "id": 491,
+          "name": "Bastille"
+        },
+        {
           "id": 492,
           "name": "Guardian"
         }
       ],
       "learns": [
         {
-          "id": 510,
-          "name": "Guarding Strikes III",
+          "id": 517,
+          "name": "Diffuse Ward",
           "level": 225,
-          "type": "Attack"
+          "type": "Ward"
         },
         {
           "id": 511,
@@ -1803,10 +1905,10 @@
           "type": "Attack"
         },
         {
-          "id": 517,
-          "name": "Diffuse Ward",
+          "id": 510,
+          "name": "Guarding Strikes III",
           "level": 225,
-          "type": "Ward"
+          "type": "Attack"
         },
         {
           "id": 520,
@@ -1841,7 +1943,12 @@
       ],
       "slots": 12
     },
-    "learns": "Ward-based skills"
+    "learns": "Ward-based skills",
+    "preferred_weapons": [
+      "Swords",
+      "Polearms",
+      "Axes & Hammers"
+    ]
   },
   {
     "id": 63,
@@ -1860,12 +1967,12 @@
     "skills": {
       "passives": [
         {
-          "id": 6,
-          "name": "EXP Step"
-        },
-        {
           "id": 3,
           "name": "Critical Hits"
+        },
+        {
+          "id": 6,
+          "name": "EXP Step"
         },
         {
           "id": 289,
@@ -1875,7 +1982,11 @@
       "learns": [],
       "slots": 5
     },
-    "learns": "Advanced attacks, Buffs"
+    "learns": "Advanced attacks, Buffs",
+    "preferred_weapons": [
+      "Polearms",
+      "Curved swords"
+    ]
   },
   {
     "id": 68,
@@ -1898,12 +2009,12 @@
           "name": "Second Chance"
         },
         {
-          "id": 190,
-          "name": "Life Siphon"
-        },
-        {
           "id": 436,
           "name": "Power of the Gods II"
+        },
+        {
+          "id": 190,
+          "name": "Life Siphon"
         }
       ],
       "learns": [
@@ -1926,10 +2037,10 @@
           "type": "Magic"
         },
         {
-          "id": 429,
-          "name": "Emberstrike II",
+          "id": 373,
+          "name": "Multi-flame II",
           "level": 220,
-          "type": "Attack"
+          "type": "Magic"
         },
         {
           "id": 428,
@@ -1938,10 +2049,10 @@
           "type": "Magic"
         },
         {
-          "id": 373,
-          "name": "Multi-flame II",
+          "id": 429,
+          "name": "Emberstrike II",
           "level": 220,
-          "type": "Magic"
+          "type": "Attack"
         },
         {
           "id": 430,
@@ -1989,22 +2100,28 @@
       ],
       "learns": [
         {
-          "id": 551,
-          "name": "Magic Arrow II",
-          "level": 125,
-          "type": "Magic"
-        },
-        {
           "id": 165,
           "name": "Quick Attack",
           "level": 125,
           "type": "Attack"
         },
         {
+          "id": 551,
+          "name": "Magic Arrow II",
+          "level": 125,
+          "type": "Magic"
+        },
+        {
           "id": 550,
           "name": "Magic Dagger II",
           "level": 125,
           "type": "Magic"
+        },
+        {
+          "id": 652,
+          "name": "Reflect",
+          "level": 130,
+          "type": "Other"
         },
         {
           "id": 166,
@@ -2037,6 +2154,11 @@
     "stats": [
       "Mana",
       "Dexterity"
+    ],
+    "preferred_weapons": [
+      "Polearms",
+      "Archistaffs",
+      "Curved swords"
     ]
   },
   {
@@ -2056,25 +2178,19 @@
     "skills": {
       "passives": [
         {
-          "id": 436,
-          "name": "Power of the Gods II"
-        },
-        {
           "id": 154,
           "name": "Mystic Feather"
         },
         {
           "id": 156,
           "name": "Mana Siphon"
+        },
+        {
+          "id": 436,
+          "name": "Power of the Gods II"
         }
       ],
       "learns": [
-        {
-          "id": 448,
-          "name": "Tidalstrike",
-          "level": 200,
-          "type": "Attack"
-        },
         {
           "id": 450,
           "name": "Tidalseal",
@@ -2082,15 +2198,15 @@
           "type": "Magic"
         },
         {
+          "id": 448,
+          "name": "Tidalstrike",
+          "level": 200,
+          "type": "Attack"
+        },
+        {
           "id": 452,
           "name": "Glacier III",
           "level": 210,
-          "type": "Magic"
-        },
-        {
-          "id": 451,
-          "name": "Tidalseal II",
-          "level": 220,
           "type": "Magic"
         },
         {
@@ -2102,6 +2218,12 @@
         {
           "id": 375,
           "name": "Multi-frost II",
+          "level": 220,
+          "type": "Magic"
+        },
+        {
+          "id": 451,
+          "name": "Tidalseal II",
           "level": 220,
           "type": "Magic"
         },
@@ -2143,6 +2265,10 @@
     "skills": {
       "passives": [
         {
+          "id": 190,
+          "name": "Life Siphon"
+        },
+        {
           "id": 489,
           "name": "Omnimancy II"
         },
@@ -2151,25 +2277,19 @@
           "name": "Iconoclast"
         },
         {
-          "id": 190,
-          "name": "Life Siphon"
-        },
-        {
           "id": 490,
           "name": "The Heretic"
         },
         {
           "id": 384,
           "name": "Mana Rush"
+        },
+        {
+          "id": 454,
+          "name": "Steadfast II"
         }
       ],
       "learns": [
-        {
-          "id": 479,
-          "name": "Fey Tremor V",
-          "level": 225,
-          "type": "Magic"
-        },
         {
           "id": 477,
           "name": "Fey Frost V",
@@ -2177,8 +2297,14 @@
           "type": "Magic"
         },
         {
-          "id": 497,
-          "name": "Magic Hammer IV",
+          "id": 478,
+          "name": "Fey Spark V",
+          "level": 225,
+          "type": "Magic"
+        },
+        {
+          "id": 479,
+          "name": "Fey Tremor V",
           "level": 225,
           "type": "Magic"
         },
@@ -2195,32 +2321,14 @@
           "type": "Magic"
         },
         {
-          "id": 478,
-          "name": "Fey Spark V",
+          "id": 497,
+          "name": "Magic Hammer IV",
           "level": 225,
           "type": "Magic"
         },
         {
-          "id": 480,
-          "name": "Multi-flame III",
-          "level": 230,
-          "type": "Magic"
-        },
-        {
-          "id": 483,
-          "name": "Multi-tremor III",
-          "level": 230,
-          "type": "Magic"
-        },
-        {
-          "id": 482,
-          "name": "Multi-spark III",
-          "level": 230,
-          "type": "Magic"
-        },
-        {
-          "id": 481,
-          "name": "Multi-frost III",
+          "id": 500,
+          "name": "Magic Dagger IV",
           "level": 230,
           "type": "Magic"
         },
@@ -2231,26 +2339,32 @@
           "type": "Magic"
         },
         {
-          "id": 500,
-          "name": "Magic Dagger IV",
+          "id": 483,
+          "name": "Multi-tremor III",
           "level": 230,
           "type": "Magic"
         },
         {
-          "id": 504,
-          "name": "Magic Strikes IV",
-          "level": 240,
+          "id": 481,
+          "name": "Multi-frost III",
+          "level": 230,
           "type": "Magic"
         },
         {
-          "id": 484,
-          "name": "Fey Inferno",
-          "level": 240,
-          "type": "Multi-round Magic"
+          "id": 480,
+          "name": "Multi-flame III",
+          "level": 230,
+          "type": "Magic"
         },
         {
-          "id": 485,
-          "name": "Fey Glacier",
+          "id": 482,
+          "name": "Multi-spark III",
+          "level": 230,
+          "type": "Magic"
+        },
+        {
+          "id": 487,
+          "name": "Fey Cataclysm",
           "level": 240,
           "type": "Multi-round Magic"
         },
@@ -2261,15 +2375,31 @@
           "type": "Multi-round Magic"
         },
         {
-          "id": 487,
-          "name": "Fey Cataclysm",
+          "id": 485,
+          "name": "Fey Glacier",
           "level": 240,
           "type": "Multi-round Magic"
+        },
+        {
+          "id": 484,
+          "name": "Fey Inferno",
+          "level": 240,
+          "type": "Multi-round Magic"
+        },
+        {
+          "id": 504,
+          "name": "Magic Strikes IV",
+          "level": 240,
+          "type": "Magic"
         }
       ],
       "slots": 16
     },
-    "learns": "Destructive magic"
+    "learns": "Destructive magic",
+    "preferred_weapons": [
+      "Staffs",
+      "Archistaffs"
+    ]
   },
   {
     "id": 71,
@@ -2302,16 +2432,16 @@
       ],
       "learns": [
         {
-          "id": 438,
-          "name": "Galeseal",
-          "level": 200,
-          "type": "Magic"
-        },
-        {
           "id": 439,
           "name": "Galestrike",
           "level": 200,
           "type": "Attack"
+        },
+        {
+          "id": 438,
+          "name": "Galeseal",
+          "level": 200,
+          "type": "Magic"
         },
         {
           "id": 440,
@@ -2320,10 +2450,10 @@
           "type": "Magic"
         },
         {
-          "id": 442,
-          "name": "Galestrike II",
+          "id": 306,
+          "name": "Multi-spark II",
           "level": 220,
-          "type": "Attack"
+          "type": "Magic"
         },
         {
           "id": 441,
@@ -2332,10 +2462,10 @@
           "type": "Magic"
         },
         {
-          "id": 306,
-          "name": "Multi-spark II",
+          "id": 442,
+          "name": "Galestrike II",
           "level": 220,
-          "type": "Magic"
+          "type": "Attack"
         },
         {
           "id": 430,
@@ -2387,6 +2517,12 @@
       ],
       "learns": [
         {
+          "id": 47,
+          "name": "Burn",
+          "level": 175,
+          "type": "Debuff"
+        },
+        {
           "id": 51,
           "name": "Firestrike",
           "level": 175,
@@ -2399,22 +2535,16 @@
           "type": "Attack"
         },
         {
-          "id": 243,
-          "name": "Meteor II",
-          "level": 175,
-          "type": "Magic"
-        },
-        {
           "id": 197,
           "name": "Firestrike III",
           "level": 175,
           "type": "Attack"
         },
         {
-          "id": 47,
-          "name": "Burn",
+          "id": 243,
+          "name": "Meteor II",
           "level": 175,
-          "type": "Debuff"
+          "type": "Magic"
         },
         {
           "id": 222,
@@ -2474,6 +2604,10 @@
     "stats": [
       "Defense",
       "Attack"
+    ],
+    "preferred_weapons": [
+      "Swords",
+      "Polearms"
     ]
   },
   {
@@ -2509,16 +2643,16 @@
           "type": "Healing"
         },
         {
-          "id": 596,
-          "name": "Decay",
-          "level": 20,
-          "type": "Debuff"
-        },
-        {
           "id": 62,
           "name": "Protection",
           "level": 20,
           "type": "Buff"
+        },
+        {
+          "id": 596,
+          "name": "Decay",
+          "level": 20,
+          "type": "Debuff"
         },
         {
           "id": 111,
@@ -2533,16 +2667,16 @@
           "type": "Debuff"
         },
         {
-          "id": 63,
-          "name": "Quake",
-          "level": 50,
-          "type": "Magic"
-        },
-        {
           "id": 55,
           "name": "Great Heal",
           "level": 50,
           "type": "Healing"
+        },
+        {
+          "id": 63,
+          "name": "Quake",
+          "level": 50,
+          "type": "Magic"
         }
       ],
       "slots": 4
@@ -2587,20 +2721,20 @@
           "name": "Mystic Feather"
         },
         {
-          "id": 187,
-          "name": "Power of the Gods"
-        },
-        {
           "id": 156,
           "name": "Mana Siphon"
+        },
+        {
+          "id": 187,
+          "name": "Power of the Gods"
         }
       ],
       "learns": [
         {
-          "id": 240,
-          "name": "Blizzard II",
+          "id": 53,
+          "name": "Freeze",
           "level": 175,
-          "type": "Magic"
+          "type": "Debuff"
         },
         {
           "id": 57,
@@ -2621,10 +2755,10 @@
           "type": "Attack"
         },
         {
-          "id": 53,
-          "name": "Freeze",
+          "id": 240,
+          "name": "Blizzard II",
           "level": 175,
-          "type": "Debuff"
+          "type": "Magic"
         },
         {
           "id": 223,
@@ -2725,6 +2859,9 @@
     "stats": [
       "Magic",
       "Resistance"
+    ],
+    "preferred_weapons": [
+      "Staffs"
     ]
   },
   {
@@ -2754,18 +2891,18 @@
     "skills": {
       "passives": [
         {
-          "id": 145,
-          "name": "Eternal Light"
-        },
-        {
           "id": 3,
           "name": "Critical Hits"
+        },
+        {
+          "id": 145,
+          "name": "Eternal Light"
         }
       ],
       "learns": [
         {
-          "id": 148,
-          "name": "Firestrike II",
+          "id": 151,
+          "name": "Lightningstrike II",
           "level": 100,
           "type": "Attack"
         },
@@ -2776,8 +2913,8 @@
           "type": "Attack"
         },
         {
-          "id": 151,
-          "name": "Lightningstrike II",
+          "id": 148,
+          "name": "Firestrike II",
           "level": 100,
           "type": "Attack"
         },
@@ -2826,7 +2963,11 @@
       ],
       "slots": 8
     },
-    "learns": "Elemental attacks"
+    "learns": "Elemental attacks",
+    "preferred_weapons": [
+      "Swords",
+      "Curved swords"
+    ]
   },
   {
     "id": 40,
@@ -2853,22 +2994,22 @@
     "skills": {
       "passives": [
         {
+          "id": 3,
+          "name": "Critical Hits"
+        },
+        {
           "id": 145,
           "name": "Eternal Light"
         },
         {
           "id": 188,
           "name": "Steadfast"
-        },
-        {
-          "id": 3,
-          "name": "Critical Hits"
         }
       ],
       "learns": [
         {
-          "id": 198,
-          "name": "Icestrike III",
+          "id": 200,
+          "name": "Lightningstrike III",
           "level": 150,
           "type": "Attack"
         },
@@ -2879,8 +3020,8 @@
           "type": "Attack"
         },
         {
-          "id": 200,
-          "name": "Lightningstrike III",
+          "id": 198,
+          "name": "Icestrike III",
           "level": 150,
           "type": "Attack"
         },
@@ -2891,14 +3032,14 @@
           "type": "Attack"
         },
         {
-          "id": 202,
-          "name": "Holystrike III",
+          "id": 201,
+          "name": "Darkstrike III",
           "level": 155,
           "type": "Attack"
         },
         {
-          "id": 201,
-          "name": "Darkstrike III",
+          "id": 202,
+          "name": "Holystrike III",
           "level": 155,
           "type": "Attack"
         },
@@ -2923,7 +3064,13 @@
       ],
       "slots": 8
     },
-    "learns": "Advanced elemental attacks"
+    "learns": "Advanced elemental attacks",
+    "preferred_weapons": [
+      "Swords",
+      "Polearms",
+      "Axes & Hammers",
+      "Curved swords"
+    ]
   },
   {
     "id": 9,
@@ -2950,12 +3097,12 @@
     "skills": {
       "passives": [
         {
-          "id": 289,
-          "name": "Apothecarist"
-        },
-        {
           "id": 6,
           "name": "EXP Step"
+        },
+        {
+          "id": 289,
+          "name": "Apothecarist"
         },
         {
           "id": 382,
@@ -2964,14 +3111,14 @@
       ],
       "learns": [
         {
-          "id": 284,
-          "name": "Bolt III",
+          "id": 219,
+          "name": "Shadow",
           "level": 75,
           "type": "Magic"
         },
         {
-          "id": 219,
-          "name": "Shadow",
+          "id": 284,
+          "name": "Bolt III",
           "level": 75,
           "type": "Magic"
         },
@@ -3006,6 +3153,10 @@
     "stats": [
       "Attack",
       "Magic"
+    ],
+    "preferred_weapons": [
+      "Staffs",
+      "Curved swords"
     ]
   },
   {
@@ -3037,12 +3188,12 @@
           "name": "Mana Siphon"
         },
         {
-          "id": 329,
-          "name": "Nekromancy"
-        },
-        {
           "id": 190,
           "name": "Life Siphon"
+        },
+        {
+          "id": 329,
+          "name": "Nekromancy"
         },
         {
           "id": 384,
@@ -3057,14 +3208,14 @@
           "type": "Debuff"
         },
         {
-          "id": 325,
-          "name": "Multi-shadow",
+          "id": 327,
+          "name": "Drain III",
           "level": 175,
           "type": "Magic"
         },
         {
-          "id": 327,
-          "name": "Drain III",
+          "id": 325,
+          "name": "Multi-shadow",
           "level": 175,
           "type": "Magic"
         },
@@ -3072,18 +3223,6 @@
           "id": 323,
           "name": "Summon Dead",
           "level": 180,
-          "type": "Magic"
-        },
-        {
-          "id": 471,
-          "name": "Fey Tremor III",
-          "level": 185,
-          "type": "Magic"
-        },
-        {
-          "id": 470,
-          "name": "Fey Spark III",
-          "level": 185,
           "type": "Magic"
         },
         {
@@ -3105,6 +3244,18 @@
           "type": "Magic"
         },
         {
+          "id": 470,
+          "name": "Fey Spark III",
+          "level": 185,
+          "type": "Magic"
+        },
+        {
+          "id": 471,
+          "name": "Fey Tremor III",
+          "level": 185,
+          "type": "Magic"
+        },
+        {
           "id": 184,
           "name": "Nightmare II",
           "level": 190,
@@ -3119,7 +3270,11 @@
       ],
       "slots": 12
     },
-    "learns": "Powers of the fallen"
+    "learns": "Powers of the fallen",
+    "preferred_weapons": [
+      "Staffs",
+      "Archistaffs"
+    ]
   },
   {
     "id": 69,
@@ -3142,12 +3297,12 @@
           "name": "Mystic Feather"
         },
         {
-          "id": 188,
-          "name": "Steadfast"
-        },
-        {
           "id": 436,
           "name": "Power of the Gods II"
+        },
+        {
+          "id": 188,
+          "name": "Steadfast"
         }
       ],
       "learns": [
@@ -3170,10 +3325,10 @@
           "type": "Multi-round Magic"
         },
         {
-          "id": 435,
-          "name": "Terrastrike II",
+          "id": 403,
+          "name": "Multi-tremor II",
           "level": 220,
-          "type": "Attack"
+          "type": "Magic"
         },
         {
           "id": 434,
@@ -3182,10 +3337,10 @@
           "type": "Magic"
         },
         {
-          "id": 403,
-          "name": "Multi-tremor II",
+          "id": 435,
+          "name": "Terrastrike II",
           "level": 220,
-          "type": "Magic"
+          "type": "Attack"
         },
         {
           "id": 430,
@@ -3227,20 +3382,20 @@
           "name": "Mystic Feather"
         },
         {
-          "id": 188,
-          "name": "Steadfast"
+          "id": 417,
+          "name": "Dungeon Crawler"
         },
         {
           "id": 418,
           "name": "Saboteur"
         },
         {
-          "id": 417,
-          "name": "Dungeon Crawler"
-        },
-        {
           "id": 190,
           "name": "Life Siphon"
+        },
+        {
+          "id": 188,
+          "name": "Steadfast"
         }
       ],
       "learns": [
@@ -3283,7 +3438,12 @@
       ],
       "slots": 10
     },
-    "learns": "Forgotten techniques"
+    "learns": "Forgotten techniques",
+    "preferred_weapons": [
+      "Daggers",
+      "Bows",
+      "Curved swords"
+    ]
   },
   {
     "id": 65,
@@ -3316,8 +3476,8 @@
           "name": "Mana Siphon"
         },
         {
-          "id": 410,
-          "name": "Omnimancy"
+          "id": 188,
+          "name": "Steadfast"
         },
         {
           "id": 557,
@@ -3328,8 +3488,12 @@
           "name": "Mana Rush"
         },
         {
-          "id": 188,
-          "name": "Steadfast"
+          "id": 410,
+          "name": "Omnimancy"
+        },
+        {
+          "id": 190,
+          "name": "Life Siphon"
         }
       ],
       "learns": [
@@ -3340,14 +3504,26 @@
           "type": "Magic"
         },
         {
-          "id": 553,
-          "name": "Magic Hammer III",
+          "id": 401,
+          "name": "Scorched Earth",
           "level": 200,
           "type": "Magic"
         },
         {
-          "id": 396,
-          "name": "Frostfire",
+          "id": 650,
+          "name": "Refract",
+          "level": 200,
+          "type": "Other"
+        },
+        {
+          "id": 552,
+          "name": "Magic Sword III",
+          "level": 200,
+          "type": "Magic"
+        },
+        {
+          "id": 553,
+          "name": "Magic Hammer III",
           "level": 200,
           "type": "Magic"
         },
@@ -3358,20 +3534,8 @@
           "type": "Magic"
         },
         {
-          "id": 401,
-          "name": "Scorched Earth",
-          "level": 200,
-          "type": "Magic"
-        },
-        {
-          "id": 552,
-          "name": "Magic Sword III",
-          "level": 200,
-          "type": "Magic"
-        },
-        {
-          "id": 397,
-          "name": "Heat Lightning",
+          "id": 399,
+          "name": "Quakestorm",
           "level": 200,
           "type": "Magic"
         },
@@ -3382,8 +3546,14 @@
           "type": "Magic"
         },
         {
-          "id": 399,
-          "name": "Quakestorm",
+          "id": 396,
+          "name": "Frostfire",
+          "level": 200,
+          "type": "Magic"
+        },
+        {
+          "id": 397,
+          "name": "Heat Lightning",
           "level": 200,
           "type": "Magic"
         },
@@ -3406,12 +3576,6 @@
           "type": "Magic"
         },
         {
-          "id": 403,
-          "name": "Multi-tremor II",
-          "level": 215,
-          "type": "Magic"
-        },
-        {
           "id": 373,
           "name": "Multi-flame II",
           "level": 215,
@@ -3424,8 +3588,56 @@
           "type": "Magic"
         },
         {
+          "id": 403,
+          "name": "Multi-tremor II",
+          "level": 215,
+          "type": "Magic"
+        },
+        {
+          "id": 475,
+          "name": "Fey Tremor IV",
+          "level": 220,
+          "type": "Magic"
+        },
+        {
+          "id": 474,
+          "name": "Fey Spark IV",
+          "level": 220,
+          "type": "Magic"
+        },
+        {
+          "id": 473,
+          "name": "Fey Frost IV",
+          "level": 220,
+          "type": "Magic"
+        },
+        {
+          "id": 472,
+          "name": "Fey Flame IV",
+          "level": 220,
+          "type": "Magic"
+        },
+        {
+          "id": 409,
+          "name": "Scorched Earth II",
+          "level": 220,
+          "type": "Magic"
+        },
+        {
           "id": 408,
           "name": "Ice Storm II",
+          "level": 220,
+          "type": "Magic"
+        },
+        {
+          "id": 407,
+          "name": "Quakestorm II",
+          "level": 220,
+          "type": "Magic"
+        },
+        {
+          "id": 406,
+          "name": "Iced Earth II",
           "level": 220,
           "type": "Magic"
         },
@@ -3442,48 +3654,6 @@
           "type": "Magic"
         },
         {
-          "id": 406,
-          "name": "Iced Earth II",
-          "level": 220,
-          "type": "Magic"
-        },
-        {
-          "id": 407,
-          "name": "Quakestorm II",
-          "level": 220,
-          "type": "Magic"
-        },
-        {
-          "id": 409,
-          "name": "Scorched Earth II",
-          "level": 220,
-          "type": "Magic"
-        },
-        {
-          "id": 472,
-          "name": "Fey Flame IV",
-          "level": 220,
-          "type": "Magic"
-        },
-        {
-          "id": 473,
-          "name": "Fey Frost IV",
-          "level": 220,
-          "type": "Magic"
-        },
-        {
-          "id": 474,
-          "name": "Fey Spark IV",
-          "level": 220,
-          "type": "Magic"
-        },
-        {
-          "id": 475,
-          "name": "Fey Tremor IV",
-          "level": 220,
-          "type": "Magic"
-        },
-        {
           "id": 556,
           "name": "Magic Strikes III",
           "level": 225,
@@ -3492,7 +3662,11 @@
       ],
       "slots": 14
     },
-    "learns": "Mixed elemental magic"
+    "learns": "Mixed elemental magic",
+    "preferred_weapons": [
+      "Staffs",
+      "Archistaffs"
+    ]
   },
   {
     "id": 5,
@@ -3581,6 +3755,10 @@
     "stats": [
       "Attack",
       "Defense"
+    ],
+    "preferred_weapons": [
+      "Polearms",
+      "Axes & Hammers"
     ]
   },
   {
@@ -3631,24 +3809,24 @@
     "skills": {
       "passives": [
         {
+          "id": 154,
+          "name": "Mystic Feather"
+        },
+        {
           "id": 589,
           "name": "Saboteur II"
         },
         {
-          "id": 505,
-          "name": "Resurgence"
+          "id": 508,
+          "name": "Realm's Light"
         },
         {
           "id": 506,
           "name": "Recharge II"
         },
         {
-          "id": 154,
-          "name": "Mystic Feather"
-        },
-        {
-          "id": 508,
-          "name": "Realm's Light"
+          "id": 505,
+          "name": "Resurgence"
         },
         {
           "id": 610,
@@ -3657,14 +3835,8 @@
       ],
       "learns": [
         {
-          "id": 493,
-          "name": "Sortie",
-          "level": 225,
-          "type": "Attack"
-        },
-        {
-          "id": 495,
-          "name": "Realm Strikes",
+          "id": 498,
+          "name": "Omnistrikes II",
           "level": 225,
           "type": "Attack"
         },
@@ -3675,9 +3847,21 @@
           "type": "Attack"
         },
         {
-          "id": 498,
-          "name": "Omnistrikes II",
+          "id": 495,
+          "name": "Realm Strikes",
           "level": 225,
+          "type": "Attack"
+        },
+        {
+          "id": 493,
+          "name": "Sortie",
+          "level": 225,
+          "type": "Attack"
+        },
+        {
+          "id": 499,
+          "name": "Evasive Strikes",
+          "level": 230,
           "type": "Attack"
         },
         {
@@ -3685,12 +3869,6 @@
           "name": "Realmshift",
           "level": 230,
           "type": "Buff"
-        },
-        {
-          "id": 499,
-          "name": "Evasive Strikes",
-          "level": 230,
-          "type": "Attack"
         },
         {
           "id": 503,
@@ -3701,7 +3879,14 @@
       ],
       "slots": 12
     },
-    "learns": "-"
+    "learns": "-",
+    "preferred_weapons": [
+      "Swords",
+      "Daggers",
+      "Bows",
+      "Greatbows",
+      "Curved swords"
+    ]
   },
   {
     "id": 7,
@@ -3766,28 +3951,28 @@
           "type": "Debuff"
         },
         {
-          "id": 84,
-          "name": "Stun Dart",
-          "level": 45,
-          "type": "Debuff"
-        },
-        {
           "id": 81,
           "name": "Sleep Dart",
           "level": 45,
           "type": "Debuff"
         },
         {
-          "id": 82,
-          "name": "Speed",
-          "level": 50,
-          "type": "Buff"
+          "id": 84,
+          "name": "Stun Dart",
+          "level": 45,
+          "type": "Debuff"
         },
         {
           "id": 73,
           "name": "Flurry",
           "level": 50,
           "type": "Attack"
+        },
+        {
+          "id": 82,
+          "name": "Speed",
+          "level": 50,
+          "type": "Buff"
         }
       ],
       "slots": 3
@@ -3796,6 +3981,10 @@
     "stats": [
       "Attack",
       "Dexterity"
+    ],
+    "preferred_weapons": [
+      "Daggers",
+      "Bows"
     ]
   },
   {
@@ -3851,40 +4040,6 @@
     ]
   },
   {
-    "id": 61,
-    "name": "Runeblade",
-    "female_name": "Runeblade",
-    "cost": "$9.99",
-    "price": "9.99",
-    "cost_type": 2,
-    "cost_type_str": "dollars",
-    "description": "An alternative version of the Spellsword class. Purchase this class to support the game and gain an alternative sprite.",
-    "tier": 4,
-    "images": [
-      "classes/runeblade/default_f.png",
-      "classes/runeblade/default_m.png"
-    ],
-    "skills": {
-      "passives": [
-        {
-          "id": 6,
-          "name": "EXP Step"
-        },
-        {
-          "id": 380,
-          "name": "Knight's Ward"
-        },
-        {
-          "id": 16,
-          "name": "Mana Step"
-        }
-      ],
-      "learns": [],
-      "slots": 5
-    },
-    "learns": "Basic magic, Buffs"
-  },
-  {
     "id": 15,
     "name": "Rune Knight",
     "female_name": "Rune Knightess",
@@ -3901,24 +4056,24 @@
     "skills": {
       "passives": [
         {
-          "id": 16,
-          "name": "Mana Step"
-        },
-        {
           "id": 3,
           "name": "Critical Hits"
+        },
+        {
+          "id": 16,
+          "name": "Mana Step"
         }
       ],
       "learns": [
         {
-          "id": 49,
-          "name": "Earthstrike",
+          "id": 58,
+          "name": "Lightningstrike",
           "level": 25,
           "type": "Attack"
         },
         {
-          "id": 58,
-          "name": "Lightningstrike",
+          "id": 57,
+          "name": "Icestrike",
           "level": 25,
           "type": "Attack"
         },
@@ -3929,8 +4084,8 @@
           "type": "Attack"
         },
         {
-          "id": 57,
-          "name": "Icestrike",
+          "id": 49,
+          "name": "Earthstrike",
           "level": 25,
           "type": "Attack"
         },
@@ -3973,6 +4128,44 @@
     ]
   },
   {
+    "id": 61,
+    "name": "Runeblade",
+    "female_name": "Runeblade",
+    "cost": "$9.99",
+    "price": "9.99",
+    "cost_type": 2,
+    "cost_type_str": "dollars",
+    "description": "An alternative version of the Spellsword class. Purchase this class to support the game and gain an alternative sprite.",
+    "tier": 4,
+    "images": [
+      "classes/runeblade/default_f.png",
+      "classes/runeblade/default_m.png"
+    ],
+    "skills": {
+      "passives": [
+        {
+          "id": 6,
+          "name": "EXP Step"
+        },
+        {
+          "id": 16,
+          "name": "Mana Step"
+        },
+        {
+          "id": 380,
+          "name": "Knight's Ward"
+        }
+      ],
+      "learns": [],
+      "slots": 5
+    },
+    "learns": "Basic magic, Buffs",
+    "preferred_weapons": [
+      "Swords",
+      "Staffs"
+    ]
+  },
+  {
     "id": 19,
     "name": "Scorcher",
     "female_name": "Scorcher",
@@ -3989,12 +4182,12 @@
     "skills": {
       "passives": [
         {
-          "id": 6,
-          "name": "EXP Step"
-        },
-        {
           "id": 5,
           "name": "Gold Bonus"
+        },
+        {
+          "id": 6,
+          "name": "EXP Step"
         }
       ],
       "learns": [
@@ -4011,14 +4204,14 @@
           "type": "Debuff"
         },
         {
-          "id": 51,
-          "name": "Firestrike",
+          "id": 43,
+          "name": "Poisonstrike",
           "level": 25,
           "type": "Attack"
         },
         {
-          "id": 43,
-          "name": "Poisonstrike",
+          "id": 51,
+          "name": "Firestrike",
           "level": 25,
           "type": "Attack"
         },
@@ -4053,16 +4246,22 @@
           "type": "Debuff"
         },
         {
+          "id": 81,
+          "name": "Sleep Dart",
+          "level": 45,
+          "type": "Debuff"
+        },
+        {
           "id": 84,
           "name": "Stun Dart",
           "level": 45,
           "type": "Debuff"
         },
         {
-          "id": 81,
-          "name": "Sleep Dart",
-          "level": 45,
-          "type": "Debuff"
+          "id": 73,
+          "name": "Flurry",
+          "level": 50,
+          "type": "Attack"
         },
         {
           "id": 75,
@@ -4075,12 +4274,6 @@
           "name": "Speed",
           "level": 50,
           "type": "Buff"
-        },
-        {
-          "id": 73,
-          "name": "Flurry",
-          "level": 50,
-          "type": "Attack"
         }
       ],
       "slots": 4
@@ -4131,16 +4324,16 @@
       ],
       "learns": [
         {
-          "id": 91,
-          "name": "Magic Shield II",
-          "level": 50,
-          "type": "Buff"
-        },
-        {
           "id": 78,
           "name": "Outwill",
           "level": 50,
           "type": "Debuff"
+        },
+        {
+          "id": 91,
+          "name": "Magic Shield II",
+          "level": 50,
+          "type": "Buff"
         },
         {
           "id": 92,
@@ -4161,6 +4354,12 @@
           "type": "Magic"
         },
         {
+          "id": 87,
+          "name": "Fulmination",
+          "level": 75,
+          "type": "Magic"
+        },
+        {
           "id": 88,
           "name": "Glacier",
           "level": 75,
@@ -4171,12 +4370,6 @@
           "name": "Inferno",
           "level": 75,
           "type": "Magic"
-        },
-        {
-          "id": 87,
-          "name": "Fulmination",
-          "level": 75,
-          "type": "Magic"
         }
       ],
       "slots": 6
@@ -4185,6 +4378,9 @@
     "stats": [
       "Magic",
       "Resistance"
+    ],
+    "preferred_weapons": [
+      "Archistaffs"
     ]
   },
   {
@@ -4212,12 +4408,12 @@
     "skills": {
       "passives": [
         {
-          "id": 16,
-          "name": "Mana Step"
-        },
-        {
           "id": 6,
           "name": "EXP Step"
+        },
+        {
+          "id": 16,
+          "name": "Mana Step"
         },
         {
           "id": 380,
@@ -4226,14 +4422,14 @@
       ],
       "learns": [
         {
-          "id": 284,
-          "name": "Bolt III",
+          "id": 283,
+          "name": "Purify",
           "level": 75,
           "type": "Magic"
         },
         {
-          "id": 283,
-          "name": "Purify",
+          "id": 284,
+          "name": "Bolt III",
           "level": 75,
           "type": "Magic"
         },
@@ -4268,6 +4464,10 @@
     "stats": [
       "Attack",
       "Magic"
+    ],
+    "preferred_weapons": [
+      "Swords",
+      "Staffs"
     ]
   },
   {
@@ -4287,12 +4487,12 @@
     "skills": {
       "passives": [
         {
-          "id": 6,
-          "name": "EXP Step"
-        },
-        {
           "id": 3,
           "name": "Critical Hits"
+        },
+        {
+          "id": 6,
+          "name": "EXP Step"
         }
       ],
       "learns": [
@@ -4303,16 +4503,16 @@
           "type": "Magic"
         },
         {
-          "id": 64,
-          "name": "Shock",
-          "level": 20,
-          "type": "Debuff"
-        },
-        {
           "id": 62,
           "name": "Protection",
           "level": 20,
           "type": "Buff"
+        },
+        {
+          "id": 64,
+          "name": "Shock",
+          "level": 20,
+          "type": "Debuff"
         },
         {
           "id": 58,
@@ -4350,6 +4550,10 @@
     "stats": [
       "Attack",
       "Defense"
+    ],
+    "preferred_weapons": [
+      "Polearms",
+      "Axes & Hammers"
     ]
   },
   {
@@ -4377,28 +4581,22 @@
     "skills": {
       "passives": [
         {
+          "id": 155,
+          "name": "Second Chance"
+        },
+        {
           "id": 187,
           "name": "Power of the Gods"
         },
         {
           "id": 189,
           "name": "Recharge"
-        },
-        {
-          "id": 155,
-          "name": "Second Chance"
         }
       ],
       "learns": [
         {
-          "id": 181,
-          "name": "Storm II",
-          "level": 175,
-          "type": "Magic"
-        },
-        {
-          "id": 200,
-          "name": "Lightningstrike III",
+          "id": 58,
+          "name": "Lightningstrike",
           "level": 175,
           "type": "Attack"
         },
@@ -4409,14 +4607,20 @@
           "type": "Debuff"
         },
         {
-          "id": 58,
-          "name": "Lightningstrike",
+          "id": 151,
+          "name": "Lightningstrike II",
           "level": 175,
           "type": "Attack"
         },
         {
-          "id": 151,
-          "name": "Lightningstrike II",
+          "id": 181,
+          "name": "Storm II",
+          "level": 175,
+          "type": "Magic"
+        },
+        {
+          "id": 200,
+          "name": "Lightningstrike III",
           "level": 175,
           "type": "Attack"
         },
@@ -4475,16 +4679,16 @@
           "type": "Attack"
         },
         {
-          "id": 61,
-          "name": "Poison",
-          "level": 20,
-          "type": "Debuff"
-        },
-        {
           "id": 38,
           "name": "First Aid",
           "level": 20,
           "type": "Healing"
+        },
+        {
+          "id": 61,
+          "name": "Poison",
+          "level": 20,
+          "type": "Debuff"
         },
         {
           "id": 65,
@@ -4499,6 +4703,9 @@
     "stats": [
       "Attack",
       "Dexterity"
+    ],
+    "preferred_weapons": [
+      "Daggers"
     ]
   },
   {
@@ -4526,24 +4733,24 @@
     "skills": {
       "passives": [
         {
-          "id": 365,
-          "name": "Crest of Lyonesse"
-        },
-        {
-          "id": 456,
-          "name": "Siphon Ward II"
-        },
-        {
-          "id": 395,
-          "name": "Shoulders of Giants II"
+          "id": 155,
+          "name": "Second Chance"
         },
         {
           "id": 454,
           "name": "Steadfast II"
         },
         {
-          "id": 155,
-          "name": "Second Chance"
+          "id": 395,
+          "name": "Shoulders of Giants II"
+        },
+        {
+          "id": 456,
+          "name": "Siphon Ward II"
+        },
+        {
+          "id": 365,
+          "name": "Crest of Lyonesse"
         }
       ],
       "learns": [
@@ -4560,14 +4767,14 @@
           "type": "Ward"
         },
         {
-          "id": 393,
-          "name": "Dark Facade",
+          "id": 388,
+          "name": "Inferno Facade",
           "level": 220,
           "type": "Ward"
         },
         {
-          "id": 391,
-          "name": "Storm Facade",
+          "id": 393,
+          "name": "Dark Facade",
           "level": 220,
           "type": "Ward"
         },
@@ -4578,20 +4785,20 @@
           "type": "Ward"
         },
         {
+          "id": 390,
+          "name": "Terra Facade",
+          "level": 220,
+          "type": "Ward"
+        },
+        {
           "id": 389,
           "name": "Tidal Facade",
           "level": 220,
           "type": "Ward"
         },
         {
-          "id": 388,
-          "name": "Inferno Facade",
-          "level": 220,
-          "type": "Ward"
-        },
-        {
-          "id": 390,
-          "name": "Terra Facade",
+          "id": 391,
+          "name": "Storm Facade",
           "level": 220,
           "type": "Ward"
         },
@@ -4604,7 +4811,11 @@
       ],
       "slots": 10
     },
-    "learns": "Ward-based skills, Holy skills"
+    "learns": "Ward-based skills, Holy skills",
+    "preferred_weapons": [
+      "Swords",
+      "Axes & Hammers"
+    ]
   },
   {
     "id": 13,
@@ -4647,26 +4858,26 @@
           "type": "Attack"
         },
         {
-          "id": 71,
-          "name": "Doublecut",
-          "level": 40,
-          "type": "Attack"
-        },
-        {
           "id": 72,
           "name": "Exploit",
           "level": 40,
           "type": "Debuff"
         },
         {
-          "id": 84,
-          "name": "Stun Dart",
-          "level": 45,
-          "type": "Debuff"
+          "id": 71,
+          "name": "Doublecut",
+          "level": 40,
+          "type": "Attack"
         },
         {
           "id": 81,
           "name": "Sleep Dart",
+          "level": 45,
+          "type": "Debuff"
+        },
+        {
+          "id": 84,
+          "name": "Stun Dart",
           "level": 45,
           "type": "Debuff"
         },
@@ -4735,16 +4946,16 @@
           "type": "Buff"
         },
         {
-          "id": 76,
-          "name": "Mute",
-          "level": 40,
-          "type": "Debuff"
-        },
-        {
           "id": 48,
           "name": "Drain",
           "level": 40,
           "type": "Magic"
+        },
+        {
+          "id": 76,
+          "name": "Mute",
+          "level": 40,
+          "type": "Debuff"
         },
         {
           "id": 111,
@@ -4753,14 +4964,14 @@
           "type": "Magic"
         },
         {
-          "id": 63,
-          "name": "Quake",
+          "id": 69,
+          "name": "Blizzard",
           "level": 50,
           "type": "Magic"
         },
         {
-          "id": 69,
-          "name": "Blizzard",
+          "id": 75,
+          "name": "Meteor",
           "level": 50,
           "type": "Magic"
         },
@@ -4771,8 +4982,8 @@
           "type": "Magic"
         },
         {
-          "id": 75,
-          "name": "Meteor",
+          "id": 63,
+          "name": "Quake",
           "level": 50,
           "type": "Magic"
         }
@@ -4809,7 +5020,10 @@
       "learns": [],
       "slots": 6
     },
-    "learns": "Buffs"
+    "learns": "Buffs",
+    "preferred_weapons": [
+      "Curved swords"
+    ]
   },
   {
     "id": 1,
@@ -4861,6 +5075,9 @@
     "stats": [
       "Attack",
       "Defense"
+    ],
+    "preferred_weapons": [
+      "Swords"
     ]
   }
 ]
