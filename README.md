@@ -9,7 +9,7 @@ Orna Companion is an Android/iOS app for OrnaRPG. It fetches and displays data f
 - ❤️ Save results
 
 ## Contributing
-You can help by [creating an issue](https://github.com/Bryanx/orna-companion/issues/new) or a PR.
+You can help by [creating an issue](https://github.com/Bryanx/orna-companion/issues/new) or a [PR](https://github.com/Bryanx/orna-companion/compare).
 
 ## Screenshots
 Saved results            |  Search                    |  Detail page
