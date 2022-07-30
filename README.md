@@ -1,7 +1,7 @@
 # Orna Companion
 Orna Companion is an Android/iOS app for OrnaRPG. It fetches and displays data from Orna.Guide.
 
-<a href="https://play.google.com/store/apps/details?id=nl.bryanderidder.ornaguide" rel="Get it on Google Play"><img src="./files/play_badge.svg"></a>
+<a href="https://play.google.com/store/apps/details?id=nl.bryanderidder.ornaguide" rel="Get it on Google Play" target="_blank"><img src="./files/play_badge.svg"></a>
 
 ## Features
 - Multiple choice mode. Practice your flashcards in multiple choice mode. You need at least 5 cards to start this mode.
