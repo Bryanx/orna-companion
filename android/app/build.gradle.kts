@@ -8,15 +8,15 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(32)
     buildToolsVersion("30.0.3")
 
     defaultConfig {
         applicationId("nl.bryanderidder.ornaguide")
         minSdkVersion(26)
-        targetSdkVersion(30)
-        versionCode(25)
-        versionName("3.4")
+        targetSdkVersion(32)
+        versionCode(26)
+        versionName("3.5")
 
         testInstrumentationRunner("androidx.test.runner.AndroidJUnitRunner")
     }
