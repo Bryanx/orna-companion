@@ -117,6 +117,15 @@
         </Preference>
 
         <Preference
+            app:icon="@drawable/ic_baseline_bug_report_24"
+            app:layout="@layout/preference_setting"
+            app:title="Report a bug">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/github_issues_url" />
+        </Preference>
+
+        <Preference
             app:icon="@drawable/ic_baseline_chat_24"
             app:key="contact"
             app:layout="@layout/preference_setting"
